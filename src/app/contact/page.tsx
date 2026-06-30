@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import ContactForm from "@/components/contact/ContactForm";
-import CalendlyBadge from "@/components/CalendlyBadge";
+import CalendlyPopup from "@/components/CalendlyPopup";
 import { CONTACT_EMAIL } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="bg-black pt-40">
-      <CalendlyBadge />
+      <CalendlyPopup />
       <section className="container-edge pb-20">
         <Reveal>
           <span className="eyebrow block mb-6">Contact</span>
