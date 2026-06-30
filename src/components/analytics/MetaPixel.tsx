@@ -1,7 +1,8 @@
 import Script from "next/script";
 
 export default function MetaPixel() {
-  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  const pixelId =
+    process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "534796681730457";
   if (!pixelId) return null;
 
   return (
