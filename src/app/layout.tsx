@@ -24,13 +24,11 @@ export const metadata: Metadata = {
     default: "Markoholics: Growth Engines for Tech Founders",
     template: "%s | Markoholics",
   },
-  description:
-    "Markoholics builds go-to-market and full-funnel growth engines for tech founders launching and scaling technology products. GTM strategy, content, social, performance, demand generation, and AI transformation under one roof.",
+  description: "We help tech founders launch and market their products.",
   metadataBase: new URL("https://markoholics.com"),
   openGraph: {
     title: "Markoholics: Growth Engines for Tech Founders",
-    description:
-      "Go-to-market and full-funnel marketing strategy for tech founders who need to launch and scale fast without losing brand equity.",
+    description: "We help tech founders launch and market their products.",
     type: "website",
   },
 };
