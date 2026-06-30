@@ -8,6 +8,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import RotatePrompt from "@/components/RotatePrompt";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MetaPixel from "@/components/analytics/MetaPixel";
+import CalendlyBadge from "@/components/CalendlyBadge";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -50,6 +51,7 @@ export default function RootLayout({
         <MetaPixel />
         <ScrollProgress />
         <RotatePrompt />
+        <CalendlyBadge />
         <CustomCursor />
         <Nav />
         <main className="flex-1">{children}</main>
