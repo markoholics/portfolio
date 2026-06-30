@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { navLinks } from "@/lib/data";
+import LogoMark from "@/components/LogoMark";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,7 +27,7 @@ export default function Nav() {
     >
       <div className="container-edge flex items-center justify-between h-20">
         <Link href="/" data-cursor-hover className="font-display text-lg tracking-tight text-white">
-          MARKOHOLICS
+          <LogoMark text="MARKOHOLICS" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">

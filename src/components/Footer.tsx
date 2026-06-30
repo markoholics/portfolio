@@ -42,24 +42,6 @@ export default function Footer() {
               >
                 {CONTACT_EMAIL}
               </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                data-cursor-hover
-                className="text-mist hover:text-white transition-colors"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                data-cursor-hover
-                className="text-mist hover:text-white transition-colors"
-              >
-                Instagram
-              </a>
             </div>
           </div>
         </div>

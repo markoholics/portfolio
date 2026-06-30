@@ -20,13 +20,13 @@ export default function TextReveal({
   const words = text.split(" ");
   const animationProps = triggerOnView
     ? {
-        initial: { y: "110%", rotate: 4 },
-        whileInView: { y: "0%", rotate: 0 },
+        initial: { y: "110%" },
+        whileInView: { y: "0%" },
         viewport: { once: true, margin: "-80px" },
       }
     : {
-        initial: { y: "110%", rotate: 4 },
-        animate: { y: "0%", rotate: 0 },
+        initial: { y: "110%" },
+        animate: { y: "0%" },
       };
 
   return (
