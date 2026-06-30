@@ -302,7 +302,7 @@ export const clients = caseStudies.map((c) => ({
 export const proofMetrics = [
   { label: "Pipeline generated for clients", value: 42, prefix: "$", suffix: "M+" },
   { label: "Average CAC reduction", value: 28, suffix: "%" },
-  { label: "Tech founders and companies scaled", value: 35, suffix: "+" },
+  { label: "Tech founders and companies scaled", value: 10, suffix: "+" },
   { label: "Disciplines under one roof", value: 6, suffix: "" },
 ];
 
