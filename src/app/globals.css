@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@keyframes rotate-hint {
+  0%,
+  15% {
+    transform: rotate(0deg);
+  }
+  45%,
+  65% {
+    transform: rotate(-90deg);
+  }
+  90%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 :root {
   --color-white: #ffffff;
   --color-mist: #f5f5f5;

@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
+import RotatePrompt from "@/components/RotatePrompt";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -46,6 +47,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-black">
         <ScrollProgress />
+        <RotatePrompt />
         <CustomCursor />
         <Nav />
         <main className="flex-1">{children}</main>
