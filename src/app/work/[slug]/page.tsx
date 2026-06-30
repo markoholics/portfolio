@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { caseStudies, services } from "@/lib/data";
 import Reveal from "@/components/Reveal";
+import TextReveal from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
 
 export function generateStaticParams() {
@@ -51,7 +52,7 @@ export default async function CaseStudyPage({
           <Reveal>
             <span className="eyebrow block mb-6">{cs.sector}</span>
             <h1 className="font-display text-white text-5xl md:text-7xl leading-[0.95] mb-8">
-              {cs.name}
+              <TextReveal text={cs.name} />
             </h1>
             <div className="flex flex-wrap gap-2">
               {cs.servicesUsed.map((s) => (
@@ -132,13 +133,11 @@ export default async function CaseStudyPage({
             <span className="eyebrow block mb-12">Visual Gallery</span>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[1, 2, 3, 4].map((n) => (
-              <Reveal key={n} delay={n * 0.08}>
+            {cs.gallery.map((label, n) => (
+              <Reveal key={label} delay={n * 0.08}>
                 <div className="aspect-video bg-charcoal/40 border hairline relative overflow-hidden flex items-center justify-center">
                   <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(217,217,217,0.08),transparent_60%)]" />
-                  <span className="eyebrow text-grey/50">
-                    {cs.name} — Visual {n} [Placeholder]
-                  </span>
+                  <span className="eyebrow text-grey/50">{label}</span>
                 </div>
               </Reveal>
             ))}

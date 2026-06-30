@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { services, caseStudies } from "@/lib/data";
 import Reveal from "@/components/Reveal";
+import TextReveal from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Marketing Strategy & GTM Strategy, Content Marketing, Social Media Marketing, Performance Marketing, and Demand Generation & Growth Marketing — Markoholics' five disciplines, run as one growth engine.",
+    "Marketing Strategy & GTM Strategy, Content Marketing, Social Media Marketing, Performance Marketing, Demand Generation & Growth Marketing, and AI Strategy and Transformation. Markoholics' six disciplines, run as one growth engine for tech founders.",
 };
 
 export default function ServicesPage() {
@@ -17,12 +18,13 @@ export default function ServicesPage() {
         <Reveal>
           <span className="eyebrow block mb-6">Services</span>
           <h1 className="font-display text-white text-5xl md:text-7xl leading-[0.95] max-w-3xl">
-            Five disciplines. One growth engine.
+            <TextReveal text="Six disciplines. One growth engine." />
           </h1>
           <p className="text-grey text-lg max-w-xl mt-8">
-            Each discipline stands on its own. Run together, they compound —
+            Each discipline stands on its own. Run together, they compound:
             strategy informing content, content feeding paid, paid feeding
-            demand gen, all reporting to the same growth plan.
+            demand gen, AI removing the busywork in between, all reporting to
+            the same growth plan we build with tech founders, not for them.
           </p>
         </Reveal>
       </section>
@@ -80,7 +82,13 @@ export default function ServicesPage() {
                         </Link>
                       ))
                     ) : (
-                      <span className="text-grey/60">[Case study to be added]</span>
+                      <Link
+                        href="/work"
+                        data-cursor-hover
+                        className="text-white hover:text-grey transition-colors border-b hairline pb-2"
+                      >
+                        View all work &rarr;
+                      </Link>
                     )}
                   </div>
                 </Reveal>
@@ -93,7 +101,7 @@ export default function ServicesPage() {
       <section className="section-pad border-t hairline text-center">
         <Reveal>
           <h2 className="font-display text-white text-4xl md:text-6xl leading-tight max-w-3xl mx-auto mb-10">
-            Ready to put all five to work?
+            Ready to put all six to work?
           </h2>
           <MagneticButton href="/contact" variant="solid">
             Start a Project

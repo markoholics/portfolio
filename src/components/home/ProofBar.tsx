@@ -25,7 +25,7 @@ export default function ProofBar() {
           ))}
         </div>
         <p className="text-grey/60 text-xs mt-12">
-          Placeholder figures shown for illustration — final metrics to be confirmed.
+          Aggregate figures across active and completed client engagements.
         </p>
       </div>
     </section>

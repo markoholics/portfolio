@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { caseStudies, services } from "@/lib/data";
 import Reveal from "@/components/Reveal";
+import TextReveal from "@/components/TextReveal";
 
 function serviceLabel(slug: string) {
   return services.find((s) => s.slug === slug)?.name.split(" ").slice(0, 2).join(" ") ?? slug;
@@ -15,7 +16,7 @@ export default function FeaturedWork() {
             <Reveal>
               <span className="eyebrow block mb-6">Selected Work</span>
               <h2 className="text-white font-display text-4xl md:text-5xl lg:text-6xl leading-tight">
-                Engines we&apos;ve built.
+                <TextReveal text="Engines we've built." triggerOnView />
               </h2>
             </Reveal>
           </div>

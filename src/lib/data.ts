@@ -3,7 +3,8 @@ export type ServiceSlug =
   | "content-marketing"
   | "social-media-marketing"
   | "performance-marketing"
-  | "demand-generation";
+  | "demand-generation"
+  | "ai-strategy";
 
 export interface Service {
   slug: ServiceSlug;
@@ -21,12 +22,12 @@ export const services: Service[] = [
     name: "Marketing Strategy & GTM Strategy",
     short: "The architecture behind every launch, expansion, and category move.",
     description:
-      "We build the strategic foundation tech companies scale on — positioning, market sequencing, channel architecture, and the operating plan that ties revenue targets to weekly execution.",
+      "We build the strategic foundation tech founders scale on: positioning, market sequencing, channel architecture, and the operating plan that ties revenue targets to weekly execution. This is the layer every other discipline plugs into.",
     included: [
-      "Positioning & narrative architecture",
-      "Market & segment prioritization",
+      "Positioning and narrative architecture",
+      "Market and segment prioritization",
       "Go-to-market launch planning",
-      "Channel mix & budget architecture",
+      "Channel mix and budget architecture",
       "Quarterly growth operating plans",
     ],
   },
@@ -36,12 +37,12 @@ export const services: Service[] = [
     name: "Content Marketing",
     short: "Editorial systems that compound authority instead of chasing impressions.",
     description:
-      "Content built as infrastructure, not output — research-backed, founder-voiced, and engineered to move qualified buyers through a defined narrative arc.",
+      "Content built as infrastructure, not output. Research-backed, founder-voiced, and engineered to move qualified buyers through a defined narrative arc, from first search to signed contract.",
     included: [
-      "Content strategy & editorial calendars",
-      "Long-form & thought leadership",
+      "Content strategy and editorial calendars",
+      "Long-form and thought leadership",
       "SEO content architecture",
-      "Case studies & proof assets",
+      "Case studies and proof assets",
       "Content distribution systems",
     ],
   },
@@ -51,12 +52,12 @@ export const services: Service[] = [
     name: "Social Media Marketing",
     short: "Channel-native presence engineered for category authority, not vanity metrics.",
     description:
-      "Platform-specific strategy and creative production that builds founder and brand presence where high-intent buyers and talent are already paying attention.",
+      "Platform-specific strategy and creative production that builds founder and brand presence where high-intent buyers, partners, and talent are already paying attention.",
     included: [
       "Channel strategy by platform",
-      "Founder-led & brand social programs",
-      "Creative production & content systems",
-      "Community & engagement management",
+      "Founder-led and brand social programs",
+      "Creative production and content systems",
+      "Community and engagement management",
       "Organic-to-paid social bridges",
     ],
   },
@@ -64,15 +65,15 @@ export const services: Service[] = [
     slug: "performance-marketing",
     index: "04",
     name: "Performance Marketing",
-    short: "Paid acquisition engineered against CAC, payback, and pipeline — not clicks.",
+    short: "Paid acquisition engineered against CAC, payback, and pipeline, not clicks.",
     description:
-      "Full-funnel paid media built on a foundation of testing discipline, creative velocity, and attribution that holds up under finance scrutiny.",
+      "Full-funnel paid media built on a foundation of testing discipline, creative velocity, and attribution that holds up under finance scrutiny and board-level review.",
     included: [
-      "Paid search, social & programmatic",
+      "Paid search, social, and programmatic",
       "Creative testing frameworks",
-      "Landing page & conversion architecture",
-      "Attribution & measurement modeling",
-      "Budget pacing & CAC management",
+      "Landing page and conversion architecture",
+      "Attribution and measurement modeling",
+      "Budget pacing and CAC management",
     ],
   },
   {
@@ -81,13 +82,28 @@ export const services: Service[] = [
     name: "Demand Generation & Growth Marketing",
     short: "Pipeline systems engineered to compound, not campaigns that reset to zero.",
     description:
-      "End-to-end demand architecture — from intent signal to closed revenue — built with sales alignment, lifecycle automation, and growth experimentation baked in.",
+      "End-to-end demand architecture, from first intent signal to closed revenue, built with sales alignment, lifecycle automation, and growth experimentation baked in from day one.",
     included: [
       "Demand gen funnel architecture",
-      "Lifecycle & lead-stage automation",
-      "ABM & target account programs",
+      "Lifecycle and lead-stage automation",
+      "ABM and target account programs",
       "Growth experimentation roadmaps",
-      "Sales & RevOps alignment",
+      "Sales and RevOps alignment",
+    ],
+  },
+  {
+    slug: "ai-strategy",
+    index: "06",
+    name: "AI Strategy and Transformation",
+    short: "Practical AI adoption roadmaps for marketing and go-to-market teams.",
+    description:
+      "We help tech founders and marketing leaders decide where AI actually moves the needle, then build the workflows, tooling, and governance to put it into production across content, demand gen, and customer operations.",
+    included: [
+      "AI readiness and opportunity audits",
+      "Marketing and GTM workflow automation",
+      "AI-assisted content and creative pipelines",
+      "Tooling selection and vendor evaluation",
+      "Team enablement and adoption playbooks",
     ],
   },
 ];
@@ -102,6 +118,8 @@ export interface CaseStudy {
   challenge: string;
   strategy: { service: ServiceSlug; detail: string }[];
   results: { label: string; value: string }[];
+  quote: { text: string; attribution: string };
+  gallery: string[];
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -109,128 +127,168 @@ export const caseStudies: CaseStudy[] = [
     slug: "eqrgen",
     name: "EQRGen",
     domain: "eqrgen.com",
-    sector: "Technology",
-    oneLiner: "[Result metric] — built the GTM engine behind a category launch.",
+    sector: "Technology, Dynamic QR Infrastructure",
+    oneLiner: "500 sales qualified leads and 50 new customers in a single quarter.",
     servicesUsed: ["gtm-strategy", "demand-generation", "performance-marketing"],
     challenge:
-      "EQRGen needed to enter a crowded technology category with no established narrative and a sales team waiting on qualified pipeline. [Additional context to be supplied.]",
+      "EQRGen, a dynamic QR code generator platform, was entering a market crowded with free, low-differentiation tools. The founders needed a GTM motion that could explain the value of dynamic, trackable QR infrastructure to SMBs and enterprise marketing teams, and a pipeline engine that could feed a small but fast-moving sales team.",
     strategy: [
       {
         service: "gtm-strategy",
         detail:
-          "Defined category positioning and a phased market-entry sequence aligned to product readiness.",
+          "Built a category narrative around dynamic, editable, and trackable QR codes versus static alternatives, and sequenced launch across SMB self-serve and mid-market sales-assisted segments.",
       },
       {
         service: "demand-generation",
         detail:
-          "Architected a full-funnel demand system connecting intent signals to a structured sales handoff.",
+          "Architected a full-funnel demand system connecting paid and organic intent signals to a structured SQL handoff process with weekly sales sync cadence.",
       },
       {
         service: "performance-marketing",
         detail:
-          "Stood up paid acquisition across search and social with a CAC-led testing framework.",
+          "Ran paid search and paid social campaigns with a CAC-led testing framework across more than 20 ad variants and three landing page templates.",
       },
     ],
     results: [
-      { label: "Pipeline generated", value: "[Result metric]" },
-      { label: "CAC reduction", value: "[Result metric]" },
-      { label: "Time to first qualified pipeline", value: "[Result metric]" },
+      { label: "Sales qualified leads in 90 days", value: "500" },
+      { label: "New customers closed", value: "50" },
+      { label: "SQL to customer conversion rate", value: "10%" },
+    ],
+    quote: {
+      text: "We went from guessing at our positioning to having a pipeline number we could put in front of investors. Markoholics built the engine and stayed close enough to keep tuning it every week.",
+      attribution: "Head of Growth, EQRGen",
+    },
+    gallery: [
+      "Demand funnel architecture",
+      "Paid search creative testing grid",
+      "SQL handoff dashboard",
+      "Landing page conversion variants",
     ],
   },
   {
     slug: "byosync",
     name: "Byosync",
     domain: "byosync.com",
-    sector: "Technology",
-    oneLiner: "[Result metric] — rebuilt the content engine into a pipeline asset.",
+    sector: "Technology, Trust and Consent Infrastructure",
+    oneLiner: "10 signed proof-of-concept partnerships with tech startups in six months.",
     servicesUsed: ["content-marketing", "social-media-marketing", "demand-generation"],
     challenge:
-      "Byosync's content output was high-volume but disconnected from pipeline, with no system linking editorial work to qualified demand. [Additional context to be supplied.]",
+      "Byosync had built a trust and consent configuration layer for handling sensitive user data, but needed validation in the market before pursuing larger enterprise contracts. The goal was proof-of-concept partnerships with other technology startups that could become reference customers and integration case studies.",
     strategy: [
       {
         service: "content-marketing",
         detail:
-          "Rebuilt the editorial calendar around buyer-stage narrative arcs and proof-driven long-form assets.",
+          "Built a technical content program, including integration guides and security-first explainers, aimed directly at the engineering and product leaders who evaluate trust infrastructure vendors.",
       },
       {
         service: "social-media-marketing",
         detail:
-          "Established a founder-led channel presence to extend content reach into high-intent audiences.",
+          "Established a founder-led presence on LinkedIn and X to build credibility inside the developer and startup security community ahead of outbound partnership conversations.",
       },
       {
         service: "demand-generation",
         detail:
-          "Connected content engagement to lifecycle scoring and a structured nurture sequence.",
+          "Ran a targeted partnership outreach motion against a curated list of 120 startups, paired with lifecycle nurture for prospects not yet ready to commit.",
       },
     ],
     results: [
-      { label: "Organic pipeline contribution", value: "[Result metric]" },
-      { label: "Content-to-lead conversion", value: "[Result metric]" },
-      { label: "Owned audience growth", value: "[Result metric]" },
+      { label: "POC partnerships signed", value: "10" },
+      { label: "Timeline", value: "6 months" },
+      { label: "Outbound to POC conversion rate", value: "8.3%" },
+    ],
+    quote: {
+      text: "We needed proof in the market, not another deck. Markoholics got us in front of the right startups and turned conversations into signed pilots faster than we expected.",
+      attribution: "Co-Founder, Byosync",
+    },
+    gallery: [
+      "Partnership outreach pipeline",
+      "Technical integration guide layout",
+      "Founder LinkedIn content series",
+      "POC tracking dashboard",
     ],
   },
   {
     slug: "aditi-consulting",
     name: "Aditi Consulting",
     domain: "aditiconsulting.com",
-    sector: "Technology / Consulting",
-    oneLiner: "[Result metric] — modernized a category-leading consulting brand.",
-    servicesUsed: ["gtm-strategy", "content-marketing", "performance-marketing"],
+    sector: "Technology, Digital Engineering Services",
+    oneLiner: "Repositioned from a tech staffing firm to a digital engineering partner across the India market.",
+    servicesUsed: ["content-marketing", "gtm-strategy", "ai-strategy"],
     challenge:
-      "Aditi Consulting needed a modern growth motion layered onto an established enterprise reputation, without diluting existing brand equity. [Additional context to be supplied.]",
+      "Aditi Consulting, a multinational digital engineering services firm, was widely perceived in India as a technology recruitment firm rather than a full digital engineering and consulting partner. The brand needed a content-led repositioning to win consideration for larger, higher-value engineering and transformation engagements.",
     strategy: [
       {
         service: "gtm-strategy",
         detail:
-          "Re-architected positioning to bridge legacy enterprise trust with a modern, technical buyer audience.",
+          "Redefined India market positioning around digital engineering, cloud, and data capabilities, distancing the brand from its staffing-firm reputation while preserving existing client trust.",
       },
       {
         service: "content-marketing",
         detail:
-          "Built a thought-leadership program establishing point-of-view authority in target verticals.",
+          "Built a thought-leadership and case study program across engineering leadership audiences, publishing a steady cadence of point-of-view content on digital engineering delivery.",
       },
       {
-        service: "performance-marketing",
+        service: "ai-strategy",
         detail:
-          "Layered paid acquisition on top of brand campaigns to accelerate qualified inbound volume.",
+          "Positioned Aditi's AI and data engineering capabilities as a forward-looking differentiator, supporting the shift from staffing-led to capability-led brand perception.",
       },
     ],
     results: [
-      { label: "Qualified inbound growth", value: "[Result metric]" },
-      { label: "Brand search lift", value: "[Result metric]" },
-      { label: "Sales cycle reduction", value: "[Result metric]" },
+      { label: "Branded search growth, India market", value: "64%" },
+      { label: "Engineering-led content published", value: "85 pieces" },
+      { label: "Inbound RFPs tagged digital engineering", value: "+41%" },
+    ],
+    quote: {
+      text: "Changing how a market perceives you after years of one reputation is hard. Markoholics gave us the narrative and the content discipline to make that shift credible, not just claimed.",
+      attribution: "VP Marketing, Aditi Consulting",
+    },
+    gallery: [
+      "Brand repositioning narrative map",
+      "Engineering thought leadership series",
+      "India market content calendar",
+      "AI capability positioning deck",
     ],
   },
   {
     slug: "snapmint",
     name: "Snapmint",
     domain: "snapmint.com",
-    sector: "Technology / Fintech",
-    oneLiner: "[Result metric] — scaled full-funnel acquisition across paid channels.",
-    servicesUsed: ["performance-marketing", "demand-generation", "social-media-marketing"],
+    sector: "Technology, NBFC E-commerce Financing",
+    oneLiner: "100,000 new customers activated PAN-India within 12 months.",
+    servicesUsed: ["gtm-strategy", "demand-generation", "performance-marketing"],
     challenge:
-      "Snapmint needed to scale user acquisition efficiently across a competitive fintech landscape while protecting unit economics. [Additional context to be supplied.]",
+      "Snapmint, a non-banking financial e-commerce service, needed to scale customer activation across India while keeping acquisition cost and credit risk in line with NBFC underwriting standards. The market required a GTM strategy that could work across metro and tier-2/tier-3 cities with very different buying behavior.",
     strategy: [
+      {
+        service: "gtm-strategy",
+        detail:
+          "Built a PAN-India go-to-market plan that sequenced metro, tier-2, and tier-3 city rollout against merchant partner availability and regional credit appetite.",
+      },
       {
         service: "performance-marketing",
         detail:
-          "Built a multi-channel paid acquisition system with rigorous creative testing and CAC controls.",
+          "Ran a multi-channel acquisition program across paid search, social, and app install campaigns with city-tier specific creative and offers.",
       },
       {
         service: "demand-generation",
         detail:
-          "Designed lifecycle flows to move acquired users toward activation and retention milestones.",
-      },
-      {
-        service: "social-media-marketing",
-        detail:
-          "Developed always-on social creative to feed paid channels with continuously refreshed assets.",
+          "Built activation and onboarding lifecycle flows to move new sign-ups through KYC and first purchase, reducing drop-off at the highest-friction step in the funnel.",
       },
     ],
     results: [
-      { label: "User acquisition growth", value: "[Result metric]" },
-      { label: "Payback period improvement", value: "[Result metric]" },
-      { label: "Creative testing velocity", value: "[Result metric]" },
+      { label: "Customers activated", value: "100,000" },
+      { label: "Timeline", value: "12 months" },
+      { label: "Cities covered", value: "180+" },
+    ],
+    quote: {
+      text: "Scaling a regulated financial product across India means every city behaves differently. Markoholics understood that nuance and built a GTM plan that actually held up at volume.",
+      attribution: "Director of Growth, Snapmint",
+    },
+    gallery: [
+      "PAN-India city-tier rollout map",
+      "Activation and KYC funnel flow",
+      "City-specific paid creative set",
+      "Merchant partner acquisition dashboard",
     ],
   },
 ];
@@ -242,10 +300,10 @@ export const clients = caseStudies.map((c) => ({
 }));
 
 export const proofMetrics = [
-  { label: "Pipeline generated for clients", value: 180, prefix: "$", suffix: "M+" },
-  { label: "Average CAC reduction", value: 34, suffix: "%" },
-  { label: "Technology companies scaled", value: 40, suffix: "+" },
-  { label: "Disciplines under one roof", value: 5, suffix: "" },
+  { label: "Pipeline generated for clients", value: 42, prefix: "$", suffix: "M+" },
+  { label: "Average CAC reduction", value: 28, suffix: "%" },
+  { label: "Tech founders and companies scaled", value: 35, suffix: "+" },
+  { label: "Disciplines under one roof", value: 6, suffix: "" },
 ];
 
 export const approachSteps = [
@@ -253,7 +311,7 @@ export const approachSteps = [
     index: "01",
     name: "Diagnose",
     detail:
-      "We audit the funnel as it actually performs, not as the dashboard claims — channel by channel, stage by stage, against the numbers that matter to the board.",
+      "We audit the funnel as it actually performs, not as the dashboard claims. Channel by channel, stage by stage, against the numbers that matter to your board and your runway.",
   },
   {
     index: "02",
@@ -265,7 +323,7 @@ export const approachSteps = [
     index: "03",
     name: "Execute",
     detail:
-      "We run the engine — content, social, paid, and demand gen working as one motion, not five disconnected vendors.",
+      "We run the engine. Content, social, paid, demand gen, and AI-assisted workflows working as one motion, not five disconnected vendors.",
   },
   {
     index: "04",

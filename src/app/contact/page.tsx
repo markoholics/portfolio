@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
+import TextReveal from "@/components/TextReveal";
 import ContactForm from "@/components/contact/ContactForm";
 import { CONTACT_EMAIL } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a project with Markoholics. Tell us what you're building — we'll respond within one business day.",
+    "Start a project with Markoholics. Tell us what you're building, and we'll respond within one business day.",
 };
 
 export default function ContactPage() {
@@ -16,7 +17,7 @@ export default function ContactPage() {
         <Reveal>
           <span className="eyebrow block mb-6">Contact</span>
           <h1 className="font-display text-white text-5xl md:text-7xl leading-[0.95] max-w-3xl">
-            Tell us what you&apos;re building.
+            <TextReveal text="Tell us what you're building." />
           </h1>
         </Reveal>
       </section>

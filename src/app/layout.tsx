@@ -20,16 +20,16 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Markoholics — Growth Engines for Ambitious Technology Companies",
-    template: "%s — Markoholics",
+    default: "Markoholics: Growth Engines for Tech Founders",
+    template: "%s | Markoholics",
   },
   description:
-    "Markoholics builds go-to-market and full-funnel growth engines for high-growth technology companies — GTM strategy, content, social, performance, and demand generation under one roof.",
+    "Markoholics builds go-to-market and full-funnel growth engines for tech founders launching and scaling technology products. GTM strategy, content, social, performance, demand generation, and AI transformation under one roof.",
   metadataBase: new URL("https://markoholics.com"),
   openGraph: {
-    title: "Markoholics — Growth Engines for Ambitious Technology Companies",
+    title: "Markoholics: Growth Engines for Tech Founders",
     description:
-      "Go-to-market and full-funnel marketing strategy for technology companies that need to scale fast without losing brand equity.",
+      "Go-to-market and full-funnel marketing strategy for tech founders who need to launch and scale fast without losing brand equity.",
     type: "website",
   },
 };

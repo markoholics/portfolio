@@ -1,5 +1,6 @@
 import { approachSteps } from "@/lib/data";
 import Reveal from "@/components/Reveal";
+import TextReveal from "@/components/TextReveal";
 
 export default function ApproachSection() {
   return (
@@ -10,7 +11,7 @@ export default function ApproachSection() {
             <Reveal>
               <span className="eyebrow block mb-6">How We Work</span>
               <h2 className="text-white font-display text-4xl md:text-5xl lg:text-6xl leading-tight">
-                A system, not a sprint.
+                <TextReveal text="A system, not a sprint." triggerOnView />
               </h2>
             </Reveal>
           </div>

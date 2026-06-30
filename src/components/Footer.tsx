@@ -11,8 +11,8 @@ export default function Footer() {
               MARKOHOLICS
             </span>
             <p className="text-grey max-w-xs">
-              Go-to-market and growth engines for technology companies that
-              scale fast without losing brand equity.
+              We help tech founders launch and market their products, then
+              scale the growth engine without losing brand equity.
             </p>
           </div>
 

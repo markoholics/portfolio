@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { services } from "@/lib/data";
 import Reveal from "@/components/Reveal";
+import TextReveal from "@/components/TextReveal";
 
 export default function ServicesSection() {
   const [active, setActive] = useState<string | null>(null);
@@ -17,9 +18,8 @@ export default function ServicesSection() {
             <Reveal>
               <span className="eyebrow block mb-6">What We Run</span>
               <h2 className="text-white font-display text-4xl md:text-5xl lg:text-6xl leading-tight">
-                Five disciplines.
-                <br />
-                One growth motion.
+                <TextReveal text="Six disciplines." triggerOnView as="span" className="block" />
+                <TextReveal text="One growth motion." triggerOnView as="span" className="block" delay={0.1} />
               </h2>
             </Reveal>
           </div>
@@ -27,7 +27,7 @@ export default function ServicesSection() {
             <Reveal delay={0.15}>
               <p className="text-grey text-lg">
                 We don&apos;t hand you off between specialists. The same team
-                that sets strategy runs the channels — so nothing gets lost in
+                that sets strategy runs the channels, so nothing gets lost in
                 translation between the plan and the execution.
               </p>
             </Reveal>
