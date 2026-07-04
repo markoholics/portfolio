@@ -1,115 +1,134 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { services } from "@/lib/data";
+import { pricingTiers } from "@/lib/data";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 
 export default function ServicesSection() {
-  const [active, setActive] = useState<string | null>(null);
-
   return (
-    <section className="section-pad bg-black">
+    <section className="section-pad bg-black border-t hairline">
       <div className="container-edge">
         <div className="grid-12 mb-16">
           <div className="col-span-12 lg:col-span-5">
             <Reveal>
-              <span className="eyebrow block mb-6">What We Run</span>
+              <span className="eyebrow block mb-6">Productized Engagements</span>
               <h2 className="text-white font-display text-4xl md:text-5xl lg:text-6xl leading-tight">
-                <TextReveal text="Six disciplines." triggerOnView as="span" className="block" />
-                <TextReveal text="One growth motion." triggerOnView as="span" className="block" delay={0.1} />
+                <TextReveal text="Three ways to" triggerOnView as="span" className="block" />
+                <TextReveal text="work with us." triggerOnView as="span" className="block" delay={0.1} />
               </h2>
             </Reveal>
           </div>
           <div className="col-span-12 lg:col-span-5 lg:col-start-8 flex items-end">
             <Reveal delay={0.15}>
               <p className="text-grey text-lg">
-                We don&apos;t hand you off between specialists. The same team
-                that sets strategy runs the channels, so nothing gets lost in
-                translation between the plan and the execution.
+                Starting at $3,500/month. All engagements are outcome-based,
+                not time-based. We don&apos;t sell hours — we build systems
+                that generate returns.
               </p>
             </Reveal>
           </div>
         </div>
 
-        <div className="border-t hairline">
-          {services.map((service, i) => {
-            const isOpen = active === service.slug;
-            return (
-              <Reveal key={service.slug} delay={i * 0.05}>
-                <div
-                  className="border-b hairline cursor-pointer"
-                  onClick={() => setActive(isOpen ? null : service.slug)}
-                  data-cursor-hover
-                >
-                  <div className="grid-12 items-center py-8 md:py-10">
-                    <span className="col-span-2 md:col-span-1 text-grey font-display text-xl">
-                      {service.index}
-                    </span>
-                    <h3 className="col-span-10 md:col-span-5 text-white font-display text-2xl md:text-3xl">
-                      {service.name}
-                    </h3>
-                    <p className="hidden md:block md:col-span-5 text-grey">
-                      {service.short}
-                    </p>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-grey/10">
+          {pricingTiers.map((tier, i) => (
+            <Reveal key={tier.name} delay={i * 0.1}>
+              <div
+                className={`relative flex flex-col h-full p-8 md:p-10 ${
+                  tier.highlight ? "bg-white" : "bg-black"
+                }`}
+              >
+                {tier.highlight && (
+                  <span
+                    className="absolute top-0 right-8 text-[0.6rem] uppercase tracking-[0.22em] px-3 py-1.5 font-medium"
+                    style={{ background: "var(--color-accent)", color: "#000" }}
+                  >
+                    Most Popular
+                  </span>
+                )}
+
+                <div className="mb-8">
+                  <span
+                    className={`font-display text-5xl block mb-6 ${
+                      tier.highlight ? "text-black/30" : "text-grey/30"
+                    }`}
+                  >
+                    {tier.index}
+                  </span>
+                  <h3
+                    className={`font-display text-2xl md:text-3xl mb-2 ${
+                      tier.highlight ? "text-black" : "text-white"
+                    }`}
+                  >
+                    {tier.name}
+                  </h3>
+                  <div className="flex items-baseline gap-1 mb-4">
                     <span
-                      className={`hidden md:flex md:col-span-1 justify-end text-2xl text-white transition-transform duration-300 ${
-                        isOpen ? "rotate-45" : ""
+                      className={`font-display text-4xl md:text-5xl ${
+                        tier.highlight ? "text-black" : "text-white"
                       }`}
                     >
-                      +
+                      {tier.price}
+                    </span>
+                    <span
+                      className={`text-sm ${
+                        tier.highlight ? "text-black/60" : "text-grey"
+                      }`}
+                    >
+                      {tier.period}
                     </span>
                   </div>
-
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="overflow-hidden"
-                      >
-                        <div className="grid-12 pb-10">
-                          <div className="col-span-12 md:col-span-5 md:col-start-3">
-                            <p className="text-grey mb-6 md:hidden">
-                              {service.short}
-                            </p>
-                            <span className="eyebrow block mb-4">
-                              What&apos;s Included
-                            </span>
-                            <ul className="space-y-2">
-                              {service.included.map((item) => (
-                                <li
-                                  key={item}
-                                  className="text-mist flex items-start gap-3"
-                                >
-                                  <span className="text-grey mt-1.5 w-1 h-1 rounded-full bg-grey shrink-0" />
-                                  {item}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div className="col-span-12 md:col-span-4 mt-6 md:mt-0">
-                            <Link
-                              href={`/services#${service.slug}`}
-                              data-cursor-hover
-                              className="btn-outline"
-                            >
-                              Explore {service.name.split(" ")[0]}
-                            </Link>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <p
+                    className={`text-sm leading-relaxed ${
+                      tier.highlight ? "text-black/70" : "text-grey"
+                    }`}
+                  >
+                    {tier.description}
+                  </p>
                 </div>
-              </Reveal>
-            );
-          })}
+
+                <ul className="space-y-3 mb-10 flex-1">
+                  {tier.deliverables.map((item) => (
+                    <li
+                      key={item}
+                      className={`flex items-start gap-3 text-sm ${
+                        tier.highlight ? "text-black/80" : "text-mist"
+                      }`}
+                    >
+                      <span
+                        className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
+                        style={{
+                          background: tier.highlight
+                            ? "#000"
+                            : "var(--color-accent)",
+                        }}
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href={tier.href}
+                  data-cursor-hover
+                  className={`inline-flex items-center justify-center gap-2 px-6 py-4 text-[0.75rem] uppercase tracking-[0.18em] transition-all duration-300 ${
+                    tier.highlight
+                      ? "bg-black text-white hover:bg-black/80"
+                      : "border hairline text-mist hover:bg-white hover:text-black hover:border-white"
+                  }`}
+                >
+                  {tier.cta}
+                </Link>
+              </div>
+            </Reveal>
+          ))}
         </div>
+
+        <Reveal delay={0.3}>
+          <p className="text-grey/50 text-xs text-center mt-8">
+            Not sure which tier fits? Start with the GTM Audit. It pays for itself before the engagement begins.
+          </p>
+        </Reveal>
       </div>
     </section>
   );

@@ -14,7 +14,7 @@ export default function FeaturedWork() {
         <div className="grid-12 mb-16">
           <div className="col-span-12 lg:col-span-6">
             <Reveal>
-              <span className="eyebrow block mb-6">Selected Work</span>
+              <span className="eyebrow block mb-6" style={{ color: "var(--color-accent)" }}>Selected Work</span>
               <h2 className="text-white font-display text-4xl md:text-5xl lg:text-6xl leading-tight">
                 <TextReveal text="Engines we've built." triggerOnView />
               </h2>

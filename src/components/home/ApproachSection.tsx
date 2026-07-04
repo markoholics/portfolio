@@ -9,9 +9,10 @@ export default function ApproachSection() {
         <div className="grid-12 mb-16">
           <div className="col-span-12 lg:col-span-6">
             <Reveal>
-              <span className="eyebrow block mb-6">How We Work</span>
+              <span className="eyebrow block mb-6" style={{ color: "var(--color-accent)" }}>The Markoholics Growth Engine</span>
               <h2 className="text-white font-display text-4xl md:text-5xl lg:text-6xl leading-tight">
-                <TextReveal text="A system, not a sprint." triggerOnView />
+                <TextReveal text="Four phases." triggerOnView as="span" className="block" />
+                <TextReveal text="One compounding system." triggerOnView as="span" className="block" delay={0.1} />
               </h2>
             </Reveal>
           </div>

@@ -21,6 +21,7 @@
   --color-grey: #d9d9d9;
   --color-charcoal: #333333;
   --color-black: #000000;
+  --color-accent: #00D4FF;
 }
 
 @theme inline {
@@ -29,6 +30,7 @@
   --color-grey: #d9d9d9;
   --color-charcoal: #333333;
   --color-black: #000000;
+  --color-accent: #00D4FF;
   --font-display: var(--font-space-grotesk);
   --font-sans: var(--font-inter);
 }

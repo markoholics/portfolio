@@ -8,17 +8,23 @@ export default function CTABand() {
     <section className="section-pad bg-black border-t hairline">
       <div className="container-edge text-center">
         <Reveal>
-          <span className="eyebrow block mb-8">Start a Project</span>
+          <span className="eyebrow block mb-8" style={{ color: "var(--color-accent)" }}>
+            Ready to Build Your Engine
+          </span>
           <h2 className="font-display text-white text-4xl md:text-6xl lg:text-7xl leading-[0.95] max-w-4xl mx-auto">
             <TextReveal
-              text="Let's build the engine behind your next stage of growth."
+              text="Stop guessing. Start compounding."
               triggerOnView
               className="block"
             />
           </h2>
+          <p className="text-grey text-lg max-w-xl mx-auto mt-8">
+            Book a 30-minute GTM strategy call. We will tell you exactly where your
+            current motion is leaking revenue and what the first 30 days look like.
+          </p>
           <div className="flex flex-wrap justify-center gap-4 mt-12">
             <MagneticButton href="/contact" variant="solid">
-              Start a Project
+              Book a GTM Strategy Call
             </MagneticButton>
             <a href={`mailto:${CONTACT_EMAIL}`} data-cursor-hover className="btn-outline">
               {CONTACT_EMAIL}

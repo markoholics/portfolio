@@ -25,7 +25,7 @@ export default function ProofBar() {
           ))}
         </div>
         <p className="text-grey/60 text-xs mt-12">
-          Aggregate figures across active and completed client engagements.
+          Aggregate figures across active and completed client engagements. All engagements are outcome-based, not time-based.
         </p>
       </div>
     </section>

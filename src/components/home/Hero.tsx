@@ -36,24 +36,25 @@ export default function Hero() {
             animate={{ y: "0%" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="inline-block"
+            style={{ color: "var(--color-accent)" }}
           >
-            GTM &amp; Growth Strategy for Tech Founders
+            AI-Native GTM Partner for Tech Founders
           </motion.span>
         </div>
 
-        <h1 className="text-white font-display font-medium leading-[0.95] tracking-tight text-[14vw] sm:text-[10vw] lg:text-[6.5vw] max-w-6xl">
-          <TextReveal text="We build the growth engines behind tech's most ambitious founders." />
+        <h1 className="text-white font-display font-medium leading-[0.95] tracking-tight text-[13vw] sm:text-[9vw] lg:text-[6vw] max-w-6xl">
+          <TextReveal text="AI-Native GTM Engines for Tech Founders." />
         </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="text-grey text-lg md:text-xl max-w-xl mt-10"
+          className="text-grey text-lg md:text-xl max-w-2xl mt-10"
         >
-          GTM strategy, content, social, performance, demand generation, and
-          AI transformation: six disciplines run as a single growth motion
-          for founders building what comes next.
+          Strategy, content, demand generation, and AI operations — run as one
+          autonomous system. Not five disconnected freelancers. We embed AI into
+          your marketing so 3 people do the work of 10, and we run it for you.
         </motion.p>
 
         <motion.div
@@ -63,11 +64,21 @@ export default function Hero() {
           className="flex flex-wrap gap-4 mt-12"
         >
           <MagneticButton href="/contact" variant="solid">
-            Book a Strategy Call
+            Book a GTM Strategy Call
           </MagneticButton>
           <MagneticButton href="/work" variant="outline">
-            See the Work
+            See the Engine in Action
           </MagneticButton>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.5 }}
+          className="mt-20 flex items-center gap-3"
+        >
+          <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--color-accent)" }} />
+          <span className="text-grey text-sm">All engagements are outcome-based, not time-based. We don&apos;t sell hours.</span>
         </motion.div>
       </motion.div>
     </section>

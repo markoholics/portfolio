@@ -7,7 +7,7 @@ export default function ClientStrip() {
       <div className="container-edge">
         <Reveal>
           <span className="eyebrow block text-center mb-10">
-            Trusted by category-defining tech companies
+            Trusted by founders at
           </span>
         </Reveal>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

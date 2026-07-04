@@ -23,14 +23,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Markoholics: Growth Engines for Tech Founders",
+    default: "Markoholics: AI-Native GTM Partner for Tech Founders",
     template: "%s | Markoholics",
   },
-  description: "We help tech founders launch and market their products.",
+  description: "AI-native GTM engines for Series A-C tech founders. Strategy, content, demand generation, and AI operations run as one autonomous system.",
   metadataBase: new URL("https://markoholics.com"),
   openGraph: {
-    title: "Markoholics: Growth Engines for Tech Founders",
-    description: "We help tech founders launch and market their products.",
+    title: "Markoholics: AI-Native GTM Partner for Tech Founders",
+    description: "AI-native GTM engines for Series A-C tech founders. Strategy, content, demand generation, and AI operations run as one autonomous system.",
     type: "website",
   },
 };

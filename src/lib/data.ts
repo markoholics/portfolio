@@ -108,6 +108,75 @@ export const services: Service[] = [
   },
 ];
 
+export interface PricingTier {
+  index: string;
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  deliverables: string[];
+  cta: string;
+  href: string;
+  highlight: boolean;
+}
+
+export const pricingTiers: PricingTier[] = [
+  {
+    index: "01",
+    name: "GTM Audit",
+    price: "$500",
+    period: "one-time",
+    description:
+      "A 2-week diagnostic that reveals exactly where your GTM motion is leaking revenue — before you spend another dollar scaling it.",
+    deliverables: [
+      "Full funnel audit, channel by channel",
+      "AI readiness score",
+      "Competitive positioning gap analysis",
+      "15-page strategic report",
+      "60-minute strategy call with findings",
+    ],
+    cta: "Book an Audit",
+    href: "/contact",
+    highlight: false,
+  },
+  {
+    index: "02",
+    name: "Growth Engine",
+    price: "$3,500",
+    period: "/month",
+    description:
+      "Full GTM execution: strategy, content, paid, social, and demand gen — run as one AI-augmented motion, not five disconnected vendors.",
+    deliverables: [
+      "GTM strategy and operating plan",
+      "AI-assisted content and social programs",
+      "Performance and demand gen execution",
+      "Weekly sprint calls, monthly strategy reviews",
+      "Minimum 3-month engagement",
+    ],
+    cta: "Start Your Engine",
+    href: "/contact",
+    highlight: true,
+  },
+  {
+    index: "03",
+    name: "AI-First Scale",
+    price: "$6,500",
+    period: "/month",
+    description:
+      "Everything in Growth Engine plus custom AI tool deployment, prompt libraries, and a dedicated AI ops lead for companies ready to scale autonomously.",
+    deliverables: [
+      "Everything in Growth Engine",
+      "Custom AI workflow and prompt library builds",
+      "Internal automation and GPT deployment",
+      "Dedicated AI ops lead",
+      "Quarterly board-ready reporting",
+    ],
+    cta: "Apply for Scale",
+    href: "/contact",
+    highlight: false,
+  },
+];
+
 export interface CaseStudy {
   slug: string;
   name: string;
@@ -128,7 +197,7 @@ export const caseStudies: CaseStudy[] = [
     name: "EQRGen",
     domain: "eqrgen.com",
     sector: "Technology, Dynamic QR Infrastructure",
-    oneLiner: "500 sales qualified leads and 50 new customers in a single quarter.",
+    oneLiner: "500 sales-qualified leads and 50 new customers in a single quarter, from one GTM system.",
     servicesUsed: ["gtm-strategy", "demand-generation", "performance-marketing"],
     challenge:
       "EQRGen, a dynamic QR code generator platform, was entering a market crowded with free, low-differentiation tools. The founders needed a GTM motion that could explain the value of dynamic, trackable QR infrastructure to SMBs and enterprise marketing teams, and a pipeline engine that could feed a small but fast-moving sales team.",
@@ -170,7 +239,7 @@ export const caseStudies: CaseStudy[] = [
     name: "Byosync",
     domain: "byosync.com",
     sector: "Technology, Trust and Consent Infrastructure",
-    oneLiner: "10 signed proof-of-concept partnerships with tech startups in six months.",
+    oneLiner: "10 signed proof-of-concept partnerships in six months with an AI-assisted outreach engine.",
     servicesUsed: ["content-marketing", "social-media-marketing", "demand-generation"],
     challenge:
       "Byosync had built a trust and consent configuration layer for handling sensitive user data, but needed validation in the market before pursuing larger enterprise contracts. The goal was proof-of-concept partnerships with other technology startups that could become reference customers and integration case studies.",
@@ -212,15 +281,15 @@ export const caseStudies: CaseStudy[] = [
     name: "Aditi Consulting",
     domain: "aditiconsulting.com",
     sector: "Technology, Digital Engineering Services",
-    oneLiner: "Repositioned from a tech staffing firm to a digital engineering partner across the India market.",
+    oneLiner: "64% branded search growth from a content-led repositioning that shifted perception from staffing firm to digital engineering partner.",
     servicesUsed: ["content-marketing", "gtm-strategy", "ai-strategy"],
     challenge:
-      "Aditi Consulting, a multinational digital engineering services firm, was widely perceived in India as a technology recruitment firm rather than a full digital engineering and consulting partner. The brand needed a content-led repositioning to win consideration for larger, higher-value engineering and transformation engagements.",
+      "Aditi Consulting, a multinational digital engineering services firm, was widely perceived as a technology recruitment firm rather than a full digital engineering and consulting partner. The brand needed a content-led repositioning to win consideration for larger, higher-value engineering and transformation engagements.",
     strategy: [
       {
         service: "gtm-strategy",
         detail:
-          "Redefined India market positioning around digital engineering, cloud, and data capabilities, distancing the brand from its staffing-firm reputation while preserving existing client trust.",
+          "Redefined positioning around digital engineering, cloud, and data capabilities, distancing the brand from its staffing-firm reputation while preserving existing client trust.",
       },
       {
         service: "content-marketing",
@@ -234,7 +303,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     results: [
-      { label: "Branded search growth, India market", value: "64%" },
+      { label: "Branded search growth", value: "64%" },
       { label: "Engineering-led content published", value: "85 pieces" },
       { label: "Inbound RFPs tagged digital engineering", value: "+41%" },
     ],
@@ -245,7 +314,7 @@ export const caseStudies: CaseStudy[] = [
     gallery: [
       "Brand repositioning narrative map",
       "Engineering thought leadership series",
-      "India market content calendar",
+      "Content calendar and distribution system",
       "AI capability positioning deck",
     ],
   },
@@ -254,7 +323,7 @@ export const caseStudies: CaseStudy[] = [
     name: "Snapmint",
     domain: "snapmint.com",
     sector: "Technology, NBFC E-commerce Financing",
-    oneLiner: "100,000 new customers activated PAN-India within 12 months.",
+    oneLiner: "100,000 customers activated across 180+ cities in 12 months with a city-tier GTM engine.",
     servicesUsed: ["gtm-strategy", "demand-generation", "performance-marketing"],
     challenge:
       "Snapmint, a non-banking financial e-commerce service, needed to scale customer activation across India while keeping acquisition cost and credit risk in line with NBFC underwriting standards. The market required a GTM strategy that could work across metro and tier-2/tier-3 cities with very different buying behavior.",
@@ -281,11 +350,11 @@ export const caseStudies: CaseStudy[] = [
       { label: "Cities covered", value: "180+" },
     ],
     quote: {
-      text: "Scaling a regulated financial product across India means every city behaves differently. Markoholics understood that nuance and built a GTM plan that actually held up at volume.",
+      text: "Scaling a regulated financial product across multiple geographies means every market behaves differently. Markoholics understood that nuance and built a GTM plan that actually held up at volume.",
       attribution: "Director of Growth, Snapmint",
     },
     gallery: [
-      "PAN-India city-tier rollout map",
+      "City-tier rollout map",
       "Activation and KYC funnel flow",
       "City-specific paid creative set",
       "Merchant partner acquisition dashboard",
@@ -303,7 +372,7 @@ export const proofMetrics = [
   { label: "Pipeline generated for clients", value: 10, prefix: "$", suffix: "M+" },
   { label: "Average CAC reduction", value: 28, suffix: "%" },
   { label: "Tech founders and companies scaled", value: 10, suffix: "+" },
-  { label: "Disciplines under one roof", value: 6, suffix: "" },
+  { label: "Days to first results", value: 30, suffix: "" },
 ];
 
 export const approachSteps = [
@@ -311,25 +380,57 @@ export const approachSteps = [
     index: "01",
     name: "Diagnose",
     detail:
-      "We audit the funnel as it actually performs, not as the dashboard claims. Channel by channel, stage by stage, against the numbers that matter to your board and your runway.",
+      "AI-assisted funnel audit. We map the gaps between your current GTM motion and the growth targets on your board deck, channel by channel, stage by stage.",
   },
   {
     index: "02",
     name: "Architect",
     detail:
-      "We design the GTM system: positioning, channel mix, content architecture, and the operating cadence that connects strategy to weekly execution.",
+      "GTM system design. Positioning, channel mix, content architecture, and the AI workflow stack that lets three people do the work of ten.",
   },
   {
     index: "03",
     name: "Execute",
     detail:
-      "We run the engine. Content, social, paid, demand gen, and AI-assisted workflows working as one motion, not five disconnected vendors.",
+      "We run the engine. Content, social, paid, and demand gen operating as one autonomous motion, not five disconnected vendors fighting over budget.",
   },
   {
     index: "04",
     name: "Compound",
     detail:
-      "We instrument everything we ship, kill what underperforms, and reinvest in what compounds, quarter over quarter.",
+      "Continuous optimization. We instrument everything we ship, kill what underperforms, and reinvest in what compounds, quarter over quarter without guesswork.",
+  },
+];
+
+export interface FAQItem {
+  q: string;
+  a: string;
+}
+
+export const faqItems: FAQItem[] = [
+  {
+    q: "Do you work with non-tech companies?",
+    a: "We specialize in tech, SaaS, and AI-native companies. This focus is why we deliver results generalist agencies cannot. If you are building a technology product, you are in the right place.",
+  },
+  {
+    q: "What if we are not based in the US?",
+    a: "We work with founders globally across the US, UK, Singapore, Dubai, and beyond. Our team operates across time zones and our entire workflow is async-first.",
+  },
+  {
+    q: "How is this different from hiring in-house?",
+    a: "You get a full GTM team covering strategy, content, paid, social, demand gen, and AI ops for less than one senior marketing hire. No recruiting, no ramp time, no benefits overhead.",
+  },
+  {
+    q: "What is the minimum commitment?",
+    a: "Three months for Growth Engine and AI-First Scale engagements. GTM is a system that compounds over time, not a campaign that resets every 30 days.",
+  },
+  {
+    q: "What does AI-native actually mean for our marketing?",
+    a: "It means we use AI to collapse the time and cost of content production, campaign analysis, and reporting, so the same budget delivers significantly more output. You get speed without sacrificing quality or strategic judgment.",
+  },
+  {
+    q: "How quickly can we see results?",
+    a: "Most clients see early pipeline indicators within 30 days. Compounding returns on content and demand gen typically emerge in months two and three. We instrument everything so you can see exactly what is working.",
   },
 ];
 

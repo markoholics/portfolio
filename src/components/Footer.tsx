@@ -11,8 +11,8 @@ export default function Footer() {
               MARKOHOLICS
             </span>
             <p className="text-grey max-w-xs">
-              We help tech founders launch and market their products, then
-              scale the growth engine without losing brand equity.
+              AI-native GTM engines for tech founders who can&apos;t afford to
+              guess. Strategy, content, paid, and AI ops — run as one system.
             </p>
           </div>
 
