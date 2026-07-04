@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { pricingTiers } from "@/lib/data";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
@@ -108,8 +107,10 @@ export default function ServicesSection() {
                   ))}
                 </ul>
 
-                <Link
+                <a
                   href={tier.href}
+                  target={tier.href.startsWith("http") ? "_blank" : undefined}
+                  rel={tier.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   data-cursor-hover
                   className={`inline-flex items-center justify-center gap-2 px-6 py-4 text-[0.75rem] uppercase tracking-[0.18em] transition-all duration-300 ${
                     tier.highlight
@@ -118,7 +119,7 @@ export default function ServicesSection() {
                   }`}
                 >
                   {tier.cta}
-                </Link>
+                </a>
               </div>
             </Reveal>
           ))}

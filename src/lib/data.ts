@@ -136,7 +136,7 @@ export const pricingTiers: PricingTier[] = [
       "60-minute strategy call with findings",
     ],
     cta: "Book an Audit",
-    href: "/contact",
+    href: "https://calendly.com/markoholics/30min",
     highlight: false,
   },
   {
@@ -153,8 +153,8 @@ export const pricingTiers: PricingTier[] = [
       "Weekly sprint calls, monthly strategy reviews",
       "Minimum 3-month engagement",
     ],
-    cta: "Start Your Engine",
-    href: "/contact",
+    cta: "Book a GTM Strategy Call",
+    href: "https://calendly.com/markoholics/30min",
     highlight: true,
   },
   {
@@ -239,15 +239,15 @@ export const caseStudies: CaseStudy[] = [
     name: "Byosync",
     domain: "byosync.com",
     sector: "Technology, Trust and Consent Infrastructure",
-    oneLiner: "10 signed proof-of-concept partnerships in six months with an AI-assisted outreach engine.",
+    oneLiner: "$500K+ in POC pipeline across 3 markets in 6 months, from a standing start with no sales team.",
     servicesUsed: ["content-marketing", "social-media-marketing", "demand-generation"],
     challenge:
-      "Byosync had built a trust and consent configuration layer for handling sensitive user data, but needed validation in the market before pursuing larger enterprise contracts. The goal was proof-of-concept partnerships with other technology startups that could become reference customers and integration case studies.",
+      "Byosync had built a trust and consent configuration layer for handling sensitive user data, but needed market validation before pursuing larger enterprise contracts globally. The goal was to generate proof-of-concept partnerships across Southeast Asia and the US with technology startups who could become reference customers and integration case studies.",
     strategy: [
       {
         service: "content-marketing",
         detail:
-          "Built a technical content program, including integration guides and security-first explainers, aimed directly at the engineering and product leaders who evaluate trust infrastructure vendors.",
+          "Built a technical content program, including integration guides and security-first explainers, aimed directly at the engineering and product leaders who evaluate trust infrastructure vendors across global markets.",
       },
       {
         service: "social-media-marketing",
@@ -257,12 +257,12 @@ export const caseStudies: CaseStudy[] = [
       {
         service: "demand-generation",
         detail:
-          "Ran a targeted partnership outreach motion against a curated list of 120 startups, paired with lifecycle nurture for prospects not yet ready to commit.",
+          "Ran a targeted partnership outreach motion against a curated list of 120 startups across three markets, paired with lifecycle nurture for prospects not yet ready to commit.",
       },
     ],
     results: [
-      { label: "POC partnerships signed", value: "10" },
-      { label: "Timeline", value: "6 months" },
+      { label: "POC pipeline value", value: "$500K+" },
+      { label: "Markets entered", value: "3" },
       { label: "Outbound to POC conversion rate", value: "8.3%" },
     ],
     quote: {
@@ -272,7 +272,7 @@ export const caseStudies: CaseStudy[] = [
     gallery: [
       "Partnership outreach pipeline",
       "Technical integration guide layout",
-      "Founder LinkedIn content series",
+      "Founder-led content series",
       "POC tracking dashboard",
     ],
   },
@@ -431,6 +431,10 @@ export const faqItems: FAQItem[] = [
   {
     q: "How quickly can we see results?",
     a: "Most clients see early pipeline indicators within 30 days. Compounding returns on content and demand gen typically emerge in months two and three. We instrument everything so you can see exactly what is working.",
+  },
+  {
+    q: "What does the engagement process look like?",
+    a: "We start with a 30-minute strategy call. If there is a fit, we send the agreement and first invoice. Work begins upon payment. Most clients are live within 7 days of signing.",
   },
 ];
 

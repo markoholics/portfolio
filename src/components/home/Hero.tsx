@@ -57,6 +57,17 @@ export default function Hero() {
           your marketing so 3 people do the work of 10, and we run it for you.
         </motion.p>
 
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="text-white text-base mt-4 font-medium"
+        >
+          Starting at{" "}
+          <span style={{ color: "var(--color-accent)" }}>$3,500/month.</span>
+          {" "}All engagements are outcome-based, not time-based.
+        </motion.p>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -71,15 +82,6 @@ export default function Hero() {
           </MagneticButton>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="mt-20 flex items-center gap-3"
-        >
-          <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--color-accent)" }} />
-          <span className="text-grey text-sm">All engagements are outcome-based, not time-based. We don&apos;t sell hours.</span>
-        </motion.div>
       </motion.div>
     </section>
   );
