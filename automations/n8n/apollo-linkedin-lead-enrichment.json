@@ -1,0 +1,325 @@
+{
+  "name": "Apollo → LinkedIn Verify & Enrich → Draft Emails → Brevo",
+  "nodes": [
+    {
+      "id": "start",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [ -100, 300 ]
+    },
+    {
+      "id": "read_apollo_leads",
+      "name": "Read Apollo Leads (Sheet)",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [ 160, 300 ],
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "={{$env.APOLLO_LEADS_SHEET_URL}}"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "ApolloLeads"
+        },
+        "options": {}
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "google_sheets_cred",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "id": "loop_leads",
+      "name": "Loop Over Leads",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [ 420, 300 ],
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      }
+    },
+    {
+      "id": "wait_rate_limit",
+      "name": "Wait (rate limit)",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [ 680, 480 ],
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      }
+    },
+    {
+      "id": "apify_profile_scrape",
+      "name": "Apify: Scrape LinkedIn Profile",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [ 940, 480 ],
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.apify.com/v2/acts/{{$env.APIFY_LINKEDIN_PROFILE_ACTOR_ID}}/run-sync-get-dataset-items?token={{$env.APIFY_API_TOKEN}}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { \"profileUrls\": [ $json.LinkedIn_URL ] } }}",
+        "options": {
+          "timeout": 120000
+        }
+      }
+    },
+    {
+      "id": "apify_company_scrape",
+      "name": "Apify: Scrape LinkedIn Company",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [ 1200, 480 ],
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.apify.com/v2/acts/{{$env.APIFY_LINKEDIN_COMPANY_ACTOR_ID}}/run-sync-get-dataset-items?token={{$env.APIFY_API_TOKEN}}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { \"companyUrls\": [ $node[\"Apify: Scrape LinkedIn Profile\"].json[0][\"companyLinkedinUrl\"] || $('Loop Over Leads').item.json.Company_LinkedIn_URL ] } }}",
+        "options": {
+          "timeout": 120000
+        }
+      }
+    },
+    {
+      "id": "fetch_company_news",
+      "name": "Fetch Recent Company News",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [ 1460, 480 ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://serpapi.com/search.json",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "engine", "value": "google_news" },
+            { "name": "q", "value": "={{$('Loop Over Leads').item.json.Company}}" },
+            { "name": "api_key", "value": "={{$env.SERPAPI_API_KEY}}" }
+          ]
+        },
+        "options": {
+          "timeout": 60000
+        }
+      }
+    },
+    {
+      "id": "merge_and_verify",
+      "name": "Merge, Verify & Normalize Lead",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [ 1720, 480 ],
+      "parameters": {
+        "jsCode": "const apollo = $('Loop Over Leads').item.json;\nconst profileResult = ($node['Apify: Scrape LinkedIn Profile'].json || [])[0] || {};\nconst companyResult = ($node['Apify: Scrape LinkedIn Company'].json || [])[0] || {};\nconst newsResults = ($node['Fetch Recent Company News'].json.news_results || []).slice(0, 3);\n\nconst scrapedName = (profileResult.fullName || '').toLowerCase().trim();\nconst apolloName = (apollo.Full_Name || '').toLowerCase().trim();\nconst scrapedCompany = (profileResult.companyName || companyResult.name || '').toLowerCase().trim();\nconst apolloCompany = (apollo.Company || '').toLowerCase().trim();\n\nconst nameMatches = scrapedName && apolloName && (scrapedName.includes(apolloName) || apolloName.includes(scrapedName));\nconst companyMatches = scrapedCompany && apolloCompany && (scrapedCompany.includes(apolloCompany) || apolloCompany.includes(scrapedCompany));\nconst verified = Boolean(nameMatches && companyMatches);\n\nconst notes = [];\nif (!nameMatches) notes.push('Name on LinkedIn does not clearly match Apollo record');\nif (!companyMatches) notes.push('Current company on LinkedIn does not clearly match Apollo record');\nif (!profileResult.fullName) notes.push('LinkedIn profile scrape returned no data — check URL / actor');\n\nconst newsSummary = newsResults.map(n => `${n.title} (${n.date || 'recent'})`).join(' | ');\n\nreturn [{\n  json: {\n    Apollo_ID: apollo.Apollo_ID || '',\n    Full_Name: apollo.Full_Name || profileResult.fullName || '',\n    Title: profileResult.headline || apollo.Title || '',\n    Company: apollo.Company || profileResult.companyName || '',\n    Company_Industry: companyResult.industry || '',\n    Company_Size: companyResult.employeeCount || companyResult.staffCount || '',\n    Email: apollo.Email || '',\n    LinkedIn_URL: apollo.LinkedIn_URL || '',\n    Company_LinkedIn_URL: profileResult.companyLinkedinUrl || apollo.Company_LinkedIn_URL || '',\n    Verified: verified ? 'Y' : 'N',\n    Verification_Notes: notes.join('; '),\n    Recent_Company_News: newsSummary,\n    Personal_Highlights: profileResult.about || (profileResult.recentActivity || []).slice(0, 2).join(' | ') || '',\n    Status: 'Enriched'\n  }\n}];"
+      }
+    },
+    {
+      "id": "append_master_sheet",
+      "name": "Append to Master Leads Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [ 1980, 480 ],
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "={{$env.MASTER_LEADS_SHEET_URL}}"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "Leads"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData"
+        },
+        "options": {}
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "google_sheets_cred",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "id": "build_email_prompt",
+      "name": "Build Email Prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [ 2240, 480 ],
+      "parameters": {
+        "jsCode": "const lead = $json;\n\nconst prompt = `You are writing a short, highly personalized cold outreach email on behalf of Markoholics (an AI-native growth/marketing partner for founders and revenue teams).\n\nLead context:\n- Name: ${lead.Full_Name}\n- Title: ${lead.Title}\n- Company: ${lead.Company} (${lead.Company_Industry || 'industry unknown'}, ${lead.Company_Size || 'size unknown'})\n- Recent company news/milestones/challenges: ${lead.Recent_Company_News || 'none found'}\n- Personal/profile highlights: ${lead.Personal_Highlights || 'none found'}\n\nWrite a concise email (under 120 words) that:\n1. Opens with a specific, genuine reference to the recent news/milestone/challenge or profile highlight above (no generic flattery).\n2. Connects that specific detail to a plausible growth/marketing pain point they may have right now.\n3. Offers a soft, low-pressure next step (e.g. a quick call), no hard sell.\n4. Sounds human, not templated. No em dashes. No buzzwords like 'synergy' or 'leverage'.\n\nReturn ONLY valid JSON with this exact shape, no markdown fences: {\"subject\": \"...\", \"body\": \"...\"}`;\n\nreturn [{ json: { ...lead, ai_prompt: prompt } }];"
+      }
+    },
+    {
+      "id": "draft_email_ai",
+      "name": "Draft Personalized Email (Claude)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [ 2500, 480 ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "content-type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { \"model\": \"claude-sonnet-5\", \"max_tokens\": 500, \"messages\": [ { \"role\": \"user\", \"content\": $json.ai_prompt } ] } }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "anthropic_api_key_cred",
+          "name": "Anthropic API Key (x-api-key)"
+        }
+      }
+    },
+    {
+      "id": "parse_ai_response",
+      "name": "Parse Draft Email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [ 2760, 480 ],
+      "parameters": {
+        "jsCode": "const lead = $('Build Email Prompt').item.json;\nconst aiResponse = $json;\nlet subject = '';\nlet body = '';\ntry {\n  const text = aiResponse.content[0].text.trim();\n  const parsed = JSON.parse(text);\n  subject = parsed.subject || '';\n  body = parsed.body || '';\n} catch (e) {\n  body = (aiResponse.content && aiResponse.content[0] && aiResponse.content[0].text) || 'DRAFT GENERATION FAILED - review manually';\n  subject = `Quick note for ${lead.Full_Name}`;\n}\n\nconst { ai_prompt, ...leadWithoutPrompt } = lead;\nreturn [{\n  json: {\n    ...leadWithoutPrompt,\n    Draft_Subject: subject,\n    Draft_Body: body,\n    Status: 'Draft Ready'\n  }\n}];"
+      }
+    },
+    {
+      "id": "update_sheet_with_draft",
+      "name": "Update Master Sheet With Draft",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [ 3020, 480 ],
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "={{$env.MASTER_LEADS_SHEET_URL}}"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "Leads"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "matchingColumns": [ "LinkedIn_URL" ]
+        },
+        "options": {}
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "google_sheets_cred",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "id": "push_brevo_contact",
+      "name": "Push Contact + Draft to Brevo",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [ 3280, 480 ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.brevo.com/v3/contacts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "content-type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { \"email\": $json.Email, \"updateEnabled\": true, \"listIds\": [ Number($env.BREVO_OUTREACH_LIST_ID) ], \"attributes\": { \"FIRSTNAME\": $json.Full_Name.split(' ')[0], \"LASTNAME\": $json.Full_Name.split(' ').slice(1).join(' '), \"COMPANY\": $json.Company, \"JOBTITLE\": $json.Title, \"LINKEDIN_URL\": $json.LinkedIn_URL, \"DRAFT_SUBJECT\": $json.Draft_Subject, \"DRAFT_BODY\": $json.Draft_Body, \"OUTREACH_STATUS\": \"Draft - Pending Review\" } } }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "brevo_api_key_cred",
+          "name": "Brevo API Key (api-key header)"
+        }
+      }
+    },
+    {
+      "id": "done",
+      "name": "All Leads Processed",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [ 680, 140 ]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [ [ { "node": "Read Apollo Leads (Sheet)", "type": "main", "index": 0 } ] ]
+    },
+    "Read Apollo Leads (Sheet)": {
+      "main": [ [ { "node": "Loop Over Leads", "type": "main", "index": 0 } ] ]
+    },
+    "Loop Over Leads": {
+      "main": [
+        [ { "node": "All Leads Processed", "type": "main", "index": 0 } ],
+        [ { "node": "Wait (rate limit)", "type": "main", "index": 0 } ]
+      ]
+    },
+    "Wait (rate limit)": {
+      "main": [ [ { "node": "Apify: Scrape LinkedIn Profile", "type": "main", "index": 0 } ] ]
+    },
+    "Apify: Scrape LinkedIn Profile": {
+      "main": [ [ { "node": "Apify: Scrape LinkedIn Company", "type": "main", "index": 0 } ] ]
+    },
+    "Apify: Scrape LinkedIn Company": {
+      "main": [ [ { "node": "Fetch Recent Company News", "type": "main", "index": 0 } ] ]
+    },
+    "Fetch Recent Company News": {
+      "main": [ [ { "node": "Merge, Verify & Normalize Lead", "type": "main", "index": 0 } ] ]
+    },
+    "Merge, Verify & Normalize Lead": {
+      "main": [ [ { "node": "Append to Master Leads Sheet", "type": "main", "index": 0 } ] ]
+    },
+    "Append to Master Leads Sheet": {
+      "main": [ [ { "node": "Build Email Prompt", "type": "main", "index": 0 } ] ]
+    },
+    "Build Email Prompt": {
+      "main": [ [ { "node": "Draft Personalized Email (Claude)", "type": "main", "index": 0 } ] ]
+    },
+    "Draft Personalized Email (Claude)": {
+      "main": [ [ { "node": "Parse Draft Email", "type": "main", "index": 0 } ] ]
+    },
+    "Parse Draft Email": {
+      "main": [ [ { "node": "Update Master Sheet With Draft", "type": "main", "index": 0 } ] ]
+    },
+    "Update Master Sheet With Draft": {
+      "main": [ [ { "node": "Push Contact + Draft to Brevo", "type": "main", "index": 0 } ] ]
+    },
+    "Push Contact + Draft to Brevo": {
+      "main": [ [ { "node": "Loop Over Leads", "type": "main", "index": 0 } ] ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
