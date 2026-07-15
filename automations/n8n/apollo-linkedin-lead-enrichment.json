@@ -58,36 +58,210 @@
       }
     },
     {
-      "id": "apify_profile_scrape",
-      "name": "Apify: Scrape LinkedIn Profile",
+      "id": "bd_trigger_profile",
+      "name": "Bright Data: Trigger LinkedIn Profile Scrape",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [ 940, 480 ],
       "parameters": {
         "method": "POST",
-        "url": "=https://api.apify.com/v2/acts/{{$env.APIFY_LINKEDIN_PROFILE_ACTOR_ID}}/run-sync-get-dataset-items?token={{$env.APIFY_API_TOKEN}}",
+        "url": "=https://api.brightdata.com/datasets/v3/trigger?dataset_id={{$env.BRIGHTDATA_LINKEDIN_PROFILE_DATASET_ID}}&include_errors=true",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ { \"profileUrls\": [ $json.LinkedIn_URL ] } }}",
+        "jsonBody": "={{ [ { \"url\": $json.LinkedIn_URL } ] }}",
         "options": {
-          "timeout": 120000
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "brightdata_api_token_cred",
+          "name": "Bright Data API Token (Bearer)"
         }
       }
     },
     {
-      "id": "apify_company_scrape",
-      "name": "Apify: Scrape LinkedIn Company",
+      "id": "bd_wait_profile_poll",
+      "name": "Wait: Profile Scrape Poll",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [ 1180, 480 ],
+      "parameters": {
+        "amount": 8,
+        "unit": "seconds"
+      }
+    },
+    {
+      "id": "bd_check_profile_progress",
+      "name": "Bright Data: Check Profile Progress",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [ 1200, 480 ],
+      "position": [ 1420, 480 ],
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.brightdata.com/datasets/v3/progress/{{$('Bright Data: Trigger LinkedIn Profile Scrape').item.json.snapshot_id}}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "brightdata_api_token_cred",
+          "name": "Bright Data API Token (Bearer)"
+        }
+      }
+    },
+    {
+      "id": "bd_eval_profile_poll",
+      "name": "Evaluate Profile Poll",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [ 1660, 480 ],
+      "parameters": {
+        "jsCode": "const status = $json.status;\nconst attempts = $('Bright Data: Check Profile Progress').all().length;\nconst maxAttempts = Number($env.BRIGHTDATA_MAX_POLL_ATTEMPTS || 20);\nconst shouldStop = status === 'ready' || status === 'failed' || attempts >= maxAttempts;\n\nreturn [{\n  json: {\n    shouldStop,\n    status,\n    attempts,\n    snapshot_id: $('Bright Data: Trigger LinkedIn Profile Scrape').item.json.snapshot_id\n  }\n}];"
+      }
+    },
+    {
+      "id": "bd_if_profile_ready",
+      "name": "IF: Profile Poll Done?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [ 1900, 480 ],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "typeValidation": "strict" },
+          "conditions": [
+            {
+              "leftValue": "={{$json.shouldStop}}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "true" }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "bd_fetch_profile_result",
+      "name": "Bright Data: Fetch Profile Result",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [ 2140, 380 ],
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.brightdata.com/datasets/v3/snapshot/{{$json.snapshot_id}}?format=json",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "brightdata_api_token_cred",
+          "name": "Bright Data API Token (Bearer)"
+        }
+      }
+    },
+    {
+      "id": "bd_trigger_company",
+      "name": "Bright Data: Trigger LinkedIn Company Scrape",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [ 2380, 380 ],
       "parameters": {
         "method": "POST",
-        "url": "=https://api.apify.com/v2/acts/{{$env.APIFY_LINKEDIN_COMPANY_ACTOR_ID}}/run-sync-get-dataset-items?token={{$env.APIFY_API_TOKEN}}",
+        "url": "=https://api.brightdata.com/datasets/v3/trigger?dataset_id={{$env.BRIGHTDATA_LINKEDIN_COMPANY_DATASET_ID}}&include_errors=true",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ { \"companyUrls\": [ $node[\"Apify: Scrape LinkedIn Profile\"].json[0][\"companyLinkedinUrl\"] || $('Loop Over Leads').item.json.Company_LinkedIn_URL ] } }}",
+        "jsonBody": "={{ [ { \"url\": (Array.isArray($json) ? $json[0] : $json).company_url || (Array.isArray($json) ? $json[0] : $json).current_company_url || $('Loop Over Leads').item.json.Company_LinkedIn_URL } ] }}",
         "options": {
-          "timeout": 120000
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "brightdata_api_token_cred",
+          "name": "Bright Data API Token (Bearer)"
+        }
+      }
+    },
+    {
+      "id": "bd_wait_company_poll",
+      "name": "Wait: Company Scrape Poll",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [ 2620, 380 ],
+      "parameters": {
+        "amount": 8,
+        "unit": "seconds"
+      }
+    },
+    {
+      "id": "bd_check_company_progress",
+      "name": "Bright Data: Check Company Progress",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [ 2860, 380 ],
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.brightdata.com/datasets/v3/progress/{{$('Bright Data: Trigger LinkedIn Company Scrape').item.json.snapshot_id}}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "brightdata_api_token_cred",
+          "name": "Bright Data API Token (Bearer)"
+        }
+      }
+    },
+    {
+      "id": "bd_eval_company_poll",
+      "name": "Evaluate Company Poll",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [ 3100, 380 ],
+      "parameters": {
+        "jsCode": "const status = $json.status;\nconst attempts = $('Bright Data: Check Company Progress').all().length;\nconst maxAttempts = Number($env.BRIGHTDATA_MAX_POLL_ATTEMPTS || 20);\nconst shouldStop = status === 'ready' || status === 'failed' || attempts >= maxAttempts;\n\nreturn [{\n  json: {\n    shouldStop,\n    status,\n    attempts,\n    snapshot_id: $('Bright Data: Trigger LinkedIn Company Scrape').item.json.snapshot_id\n  }\n}];"
+      }
+    },
+    {
+      "id": "bd_if_company_ready",
+      "name": "IF: Company Poll Done?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [ 3340, 380 ],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "typeValidation": "strict" },
+          "conditions": [
+            {
+              "leftValue": "={{$json.shouldStop}}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "true" }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "bd_fetch_company_result",
+      "name": "Bright Data: Fetch Company Result",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [ 3580, 480 ],
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.brightdata.com/datasets/v3/snapshot/{{$json.snapshot_id}}?format=json",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "brightdata_api_token_cred",
+          "name": "Bright Data API Token (Bearer)"
         }
       }
     },
@@ -120,7 +294,7 @@
       "typeVersion": 2,
       "position": [ 1720, 480 ],
       "parameters": {
-        "jsCode": "const apollo = $('Loop Over Leads').item.json;\nconst profileResult = ($node['Apify: Scrape LinkedIn Profile'].json || [])[0] || {};\nconst companyResult = ($node['Apify: Scrape LinkedIn Company'].json || [])[0] || {};\nconst newsResults = ($node['Fetch Recent Company News'].json.news_results || []).slice(0, 3);\n\nconst scrapedName = (profileResult.fullName || '').toLowerCase().trim();\nconst apolloName = (apollo.Full_Name || '').toLowerCase().trim();\nconst scrapedCompany = (profileResult.companyName || companyResult.name || '').toLowerCase().trim();\nconst apolloCompany = (apollo.Company || '').toLowerCase().trim();\n\nconst nameMatches = scrapedName && apolloName && (scrapedName.includes(apolloName) || apolloName.includes(scrapedName));\nconst companyMatches = scrapedCompany && apolloCompany && (scrapedCompany.includes(apolloCompany) || apolloCompany.includes(scrapedCompany));\nconst verified = Boolean(nameMatches && companyMatches);\n\nconst notes = [];\nif (!nameMatches) notes.push('Name on LinkedIn does not clearly match Apollo record');\nif (!companyMatches) notes.push('Current company on LinkedIn does not clearly match Apollo record');\nif (!profileResult.fullName) notes.push('LinkedIn profile scrape returned no data — check URL / actor');\n\nconst newsSummary = newsResults.map(n => `${n.title} (${n.date || 'recent'})`).join(' | ');\n\nreturn [{\n  json: {\n    Apollo_ID: apollo.Apollo_ID || '',\n    Full_Name: apollo.Full_Name || profileResult.fullName || '',\n    Title: profileResult.headline || apollo.Title || '',\n    Company: apollo.Company || profileResult.companyName || '',\n    Company_Industry: companyResult.industry || '',\n    Company_Size: companyResult.employeeCount || companyResult.staffCount || '',\n    Email: apollo.Email || '',\n    LinkedIn_URL: apollo.LinkedIn_URL || '',\n    Company_LinkedIn_URL: profileResult.companyLinkedinUrl || apollo.Company_LinkedIn_URL || '',\n    Verified: verified ? 'Y' : 'N',\n    Verification_Notes: notes.join('; '),\n    Recent_Company_News: newsSummary,\n    Personal_Highlights: profileResult.about || (profileResult.recentActivity || []).slice(0, 2).join(' | ') || '',\n    Status: 'Enriched'\n  }\n}];"
+        "jsCode": "const apollo = $('Loop Over Leads').item.json;\n\nconst pickFirst = (raw) => Array.isArray(raw) ? (raw[0] || {}) : (raw || {});\nconst profileResult = pickFirst($node['Bright Data: Fetch Profile Result'].json);\nconst companyResult = pickFirst($node['Bright Data: Fetch Company Result'].json);\nconst newsResults = ($node['Fetch Recent Company News'].json.news_results || []).slice(0, 3);\n\n// NOTE: Bright Data's exact field names can vary by dataset/collector version.\n// Do one test run, inspect the raw snapshot JSON in this node's output, and\n// adjust the field names below (left side of each `||`) if they differ.\nconst scrapedFullName = profileResult.name || profileResult.full_name || '';\nconst scrapedHeadline = profileResult.position || profileResult.headline || '';\nconst scrapedCompanyName = (profileResult.current_company && profileResult.current_company.name) || profileResult.current_company_name || companyResult.name || '';\nconst scrapedAbout = profileResult.about || profileResult.summary || '';\nconst scrapedActivity = profileResult.posts || profileResult.activity || [];\n\nconst scrapedName = scrapedFullName.toLowerCase().trim();\nconst apolloName = (apollo.Full_Name || '').toLowerCase().trim();\nconst scrapedCompany = scrapedCompanyName.toLowerCase().trim();\nconst apolloCompany = (apollo.Company || '').toLowerCase().trim();\n\nconst nameMatches = scrapedName && apolloName && (scrapedName.includes(apolloName) || apolloName.includes(scrapedName));\nconst companyMatches = scrapedCompany && apolloCompany && (scrapedCompany.includes(apolloCompany) || apolloCompany.includes(scrapedCompany));\nconst verified = Boolean(nameMatches && companyMatches);\n\nconst notes = [];\nif (!nameMatches) notes.push('Name on LinkedIn does not clearly match Apollo record');\nif (!companyMatches) notes.push('Current company on LinkedIn does not clearly match Apollo record');\nif (!scrapedFullName) notes.push('LinkedIn profile scrape returned no data — check URL / dataset / poll timeout');\n\nconst newsSummary = newsResults.map(n => `${n.title} (${n.date || 'recent'})`).join(' | ');\n\nreturn [{\n  json: {\n    Apollo_ID: apollo.Apollo_ID || '',\n    Full_Name: apollo.Full_Name || scrapedFullName || '',\n    Title: scrapedHeadline || apollo.Title || '',\n    Company: apollo.Company || scrapedCompanyName || '',\n    Company_Industry: companyResult.industries || companyResult.industry || '',\n    Company_Size: companyResult.company_size || companyResult.employees || '',\n    Email: apollo.Email || '',\n    LinkedIn_URL: apollo.LinkedIn_URL || '',\n    Company_LinkedIn_URL: profileResult.current_company_url || profileResult.company_url || apollo.Company_LinkedIn_URL || '',\n    Verified: verified ? 'Y' : 'N',\n    Verification_Notes: notes.join('; '),\n    Recent_Company_News: newsSummary,\n    Personal_Highlights: scrapedAbout || (Array.isArray(scrapedActivity) ? scrapedActivity.slice(0, 2).map(a => a.title || a.text || '').join(' | ') : ''),\n    Status: 'Enriched'\n  }\n}];"
       }
     },
     {
@@ -285,12 +459,48 @@
       ]
     },
     "Wait (rate limit)": {
-      "main": [ [ { "node": "Apify: Scrape LinkedIn Profile", "type": "main", "index": 0 } ] ]
+      "main": [ [ { "node": "Bright Data: Trigger LinkedIn Profile Scrape", "type": "main", "index": 0 } ] ]
     },
-    "Apify: Scrape LinkedIn Profile": {
-      "main": [ [ { "node": "Apify: Scrape LinkedIn Company", "type": "main", "index": 0 } ] ]
+    "Bright Data: Trigger LinkedIn Profile Scrape": {
+      "main": [ [ { "node": "Wait: Profile Scrape Poll", "type": "main", "index": 0 } ] ]
     },
-    "Apify: Scrape LinkedIn Company": {
+    "Wait: Profile Scrape Poll": {
+      "main": [ [ { "node": "Bright Data: Check Profile Progress", "type": "main", "index": 0 } ] ]
+    },
+    "Bright Data: Check Profile Progress": {
+      "main": [ [ { "node": "Evaluate Profile Poll", "type": "main", "index": 0 } ] ]
+    },
+    "Evaluate Profile Poll": {
+      "main": [ [ { "node": "IF: Profile Poll Done?", "type": "main", "index": 0 } ] ]
+    },
+    "IF: Profile Poll Done?": {
+      "main": [
+        [ { "node": "Bright Data: Fetch Profile Result", "type": "main", "index": 0 } ],
+        [ { "node": "Wait: Profile Scrape Poll", "type": "main", "index": 0 } ]
+      ]
+    },
+    "Bright Data: Fetch Profile Result": {
+      "main": [ [ { "node": "Bright Data: Trigger LinkedIn Company Scrape", "type": "main", "index": 0 } ] ]
+    },
+    "Bright Data: Trigger LinkedIn Company Scrape": {
+      "main": [ [ { "node": "Wait: Company Scrape Poll", "type": "main", "index": 0 } ] ]
+    },
+    "Wait: Company Scrape Poll": {
+      "main": [ [ { "node": "Bright Data: Check Company Progress", "type": "main", "index": 0 } ] ]
+    },
+    "Bright Data: Check Company Progress": {
+      "main": [ [ { "node": "Evaluate Company Poll", "type": "main", "index": 0 } ] ]
+    },
+    "Evaluate Company Poll": {
+      "main": [ [ { "node": "IF: Company Poll Done?", "type": "main", "index": 0 } ] ]
+    },
+    "IF: Company Poll Done?": {
+      "main": [
+        [ { "node": "Bright Data: Fetch Company Result", "type": "main", "index": 0 } ],
+        [ { "node": "Wait: Company Scrape Poll", "type": "main", "index": 0 } ]
+      ]
+    },
+    "Bright Data: Fetch Company Result": {
       "main": [ [ { "node": "Fetch Recent Company News", "type": "main", "index": 0 } ] ]
     },
     "Fetch Recent Company News": {
