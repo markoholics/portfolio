@@ -46,9 +46,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t hairline flex flex-col md:flex-row justify-between gap-4 text-sm text-grey">
-          <span>&copy; {new Date().getFullYear()} Markoholics. All rights reserved.</span>
-          <span>Built for companies that intend to win their category.</span>
+        <div className="mt-20 pt-8 border-t hairline flex flex-col gap-4 text-sm text-grey">
+          <address className="not-italic text-grey">
+            <span className="block">CREATIVE ENGINEERING ENTERPRISES PRIVATE LIMITED</span>
+            <span className="block">
+              D NO 22, 4th Floor Vijaya, Bank Colony 6 Cross Road, Banaswadi,
+              Bangalore North, Bangalore- 560043, Karnataka
+            </span>
+            <span className="block">CIN: U62099KA2026PTC225694</span>
+          </address>
+          <div className="flex flex-col md:flex-row justify-between gap-4">
+            <span>&copy; {new Date().getFullYear()} Markoholics. All rights reserved.</span>
+            <span>Built for companies that intend to win their category.</span>
+          </div>
         </div>
       </div>
     </footer>
