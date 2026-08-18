@@ -493,6 +493,11 @@ export const strategicPartners: Partner[] = [
     description: "Strategic technology partner",
     href: undefined,
   },
+  {
+    name: "Human to the Power of AI",
+    description: "Strategic AI partner",
+    href: undefined,
+  },
 ];
 
 export const navLinks = [
