@@ -1,5 +1,6 @@
 import Hero from "@/components/home/Hero";
 import ClientStrip from "@/components/home/ClientStrip";
+import StrategicPartners from "@/components/home/StrategicPartners";
 import ProblemSection from "@/components/home/ProblemSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import FeaturedWork from "@/components/home/FeaturedWork";
@@ -14,6 +15,7 @@ export default function Home() {
     <>
       <Hero />
       <ClientStrip />
+      <StrategicPartners />
       <ProblemSection />
       <ServicesSection />
       <FeaturedWork />

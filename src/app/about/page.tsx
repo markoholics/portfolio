@@ -2,12 +2,16 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
-import { approachSteps } from "@/lib/data";
+import Byline from "@/components/Byline";
+import FAQAccordion from "@/components/FAQAccordion";
+import { approachSteps, aboutFaqItems } from "@/lib/data";
+import { webPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "About",
   description:
     "Markoholics is an AI-native GTM partner built for Series A-C tech founders who need a growth engine, not an agency. Built by operators, not account managers.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
@@ -28,6 +32,7 @@ export default function AboutPage() {
             the strategy — because strategy that never touches execution is just
             a deck.
           </p>
+          <Byline className="mt-8" />
         </Reveal>
       </section>
 
@@ -122,6 +127,12 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <FAQAccordion
+        items={aboutFaqItems}
+        eyebrow="Questions About Fit"
+        heading="Are we right for you?"
+      />
+
       <section className="section-pad border-t hairline text-center">
         <Reveal>
           <h2 className="font-display text-white text-4xl md:text-6xl leading-tight max-w-3xl mx-auto mb-4">
@@ -137,6 +148,18 @@ export default function AboutPage() {
           </MagneticButton>
         </Reveal>
       </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            webPageJsonLd({
+              name: "About | Markoholics",
+              description: metadata.description as string,
+              path: "/about",
+            })
+          ),
+        }}
+      />
     </div>
   );
 }

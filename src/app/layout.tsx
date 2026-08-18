@@ -3,11 +3,10 @@ import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import CustomCursor from "@/components/CustomCursor";
-import ScrollProgress from "@/components/ScrollProgress";
-import RotatePrompt from "@/components/RotatePrompt";
+import DeferredEffects from "@/components/DeferredEffects";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MetaPixel from "@/components/analytics/MetaPixel";
+import { SITE_URL, organizationJsonLd } from "@/lib/seo";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -27,10 +26,18 @@ export const metadata: Metadata = {
     template: "%s | Markoholics",
   },
   description: "AI-native GTM engines for Series A-C tech founders. Strategy, content, demand generation, and AI operations run as one autonomous system.",
-  metadataBase: new URL("https://markoholics.com"),
+  metadataBase: new URL(SITE_URL),
+  authors: [{ name: "The Markoholics Team", url: `${SITE_URL}/about` }],
+  creator: "Markoholics",
+  publisher: "Markoholics",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Markoholics: AI-Native GTM Partner for Tech Founders",
     description: "AI-native GTM engines for Series A-C tech founders. Strategy, content, demand generation, and AI operations run as one autonomous system.",
+    url: SITE_URL,
+    siteName: "Markoholics",
     type: "website",
   },
 };
@@ -46,11 +53,13 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-black">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
+        />
         <GoogleAnalytics />
         <MetaPixel />
-        <ScrollProgress />
-        <RotatePrompt />
-        <CustomCursor />
+        <DeferredEffects />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

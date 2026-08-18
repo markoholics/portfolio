@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { caseStudies, services } from "@/lib/data";
+import { caseStudies } from "@/lib/data";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
+import Byline from "@/components/Byline";
+import FAQAccordion from "@/components/FAQAccordion";
+import { serviceName, caseStudyFaqItems, caseStudyJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
@@ -24,12 +27,11 @@ export async function generateMetadata({
   if (!cs) return {};
   return {
     title: `${cs.name} Case Study`,
-    description: `How Markoholics built the growth engine for ${cs.name}: ${cs.oneLiner}`,
+    description:
+      cs.metaDescription ??
+      `How Markoholics built the growth engine for ${cs.name}: ${cs.oneLiner}`,
+    alternates: { canonical: `/work/${cs.slug}` },
   };
-}
-
-function serviceName(slug: string) {
-  return services.find((s) => s.slug === slug)?.name ?? slug;
 }
 
 export default async function CaseStudyPage({
@@ -64,6 +66,7 @@ export default async function CaseStudyPage({
                 </span>
               ))}
             </div>
+            <Byline label="Case study by" className="mt-8" />
           </Reveal>
         </div>
       </section>
@@ -162,6 +165,16 @@ export default async function CaseStudyPage({
           </MagneticButton>
         </div>
       </section>
+
+      <FAQAccordion
+        items={caseStudyFaqItems(cs)}
+        eyebrow="Questions About This Engagement"
+        heading={`${cs.name} in brief.`}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudyJsonLd(cs)) }}
+      />
     </div>
   );
 }

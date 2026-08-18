@@ -183,6 +183,7 @@ export interface CaseStudy {
   domain: string;
   sector: string;
   oneLiner: string;
+  metaDescription?: string;
   servicesUsed: ServiceSlug[];
   challenge: string;
   strategy: { service: ServiceSlug; detail: string }[];
@@ -282,6 +283,8 @@ export const caseStudies: CaseStudy[] = [
     domain: "aditiconsulting.com",
     sector: "Technology, Digital Engineering Services",
     oneLiner: "64% branded search growth from a content-led repositioning that shifted perception from staffing firm to digital engineering partner.",
+    metaDescription:
+      "How Markoholics repositioned Aditi Consulting from staffing firm to digital engineering partner, driving 64% branded search growth.",
     servicesUsed: ["content-marketing", "gtm-strategy", "ai-strategy"],
     challenge:
       "Aditi Consulting, a multinational digital engineering services firm, was widely perceived as a technology recruitment firm rather than a full digital engineering and consulting partner. The brand needed a content-led repositioning to win consideration for larger, higher-value engineering and transformation engagements.",
@@ -435,6 +438,60 @@ export const faqItems: FAQItem[] = [
   {
     q: "What does the engagement process look like?",
     a: "We start with a 30-minute strategy call. If there is a fit, we send the agreement and first invoice. Work begins upon payment. Most clients are live within 7 days of signing.",
+  },
+];
+
+export const servicesFaqItems: FAQItem[] = faqItems.filter((item) =>
+  [
+    "What is the minimum commitment?",
+    "How is this different from hiring in-house?",
+    "What does the engagement process look like?",
+  ].includes(item.q)
+);
+
+export const aboutFaqItems: FAQItem[] = faqItems.filter((item) =>
+  ["Do you work with non-tech companies?", "What if we are not based in the US?"].includes(
+    item.q
+  )
+);
+
+export const workFaqItems: FAQItem[] = [
+  {
+    q: "How are these case studies selected?",
+    a: "We only publish engagements where we ran the full GTM motion, not a single campaign, and where the client agreed to share real numbers. Every result on this page is what we actually delivered.",
+  },
+  {
+    q: "Can I speak with these clients as references?",
+    a: "Yes. We connect qualified prospects with reference clients during the sales process, subject to each client's availability and NDA terms.",
+  },
+];
+
+export const contactFaqItems: FAQItem[] = [
+  {
+    q: "What happens after I submit this form?",
+    a: "We review your details and respond within one business day, usually with a few qualifying questions or a link to book a 30-minute strategy call directly.",
+  },
+  {
+    q: "How quickly will you respond?",
+    a: "Within one business day. If your inquiry is time-sensitive, mention it in your message or book a call directly via Calendly instead of waiting on email.",
+  },
+  {
+    q: "Do you work with founders outside the US?",
+    a: "Yes. We work with tech founders globally, including the UK, Singapore, and Dubai, and our workflow is async-first to accommodate time zone differences.",
+  },
+];
+
+export interface Partner {
+  name: string;
+  description: string;
+  href?: string;
+}
+
+export const strategicPartners: Partner[] = [
+  {
+    name: "Varmis Arc",
+    description: "Strategic technology partner",
+    href: undefined,
   },
 ];
 
