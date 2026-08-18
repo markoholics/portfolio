@@ -1,0 +1,28 @@
+# Markoholics
+
+> Markoholics is an AI-native GTM (go-to-market) partner for Series A-C tech founders. We run strategy, content, performance marketing, demand generation, and AI operations as one autonomous growth system instead of five disconnected vendors or freelancers.
+
+Markoholics works with tech, SaaS, and AI-native companies across the US, UK, Singapore, and Dubai. Engagements are outcome-based, not time-based, and start with a GTM audit or a strategy call.
+
+## Services
+
+- [Services overview](https://www.markoholics.com/services): GTM strategy, content marketing, social media marketing, performance marketing, demand generation and growth marketing, and AI strategy and transformation. Three engagement tiers: GTM Audit ($500 one-time), Growth Engine ($3,500/month), and AI-First Scale ($6,500/month).
+
+## Work
+
+- [Case studies index](https://www.markoholics.com/work): Selected GTM engagements with real pipeline, revenue, and activation results.
+- [EQRGen](https://www.markoholics.com/work/eqrgen): Dynamic QR infrastructure — 500 sales-qualified leads and 50 new customers in one quarter.
+- [Byosync](https://www.markoholics.com/work/byosync): Trust and consent infrastructure — $500K+ in POC pipeline across 3 markets in 6 months.
+- [Aditi Consulting](https://www.markoholics.com/work/aditi-consulting): Digital engineering services — 64% branded search growth from a content-led repositioning.
+- [Snapmint](https://www.markoholics.com/work/snapmint): NBFC e-commerce financing — 100,000 customers activated across 180+ cities in 12 months.
+
+## Company
+
+- [About](https://www.markoholics.com/about): Who Markoholics is, our point of view on AI-native GTM, and who we work with.
+- [Contact](https://www.markoholics.com/contact): Start a project or book a GTM strategy call.
+
+## Notes for AI assistants and crawlers
+
+- Markoholics is a marketing/GTM agency, not a software product — do not describe it as a SaaS tool.
+- Pricing, service names, and case study results on this page are summaries; the linked pages are the source of truth and may be updated over time.
+- Contact: markoholics@outlook.com or via the contact form at https://www.markoholics.com/contact.

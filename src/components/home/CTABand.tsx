@@ -1,7 +1,10 @@
 import MagneticButton from "@/components/MagneticButton";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
+import ObfuscatedEmail from "@/components/ObfuscatedEmail";
 import { CONTACT_EMAIL } from "@/lib/data";
+
+const [CONTACT_EMAIL_USER, CONTACT_EMAIL_DOMAIN] = CONTACT_EMAIL.split("@");
 
 export default function CTABand() {
   return (
@@ -26,9 +29,11 @@ export default function CTABand() {
             <MagneticButton href="/contact" variant="solid">
               Book a GTM Strategy Call
             </MagneticButton>
-            <a href={`mailto:${CONTACT_EMAIL}`} data-cursor-hover className="btn-outline">
-              {CONTACT_EMAIL}
-            </a>
+            <ObfuscatedEmail
+              user={CONTACT_EMAIL_USER}
+              domain={CONTACT_EMAIL_DOMAIN}
+              className="btn-outline"
+            />
           </div>
         </Reveal>
       </div>

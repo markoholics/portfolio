@@ -8,7 +8,7 @@ import { workFaqItems } from "@/lib/data";
 import { webPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "GTM Case Studies for Tech Founders",
+  title: "Growth Engine Case Studies: Our GTM Work",
   description:
     "Go-to-market growth engines built for EQRGen, Byosync, Aditi Consulting, and Snapmint across strategy, content, and AI-native demand generation.",
   alternates: { canonical: "/work" },

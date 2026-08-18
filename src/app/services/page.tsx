@@ -9,7 +9,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import { webPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "AI-Native GTM Services & Pricing",
+  title: "GTM Strategy, Content & Demand Generation",
   description:
     "AI-native GTM execution across strategy, content, performance marketing, and demand generation. Three tiers starting at $500.",
   alternates: { canonical: "/services" },
