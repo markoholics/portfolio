@@ -133,10 +133,10 @@ export default function AboutPage() {
 
       <section className="section-pad border-t hairline text-center">
         <Reveal>
-          <h2 className="font-display text-white text-4xl md:text-6xl leading-tight max-w-3xl mx-auto mb-4">
+          <h2 className="font-display text-white text-[32px] md:text-6xl leading-tight max-w-3xl mx-auto mb-4">
             We work with a small number of founders at a time, by design.
           </h2>
-          <p className="text-grey text-lg max-w-lg mx-auto mb-10">
+          <p className="text-grey text-base md:text-lg max-w-lg mx-auto mb-10">
             If you are building a tech company and ready to stop guessing at
             your GTM, book a call. We will tell you in 30 minutes whether
             we are the right fit.
