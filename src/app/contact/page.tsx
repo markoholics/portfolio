@@ -3,7 +3,6 @@ import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import ContactForm from "@/components/contact/ContactForm";
 import CalendlyPopup from "@/components/CalendlyPopup";
-import Byline from "@/components/Byline";
 import FAQAccordion from "@/components/FAQAccordion";
 import { CONTACT_EMAIL, contactFaqItems } from "@/lib/data";
 import { webPageJsonLd } from "@/lib/seo";
@@ -67,7 +66,6 @@ export default function ContactPage() {
                 within seven days of signing, with a weekly sprint cadence
                 and monthly strategy reviews from there.
               </p>
-              <Byline className="mt-8" />
             </Reveal>
           </div>
           <div className="col-span-12 lg:col-span-6 lg:col-start-7 mt-12 lg:mt-0">

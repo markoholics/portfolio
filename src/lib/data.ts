@@ -508,3 +508,15 @@ export const navLinks = [
 ];
 
 export const CONTACT_EMAIL = "markoholics@outlook.com";
+
+export interface SocialLink {
+  label: string;
+  href: string;
+}
+
+export const socialLinks: SocialLink[] = [
+  { label: "Instagram", href: "https://www.instagram.com/beingmarkoholics" },
+  { label: "Facebook", href: "https://www.facebook.com/beingmarkoholics" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/beingmarkoholics/" },
+  { label: "X", href: "https://www.x.com/markoholics" },
+];

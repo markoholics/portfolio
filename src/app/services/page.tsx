@@ -4,7 +4,6 @@ import { services, pricingTiers, caseStudies, servicesFaqItems } from "@/lib/dat
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
-import Byline from "@/components/Byline";
 import FAQAccordion from "@/components/FAQAccordion";
 import { webPageJsonLd } from "@/lib/seo";
 
@@ -31,7 +30,6 @@ export default function ServicesPage() {
             compound, and we run them for you. Choose the entry point that matches
             where you are today.
           </p>
-          <Byline className="mt-8" />
         </Reveal>
       </section>
 

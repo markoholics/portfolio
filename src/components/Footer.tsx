@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navLinks, CONTACT_EMAIL } from "@/lib/data";
+import { navLinks, CONTACT_EMAIL, socialLinks } from "@/lib/data";
 import ObfuscatedEmail from "@/components/ObfuscatedEmail";
 
 const [CONTACT_EMAIL_USER, CONTACT_EMAIL_DOMAIN] = CONTACT_EMAIL.split("@");
@@ -14,8 +14,9 @@ export default function Footer() {
               MARKOHOLICS
             </span>
             <p className="text-grey max-w-xs">
-              AI-native GTM engines for tech founders who can&apos;t afford to
-              guess. Strategy, content, paid, and AI ops — run as one system.
+              Building AI-native GTM engines for tech founders who can&apos;t
+              afford to guess. Strategy, content, paid, and AI ops — run as
+              one system.
             </p>
           </div>
 
@@ -41,8 +42,20 @@ export default function Footer() {
               <ObfuscatedEmail
                 user={CONTACT_EMAIL_USER}
                 domain={CONTACT_EMAIL_DOMAIN}
-                className="text-mist hover:text-white transition-colors"
+                className="text-mist hover:text-white transition-colors text-sm"
               />
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cursor-hover
+                  className="text-mist hover:text-white transition-colors"
+                >
+                  {social.label}
+                </a>
+              ))}
             </div>
           </div>
         </div>
