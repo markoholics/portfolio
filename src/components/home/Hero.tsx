@@ -43,7 +43,7 @@ export default function Hero() {
         </div>
 
         <h1 className="text-white font-display font-medium leading-[0.95] tracking-tight text-[13vw] sm:text-[9vw] lg:text-[6vw] max-w-6xl">
-          <TextReveal text="AI-Native GTM Engines for Tech Founders." priority />
+          <TextReveal text="Building AI-Native GTM Engines for Tech Founders." priority />
         </h1>
 
         <motion.p
