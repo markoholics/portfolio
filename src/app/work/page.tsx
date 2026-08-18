@@ -2,11 +2,16 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import WorkGrid from "@/components/work/WorkGrid";
+import Byline from "@/components/Byline";
+import FAQAccordion from "@/components/FAQAccordion";
+import { workFaqItems } from "@/lib/data";
+import { webPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Go-to-market and growth engines built for EQRGen, Byosync, Aditi Consulting, and Snapmint across GTM strategy, content, social, performance, demand generation, and AI transformation.",
+    "Go-to-market growth engines built for EQRGen, Byosync, Aditi Consulting, and Snapmint across strategy, content, and AI-native demand generation.",
+  alternates: { canonical: "/work" },
 };
 
 export default function WorkIndex() {
@@ -18,9 +23,45 @@ export default function WorkIndex() {
           <h1 className="font-display text-white text-5xl md:text-7xl leading-[0.95] max-w-3xl">
             <TextReveal text="Engines built for category leaders." />
           </h1>
+          <p className="text-grey text-lg max-w-2xl mt-8">
+            Every engagement below is a full GTM system, not a single campaign:
+            strategy, content, paid, demand generation, and AI operations run
+            together against a number the founder actually cares about. We
+            work with a small roster of Series A-C tech companies at a time,
+            which is why we can show real pipeline, revenue, and activation
+            numbers instead of vanity metrics.
+          </p>
+          <p className="text-grey text-lg max-w-2xl mt-4">
+            The four case studies here span dynamic QR infrastructure, trust
+            and consent technology, digital engineering consulting, and
+            regulated fintech, each with a different GTM problem: category
+            education, market validation, brand repositioning, and
+            multi-city scale. What is consistent across all four is the
+            operating model: one senior team running strategy and execution
+            together, instrumented from day one so we know within weeks
+            whether a motion is working.
+          </p>
+          <Byline className="mt-8" />
         </Reveal>
       </section>
       <WorkGrid />
+      <FAQAccordion
+        items={workFaqItems}
+        eyebrow="Questions About Our Work"
+        heading="Before you dig in."
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            webPageJsonLd({
+              name: "Work | Markoholics",
+              description: metadata.description as string,
+              path: "/work",
+            })
+          ),
+        }}
+      />
     </div>
   );
 }

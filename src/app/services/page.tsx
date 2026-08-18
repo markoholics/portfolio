@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { services, pricingTiers, caseStudies } from "@/lib/data";
+import { services, pricingTiers, caseStudies, servicesFaqItems } from "@/lib/data";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
+import Byline from "@/components/Byline";
+import FAQAccordion from "@/components/FAQAccordion";
+import { webPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "AI-native GTM execution across strategy, content, performance marketing, demand generation, and AI transformation. Three productized tiers starting at $500. Built for Series A-C tech founders.",
+    "AI-native GTM execution across strategy, content, performance marketing, and demand generation. Three tiers starting at $500.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {
@@ -27,6 +31,7 @@ export default function ServicesPage() {
             compound, and we run them for you. Choose the entry point that matches
             where you are today.
           </p>
+          <Byline className="mt-8" />
         </Reveal>
       </section>
 
@@ -218,6 +223,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <FAQAccordion
+        items={servicesFaqItems}
+        eyebrow="Questions About Engaging Us"
+        heading="Before you choose a tier."
+      />
+
       <section className="section-pad border-t hairline text-center">
         <Reveal>
           <h2 className="font-display text-white text-4xl md:text-6xl leading-tight max-w-3xl mx-auto mb-10">
@@ -228,6 +239,18 @@ export default function ServicesPage() {
           </MagneticButton>
         </Reveal>
       </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            webPageJsonLd({
+              name: "Services | Markoholics",
+              description: metadata.description as string,
+              path: "/services",
+            })
+          ),
+        }}
+      />
     </div>
   );
 }
