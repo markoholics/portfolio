@@ -1,20 +1,5 @@
 @import "tailwindcss";
 
-@keyframes rotate-hint {
-  0%,
-  15% {
-    transform: rotate(0deg);
-  }
-  45%,
-  65% {
-    transform: rotate(-90deg);
-  }
-  90%,
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
 :root {
   --color-white: #ffffff;
   --color-mist: #f5f5f5;
@@ -35,143 +20,161 @@
   --font-sans: var(--font-inter);
 }
 
-* {
-  box-sizing: border-box;
-}
+/*
+ * Everything below is wrapped in Tailwind's `base`/`components`/`utilities`
+ * layers (the order Tailwind itself declares via `@import "tailwindcss"`).
+ * CSS cascade layers ignore selector specificity and source order between
+ * layers — any *unlayered* rule always beats a layered one. Custom classes
+ * left unlayered here (e.g. `.btn-outline { display: inline-flex }`) were
+ * silently winning over Tailwind utilities like `hidden` and `md:*` on the
+ * same element, regardless of viewport — e.g. the desktop-only nav CTA
+ * (`hidden md:inline-flex btn-outline`) rendered on mobile because
+ * `.btn-outline`'s unlayered `display: inline-flex` overrode `.hidden`.
+ */
 
-html {
-  scroll-behavior: smooth;
-  background: #000000;
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-body {
-  background: #000000;
-  color: #f5f5f5;
-  font-family: var(--font-sans), sans-serif;
-  cursor: none;
-}
+  html {
+    scroll-behavior: smooth;
+    background: #000000;
+  }
 
-@media (max-width: 768px), (hover: none) {
   body {
-    cursor: auto;
+    background: #000000;
+    color: #f5f5f5;
+    font-family: var(--font-sans), sans-serif;
+    cursor: none;
+  }
+
+  @media (max-width: 768px), (hover: none) {
+    body {
+      cursor: auto;
+    }
+  }
+
+  ::selection {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), sans-serif;
+    letter-spacing: -0.02em;
   }
 }
 
-::selection {
-  background: #ffffff;
-  color: #000000;
-}
+@layer components {
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #d9d9d9;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display), sans-serif;
-  letter-spacing: -0.02em;
-}
-
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.28em;
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: #d9d9d9;
-}
-
-.container-edge {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (min-width: 1024px) {
   .container-edge {
-    padding-left: 64px;
-    padding-right: 64px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
   }
-}
 
-.section-pad {
-  padding-top: 96px;
-  padding-bottom: 96px;
-}
+  @media (min-width: 1024px) {
+    .container-edge {
+      padding-left: 64px;
+      padding-right: 64px;
+    }
+  }
 
-@media (min-width: 1024px) {
   .section-pad {
-    padding-top: 160px;
-    padding-bottom: 160px;
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  @media (min-width: 1024px) {
+    .section-pad {
+      padding-top: 160px;
+      padding-bottom: 160px;
+    }
+  }
+
+  .grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+
+  .glass-panel {
+    background: rgba(51, 51, 51, 0.55);
+    border: 1px solid rgba(217, 217, 217, 0.12);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #d9d9d9;
+    color: #f5f5f5;
+    padding: 14px 28px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    transition: background-color 260ms ease, color 260ms ease, border-color 260ms ease;
+  }
+
+  .btn-outline:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+  }
+
+  .btn-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    color: #000000;
+    padding: 14px 28px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    transition: background-color 260ms ease, color 260ms ease;
+  }
+
+  .btn-solid:hover {
+    background: #d9d9d9;
+  }
+
+  .hairline {
+    border-color: rgba(217, 217, 217, 0.16);
   }
 }
 
-.grid-12 {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 24px;
-}
-
-.glass-panel {
-  background: rgba(51, 51, 51, 0.55);
-  border: 1px solid rgba(217, 217, 217, 0.12);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
-
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid #d9d9d9;
-  color: #f5f5f5;
-  padding: 14px 28px;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  transition: background-color 260ms ease, color 260ms ease, border-color 260ms ease;
-}
-
-.btn-outline:hover {
-  background: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
-}
-
-.btn-solid {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #ffffff;
-  color: #000000;
-  padding: 14px 28px;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  transition: background-color 260ms ease, color 260ms ease;
-}
-
-.btn-solid:hover {
-  background: #d9d9d9;
-}
-
-.hairline {
-  border-color: rgba(217, 217, 217, 0.16);
-}
-
-.scrollbar-none::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-none {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-@keyframes text-reveal {
-  from {
-    transform: translateY(110%);
+@layer utilities {
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
-  to {
-    transform: translateY(0%);
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-}
 
-.animate-text-reveal {
-  animation: text-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  @keyframes text-reveal {
+    from {
+      transform: translateY(110%);
+    }
+    to {
+      transform: translateY(0%);
+    }
+  }
+
+  .animate-text-reveal {
+    animation: text-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
 }
