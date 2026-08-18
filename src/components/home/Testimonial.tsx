@@ -10,7 +10,7 @@ export default function Testimonial() {
         <div className="grid-12">
           <div className="col-span-12 lg:col-span-10 lg:col-start-2">
             <Reveal>
-              <blockquote className="font-display text-3xl md:text-5xl lg:text-6xl leading-tight text-white italic">
+              <blockquote className="font-display text-2xl md:text-3xl leading-snug text-white italic">
                 &ldquo;{featured.quote.text}&rdquo;
               </blockquote>
               <div className="mt-10 flex items-center gap-4">
