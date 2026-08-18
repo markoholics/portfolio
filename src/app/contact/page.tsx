@@ -9,7 +9,7 @@ import { CONTACT_EMAIL, contactFaqItems } from "@/lib/data";
 import { webPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Book a GTM Strategy Call",
   description:
     "Start a project with Markoholics. Tell us what you're building, and we'll respond within one business day.",
   alternates: { canonical: "/contact" },

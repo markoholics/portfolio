@@ -9,7 +9,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import { webPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "AI-Native GTM Services & Pricing",
   description:
     "AI-native GTM execution across strategy, content, performance marketing, and demand generation. Three tiers starting at $500.",
   alternates: { canonical: "/services" },
@@ -24,7 +24,7 @@ export default function ServicesPage() {
             Services
           </span>
           <h1 className="font-display text-white text-5xl md:text-7xl leading-[0.95] max-w-3xl">
-            <TextReveal text="One system. Three ways in." />
+            <TextReveal text="One GTM system. Three ways in." />
           </h1>
           <p className="text-grey text-lg max-w-xl mt-8">
             We do not sell hours or deliverable lists. We build GTM systems that
