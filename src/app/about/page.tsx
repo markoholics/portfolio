@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
-import Byline from "@/components/Byline";
 import FAQAccordion from "@/components/FAQAccordion";
 import { approachSteps, aboutFaqItems } from "@/lib/data";
 import { webPageJsonLd } from "@/lib/seo";
@@ -32,7 +31,6 @@ export default function AboutPage() {
             the strategy — because strategy that never touches execution is just
             a deck.
           </p>
-          <Byline className="mt-8" />
         </Reveal>
       </section>
 

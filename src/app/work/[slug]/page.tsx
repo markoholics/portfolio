@@ -5,7 +5,6 @@ import { caseStudies } from "@/lib/data";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
-import Byline from "@/components/Byline";
 import FAQAccordion from "@/components/FAQAccordion";
 import { serviceName, caseStudyFaqItems, caseStudyJsonLd } from "@/lib/seo";
 
@@ -66,7 +65,6 @@ export default async function CaseStudyPage({
                 </span>
               ))}
             </div>
-            <Byline label="Case study by" className="mt-8" />
           </Reveal>
         </div>
       </section>

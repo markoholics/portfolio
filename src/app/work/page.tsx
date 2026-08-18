@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import WorkGrid from "@/components/work/WorkGrid";
-import Byline from "@/components/Byline";
 import FAQAccordion from "@/components/FAQAccordion";
 import { workFaqItems } from "@/lib/data";
 import { webPageJsonLd } from "@/lib/seo";
@@ -41,7 +40,6 @@ export default function WorkIndex() {
             together, instrumented from day one so we know within weeks
             whether a motion is working.
           </p>
-          <Byline className="mt-8" />
         </Reveal>
       </section>
       <WorkGrid />
