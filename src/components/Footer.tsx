@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { navLinks, CONTACT_EMAIL } from "@/lib/data";
+import ObfuscatedEmail from "@/components/ObfuscatedEmail";
+
+const [CONTACT_EMAIL_USER, CONTACT_EMAIL_DOMAIN] = CONTACT_EMAIL.split("@");
 
 export default function Footer() {
   return (
@@ -35,13 +38,11 @@ export default function Footer() {
           <div className="col-span-6 lg:col-span-3 mt-10 lg:mt-0">
             <span className="eyebrow block mb-5">Connect</span>
             <div className="flex flex-col gap-3">
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                data-cursor-hover
+              <ObfuscatedEmail
+                user={CONTACT_EMAIL_USER}
+                domain={CONTACT_EMAIL_DOMAIN}
                 className="text-mist hover:text-white transition-colors"
-              >
-                {CONTACT_EMAIL}
-              </a>
+              />
             </div>
           </div>
         </div>

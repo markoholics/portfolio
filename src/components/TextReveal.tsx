@@ -26,22 +26,33 @@ export default function TextReveal({
 }) {
   const words = text.split(" ");
 
+  // The per-word spans below are laid out with CSS margin instead of a real
+  // space character (so the reveal clip-mask can wrap each word tightly).
+  // That means their raw text content is one run-on word with no
+  // whitespace — invisible to sighted users, but it garbles screen readers
+  // and breaks phrase-level text extraction (crawlers, find-in-page,
+  // copy-paste). We hide the animated spans from assistive tech / text
+  // extraction and provide the real, correctly-spaced string alongside it.
+
   if (priority) {
     return (
       <Tag className={className}>
-        {words.map((word, i) => (
-          <span
-            key={`${word}-${i}`}
-            className="inline-block overflow-hidden align-bottom pb-[0.08em] mr-[0.28em]"
-          >
+        <span className="sr-only">{text}</span>
+        <span aria-hidden="true">
+          {words.map((word, i) => (
             <span
-              className="inline-block animate-text-reveal"
-              style={{ animationDelay: `${delay + i * stagger}s` }}
+              key={`${word}-${i}`}
+              className="inline-block overflow-hidden align-bottom pb-[0.08em] mr-[0.28em]"
             >
-              {word}
+              <span
+                className="inline-block animate-text-reveal"
+                style={{ animationDelay: `${delay + i * stagger}s` }}
+              >
+                {word}
+              </span>
             </span>
-          </span>
-        ))}
+          ))}
+        </span>
       </Tag>
     );
   }
@@ -59,24 +70,27 @@ export default function TextReveal({
 
   return (
     <Tag className={className}>
-      {words.map((word, i) => (
-        <span
-          key={`${word}-${i}`}
-          className="inline-block overflow-hidden align-bottom pb-[0.08em] mr-[0.28em]"
-        >
-          <motion.span
-            className="inline-block"
-            {...animationProps}
-            transition={{
-              duration: 0.9,
-              delay: delay + i * stagger,
-              ease: [0.16, 1, 0.3, 1],
-            }}
+      <span className="sr-only">{text}</span>
+      <span aria-hidden="true">
+        {words.map((word, i) => (
+          <span
+            key={`${word}-${i}`}
+            className="inline-block overflow-hidden align-bottom pb-[0.08em] mr-[0.28em]"
           >
-            {word}
-          </motion.span>
-        </span>
-      ))}
+            <motion.span
+              className="inline-block"
+              {...animationProps}
+              transition={{
+                duration: 0.9,
+                delay: delay + i * stagger,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              {word}
+            </motion.span>
+          </span>
+        ))}
+      </span>
     </Tag>
   );
 }

@@ -7,6 +7,9 @@ import Byline from "@/components/Byline";
 import FAQAccordion from "@/components/FAQAccordion";
 import { CONTACT_EMAIL, contactFaqItems } from "@/lib/data";
 import { webPageJsonLd } from "@/lib/seo";
+import ObfuscatedEmail from "@/components/ObfuscatedEmail";
+
+const [CONTACT_EMAIL_USER, CONTACT_EMAIL_DOMAIN] = CONTACT_EMAIL.split("@");
 
 export const metadata: Metadata = {
   title: "Book a GTM Strategy Call",
@@ -36,13 +39,11 @@ export default function ContactPage() {
                 Share a few details and we&apos;ll set up a strategy call.
                 Prefer email? Reach us directly.
               </p>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                data-cursor-hover
+              <ObfuscatedEmail
+                user={CONTACT_EMAIL_USER}
+                domain={CONTACT_EMAIL_DOMAIN}
                 className="font-display text-2xl md:text-3xl text-white hover:text-grey transition-colors block mb-10"
-              >
-                {CONTACT_EMAIL}
-              </a>
+              />
               <span className="eyebrow block mb-3">Region</span>
               <p className="text-grey mb-8">
                 Remote-first, working with technology companies globally,
