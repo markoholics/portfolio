@@ -28,17 +28,23 @@ export default function CalendlyPopup() {
     }
   }, []);
 
+  useEffect(() => {
+    // Loaded imperatively (not as a JSX <link>) so it never lands in the
+    // server-rendered <head> as a render-blocking stylesheet request.
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://assets.calendly.com/assets/external/widget.css";
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
+
   return (
-    <>
-      <link
-        href="https://assets.calendly.com/assets/external/widget.css"
-        rel="stylesheet"
-      />
-      <Script
-        src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="afterInteractive"
-        onLoad={openPopup}
-      />
-    </>
+    <Script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      strategy="afterInteractive"
+      onLoad={openPopup}
+    />
   );
 }

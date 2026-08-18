@@ -8,7 +8,7 @@ import { approachSteps, aboutFaqItems } from "@/lib/data";
 import { webPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "AI-Native GTM Team for Tech Founders",
   description:
     "Markoholics is an AI-native GTM partner built for Series A-C tech founders who need a growth engine, not an agency. Built by operators, not account managers.",
   alternates: { canonical: "/about" },
@@ -23,7 +23,7 @@ export default function AboutPage() {
             About Markoholics
           </span>
           <h1 className="font-display text-white text-5xl md:text-7xl leading-[0.95] max-w-4xl">
-            <TextReveal text="Built by operators. Not account managers." />
+            <TextReveal text="Built by GTM operators. Not account managers." />
           </h1>
           <p className="text-grey text-lg max-w-2xl mt-8">
             We are not a marketing agency. We are an AI-native GTM partner that

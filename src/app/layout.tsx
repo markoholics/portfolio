@@ -8,16 +8,18 @@ import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MetaPixel from "@/components/analytics/MetaPixel";
 import { SITE_URL, organizationJsonLd } from "@/lib/seo";
 
+// Only weights actually referenced in the codebase (font-medium / .eyebrow)
+// are loaded — every other weight is a font file request nobody uses.
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500"],
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {

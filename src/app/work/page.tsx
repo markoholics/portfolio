@@ -8,7 +8,7 @@ import { workFaqItems } from "@/lib/data";
 import { webPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Work",
+  title: "GTM Case Studies for Tech Founders",
   description:
     "Go-to-market growth engines built for EQRGen, Byosync, Aditi Consulting, and Snapmint across strategy, content, and AI-native demand generation.",
   alternates: { canonical: "/work" },
@@ -21,7 +21,7 @@ export default function WorkIndex() {
         <Reveal>
           <span className="eyebrow block mb-6">Selected Work</span>
           <h1 className="font-display text-white text-5xl md:text-7xl leading-[0.95] max-w-3xl">
-            <TextReveal text="Engines built for category leaders." />
+            <TextReveal text="GTM engines built for category leaders." />
           </h1>
           <p className="text-grey text-lg max-w-2xl mt-8">
             Every engagement below is a full GTM system, not a single campaign:
