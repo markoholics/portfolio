@@ -11,11 +11,9 @@ export default function ClientStrip() {
     <section className="section-pad py-20! bg-black border-y hairline">
       <div className="container-edge">
         <Reveal>
-          <span className="eyebrow block text-center mb-10">
-            Trusted by founders at EQRGen and Byosync
-          </span>
+          <span className="eyebrow block text-center mb-10">Trusted by founders</span>
         </Reveal>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="flex flex-wrap items-center justify-center gap-6">
           {clients.map((client, i) => (
             <Reveal key={client.slug} delay={i * 0.08}>
               <div className="glass-panel flex flex-col items-center justify-center gap-2 h-24 md:h-28 px-4">
