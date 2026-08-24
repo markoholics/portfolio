@@ -31,17 +31,13 @@ export default function FeaturedWork() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {caseStudies.map((cs, i) => (
-            <Reveal key={cs.slug} delay={i * 0.1} className={i === 0 ? "lg:col-span-2" : ""}>
+            <Reveal key={cs.slug} delay={i * 0.1}>
               <Link
                 href={`/work/${cs.slug}`}
                 data-cursor-hover
                 className="group block relative overflow-hidden border hairline"
               >
-                <div
-                  className={`relative bg-black flex flex-col justify-end ${
-                    i === 0 ? "aspect-[21/9]" : "aspect-[4/3]"
-                  }`}
-                >
+                <div className="relative bg-black flex flex-col justify-end aspect-[4/3]">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(217,217,217,0.12),transparent_55%)] transition-opacity duration-500 group-hover:opacity-80" />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.06),transparent)]" />
                   <div className="relative z-10 p-8 md:p-10">
