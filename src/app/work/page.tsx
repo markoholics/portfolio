@@ -9,7 +9,7 @@ import { webPageJsonLd } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Growth Engine Case Studies: Our GTM Work",
   description:
-    "Go-to-market growth engines built for EQRGen, Byosync, Aditi Consulting, and Snapmint across strategy, content, and AI-native demand generation.",
+    "Go-to-market growth engines built for EQRGen and Byosync across strategy, content, and AI-native demand generation.",
   alternates: { canonical: "/work" },
 };
 
@@ -31,14 +31,12 @@ export default function WorkIndex() {
             numbers instead of vanity metrics.
           </p>
           <p className="text-grey text-lg max-w-2xl mt-4">
-            The four case studies here span dynamic QR infrastructure, trust
-            and consent technology, digital engineering consulting, and
-            regulated fintech, each with a different GTM problem: category
-            education, market validation, brand repositioning, and
-            multi-city scale. What is consistent across all four is the
-            operating model: one senior team running strategy and execution
-            together, instrumented from day one so we know within weeks
-            whether a motion is working.
+            The case studies here span dynamic QR infrastructure and trust
+            and consent technology, each with a different GTM problem:
+            category education and market validation. What is consistent
+            across both is the operating model: one senior team running
+            strategy and execution together, instrumented from day one so
+            we know within weeks whether a motion is working.
           </p>
         </Reveal>
       </section>

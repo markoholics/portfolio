@@ -4,8 +4,6 @@ import Reveal from "@/components/Reveal";
 const clientContext: Record<string, string> = {
   eqrgen: "Dynamic QR Infrastructure",
   byosync: "Trust & Consent Tech",
-  "aditi-consulting": "Digital Engineering",
-  snapmint: "E-commerce Fintech",
 };
 
 export default function ClientStrip() {
@@ -14,7 +12,7 @@ export default function ClientStrip() {
       <div className="container-edge">
         <Reveal>
           <span className="eyebrow block text-center mb-10">
-            Trusted by founders at EQRGen, Byosync, Aditi Consulting, and Snapmint
+            Trusted by founders at EQRGen and Byosync
           </span>
         </Reveal>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
