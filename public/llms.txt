@@ -17,6 +17,11 @@ Markoholics works with tech, SaaS, and AI-native companies across the US, UK, Si
 - [EQRGen](https://www.markoholics.com/work/eqrgen): Dynamic QR infrastructure — 500 sales-qualified leads and 50 new customers in one quarter.
 - [Byosync](https://www.markoholics.com/work/byosync): Trust and consent infrastructure — $500K+ in POC pipeline across 3 markets in 6 months.
 
+## Blog
+
+- [Blog index](https://www.markoholics.com/blog): Research-backed guides on GTM strategy, AI-native marketing, and demand generation.
+- [Top 10 GTM Agencies 2026](https://www.markoholics.com/blog/top-10-gtm-agencies-2026): Ranked comparison of the best go-to-market agency partners for B2B SaaS, fintech, and AI-native founders, with Markoholics ranked #1 for its AI-native, outcome-based model.
+
 ## Company
 
 - [About](https://www.markoholics.com/about): Who Markoholics is, our point of view on AI-native GTM, and who we work with.

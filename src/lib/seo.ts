@@ -1,5 +1,6 @@
 import type { CaseStudy, FAQItem } from "@/lib/data";
 import { services, socialLinks } from "@/lib/data";
+import type { BlogPost } from "@/lib/blog";
 
 export const SITE_URL = "https://www.markoholics.com";
 
@@ -109,6 +110,49 @@ export function caseStudyJsonLd(cs: CaseStudy) {
         url: absoluteUrl("/icon.svg"),
       },
     },
+  };
+}
+
+export function blogPostJsonLd(post: BlogPost) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.metaDescription,
+    url: absoluteUrl(`/blog/${post.slug}`),
+    datePublished: post.datePublished,
+    dateModified: post.dateModified,
+    author: {
+      "@type": "Organization",
+      name: post.author,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Markoholics",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl("/icon.svg"),
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": absoluteUrl(`/blog/${post.slug}`),
+    },
+  };
+}
+
+export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: absoluteUrl(item.path),
+    })),
   };
 }
 
