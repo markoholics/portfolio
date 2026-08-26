@@ -5,6 +5,7 @@ import ProblemSection from "@/components/home/ProblemSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import FeaturedWork from "@/components/home/FeaturedWork";
 import ApproachSection from "@/components/home/ApproachSection";
+import AiStackSection from "@/components/home/AiStackSection";
 import ProofBar from "@/components/home/ProofBar";
 import Testimonial from "@/components/home/Testimonial";
 import FAQSection from "@/components/home/FAQSection";
@@ -20,6 +21,7 @@ export default function Home() {
       <ServicesSection />
       <FeaturedWork />
       <ApproachSection />
+      <AiStackSection />
       <ProofBar />
       <Testimonial />
       <FAQSection />

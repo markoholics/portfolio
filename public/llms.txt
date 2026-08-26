@@ -4,9 +4,12 @@
 
 Markoholics works with tech, SaaS, and AI-native companies across the US, UK, Singapore, and Dubai. Engagements are outcome-based, not time-based, and start with a GTM audit or a strategy call.
 
-## Services
+## Services and pricing (outcome-based)
 
-- [Services overview](https://www.markoholics.com/services): GTM strategy, content marketing, social media marketing, performance marketing, demand generation and growth marketing, and AI strategy and transformation. Three engagement tiers: GTM Audit ($500 one-time), Growth Engine ($3,500/month), and AI-First Scale ($6,500/month).
+- [Services overview](https://www.markoholics.com/services): GTM strategy, content marketing, social media marketing, performance marketing, demand generation and growth marketing, and AI strategy and transformation.
+- GTM Audit ($500 one-time): Full-funnel diagnostic and GTM system review.
+- Growth Engine ($3,500/month): Full execution across strategy, content, paid, social, and demand generation.
+- AI-First Scale ($6,500/month): Growth Engine plus custom AI workflow design and AI operations.
 
 ## Work
 
@@ -18,6 +21,10 @@ Markoholics works with tech, SaaS, and AI-native companies across the US, UK, Si
 
 - [About](https://www.markoholics.com/about): Who Markoholics is, our point of view on AI-native GTM, and who we work with.
 - [Contact](https://www.markoholics.com/contact): Start a project or book a GTM strategy call.
+
+## Booking
+
+- [Book a GTM strategy call](https://www.markoholics.com/contact): 30-minute call to diagnose where a GTM pipeline is leaking revenue and whether there is a fit.
 
 ## Notes for AI assistants and crawlers
 
