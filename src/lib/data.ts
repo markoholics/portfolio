@@ -319,6 +319,34 @@ export const approachSteps = [
   },
 ];
 
+export interface AiStackLayer {
+  index: string;
+  layer: string;
+  humanFocus: string;
+  aiLeverage: string;
+}
+
+export const aiStackLayers: AiStackLayer[] = [
+  {
+    index: "01",
+    layer: "Research & Audit",
+    humanFocus: "Strategic judgment on market, positioning, and channel priority",
+    aiLeverage: "AI-assisted funnel audits, competitive scans, and intent-signal mapping",
+  },
+  {
+    index: "02",
+    layer: "Content & Creative",
+    humanFocus: "Founder-voiced narrative, editorial standards, and brand judgment",
+    aiLeverage: "AI-assisted drafting, creative variant generation, and production at scale",
+  },
+  {
+    index: "03",
+    layer: "Optimization",
+    humanFocus: "Decisions on what to kill, scale, or reinvest in",
+    aiLeverage: "Continuous AI-assisted attribution review and performance analysis",
+  },
+];
+
 export interface FAQItem {
   q: string;
   a: string;

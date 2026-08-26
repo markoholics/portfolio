@@ -32,6 +32,11 @@ export function organizationJsonLd() {
     },
     areaServed: ["United States", "United Kingdom", "Singapore", "United Arab Emirates", "India"],
     priceRange: "$500-$6,500",
+    founder: {
+      "@type": "Person",
+      name: "Mohammad H. Rahman",
+      sameAs: "https://in.linkedin.com/in/theotherrahman",
+    },
     knowsAbout: [
       "Go-To-Market Strategy",
       "B2B SaaS Growth Marketing",
