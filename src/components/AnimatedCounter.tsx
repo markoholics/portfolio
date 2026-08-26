@@ -16,7 +16,9 @@ export default function AnimatedCounter({
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-  const [display, setDisplay] = useState(0);
+  // Starts at the final value so the server-rendered markup (what crawlers
+  // and AI answer engines see) is never a bare "0" before the count-up runs.
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
     if (!inView) return;
