@@ -361,6 +361,38 @@ export const faqItems: FAQItem[] = [
     q: "What does the engagement process look like?",
     a: "We start with a 30-minute strategy call. If there is a fit, we send the agreement and first invoice. Work begins upon payment. Most clients are live within 7 days of signing.",
   },
+  {
+    q: "Do you work with AI-native platforms and AI startups?",
+    a: "Yes. AI-native platforms are a core focus alongside SaaS and tech. We build GTM systems specifically for AI companies: positioning that cuts through category noise, content that explains what the product actually does, and demand gen tuned for technical buyers evaluating AI tools.",
+  },
+  {
+    q: "What does a GTM strategy engagement with Markoholics include?",
+    a: "A GTM strategy engagement maps your positioning, channel mix, content architecture, and AI workflow stack into one system, not a slide deck. We define what to build, in what order, and how to measure it, then execute it ourselves.",
+  },
+  {
+    q: "Does Markoholics handle content marketing for tech companies?",
+    a: "Yes. Content marketing is a core service: technical blog content, thought leadership, case studies, and SEO/AEO-optimized pages built to rank in search and get cited by AI answer engines like ChatGPT and Perplexity.",
+  },
+  {
+    q: "Do you specialize in B2B SaaS marketing?",
+    a: "B2B SaaS is our primary focus. We understand SaaS buying cycles, PLG and sales-led motions, and how to align content, paid, and demand gen around a recurring-revenue business, not a one-time purchase.",
+  },
+  {
+    q: "Can Markoholics help with product positioning?",
+    a: "Yes, positioning is the first thing we fix. Before we touch a single channel, we define the category you compete in, the buyer you are built for, and the message that makes you the obvious choice, so every downstream channel says the same thing.",
+  },
+  {
+    q: "Do you work with early-stage startups?",
+    a: "Yes. We work with founders from seed through growth stage who need a full GTM engine without hiring a full team. Our AI-native workflow lets a lean startup budget cover strategy, content, paid, social, and demand gen at once.",
+  },
+  {
+    q: "How is Markoholics different from a typical GTM agency?",
+    a: "Most GTM agencies hand you a bundle of disconnected vendors: one for content, one for paid, one for social. We run all of it as one AI-native system built around your specific GTM strategy, so channels reinforce each other instead of competing for budget.",
+  },
+  {
+    q: "What does demand generation look like at Markoholics?",
+    a: "Demand generation means paid, content, and outbound working off the same positioning and instrumented the same way, so you can see exactly which channel is driving pipeline, not just impressions.",
+  },
 ];
 
 export const servicesFaqItems: FAQItem[] = faqItems.filter((item) =>
