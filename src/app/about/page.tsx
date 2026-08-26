@@ -21,7 +21,7 @@ export default function AboutPage() {
           <span className="eyebrow block mb-6" style={{ color: "var(--color-accent)" }}>
             About Markoholics
           </span>
-          <h1 className="font-display text-white text-5xl md:text-7xl leading-[0.95] max-w-4xl">
+          <h1 className="font-display text-white text-4xl md:text-5xl lg:text-6xl leading-tight max-w-4xl">
             <TextReveal text="Built by GTM operators. Not account managers." />
           </h1>
           <p className="text-grey text-lg max-w-2xl mt-8">

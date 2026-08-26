@@ -22,7 +22,7 @@ export default function ServicesPage() {
           <span className="eyebrow block mb-6" style={{ color: "var(--color-accent)" }}>
             Services
           </span>
-          <h1 className="font-display text-white text-5xl md:text-7xl leading-[0.95] max-w-3xl">
+          <h1 className="font-display text-white text-4xl md:text-5xl lg:text-6xl leading-tight max-w-3xl">
             <TextReveal text="One GTM system. Three ways in." />
           </h1>
           <p className="text-grey text-lg max-w-xl mt-8">

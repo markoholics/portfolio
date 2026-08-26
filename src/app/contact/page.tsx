@@ -24,7 +24,7 @@ export default function ContactPage() {
       <section className="container-edge pb-20">
         <Reveal>
           <span className="eyebrow block mb-6">Contact</span>
-          <h1 className="font-display text-white text-5xl md:text-7xl leading-[0.95] max-w-3xl">
+          <h1 className="font-display text-white text-4xl md:text-5xl lg:text-6xl leading-tight max-w-3xl">
             <TextReveal text="Tell us what you're building." />
           </h1>
         </Reveal>
