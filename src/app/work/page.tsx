@@ -19,7 +19,7 @@ export default function WorkIndex() {
       <section className="container-edge pb-16">
         <Reveal>
           <span className="eyebrow block mb-6">Selected Work</span>
-          <h1 className="font-display text-white text-5xl md:text-7xl leading-[0.95] max-w-3xl">
+          <h1 className="font-display text-white text-4xl md:text-5xl lg:text-6xl leading-tight max-w-3xl">
             <TextReveal text="GTM engines built for category leaders." />
           </h1>
           <p className="text-grey text-lg max-w-2xl mt-8">

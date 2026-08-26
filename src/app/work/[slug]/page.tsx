@@ -52,7 +52,7 @@ export default async function CaseStudyPage({
         <div className="container-edge relative z-10">
           <Reveal>
             <span className="eyebrow block mb-6">{cs.sector}</span>
-            <h1 className="font-display text-white text-5xl md:text-7xl leading-[0.95] mb-8">
+            <h1 className="font-display text-white text-4xl md:text-5xl lg:text-6xl leading-tight mb-8">
               <TextReveal text={cs.name} />
             </h1>
             <div className="flex flex-wrap gap-2">
