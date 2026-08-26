@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
-import { blogPosts } from "@/lib/blog";
+import { getSortedBlogPosts } from "@/lib/blog";
 import { webPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -13,6 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default function BlogIndex() {
+  const posts = getSortedBlogPosts();
+
   return (
     <div className="bg-black pt-40">
       <section className="container-edge pb-16">
@@ -33,7 +35,7 @@ export default function BlogIndex() {
       <section className="section-pad pt-0">
         <div className="container-edge">
           <div className="border-t hairline">
-            {blogPosts.map((post, i) => (
+            {posts.map((post, i) => (
               <Reveal key={post.slug} delay={i * 0.05}>
                 <Link
                   href={`/blog/${post.slug}`}

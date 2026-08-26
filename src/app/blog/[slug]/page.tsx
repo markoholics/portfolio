@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import FAQAccordion from "@/components/FAQAccordion";
 import MagneticButton from "@/components/MagneticButton";
+import RichText from "@/components/blog/RichText";
 import { blogPostJsonLd, faqJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -79,10 +80,12 @@ export default async function BlogPostPage({
           <Reveal delay={0.1}>
             {post.intro.map((p, i) => (
               <p key={i} className="text-mist text-xl md:text-2xl leading-snug font-display mb-6">
-                {p}
+                <RichText text={p} />
               </p>
             ))}
-            <p className="text-grey text-lg leading-relaxed">{post.definition}</p>
+            <p className="text-grey text-lg leading-relaxed">
+              <RichText text={post.definition} />
+            </p>
           </Reveal>
         </div>
 
@@ -94,7 +97,7 @@ export default async function BlogPostPage({
                 {post.keyTakeaways.map((t, i) => (
                   <li key={i} className="text-grey leading-relaxed pl-6 relative">
                     <span className="absolute left-0 top-[0.6em] w-2 h-px bg-grey" />
-                    {t}
+                    <RichText text={t} />
                   </li>
                 ))}
               </ul>
@@ -144,7 +147,9 @@ export default async function BlogPostPage({
                       </span>
                     </div>
                     <div className="md:col-span-8">
-                      <p className="text-grey leading-relaxed">{entry.description}</p>
+                      <p className="text-grey leading-relaxed">
+                        <RichText text={entry.description} />
+                      </p>
                     </div>
                   </div>
                 </Reveal>
@@ -161,7 +166,7 @@ export default async function BlogPostPage({
               </h2>
               {section.paragraphs.map((p, j) => (
                 <p key={j} className="text-grey text-lg leading-relaxed mb-5">
-                  {p}
+                  <RichText text={p} />
                 </p>
               ))}
               {section.table && (
@@ -209,7 +214,7 @@ export default async function BlogPostPage({
       <FAQAccordion
         items={post.faqs}
         eyebrow="Frequently Asked Questions (FAQs)"
-        heading="Before you pick an agency."
+        heading="Before you decide."
       />
 
       <script

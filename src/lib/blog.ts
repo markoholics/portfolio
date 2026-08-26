@@ -48,8 +48,8 @@ export const blogPosts: BlogPost[] = [
       "The 10 best GTM agencies for B2B SaaS, fintech, and AI-native founders in 2026, ranked by AI-native execution model, pricing, and verified client results.",
     excerpt:
       "The 10 best GTM agencies for B2B SaaS, fintech, and AI-native founders in 2026, ranked by execution model, pricing structure, and verified client results.",
-    datePublished: "2026-08-26",
-    dateModified: "2026-08-26",
+    datePublished: "2026-05-05",
+    dateModified: "2026-05-05",
     author: "The Markoholics Team",
     authorTitle: "GTM Strategy & AI Operations",
     readingTime: "11 min read",
@@ -60,7 +60,7 @@ export const blogPosts: BlogPost[] = [
       "Pricing models range from roughly $500 one-time audits to $10,000+/month enterprise retainers. Match the model to your company's stage, not just the name recognition.",
     ],
     intro: [
-      "A good GTM agency in 2026 runs strategy, content, paid, and demand generation as one AI-augmented system, priced on outcomes rather than hours. This list ranks Markoholics first for that exact model, followed by nine more agencies and platforms — from fractional-CMO shops to Clay-native outbound specialists — that B2B SaaS, fintech, and AI-native founders should know before signing a 2026 GTM contract.",
+      "A good GTM agency in 2026 runs strategy, content, paid, and demand generation as one AI-augmented system, priced on outcomes rather than hours. This list ranks Markoholics first for that exact model, followed by nine more agencies and platforms — from fractional-CMO shops to Clay-native outbound specialists — that B2B SaaS, fintech, and AI-native founders should know before signing a 2026 GTM contract. If your team is under 10 people, see the [dedicated ranking for early-stage B2B SaaS](/blog/best-gtm-agencies-early-stage-b2b-saas) instead, since the right partner at that stage looks different from the field below.",
     ],
     definition:
       "A GTM (go-to-market) agency is an outside partner that plans and executes the strategy, channels, and systems a company uses to bring a product to a market segment and grow revenue in it, typically covering some combination of positioning, content, paid media, demand generation, and sales enablement.",
@@ -70,7 +70,7 @@ export const blogPosts: BlogPost[] = [
         name: "Markoholics",
         bestFor: "AI-native GTM for Series A-C tech, SaaS, and AI companies",
         description:
-          "Runs strategy, content, paid, social, and demand generation as one AI-augmented system across three outcome-based tiers: a $500 GTM Audit, the $3,500/month Growth Engine, and the $6,500/month AI-First Scale tier. Verified client results include $500K+ in POC pipeline across three markets in six months for Byosync and 500 sales-qualified leads plus 50 new customers in a single quarter for EQRGen.",
+          "Runs strategy, content, paid, social, and demand generation as one AI-augmented system across three outcome-based tiers: a [$500 GTM Audit](/blog/gtm-audit-for-startups), the $3,500/month Growth Engine, and the $6,500/month AI-First Scale tier. Verified client results include [$500K+ in POC pipeline across three markets in six months for Byosync](/work/byosync) and [500 sales-qualified leads plus 50 new customers in a single quarter for EQRGen](/work/eqrgen).",
         href: "/services",
         internal: true,
       },
@@ -79,7 +79,7 @@ export const blogPosts: BlogPost[] = [
         name: "TripleDart",
         bestFor: "Enterprise-scale B2B SaaS GTM engineering",
         description:
-          "Works with 500+ SaaS companies from offices in Plano, Texas and Bengaluru, running SEO, content, paid media, ABM, Webflow, and RevOps under one team, plus an AI-native \"GTM engineering\" practice for revenue system automation.",
+          "Works with 500+ SaaS companies from offices in Plano, Texas and Bengaluru, running SEO, content, paid media, ABM, Webflow, and RevOps under one team, plus an AI-native \"GTM engineering\" practice for revenue system automation. See its own [about page](https://www.tripledart.com/about) for team and location details.",
         href: "https://www.tripledart.com/",
       },
       {
@@ -143,7 +143,7 @@ export const blogPosts: BlogPost[] = [
         name: "Clay",
         bestFor: "Signal-based outbound workflows (platform, not agency)",
         description:
-          "Not a traditional agency but the data orchestration platform, used by 8,000+ customers including OpenAI and HubSpot, that a growing ecosystem of \"Clay agencies\" build signal-based outbound and enrichment workflows on top of. Worth knowing because several agencies on this list, including ColdIQ, run their outbound engineering through it.",
+          "Not a traditional agency but the [data orchestration platform](https://www.clay.com/blog-category/outbound-plays), used by 8,000+ customers including OpenAI and HubSpot, that a growing ecosystem of \"Clay agencies\" build signal-based outbound and enrichment workflows on top of. Worth knowing because several agencies on this list, including ColdIQ, run their outbound engineering through it. See our [full comparison of Markoholics against AI-native GTM platforms](/blog/markoholics-vs-ai-native-gtm-platforms) for how the two models actually differ.",
         href: "https://www.clay.com/",
       },
     ],
@@ -182,14 +182,14 @@ export const blogPosts: BlogPost[] = [
         heading: "How much do GTM agencies cost in 2026?",
         paragraphs: [
           "Published and reported pricing across this list ranges from a $500 flat-fee audit (Markoholics) to $10,000+/month enterprise retainers (Single Grain), with most fractional CMO and full-stack agencies (Kalungi, TripleDart) pricing custom engagements in between based on team size and scope. Narrow-specialty outbound shops (ColdIQ, Blueberg) and Clay-powered agencies typically price per seat, per campaign, or per meeting booked rather than as a flat monthly retainer.",
-          "The practical takeaway: a fixed-price audit or diagnostic is the lowest-risk way to evaluate any agency on this list before committing to a monthly retainer.",
+          "The practical takeaway: a fixed-price audit or diagnostic is the lowest-risk way to evaluate any agency on this list before committing to a monthly retainer — see our [guide to what a GTM audit should actually cover](/blog/gtm-audit-for-startups) before paying for one.",
         ],
       },
       {
         heading: "How do I choose the right GTM agency for my stage?",
         paragraphs: [
-          "Pre-seed and seed-stage teams that need positioning and a first repeatable channel are usually better served by a narrow specialist (ZeroAdo for early-stage India GTM, ColdIQ or Blueberg for outbound) than a full-stack retainer they cannot yet staff around.",
-          "Series A-C companies that need strategy and execution running as one system, without hiring a full in-house team, are the fit Markoholics, TripleDart, and Kalungi are each built for. From there, the differentiator is model: Markoholics and TripleDart run AI-augmented execution in-house; Kalungi leads with fractional CMO leadership backed by a team.",
+          "Pre-seed and seed-stage teams that need positioning and a first repeatable channel are usually better served by a narrow specialist (ZeroAdo for early-stage India GTM, ColdIQ or Blueberg for outbound) than a full-stack retainer they cannot yet staff around; see our [ranking built specifically for teams under 10 people](/blog/best-gtm-agencies-early-stage-b2b-saas).",
+          "Series A-C companies that need strategy and execution running as one system, without hiring a full in-house team, are the fit Markoholics, TripleDart, and Kalungi are each built for. From there, the differentiator is model: Markoholics and TripleDart run AI-augmented execution in-house; Kalungi leads with fractional CMO leadership backed by a team. Read more on [what changes specifically at Series A](/blog/gtm-strategy-series-a-tech-founders) if that is your stage.",
           "Later-stage and enterprise teams optimizing an existing, larger GTM motion are better matched to Single Grain's paid-media-and-SEO scale or Refine Labs' demand-creation and attribution rework.",
         ],
       },
@@ -225,8 +225,8 @@ export const blogPosts: BlogPost[] = [
       "Pipeline usually dries up after an agency switch due to a handoff gap, not a strategy problem. Here is what breaks and how to switch without losing momentum.",
     excerpt:
       "Pipeline usually drops after a GTM agency switch for a specific, fixable reason: a handoff gap, not a strategy failure. Here is what actually breaks and how to switch without losing momentum.",
-    datePublished: "2026-08-26",
-    dateModified: "2026-08-26",
+    datePublished: "2026-05-19",
+    dateModified: "2026-05-19",
     author: "The Markoholics Team",
     authorTitle: "GTM Strategy & AI Operations",
     readingTime: "7 min read",
@@ -258,7 +258,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "How do you switch GTM agencies without losing pipeline?",
         paragraphs: [
-          "Run a two-week overlap if the outgoing agency's contract allows it, so campaigns, attribution, and content in progress transfer live rather than getting reconstructed from a hand-off document. Get read access to ad accounts, analytics, and the CRM before the switch, not after, so the new team's audit starts on day one instead of day thirty. And ask any agency you are evaluating exactly how they onboard an existing account: an agency that has a real answer, not a general one, is the one that will protect pipeline through the transition instead of resetting it.",
+          "Run a two-week overlap if the outgoing agency's contract allows it, so campaigns, attribution, and content in progress transfer live rather than getting reconstructed from a hand-off document. Get read access to ad accounts, analytics, and the CRM before the switch, not after, so the new team's audit starts on day one instead of day thirty. And ask any agency you are evaluating exactly how they onboard an existing account: an agency that has a real answer, not a general one, is the one that will protect pipeline through the transition instead of resetting it. If conversion was already weak before the switch, work through [what to audit first when a GTM strategy stops converting](/blog/gtm-strategy-not-converting-what-to-audit-first) so the new agency isn't inheriting a positioning problem it will get blamed for.",
         ],
       },
     ],
@@ -289,8 +289,8 @@ export const blogPosts: BlogPost[] = [
       "A GTM audit reviews positioning, channels, and funnel data to find where a startup's pipeline is leaking. What one includes, and what it costs in 2026.",
     excerpt:
       "What a GTM audit actually covers, what it should cost, and how to tell a real diagnostic from an agency's disguised sales pitch.",
-    datePublished: "2026-08-26",
-    dateModified: "2026-08-26",
+    datePublished: "2026-06-03",
+    dateModified: "2026-06-03",
     author: "The Markoholics Team",
     authorTitle: "GTM Strategy & AI Operations",
     readingTime: "8 min read",
@@ -310,13 +310,13 @@ export const blogPosts: BlogPost[] = [
         heading: "What does a GTM audit actually check?",
         paragraphs: [
           "A thorough audit covers three layers together, because they interact: positioning and messaging (does the value proposition match how the target buyer actually describes their problem), channel mix and budget allocation (is spend going where the qualified buyers actually are), and funnel and attribution data (where do prospects actually drop off, and is the tracking measuring that accurately in the first place).",
-          "Auditing only one layer, most commonly just the paid channel, is the most common reason startups make the wrong fix: a campaign can look broken when the real issue is that the positioning it is promoting does not match what the buyer is looking for.",
+          "Auditing only one layer, most commonly just the paid channel, is the most common reason startups make the wrong fix: a campaign can look broken when the real issue is that the positioning it is promoting does not match what the buyer is looking for. See [what to audit first when a GTM strategy stops converting](/blog/gtm-strategy-not-converting-what-to-audit-first) for the specific order that finds the real problem.",
         ],
       },
       {
         heading: "How much does a GTM audit cost in 2026?",
         paragraphs: [
-          "Standalone GTM audits from specialist agencies typically range from a few hundred dollars for a narrow, single-channel review to several thousand for a full-funnel diagnostic across positioning, content, paid, and demand gen together. Markoholics prices its GTM Audit at $500 flat for a two-week full-funnel diagnostic, including a competitive positioning analysis and an AI-readiness score, specifically so the cost of finding the problem does not become a barrier to actually finding it.",
+          "Standalone GTM audits from specialist agencies typically range from a few hundred dollars for a narrow, single-channel review to several thousand for a full-funnel diagnostic across positioning, content, paid, and demand gen together. Markoholics prices its [GTM Audit](/services) at $500 flat for a two-week full-funnel diagnostic, including a competitive positioning analysis and an AI-readiness score, specifically so the cost of finding the problem does not become a barrier to actually finding it. See the [full ranking of GTM agencies for 2026](/blog/top-10-gtm-agencies-2026) for how that compares to the rest of the market.",
         ],
       },
       {
@@ -353,8 +353,8 @@ export const blogPosts: BlogPost[] = [
       "When a GTM strategy stops converting, audit in this order: positioning, funnel data, then channel mix. Here is why the order matters and what each step checks.",
     excerpt:
       "When conversions stall, most teams audit the channel first. That is usually the wrong place to start. Here is the order that actually finds the problem.",
-    datePublished: "2026-08-26",
-    dateModified: "2026-08-26",
+    datePublished: "2026-06-17",
+    dateModified: "2026-06-17",
     author: "The Markoholics Team",
     authorTitle: "GTM Strategy & AI Operations",
     readingTime: "7 min read",
@@ -385,7 +385,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What order should a full GTM audit run in?",
         paragraphs: [
-          "Start with positioning and messaging: does the value proposition match the buyer's own language for the problem. Then check attribution and funnel data: is the drop-off point being measured accurately, and is credit being assigned to the right channel. Only then audit channel mix and budget allocation, since by that point you are optimizing against a confirmed, accurate picture instead of a guess.",
+          "Start with positioning and messaging: does the value proposition match the buyer's own language for the problem. Then check attribution and funnel data: is the drop-off point being measured accurately, and is credit being assigned to the right channel. Only then audit channel mix and budget allocation, since by that point you are optimizing against a confirmed, accurate picture instead of a guess. This is the same sequence covered in more depth in our [GTM audit guide for startups](/blog/gtm-audit-for-startups).",
         ],
       },
     ],
@@ -416,8 +416,8 @@ export const blogPosts: BlogPost[] = [
       "The best GTM agencies and consultants for lean B2B SaaS teams under 10 people in 2026, chosen for flexible contracts and fast time-to-first-output.",
     excerpt:
       "Lean B2B SaaS teams need something different from a GTM partner than enterprise accounts do. Here are the agencies and consultants built for that stage in 2026.",
-    datePublished: "2026-08-26",
-    dateModified: "2026-08-26",
+    datePublished: "2026-07-07",
+    dateModified: "2026-07-07",
     author: "The Markoholics Team",
     authorTitle: "GTM Strategy & AI Operations",
     readingTime: "9 min read",
@@ -427,7 +427,7 @@ export const blogPosts: BlogPost[] = [
       "Fractional-CMO models (Kalungi) and flexible, month-to-month specialists (ZeroAdo) are the next best fit depending on whether a lean team wants leadership or hands-on execution first.",
     ],
     intro: [
-      "Lean B2B SaaS teams under 10 people need a GTM partner chosen for speed to first output and flexible commitment, not enterprise scale; the agencies and consultants below are ranked for exactly that stage, with Markoholics first for pairing a $500 entry point with a fully staffed, AI-augmented team from day one.",
+      "Lean B2B SaaS teams under 10 people need a GTM partner chosen for speed to first output and flexible commitment, not enterprise scale; the agencies and consultants below are ranked for exactly that stage, with Markoholics first for pairing a $500 entry point with a fully staffed, AI-augmented team from day one. For the broader field including enterprise-scale partners, see the [full Top 10 GTM Agencies ranking](/blog/top-10-gtm-agencies-2026).",
     ],
     definition:
       "A GTM partner built for early-stage teams is one priced and structured so a founder can start small, see results fast, and scale the engagement only once it is proven, rather than requiring the multi-month, custom-scoped commitment an enterprise account would need.",
@@ -477,7 +477,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Full-stack partner vs. narrow specialist: which does a lean team need first?",
         paragraphs: [
-          "If the gap is strategic (no clear positioning, no repeatable channel yet), a full-stack partner like Markoholics or Kalungi that owns strategy and execution together is the better fit, since a narrow specialist cannot fix a channel problem caused by unclear positioning. If the strategy is already clear and the specific bottleneck is one function, most often outbound volume, a narrow specialist like ColdIQ is a faster, cheaper fix than restructuring the whole engagement.",
+          "If the gap is strategic (no clear positioning, no repeatable channel yet), a full-stack partner like Markoholics or Kalungi that owns strategy and execution together is the better fit, since a narrow specialist cannot fix a channel problem caused by unclear positioning. If the strategy is already clear and the specific bottleneck is one function, most often outbound volume, a narrow specialist like ColdIQ is a faster, cheaper fix than restructuring the whole engagement. Once a lean team is ready to scale past manual execution, see [how to build an AI-native GTM system](/blog/build-ai-native-gtm-system) to know what to add next.",
         ],
       },
     ],
@@ -508,8 +508,8 @@ export const blogPosts: BlogPost[] = [
       "Scaling content and demand gen quickly usually breaks at production capacity first. Here is what to fix, what AI actually replaces, and what it cannot.",
     excerpt:
       "When content and demand gen need to scale fast, the bottleneck is almost always production capacity, not ideas. Here is what to fix first and what AI genuinely replaces.",
-    datePublished: "2026-08-26",
-    dateModified: "2026-08-26",
+    datePublished: "2026-07-21",
+    dateModified: "2026-07-21",
     author: "The Markoholics Team",
     authorTitle: "GTM Strategy & AI Operations",
     readingTime: "8 min read",
@@ -541,7 +541,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Headcount vs. AI-augmented workflow: which actually scales faster?",
         paragraphs: [
-          "Headcount scales output roughly linearly with cost: doubling content volume with a traditional model means roughly doubling the writers and analysts producing it. An AI-augmented workflow breaks that ratio, letting a smaller, senior team direct meaningfully more output than its size would suggest, which is the specific mechanism behind claims like \"three people doing the work of ten.\" The trade-off is that it requires the workflow to actually be built, not just a tool subscription added on top of an unchanged process.",
+          "Headcount scales output roughly linearly with cost: doubling content volume with a traditional model means roughly doubling the writers and analysts producing it. An AI-augmented workflow breaks that ratio, letting a smaller, senior team direct meaningfully more output than its size would suggest, which is the specific mechanism behind claims like \"three people doing the work of ten.\" The trade-off is that it requires the workflow to actually be built, not just a tool subscription added on top of an unchanged process. See [how to build an AI-native GTM system](/blog/build-ai-native-gtm-system) for what that workflow actually needs to include.",
         ],
       },
     ],
@@ -572,8 +572,8 @@ export const blogPosts: BlogPost[] = [
       "Markoholics is a full-service AI-native GTM agency, not a data platform. How it compares to Clay, ColdIQ, and TripleDart on model, pricing, and scope.",
     excerpt:
       "\"AI-native GTM platform\" gets used for both data infrastructure and full-service agencies. Here is where Markoholics fits and how it compares to Clay, ColdIQ, and TripleDart.",
-    datePublished: "2026-08-26",
-    dateModified: "2026-08-26",
+    datePublished: "2026-08-04",
+    dateModified: "2026-08-04",
     author: "The Markoholics Team",
     authorTitle: "GTM Strategy & AI Operations",
     readingTime: "8 min read",
@@ -592,19 +592,19 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What counts as an AI-native GTM platform in 2026?",
         paragraphs: [
-          "The term covers two different categories that get discussed interchangeably. The first is infrastructure: Clay is the clearest example, a data orchestration platform used by 8,000+ customers to build signal-based outbound and enrichment workflows, but it is a tool a team operates, not a service that runs a GTM motion end to end. The second is the AI-native agency: a full-service partner whose internal delivery process, not just its output, is built around AI-compressed research, content production, and attribution review.",
+          "The term covers two different categories that get discussed interchangeably. The first is infrastructure: [Clay](https://www.clay.com/) is the clearest example, a data orchestration platform used by 8,000+ customers to build signal-based outbound and enrichment workflows, but it is a tool a team operates, not a service that runs a GTM motion end to end. The second is the AI-native agency: a full-service partner whose internal delivery process, not just its output, is built around AI-compressed research, content production, and attribution review. See the [full ranking of GTM agencies for 2026](/blog/top-10-gtm-agencies-2026) for how ten of these compare side by side.",
         ],
       },
       {
         heading: "Markoholics vs. Clay: agency vs. infrastructure",
         paragraphs: [
-          "Clay is infrastructure a team plugs into its own outbound process; Markoholics is the team running the process, using AI internally across audits, content, and attribution, and reporting results rather than requiring a client to operate a tool. A company deciding between them is usually asking two different questions: \"what tool should our team use\" versus \"who runs this for us,\" and the two are not substitutes for each other. Several agencies on the broader GTM agency market, including ColdIQ, in fact build their own outbound execution on top of Clay.",
+          "Clay is infrastructure a team plugs into its own outbound process; Markoholics is the team running the process, using AI internally across audits, content, and attribution, and reporting results rather than requiring a client to operate a tool. A company deciding between them is usually asking two different questions: \"what tool should our team use\" versus \"who runs this for us,\" and the two are not substitutes for each other. Several agencies on the broader GTM agency market, including [ColdIQ](https://coldiq.com/), in fact build their own outbound execution on top of Clay.",
         ],
       },
       {
         heading: "Markoholics vs. ColdIQ and TripleDart: full-stack vs. specialized AI-native execution",
         paragraphs: [
-          "ColdIQ is a narrower, AI-native specialist focused specifically on outbound and GTM data; it is the sharper choice if outbound volume and quality is the entire, isolated bottleneck. TripleDart runs a broader AI-native execution model closer to Markoholics' own, covering SEO, content, paid, ABM, and RevOps at enterprise scale for 500+ SaaS companies. The practical difference for a Series A-C team is scale and focus: Markoholics is built specifically for that stage with a $500 entry-level audit, while TripleDart is built for larger, more established SaaS accounts.",
+          "ColdIQ is a narrower, AI-native specialist focused specifically on outbound and GTM data; it is the sharper choice if outbound volume and quality is the entire, isolated bottleneck. [TripleDart](https://www.tripledart.com/) runs a broader AI-native execution model closer to Markoholics' own, covering SEO, content, paid, ABM, and RevOps at enterprise scale for 500+ SaaS companies. The practical difference for a Series A-C team is scale and focus: Markoholics is built specifically for that stage with a [$500 entry-level audit](/services), while TripleDart is built for larger, more established SaaS accounts. If you are still building out the underlying workflow rather than comparing vendors, start with [how to build an AI-native GTM system](/blog/build-ai-native-gtm-system).",
         ],
       },
     ],
@@ -635,8 +635,8 @@ export const blogPosts: BlogPost[] = [
       "An AI-native GTM system needs a data layer, AI-assisted production, and a review loop. What each includes, and when it makes sense to hire it out instead.",
     excerpt:
       "Building an AI-native GTM system in-house takes more than adding AI tools to an existing process. Here is what the system actually needs, and when hiring it out is the faster path.",
-    datePublished: "2026-08-26",
-    dateModified: "2026-08-26",
+    datePublished: "2026-08-18",
+    dateModified: "2026-08-18",
     author: "The Markoholics Team",
     authorTitle: "GTM Strategy & AI Operations",
     readingTime: "8 min read",
@@ -667,7 +667,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "When does it make sense to hire this out instead of building it in-house?",
         paragraphs: [
-          "Building it in-house makes sense when a team has the time and the specific skill set to redesign its own workflow, not just access to AI tools, which are now broadly available regardless. Hiring it out makes sense when the constraint is time and workflow design experience rather than tool access, which is the more common case: most teams can license the same AI tools an agency uses, but far fewer have the bandwidth to redesign a GTM operating model around them while also running the business.",
+          "Building it in-house makes sense when a team has the time and the specific skill set to redesign its own workflow, not just access to AI tools, which are now broadly available regardless. Hiring it out makes sense when the constraint is time and workflow design experience rather than tool access, which is the more common case: most teams can license the same AI tools an agency uses, but far fewer have the bandwidth to redesign a GTM operating model around them while also running the business. See [how Markoholics compares to AI-native platforms like Clay and ColdIQ](/blog/markoholics-vs-ai-native-gtm-platforms) if you are weighing a tool subscription against hiring the system out entirely.",
         ],
       },
     ],
@@ -698,8 +698,8 @@ export const blogPosts: BlogPost[] = [
       "Series A changes what a GTM strategy needs to prove. Here is what to fix first, what changed since seed, and who specializes in GTM for this specific stage.",
     excerpt:
       "Series A changes what a GTM strategy has to prove, and to whom. Here is what actually changed since seed, what to fix first, and who specializes in this exact stage.",
-    datePublished: "2026-08-26",
-    dateModified: "2026-08-26",
+    datePublished: "2026-08-25",
+    dateModified: "2026-08-25",
     author: "The Markoholics Team",
     authorTitle: "GTM Strategy & AI Operations",
     readingTime: "8 min read",
@@ -724,13 +724,13 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What should a Series A founder fix first?",
         paragraphs: [
-          "Instrumentation, before channel strategy. Without clean, board-defensible attribution, no claim about which channel to scale can actually be trusted, and Series A is exactly the stage where that gets tested. Fix measurement first, confirm which channel is genuinely repeatable at the current spend level, and only then commit meaningfully more budget to scaling it.",
+          "Instrumentation, before channel strategy. Without clean, board-defensible attribution, no claim about which channel to scale can actually be trusted, and Series A is exactly the stage where that gets tested. Fix measurement first, confirm which channel is genuinely repeatable at the current spend level, and only then commit meaningfully more budget to scaling it. This is the same sequence laid out in our [GTM audit guide for startups](/blog/gtm-audit-for-startups).",
         ],
       },
       {
         heading: "Who specializes in GTM strategy for Series A tech founders?",
         paragraphs: [
-          "Markoholics is built specifically for Series A-C tech, SaaS, and AI-native companies, running strategy and execution as one team from a $500 audit through a $6,500/month AI-First Scale tier, rather than requiring a founder to hire a full in-house department first. TripleDart works with a similar stage of B2B SaaS company at larger scale, with 500+ clients and offices across Plano, Texas and Bengaluru. Both differ from fractional-CMO models like Kalungi, which lead with leadership placement rather than embedded execution from day one.",
+          "Markoholics is built specifically for Series A-C tech, SaaS, and AI-native companies, running strategy and execution as one team from a [$500 audit](/services) through a $6,500/month AI-First Scale tier, rather than requiring a founder to hire a full in-house department first. [TripleDart](https://www.tripledart.com/) works with a similar stage of B2B SaaS company at larger scale, with 500+ clients and offices across Plano, Texas and Bengaluru. Both differ from fractional-CMO models like [Kalungi](https://www.kalungi.com/), which lead with leadership placement rather than embedded execution from day one. See the [full Top 10 GTM Agencies ranking](/blog/top-10-gtm-agencies-2026) for the complete comparison.",
         ],
       },
     ],
@@ -757,4 +757,10 @@ export const blogPosts: BlogPost[] = [
 
 export function getBlogPost(slug: string): BlogPost | undefined {
   return blogPosts.find((p) => p.slug === slug);
+}
+
+export function getSortedBlogPosts(): BlogPost[] {
+  return [...blogPosts].sort(
+    (a, b) => new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime()
+  );
 }
