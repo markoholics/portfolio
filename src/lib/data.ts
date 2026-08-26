@@ -322,12 +322,20 @@ export const approachSteps = [
 export interface FAQItem {
   q: string;
   a: string;
+  link?: { before: string; text: string; href: string; after: string };
 }
 
 export const faqItems: FAQItem[] = [
   {
     q: "Do you work with non-tech companies?",
-    a: "We specialize in tech, SaaS, and AI-native companies. This focus is why we deliver results generalist agencies cannot. If you are building a technology product, you are in the right place.",
+    a: "We specialize in tech, SaaS, and AI-native companies. While Markoholics only works with tech founders, our subsidiary, Brandoscopy, can help non-tech companies.",
+    link: {
+      before:
+        "We specialize in tech, SaaS, and AI-native companies. While Markoholics only works with tech founders, our subsidiary, ",
+      text: "Brandoscopy",
+      href: "https://www.brandoscopy.in/",
+      after: ", can help non-tech companies.",
+    },
   },
   {
     q: "What if we are not based in the US?",

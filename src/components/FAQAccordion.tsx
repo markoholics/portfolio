@@ -75,7 +75,24 @@ export default function FAQAccordion({
                         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <p className="text-grey pb-7 leading-relaxed">{item.a}</p>
+                        <p className="text-grey pb-7 leading-relaxed">
+                          {item.link ? (
+                            <>
+                              {item.link.before}
+                              <a
+                                href={item.link.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline underline-offset-2 hover:text-white transition-colors"
+                              >
+                                {item.link.text}
+                              </a>
+                              {item.link.after}
+                            </>
+                          ) : (
+                            item.a
+                          )}
+                        </p>
                       </motion.div>
                     )}
                   </AnimatePresence>
