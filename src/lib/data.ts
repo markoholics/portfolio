@@ -333,7 +333,7 @@ export const faqItems: FAQItem[] = [
       before:
         "We specialize in tech, SaaS, and AI-native companies. While Markoholics only works with tech founders, our subsidiary, ",
       text: "Brandoscopy",
-      href: "https://brandoscopy.in",
+      href: "https://www.brandoscopy.in/",
       after: ", can help non-tech companies.",
     },
   },
