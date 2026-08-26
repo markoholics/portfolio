@@ -405,12 +405,12 @@ export const strategicPartners: Partner[] = [
   {
     name: "Varmis Arc",
     description: "Strategic technology partner",
-    href: undefined,
+    href: "http://www.varmisarc.com/",
   },
   {
     name: "Human to the Power of AI",
     description: "Strategic AI partner",
-    href: undefined,
+    href: "https://humantothepowerofai.com/",
   },
 ];
 

@@ -11,8 +11,8 @@ export default function StrategicPartners() {
         <div className="flex flex-wrap items-center justify-center gap-6">
           {strategicPartners.map((partner, i) => {
             const content = (
-              <div className="glass-panel flex items-center justify-center h-24 md:h-28 px-10">
-                <span className="font-display text-xl md:text-2xl text-mist tracking-tight text-center">
+              <div className="glass-panel flex items-center justify-center h-24 md:h-28 px-10 transition-colors group-hover:border-white/30">
+                <span className="font-display text-xl md:text-2xl text-mist tracking-tight text-center no-underline transition-colors group-hover:text-white">
                   {partner.name}
                 </span>
               </div>
@@ -25,6 +25,7 @@ export default function StrategicPartners() {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-cursor-hover
+                    className="group block no-underline"
                     aria-label={`${partner.name} — ${partner.description}`}
                   >
                     {content}
