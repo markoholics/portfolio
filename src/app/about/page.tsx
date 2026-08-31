@@ -4,7 +4,7 @@ import TextReveal from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
 import FAQAccordion from "@/components/FAQAccordion";
 import { approachSteps, aboutFaqItems } from "@/lib/data";
-import { webPageJsonLd } from "@/lib/seo";
+import { webPageJsonLd, personJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "AI-Native GTM Team for Tech Founders",
@@ -125,6 +125,45 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section id="founder" className="section-pad border-t hairline">
+        <div className="container-edge grid-12">
+          <div className="col-span-12 lg:col-span-5">
+            <Reveal>
+              <span className="eyebrow block mb-6" style={{ color: "var(--color-accent)" }}>
+                Founder
+              </span>
+              <h2 className="font-display text-white text-3xl md:text-4xl leading-tight">
+                Mohammad H. Rahman
+              </h2>
+            </Reveal>
+          </div>
+          <div className="col-span-12 lg:col-span-6 lg:col-start-7 mt-10 lg:mt-0 space-y-4">
+            <Reveal delay={0.1}>
+              <p className="text-grey text-lg">
+                Mohammad H. Rahman is a techie-turned-marketer with 12+ years
+                in digital strategy, performance marketing, and brand
+                management, educated at the University of Sheffield and based
+                in Bengaluru. Markoholics is the operating system he built
+                for the GTM problem he kept seeing repeat across tech
+                founders: strategy and execution living in separate vendors,
+                with nobody accountable for the number that actually matters.
+              </p>
+            </Reveal>
+            <Reveal delay={0.18}>
+              <a
+                href="https://in.linkedin.com/in/theotherrahman"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor-hover
+                className="text-grey hover:text-white transition-colors underline underline-offset-2"
+              >
+                Connect on LinkedIn
+              </a>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       <FAQAccordion
         items={aboutFaqItems}
         eyebrow="Questions About Fit"
@@ -157,6 +196,10 @@ export default function AboutPage() {
             })
           ),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
       />
     </div>
   );

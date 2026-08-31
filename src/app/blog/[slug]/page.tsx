@@ -69,7 +69,11 @@ export default async function BlogPostPage({
               day: "numeric",
               year: "numeric",
             })}{" "}
-            &middot; {post.readingTime} &middot; By {post.author}
+            &middot; {post.readingTime} &middot; By{" "}
+            <Link href="/about#founder" className="underline underline-offset-2 hover:text-white transition-colors">
+              {post.author}
+            </Link>
+            , {post.authorTitle}
           </span>
           <h1 className="font-display text-white text-4xl md:text-5xl lg:text-6xl leading-tight max-w-4xl">
             <TextReveal text={post.title} />

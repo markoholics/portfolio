@@ -50,6 +50,29 @@ export function organizationJsonLd() {
   };
 }
 
+export function personJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Mohammad H. Rahman",
+    url: absoluteUrl("/about#founder"),
+    jobTitle: "Founder",
+    worksFor: {
+      "@type": "Organization",
+      name: "Markoholics",
+      url: SITE_URL,
+    },
+    alumniOf: "University of Sheffield",
+    knowsAbout: [
+      "Go-To-Market Strategy",
+      "Digital Strategy",
+      "Performance Marketing",
+      "Brand Management",
+    ],
+    sameAs: ["https://in.linkedin.com/in/theotherrahman"],
+  };
+}
+
 export function faqJsonLd(items: FAQItem[]) {
   return {
     "@context": "https://schema.org",
@@ -123,9 +146,10 @@ export function blogPostJsonLd(post: BlogPost) {
     datePublished: post.datePublished,
     dateModified: post.dateModified,
     author: {
-      "@type": "Organization",
+      "@type": "Person",
       name: post.author,
-      url: SITE_URL,
+      url: absoluteUrl("/about#founder"),
+      sameAs: "https://in.linkedin.com/in/theotherrahman",
     },
     publisher: {
       "@type": "Organization",
@@ -153,6 +177,34 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
       name: item.name,
       item: absoluteUrl(item.path),
     })),
+  };
+}
+
+export function reviewJsonLd({
+  authorName,
+  reviewBody,
+}: {
+  authorName: string;
+  reviewBody: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: {
+      "@type": "ProfessionalService",
+      name: "Markoholics",
+      url: SITE_URL,
+    },
+    author: {
+      "@type": "Person",
+      name: authorName,
+    },
+    reviewBody,
+    publisher: {
+      "@type": "Organization",
+      name: "Markoholics",
+      url: SITE_URL,
+    },
   };
 }
 

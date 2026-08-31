@@ -7,9 +7,10 @@ import FeaturedWork from "@/components/home/FeaturedWork";
 import ApproachSection from "@/components/home/ApproachSection";
 import AiStackSection from "@/components/home/AiStackSection";
 import ProofBar from "@/components/home/ProofBar";
-import Testimonial from "@/components/home/Testimonial";
+import Testimonial, { featuredTestimonial } from "@/components/home/Testimonial";
 import FAQSection from "@/components/home/FAQSection";
 import CTABand from "@/components/home/CTABand";
+import { reviewJsonLd } from "@/lib/seo";
 
 export default function Home() {
   return (
@@ -26,6 +27,17 @@ export default function Home() {
       <Testimonial />
       <FAQSection />
       <CTABand />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            reviewJsonLd({
+              authorName: featuredTestimonial.quote.attribution,
+              reviewBody: featuredTestimonial.quote.text,
+            })
+          ),
+        }}
+      />
     </>
   );
 }

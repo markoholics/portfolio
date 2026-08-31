@@ -6,7 +6,7 @@ import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
 import FAQAccordion from "@/components/FAQAccordion";
-import { serviceName, caseStudyFaqItems, caseStudyJsonLd } from "@/lib/seo";
+import { serviceName, caseStudyFaqItems, caseStudyJsonLd, reviewJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
@@ -131,6 +131,22 @@ export default async function CaseStudyPage({
       <section className="section-pad border-b hairline">
         <div className="container-edge">
           <Reveal>
+            <blockquote className="font-display text-2xl md:text-3xl leading-snug text-white italic max-w-3xl">
+              &ldquo;{cs.quote.text}&rdquo;
+            </blockquote>
+            <div className="mt-8 flex items-center gap-4">
+              <div className="w-12 h-px bg-grey" />
+              <span className="text-grey uppercase tracking-[0.18em] text-sm">
+                {cs.quote.attribution}
+              </span>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section-pad border-b hairline">
+        <div className="container-edge">
+          <Reveal>
             <span className="eyebrow block mb-12">Visual Gallery</span>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -172,6 +188,14 @@ export default async function CaseStudyPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudyJsonLd(cs)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            reviewJsonLd({ authorName: cs.quote.attribution, reviewBody: cs.quote.text })
+          ),
+        }}
       />
     </div>
   );

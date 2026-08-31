@@ -1,11 +1,13 @@
 import Reveal from "@/components/Reveal";
 
-const featured = {
+export const featuredTestimonial = {
   quote: {
     text: "Markoholics didn't just run campaigns, they built a GTM system we could trust with board-level numbers. The pipeline and the discipline behind it are the reason we scaled as fast as we did.",
     attribution: "Vivek Kumar, Founder, EQRGen",
   },
 };
+
+const featured = featuredTestimonial;
 
 export default function Testimonial() {
   return (
