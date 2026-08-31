@@ -69,17 +69,19 @@ export default function Footer() {
             </span>
             <span className="block">CIN: U62099KA2026PTC225694</span>
           </address>
-          <div className="flex flex-col md:flex-row justify-between gap-4">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <span>&copy; {new Date().getFullYear()} Markoholics. All rights reserved.</span>
-            <div className="flex gap-6">
-              <Link href="/privacy" data-cursor-hover className="hover:text-white transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" data-cursor-hover className="hover:text-white transition-colors">
-                Terms of Service
-              </Link>
+            <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 md:text-right">
+              <div className="flex gap-6">
+                <Link href="/privacy" data-cursor-hover className="hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+                <Link href="/terms" data-cursor-hover className="hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
+              </div>
+              <span>Built for companies that intend to win their category.</span>
             </div>
-            <span>Built for companies that intend to win their category.</span>
           </div>
         </div>
       </div>
