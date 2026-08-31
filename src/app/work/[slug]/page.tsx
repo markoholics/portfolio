@@ -73,7 +73,7 @@ export default async function CaseStudyPage({
         <div className="container-edge grid-12">
           <div className="col-span-12 lg:col-span-3">
             <Reveal>
-              <span className="eyebrow block">The Challenge</span>
+              <h2 className="eyebrow block">The Architectural Problem</h2>
             </Reveal>
           </div>
           <div className="col-span-12 lg:col-span-7">
@@ -89,7 +89,7 @@ export default async function CaseStudyPage({
       <section className="section-pad border-b hairline">
         <div className="container-edge">
           <Reveal>
-            <span className="eyebrow block mb-12">Strategy &amp; Execution</span>
+            <h2 className="eyebrow block mb-12">The Autonomous System Deployed</h2>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-grey/10">
             {cs.strategy.map((item, i) => (
@@ -109,7 +109,7 @@ export default async function CaseStudyPage({
       <section className="section-pad border-b hairline bg-charcoal/20">
         <div className="container-edge">
           <Reveal>
-            <span className="eyebrow block mb-12">Results</span>
+            <h2 className="eyebrow block mb-12">Quantifiable Pipeline Outcomes</h2>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {cs.results.map((r, i) => (
