@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     default: "Markoholics: AI-Native GTM Partner for Tech Founders",
     template: "%s | Markoholics",
   },
-  description: "AI-native GTM engines for Series A-C tech founders. Strategy, content, demand generation, and AI operations run as one autonomous system.",
+  description: "Markoholics is an AI-native GTM agency for Series A-C SaaS, fintech, and AI startups — running strategy, content, and demand generation as one autonomous system.",
   metadataBase: new URL(SITE_URL),
   authors: [{ name: "The Markoholics Team", url: `${SITE_URL}/about` }],
   creator: "Markoholics",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Markoholics: AI-Native GTM Partner for Tech Founders",
-    description: "AI-native GTM engines for Series A-C tech founders. Strategy, content, demand generation, and AI operations run as one autonomous system.",
+    description: "Markoholics is an AI-native GTM agency for Series A-C SaaS, fintech, and AI startups — running strategy, content, and demand generation as one autonomous system.",
     url: SITE_URL,
     siteName: "Markoholics",
     type: "website",
