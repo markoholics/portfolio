@@ -482,6 +482,20 @@ export const strategicPartners: Partner[] = [
   },
 ];
 
+export interface PartnerStackLogo {
+  name: string;
+  href: string;
+  /** Path under /public to a transparent PNG logo, e.g. "/partners/apollo.png". */
+  src: string;
+}
+
+export const partnerStackLogos: PartnerStackLogo[] = [
+  { name: "Apollo.io", href: "https://www.apollo.io/", src: "/partners/apollo.png" },
+  { name: "n8n", href: "https://n8n.io/", src: "/partners/n8n.png" },
+  { name: "HubSpot", href: "https://www.hubspot.com/", src: "/partners/hubspot.png" },
+  { name: "Flowkon", href: "https://flowkon.io/", src: "/partners/flowkon.png" },
+];
+
 export const navLinks = [
   { label: "Work", href: "/work" },
   { label: "Services", href: "/services" },

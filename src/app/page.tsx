@@ -18,6 +18,8 @@ export default function Home() {
       <Hero />
       <ClientStrip />
       <StrategicPartners />
+      {/* TODO: re-add <PartnerStack /> here once the real partner logo
+          PNGs (apollo, n8n, hubspot, flowkon) are in public/partners/ */}
       <ProblemSection />
       <ServicesSection />
       <FeaturedWork />
