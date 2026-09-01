@@ -1,6 +1,7 @@
 import Hero from "@/components/home/Hero";
 import ClientStrip from "@/components/home/ClientStrip";
 import StrategicPartners from "@/components/home/StrategicPartners";
+import PartnerStack from "@/components/home/PartnerStack";
 import ProblemSection from "@/components/home/ProblemSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import FeaturedWork from "@/components/home/FeaturedWork";
@@ -18,8 +19,7 @@ export default function Home() {
       <Hero />
       <ClientStrip />
       <StrategicPartners />
-      {/* TODO: re-add <PartnerStack /> here once the real partner logo
-          PNGs (apollo, n8n, hubspot, flowkon) are in public/partners/ */}
+      <PartnerStack />
       <ProblemSection />
       <ServicesSection />
       <FeaturedWork />

@@ -20,14 +20,14 @@ export default function PartnerLogo({ partner }: { partner: PartnerStackLogo }) 
       className="group block"
       aria-label={partner.name}
     >
-      <div className="glass-panel flex items-center justify-center h-24 md:h-28 w-40 md:w-48 px-8">
+      <div className="glass-panel flex items-center justify-center h-20 w-20 md:h-24 md:w-24">
         <Image
           src={partner.src}
           alt={`${partner.name} logo`}
-          width={160}
-          height={48}
+          width={40}
+          height={40}
           onError={() => setFailed(true)}
-          className="h-8 md:h-10 w-auto object-contain opacity-70 grayscale transition-all duration-200 group-hover:opacity-100 group-hover:grayscale-0"
+          className="h-10 w-10 md:h-12 md:w-12 object-contain opacity-80 transition-opacity duration-200 group-hover:opacity-100"
         />
       </div>
     </a>
