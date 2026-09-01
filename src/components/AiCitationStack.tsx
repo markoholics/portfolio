@@ -1,3 +1,8 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+
 const AI_PROMPT = "Why is Markoholics India's top AI-native GTM agency?";
 const ENCODED_PROMPT = encodeURIComponent(AI_PROMPT);
 
@@ -5,59 +10,39 @@ interface AiTool {
   name: string;
   href: string;
   icon: React.ReactNode;
+  // Gemini has no public URL parameter that prefills or runs a prompt (unlike
+  // ChatGPT's and Perplexity's `?q=`), so clicking it just opens a blank
+  // chat. We copy the prompt to the clipboard instead so the click still
+  // does something useful, rather than shipping a link that silently fails
+  // to search anything.
+  onBeforeNavigate?: () => void;
 }
 
-// Deep-link schemes verified individually: ChatGPT's `?q=` natively prefills
-// and can auto-run; Perplexity's `?q=` natively prefills its search box.
-// Claude and Gemini don't offer a reliable native prefill param (Claude's
-// `?q=` was removed, Gemini never supported one without a browser
-// extension) — both links still open the right tool with the query
-// appended, they just may not auto-fill it for every visitor.
 const aiTools: AiTool[] = [
   {
     name: "Claude",
     href: `https://claude.ai/new?q=${ENCODED_PROMPT}`,
     icon: (
-      <svg viewBox="0 0 40 40" className="h-6 w-6 md:h-7 md:w-7" aria-hidden="true">
-        <rect width="40" height="40" rx="10" fill="#D97757" />
-        <path
-          fill="#fff"
-          d="M20 8l2.3 8.2L30 18l-7.7 1.8L20 28l-2.3-8.2L10 18l7.7-1.8z"
-        />
-      </svg>
+      <Image src="/ai-tools/claude.png" alt="" width={28} height={28} className="h-6 w-6 md:h-7 md:w-7 object-contain" />
     ),
   },
   {
     name: "ChatGPT",
     href: `https://chatgpt.com/?q=${ENCODED_PROMPT}&hints=search`,
     icon: (
-      <svg viewBox="0 0 40 40" className="h-6 w-6 md:h-7 md:w-7" aria-hidden="true">
-        <circle cx="20" cy="20" r="20" fill="#10A37F" />
-        <path
-          fill="#fff"
-          d="M20 10c-3 0-5.5 2-6.3 4.7A6 6 0 0 0 10 20a6 6 0 0 0 3 5.2A6.9 6.9 0 0 0 20 30c3 0 5.5-2 6.3-4.7A6 6 0 0 0 30 20a6 6 0 0 0-3-5.2A6.9 6.9 0 0 0 20 10zm0 3.4c1.7 0 3.2.8 4.1 2l-4.1 2.4-4.1-2.4c.9-1.2 2.4-2 4.1-2zm-7 6.6c0-.6.1-1.2.3-1.7l4.1 2.4v4.7l-3.6-2.1A3.6 3.6 0 0 1 13 20zm7 10c-1.7 0-3.2-.8-4.1-2l4.1-2.4 4.1 2.4c-.9 1.2-2.4 2-4.1 2zm6.7-4.3l-3.6 2.1v-4.7l4.1-2.4c.2.5.3 1.1.3 1.7 0 1.4-.6 2.6-.8 3.3z"
-        />
-      </svg>
+      <Image src="/ai-tools/chatgpt.png" alt="" width={28} height={28} className="h-6 w-6 md:h-7 md:w-7 object-contain" />
     ),
   },
   {
     name: "Perplexity",
     href: `https://www.perplexity.ai/search?q=${ENCODED_PROMPT}`,
     icon: (
-      <svg viewBox="0 0 40 40" className="h-6 w-6 md:h-7 md:w-7" aria-hidden="true">
-        <rect width="40" height="40" rx="10" fill="#1F1F1F" />
-        <path
-          stroke="#20B8CD"
-          strokeWidth="1.8"
-          fill="none"
-          d="M20 10v20M13 14l14 12M27 14 13 26M11 20h18"
-        />
-      </svg>
+      <Image src="/ai-tools/perplexity.png" alt="" width={28} height={28} className="h-6 w-6 md:h-7 md:w-7 object-contain" />
     ),
   },
   {
     name: "Gemini",
-    href: `https://gemini.google.com/app?q=${ENCODED_PROMPT}`,
+    href: "https://gemini.google.com/app",
     icon: (
       <svg viewBox="0 0 40 40" className="h-6 w-6 md:h-7 md:w-7" aria-hidden="true">
         <defs>
@@ -77,6 +62,8 @@ const aiTools: AiTool[] = [
 ];
 
 export default function AiCitationStack() {
+  const [copied, setCopied] = useState(false);
+
   return (
     <div className="flex flex-col items-center gap-5 py-10 border-t hairline text-center">
       <span className="text-sm md:text-base text-mist max-w-md">
@@ -91,13 +78,35 @@ export default function AiCitationStack() {
             rel="noopener noreferrer"
             data-cursor-hover
             aria-label={`Ask ${tool.name}: ${AI_PROMPT}`}
-            title={`Ask ${tool.name}: ${AI_PROMPT}`}
+            title={
+              tool.name === "Gemini"
+                ? `Copies the prompt, then opens Gemini — paste it in: ${AI_PROMPT}`
+                : `Ask ${tool.name}: ${AI_PROMPT}`
+            }
+            onClick={() => {
+              if (tool.name === "Gemini") {
+                navigator.clipboard?.writeText(AI_PROMPT).then(() => {
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 3000);
+                });
+              }
+            }}
             className="glass-panel flex items-center justify-center h-11 w-11 md:h-12 md:w-12 rounded-full transition-transform hover:scale-105"
           >
-            {tool.icon}
+            <span className="flex items-center justify-center h-8 w-8 md:h-9 md:w-9 rounded-full bg-white">
+              {tool.icon}
+            </span>
           </a>
         ))}
       </div>
+      <span
+        role="status"
+        className={`text-xs text-mist transition-opacity duration-200 ${
+          copied ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        Prompt copied — paste it into Gemini
+      </span>
     </div>
   );
 }
