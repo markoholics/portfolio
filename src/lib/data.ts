@@ -493,7 +493,6 @@ export const partnerStackLogos: PartnerStackLogo[] = [
   { name: "Apollo.io", href: "https://www.apollo.io/", src: "/partners/apollo.png" },
   { name: "n8n", href: "https://n8n.io/", src: "/partners/n8n.png" },
   { name: "HubSpot", href: "https://www.hubspot.com/", src: "/partners/hubspot.png" },
-  { name: "Flowkon", href: "https://flowkon.io/", src: "/partners/flowkon.png" },
   { name: "Apify", href: "https://apify.com/", src: "/partners/apify.png" },
 ];
 
