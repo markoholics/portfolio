@@ -40,7 +40,7 @@ export default function AboutPage() {
             <Reveal>
               <span className="eyebrow block mb-6">Our Point of View</span>
               <h2 className="font-display text-white text-3xl md:text-4xl leading-tight">
-                AI should multiply humans, not replace the thinking.
+                AI should empower humans, not replace them.
               </h2>
             </Reveal>
           </div>
