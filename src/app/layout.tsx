@@ -42,6 +42,9 @@ export const metadata: Metadata = {
     siteName: "Markoholics",
     type: "website",
   },
+  other: {
+    "impact-site-verification": "cc0f54b2-d4ce-4bd0-9edd-e17303aecf7f",
+  },
 };
 
 export default function RootLayout({
