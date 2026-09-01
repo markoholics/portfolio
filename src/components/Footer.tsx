@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { navLinks, CONTACT_EMAIL, socialLinks } from "@/lib/data";
 import ObfuscatedEmail from "@/components/ObfuscatedEmail";
+import AiCitationStack from "@/components/AiCitationStack";
 
 const [CONTACT_EMAIL_USER, CONTACT_EMAIL_DOMAIN] = CONTACT_EMAIL.split("@");
 
@@ -60,7 +61,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t hairline flex flex-col gap-4 text-sm text-grey">
+        <div className="mt-20">
+          <AiCitationStack />
+        </div>
+
+        <div className="mt-8 pt-8 border-t hairline flex flex-col gap-4 text-sm text-grey">
           <address className="not-italic text-grey">
             <span className="block">CREATIVE ENGINEERING ENTERPRISES PRIVATE LIMITED</span>
             <span className="block">
