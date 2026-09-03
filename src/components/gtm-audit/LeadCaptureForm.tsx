@@ -128,7 +128,7 @@ export default function LeadCaptureForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="sm:col-span-2 inline-flex items-center justify-center rounded-full bg-[#D6FE4E] px-8 py-4 text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02] disabled:opacity-60"
+        className="sm:col-span-2 inline-flex items-center justify-center bg-[#D6FE4E] px-8 py-4 text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02] disabled:opacity-60"
       >
         {status === "submitting" ? "Reserving…" : "Reserve My Signal Sprint"}
       </button>

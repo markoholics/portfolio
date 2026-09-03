@@ -100,13 +100,16 @@ function PrimaryCta({ location, label = "Get the 14-Day Signal Sprint · $499" }
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => trackCtaClick(location)}
-      className="inline-flex items-center justify-center rounded-full px-8 py-4 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02] sm:text-base"
+      className="inline-flex items-center justify-center px-8 py-4 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02] sm:text-base"
       style={{ backgroundColor: LIME }}
     >
       {label}
     </a>
   );
 }
+
+const outlineCtaClass =
+  "inline-flex items-center justify-center border px-8 py-4 text-center font-mono text-sm uppercase tracking-wide transition-colors hover:bg-white/5 sm:text-base";
 
 function CheckIcon() {
   return (
@@ -157,13 +160,9 @@ export default function GtmAuditLanding() {
               You&apos;re paying agency-bloat prices for freelancer-speed output. Here&apos;s what an
               AI-native engine costs instead.
             </p>
-            <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+            <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <PrimaryCta location="hero" />
-              <a
-                href="#offer"
-                className="font-mono text-sm underline underline-offset-4"
-                style={{ color: CYAN }}
-              >
+              <a href="#offer" className={outlineCtaClass} style={{ borderColor: CYAN, color: CYAN }}>
                 See what&apos;s included ↓
               </a>
             </div>
@@ -376,14 +375,10 @@ export default function GtmAuditLanding() {
             <h2 className="mx-auto mt-6 max-w-2xl font-display text-3xl leading-tight sm:text-4xl md:text-5xl">
               Start with the Sprint. It pays for itself before the real engagement begins.
             </h2>
-            <div className="mt-10 flex flex-col items-center gap-5">
+            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <PrimaryCta location="final" />
-              <Link
-                href="/contact"
-                className="font-mono text-sm underline underline-offset-4"
-                style={{ color: CYAN }}
-              >
-                Or book a GTM strategy call first → markoholics.com/contact
+              <Link href="/contact" className={outlineCtaClass} style={{ borderColor: CYAN, color: CYAN }}>
+                Book a GTM Strategy Call
               </Link>
             </div>
           </Reveal>

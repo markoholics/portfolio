@@ -30,7 +30,7 @@ export default function StickyCtaBar() {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackCtaClick("sticky_bar")}
-          className="flex-1 sm:flex-none inline-flex items-center justify-center rounded-full bg-[#D6FE4E] px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02]"
+          className="flex-1 sm:flex-none inline-flex items-center justify-center bg-[#D6FE4E] px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02]"
         >
           Get the Sprint · $499
         </a>
