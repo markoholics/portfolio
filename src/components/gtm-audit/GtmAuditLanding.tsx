@@ -383,16 +383,6 @@ export default function GtmAuditLanding() {
             </div>
           </Reveal>
         </div>
-
-        <Reveal delay={0.1}>
-          <p className="mx-auto mt-24 max-w-5xl text-center text-sm text-white/40">
-            Mohammad Rahman · Founder and Director, Markoholics ·{" "}
-            <a href="mailto:markoholics@outlook.com" className="underline underline-offset-2">
-              markoholics@outlook.com
-            </a>{" "}
-            · markoholics.com
-          </p>
-        </Reveal>
       </section>
 
       <StickyCtaBar />
