@@ -78,11 +78,11 @@ const valueStack = [
 const objections = [
   {
     q: "What exactly are you claiming?",
-    a: "Not 3x on total revenue. We commit to new ARR added per month, measured at month six against your own baseline, agreed in writing before any spend.",
+    a: "Not 3x on total revenue. We commit to new MRR added per month, measured at month six against your own baseline, agreed in writing before any spend.",
   },
   {
     q: "Whose numbers are we trusting?",
-    a: "Yours. Your CRM is the source of truth, not ours. Every closed-won record traces back to the signal that created it.",
+    a: "Yours. Your CRM is the source of truth, not ours. Every closed-won record traces back to the signal that created it. That's how we built a $500K+ pipeline for ByoSync.",
   },
   {
     q: "Am I locked in?",
