@@ -2,11 +2,17 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { navLinks } from "@/lib/data";
 import LogoMark from "@/components/LogoMark";
 
+// Paid-campaign landing pages render their own hero/logo and deliberately
+// give visitors no exit route back into the rest of the site.
+const NAV_FREE_ROUTES = ["/gtm-audit"];
+
 export default function Nav() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -18,6 +24,8 @@ export default function Nav() {
   }, []);
 
   const closeMenu = () => setOpen(false);
+
+  if (NAV_FREE_ROUTES.includes(pathname)) return null;
 
   return (
     <header
