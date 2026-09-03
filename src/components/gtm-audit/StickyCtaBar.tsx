@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { trackCtaClick } from "@/components/gtm-audit/track";
+import { PAYMENT_URL } from "@/components/gtm-audit/constants";
 
 export default function StickyCtaBar() {
   const [visible, setVisible] = useState(false);
@@ -24,14 +25,10 @@ export default function StickyCtaBar() {
         <span className="hidden text-sm text-white/70 sm:block">
           14-Day Signal Sprint
         </span>
-        {/*
-          TODO(payment): swap href="#checkout-placeholder" for the real
-          Stripe Checkout / Payment Link URL once it exists. Until then this
-          anchors down to the reserve-your-spot form so the page still
-          converts leads.
-        */}
         <a
-          href="#checkout-placeholder"
+          href={PAYMENT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={() => trackCtaClick("sticky_bar")}
           className="flex-1 sm:flex-none inline-flex items-center justify-center rounded-full bg-[#D6FE4E] px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02]"
         >

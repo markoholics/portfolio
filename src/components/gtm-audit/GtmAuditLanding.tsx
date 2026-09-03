@@ -7,6 +7,7 @@ import StickyCtaBar from "@/components/gtm-audit/StickyCtaBar";
 import LeadCaptureForm from "@/components/gtm-audit/LeadCaptureForm";
 import ObjectionsAccordion from "@/components/gtm-audit/ObjectionsAccordion";
 import { trackCtaClick } from "@/components/gtm-audit/track";
+import { PAYMENT_URL } from "@/components/gtm-audit/constants";
 
 const LIME = "#D6FE4E";
 const CYAN = "#01A6C8";
@@ -94,12 +95,10 @@ const eyebrowClass =
 
 function PrimaryCta({ location, label = "Get the 14-Day Signal Sprint · $499" }: { location: string; label?: string }) {
   return (
-    // TODO(payment): swap href="#checkout-placeholder" for the real Stripe
-    // Checkout / Payment Link URL once it exists. Until then this anchors
-    // down to the reserve-your-spot form below, so the page still converts
-    // leads without a live payment integration.
     <a
-      href="#checkout-placeholder"
+      href={PAYMENT_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       onClick={() => trackCtaClick(location)}
       className="inline-flex items-center justify-center rounded-full px-8 py-4 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02] sm:text-base"
       style={{ backgroundColor: LIME }}
@@ -322,22 +321,22 @@ export default function GtmAuditLanding() {
           </Reveal>
 
           {/*
-            Fallback lead capture: this is the actual target of every
-            href="#checkout-placeholder" CTA on the page until a real
-            payment link exists, so the page keeps converting in the
-            meantime. See LeadCaptureForm.tsx for the POST endpoint.
+            Fallback lead capture: a secondary path for anyone who wants to
+            reserve a slot without paying online right now (e.g. needs an
+            invoice, or wants a question answered first). See
+            LeadCaptureForm.tsx for the POST endpoint.
           */}
           <Reveal delay={0.25}>
             <div
-              id="checkout-placeholder"
+              id="reserve"
               className="mt-16 max-w-2xl scroll-mt-24 rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8"
             >
               <h3 className="font-display text-xl text-white">
-                Payment link launching shortly.
+                Prefer not to pay online right now?
               </h3>
               <p className="mt-2 text-white/60">
-                Reserve your Signal Sprint slot now and we&apos;ll send your checkout link
-                directly.
+                Reserve your Signal Sprint slot here and we&apos;ll follow up directly to sort
+                payment.
               </p>
               <div className="mt-6">
                 <LeadCaptureForm />
