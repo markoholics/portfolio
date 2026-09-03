@@ -1,11 +1,21 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { navLinks, CONTACT_EMAIL, socialLinks } from "@/lib/data";
 import ObfuscatedEmail from "@/components/ObfuscatedEmail";
 import AiCitationStack from "@/components/AiCitationStack";
 
 const [CONTACT_EMAIL_USER, CONTACT_EMAIL_DOMAIN] = CONTACT_EMAIL.split("@");
 
+// Paid-campaign landing pages ship their own minimal footer inline and
+// deliberately give visitors no exit route back into the rest of the site.
+const FOOTER_FREE_ROUTES = ["/gtm-audit"];
+
 export default function Footer() {
+  const pathname = usePathname();
+  if (FOOTER_FREE_ROUTES.includes(pathname)) return null;
+
   return (
     <footer className="border-t hairline bg-black">
       <div className="container-edge py-20">

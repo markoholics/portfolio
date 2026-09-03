@@ -86,14 +86,14 @@ const objections = [
   },
   {
     q: "Am I locked in?",
-    a: "No. The Sprint is a one-time $499 diagnostic. If you continue into a Growth Engine build, the first month runs with no lock-in beyond a short trial window, so you can walk away before any six-month commitment.",
+    a: "No. The Sprint is a one-time $99 diagnostic. If you continue into a Growth Engine build, the first month runs with no lock-in beyond a short trial window, so you can walk away before any six-month commitment.",
   },
 ];
 
 const eyebrowClass =
   "font-mono text-xs font-medium uppercase tracking-[0.28em]";
 
-function PrimaryCta({ location, label = "Get the 14-Day Signal Sprint · $499" }: { location: string; label?: string }) {
+function PrimaryCta({ location, label = "Get the 14-Day Signal Sprint · $99" }: { location: string; label?: string }) {
   return (
     <a
       href={PAYMENT_URL}
@@ -282,7 +282,7 @@ export default function GtmAuditLanding() {
               THE 14-DAY SIGNAL SPRINT
             </span>
             <h2 className="mt-6 max-w-2xl font-display text-3xl leading-tight sm:text-4xl md:text-5xl">
-              $499. Everything stacked in. Nothing held back.
+              $99. Everything stacked in. Nothing held back.
             </h2>
           </Reveal>
 
@@ -308,7 +308,7 @@ export default function GtmAuditLanding() {
               </p>
             </div>
             <p className="mt-4 max-w-2xl text-sm text-white/50">
-              If you move forward with a Growth Engine build within 14 days, the $499 is credited
+              If you move forward with a Growth Engine build within 14 days, the $99 is credited
               in full against your first month.
             </p>
           </Reveal>
@@ -383,6 +383,16 @@ export default function GtmAuditLanding() {
             </div>
           </Reveal>
         </div>
+
+        <Reveal delay={0.1}>
+          <p className="mx-auto mt-24 max-w-5xl text-center text-sm text-white/40">
+            Mohammad Rahman · Founder and Director, Markoholics ·{" "}
+            <a href="mailto:markoholics@outlook.com" className="underline underline-offset-2">
+              markoholics@outlook.com
+            </a>{" "}
+            · markoholics.com
+          </p>
+        </Reveal>
       </section>
 
       <StickyCtaBar />
