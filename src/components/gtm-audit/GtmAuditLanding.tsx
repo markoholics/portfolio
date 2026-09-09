@@ -387,8 +387,8 @@ export default function GtmAuditLanding() {
         <Reveal delay={0.1}>
           <p className="mx-auto mt-24 max-w-5xl text-center text-sm text-white/40">
             Mohammad Rahman · Founder and Director, Markoholics ·{" "}
-            <a href="mailto:markoholics@outlook.com" className="underline underline-offset-2">
-              markoholics@outlook.com
+            <a href="mailto:contact@markoholics.com" className="underline underline-offset-2">
+              contact@markoholics.com
             </a>{" "}
             · markoholics.com
           </p>

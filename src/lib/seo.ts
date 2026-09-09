@@ -22,7 +22,7 @@ export function organizationJsonLd() {
     logo: absoluteUrl("/icon.svg"),
     description:
       "Markoholics is an AI-native GTM agency for Series A-C SaaS, fintech, and AI startups — running strategy, content, and demand generation as one autonomous system.",
-    email: "markoholics@outlook.com",
+    email: "contact@markoholics.com",
     address: {
       "@type": "PostalAddress",
       streetAddress: "D NO 22, 4th Floor Vijaya, Bank Colony 6 Cross Road, Banaswadi, Bangalore North",

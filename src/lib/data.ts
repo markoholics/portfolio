@@ -504,7 +504,7 @@ export const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-export const CONTACT_EMAIL = "markoholics@outlook.com";
+export const CONTACT_EMAIL = "contact@markoholics.com";
 
 export interface SocialLink {
   label: string;
