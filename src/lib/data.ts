@@ -490,7 +490,7 @@ export interface PartnerStackLogo {
 }
 
 export const partnerStackLogos: PartnerStackLogo[] = [
-  { name: "Apollo.io", href: "https://apify.com/", src: "/partners/apollo.png" },
+  { name: "Apollo.io", href: "https://apify.com/?fpr=fm6uvs", src: "/partners/apollo.png" },
   { name: "Jibble", href: "https://affiliate.jibble.io/nivqrcwyosmw", src: "/partners/jibble.png" },
   { name: "HubSpot", href: "https://www.hubspot.com/", src: "/partners/hubspot.png" },
   { name: "Apify", href: "https://get.apollo.io/8zfuvp88qn6x", src: "/partners/apify.png" },
