@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import DeferredEffects from "@/components/DeferredEffects";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MetaPixel from "@/components/analytics/MetaPixel";
+import ImpactTag from "@/components/analytics/ImpactTag";
 import { SITE_URL, organizationJsonLd } from "@/lib/seo";
 
 // Only weights actually referenced in the codebase (font-medium / .eyebrow)
@@ -64,6 +65,7 @@ export default function RootLayout({
         />
         <GoogleAnalytics />
         <MetaPixel />
+        <ImpactTag />
         <DeferredEffects />
         <Nav />
         <main className="flex-1">{children}</main>
