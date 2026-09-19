@@ -480,6 +480,11 @@ export const strategicPartners: Partner[] = [
     description: "Strategic AI partner",
     href: "https://humantothepowerofai.com/",
   },
+  {
+    name: "W2S Solutions",
+    description: "Strategic technology partner",
+    href: "https://www.w2ssolutions.com/",
+  },
 ];
 
 export interface PartnerStackLogo {
