@@ -754,7 +754,7 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
-    slug: "what-is-jev-ai-model-saas-founders",
+    slug: "what-is-jev-ai",
     title: "What Is Jev? How TypeSafe's Decision-Only AI Model Works, and What SaaS Founders Can Build With It",
     metaTitle: "What Is Jev? TypeSafe's AI Model, Explained for Founders",
     metaDescription:
