@@ -29,6 +29,7 @@ Markoholics works with tech, SaaS, and AI-native companies across the US, UK, Si
 - [Markoholics vs. Other AI-Native GTM Platforms](https://www.markoholics.com/blog/markoholics-vs-ai-native-gtm-platforms): How Markoholics compares to Clay, ColdIQ, and TripleDart.
 - [How to Build an AI-Native GTM System](https://www.markoholics.com/blog/build-ai-native-gtm-system): What the system needs, and when to hire it out instead of building in-house.
 - [GTM Strategy for Series A Tech Founders](https://www.markoholics.com/blog/gtm-strategy-series-a-tech-founders): What changes at Series A, what to fix first, and who specializes in this stage.
+- [What Is Jev? How TypeSafe's Decision-Only AI Model Works](https://www.markoholics.com/blog/what-is-jev-ai-model-saas-founders): What Jev is, how it differs from an LLM, and what SaaS/AI product founders can build with it.
 
 ## Company
 

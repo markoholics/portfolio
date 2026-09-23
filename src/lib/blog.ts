@@ -753,6 +753,97 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "what-is-jev-ai-model-saas-founders",
+    title: "What Is Jev? How TypeSafe's Decision-Only AI Model Works, and What SaaS Founders Can Build With It",
+    metaTitle: "What Is Jev? TypeSafe's AI Model, Explained for Founders",
+    metaDescription:
+      "Jev is TypeSafe AI's decision-only model: no chat, no text generation, just typed answers with confidence scores. What it is, how it works, and what to build.",
+    excerpt:
+      "Jev does not write text. It reads a state and a set of typed questions and returns calibrated decisions in under half a second. Here is what that actually means for a SaaS or AI product roadmap.",
+    datePublished: "2026-09-20",
+    dateModified: "2026-09-20",
+    author: "Mohammad H. Rahman",
+    authorTitle: "Founder, Markoholics",
+    readingTime: "7 min read",
+    keyTakeaways: [
+      "Jev is a \"System One\" model from TypeSafe AI, founded by ChatGPT co-inventor Diogo Almeida. It does not generate text — it answers typed questions (Choice, Score, or Noul) about a piece of state with calibrated probabilities and confidence scores.",
+      "It is built for split-second, structured decisions, not conversation: 70-500ms latency, priced at roughly $0.042 per million input tokens with free output tokens.",
+      "For SaaS and AI product founders, the practical use is everything sitting behind an LLM-powered feature that actually needs to branch, route, or score — ticket triage, fraud and abuse signals, moderation gates, lead scoring, and tool-selection inside agent loops.",
+      "Jev replaces the fragile 'ask GPT for JSON and hope it parses' pattern many teams already ship in production, not the chat or content-generation layer of a product.",
+    ],
+    intro: [
+      "Every SaaS product that uses an LLM eventually hits the same wall: somewhere behind the chat interface, the code needs a plain, structured answer — which queue does this ticket go to, is this transaction risky, does this message violate the content policy — and asking a text model to return JSON for that is slow, expensive at scale, and occasionally wrong in a way that breaks your parser. Jev, a new model from TypeSafe AI, is built specifically for that layer. It launched into limited early access on September 15, 2026, alongside a $40 million seed round led by DCVC, and it is worth understanding now if you are building AI features into a product roadmap.",
+    ],
+    definition:
+      "Jev is a decision-only AI model from TypeSafe AI that takes a piece of state and a set of predefined typed questions, and returns bounded, calibrated answers with probability and confidence scores instead of generated text.",
+    ranking: [],
+    sections: [
+      {
+        heading: "What does Jev actually do?",
+        paragraphs: [
+          "Jev does not take a prompt and return prose. It takes two things: a state (the situation to evaluate — a support ticket, a transaction's metadata, a game board, a user's account history) and a set of typed questions about that state. Every question is answered in the same call, in parallel, and the answers are typed values your code can branch on directly, not text you have to parse and hope is well-formed.",
+          "There are three question types. A Choice question picks one of up to 255 labeled options and returns the winning option, a full probability distribution across all of them, and a confidence score. A Score question rates the state against ordered levels — low, medium, high, for example — and returns a continuous value plus the underlying distribution. A Noul question evaluates a single yes/no proposition and returns a calibrated probability between 0 and 1, which is itself the signal your application uses; it does not carry a separate confidence field the way Choice and Score do.",
+        ],
+      },
+      {
+        heading: "How is Jev different from a large language model like GPT?",
+        paragraphs: [
+          "TypeSafe describes Jev as \"System One\" thinking — fast, bounded, pattern-matched judgment — as distinct from the slower, generative \"System Two\" work a chat model does. The two are not competitors; they sit at different points in a product's architecture, and most AI-native products will end up using both.",
+        ],
+        table: {
+          headers: ["Dimension", "Typical LLM (GPT-class)", "Jev"],
+          rows: [
+            ["Output", "Free-form text you parse yourself", "Typed value: Choice, Score, or Noul"],
+            ["Latency", "Seconds, often longer for long completions", "70-500ms end to end"],
+            ["Cost driver", "Input and output tokens both billed", "~$0.042/M input tokens; output is free"],
+            ["Best for", "Writing, summarizing, conversing, reasoning through novel problems", "Routing, scoring, gating, and other bounded, repeated decisions"],
+          ],
+        },
+      },
+      {
+        heading: "What can a SaaS or AI product founder actually build with Jev?",
+        paragraphs: [
+          "The pattern across published early use cases is consistent: anywhere a product already makes a structured decision under the hood, Jev is a candidate to replace whatever is doing that job today, whether that is a brittle rules engine or an LLM being misused for JSON output. Concretely, that includes support ticket and inbound-email routing to the correct queue or team; real-time content moderation and safety gating for spam, abuse, or policy violations on user-generated content; fraud and risk signals in a payments or fintech flow, combining transaction amount, device, location, and account history into one state and asking for a bounded risk score; lead and account scoring for sales and RevOps, turning firmographic and behavioral signals into a calibrated priority tier; and tool selection or intent detection inside an AI agent loop, where an agent needs to decide which function to call next without burning a full model call on the decision.",
+          "The common thread is scale and latency. A feature that needs to make the same category of decision thousands of times a day, in well under a second, at a fraction of a cent per call, is the profile Jev is built for. A feature that needs to draft an email, hold a conversation, or reason through something genuinely novel is still an LLM's job.",
+        ],
+      },
+      {
+        heading: "How do you integrate Jev into a product?",
+        paragraphs: [
+          "TypeSafe ships official SDKs for Python (`typesafe-sdk`, requires Python 3.10+) and JavaScript/TypeScript (`@typesafe-ai/sdk`), both reading an API key from the environment and defaulting to the `jev-latest` model. There is also a LangChain integration exposed as `TypeSafeClassifier`, so teams already running an agent framework can drop Jev in as a classification step rather than building a bespoke client. Documentation and quickstart guides live at docs.typesafe.ai; as of publication, general access is still behind a waitlist following the September 2026 early-access launch.",
+        ],
+      },
+      {
+        heading: "Should you build the decision layer yourself, or is this a GTM problem too?",
+        paragraphs: [
+          "Wiring Jev, or any decision model, into a product is an engineering task. Explaining why it matters to the buyer, packaging it as a feature worth paying for, and getting it in front of the right accounts is a go-to-market task, and it is the one most technical founders underinvest in. If you are shipping AI-native features and need the positioning, content, and demand generation system to go with them, that is exactly what a [GTM Audit](/blog/gtm-audit-for-startups) is built to diagnose, and [Markoholics runs that system for Series A-C tech founders end to end](/services).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is Jev a replacement for ChatGPT or other LLMs?",
+        a: "No. Jev does not generate text, hold conversations, or write content — it only answers typed Choice, Score, or Noul questions about a piece of state. Most products will use an LLM for generation and Jev for the structured decisions behind the scenes, not one instead of the other.",
+      },
+      {
+        q: "What are Jev's three question types?",
+        a: "Choice (pick one of up to 255 labeled options, with a probability distribution across all of them), Score (a continuous rating against ordered levels), and Noul (a calibrated yes/no probability for a single proposition).",
+      },
+      {
+        q: "How much does Jev cost to run?",
+        a: "TypeSafe prices Jev at roughly $0.042 per million input tokens, with output tokens free — the model's output is a small typed value rather than generated text, which is why the pricing is structured that way.",
+      },
+      {
+        q: "Who built Jev and is it publicly available?",
+        a: "Jev is built by TypeSafe AI, a San Francisco company founded by ChatGPT co-inventor Diogo Almeida. It entered limited early access on September 15, 2026 alongside a $40 million seed round led by DCVC, and general access is currently behind a waitlist.",
+      },
+      {
+        q: "Do I need Jev if I'm not building an AI agent?",
+        a: "Not necessarily, but any product feature that currently routes, scores, or gates content based on rules or an ad hoc LLM call — ticket triage, fraud checks, moderation — is a candidate, whether or not the rest of the product is agentic.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
