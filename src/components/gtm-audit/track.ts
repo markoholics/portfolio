@@ -30,3 +30,15 @@ export function trackLeadSubmit() {
   });
   window.fbq?.("track", "Lead");
 }
+
+// Fired only after the server has verified the Razorpay payment signature,
+// so this reflects a real completed purchase rather than a checkout click.
+export function trackPurchase(value: number, currency: string) {
+  if (typeof window === "undefined") return;
+  window.gtag?.("event", "purchase", {
+    event_category: "gtm_audit_landing",
+    value,
+    currency,
+  });
+  window.fbq?.("track", "Purchase", { value, currency });
+}
