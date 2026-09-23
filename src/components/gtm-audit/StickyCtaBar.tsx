@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { trackCtaClick } from "@/components/gtm-audit/track";
-import { PAYMENT_URL } from "@/components/gtm-audit/constants";
+import RazorpayCheckoutButton from "@/components/gtm-audit/RazorpayCheckoutButton";
 
 export default function StickyCtaBar() {
   const [visible, setVisible] = useState(false);
@@ -25,15 +24,11 @@ export default function StickyCtaBar() {
         <span className="hidden text-sm text-white/70 sm:block">
           14-Day Signal Sprint
         </span>
-        <a
-          href={PAYMENT_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => trackCtaClick("sticky_bar")}
-          className="flex-1 sm:flex-none inline-flex items-center justify-center bg-[#D6FE4E] px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02]"
-        >
-          Get the Sprint · $99
-        </a>
+        <RazorpayCheckoutButton
+          location="sticky_bar"
+          label="Get the Sprint · $99"
+          className="flex-1 sm:flex-none inline-flex items-center justify-center bg-[#D6FE4E] px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02] disabled:opacity-60"
+        />
       </div>
     </div>
   );

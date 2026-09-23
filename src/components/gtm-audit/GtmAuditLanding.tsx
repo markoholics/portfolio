@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Script from "next/script";
 import Reveal from "@/components/Reveal";
 import MMark from "@/components/gtm-audit/MMark";
 import StickyCtaBar from "@/components/gtm-audit/StickyCtaBar";
 import LeadCaptureForm from "@/components/gtm-audit/LeadCaptureForm";
 import ObjectionsAccordion from "@/components/gtm-audit/ObjectionsAccordion";
-import { trackCtaClick } from "@/components/gtm-audit/track";
-import { PAYMENT_URL } from "@/components/gtm-audit/constants";
+import RazorpayCheckoutButton from "@/components/gtm-audit/RazorpayCheckoutButton";
 
 const LIME = "#D6FE4E";
 const CYAN = "#01A6C8";
@@ -95,16 +95,12 @@ const eyebrowClass =
 
 function PrimaryCta({ location, label = "Get the 14-Day Signal Sprint · $99" }: { location: string; label?: string }) {
   return (
-    <a
-      href={PAYMENT_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={() => trackCtaClick(location)}
-      className="inline-flex items-center justify-center px-8 py-4 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02] sm:text-base"
+    <RazorpayCheckoutButton
+      location={location}
+      label={label}
+      className="inline-flex items-center justify-center px-8 py-4 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02] sm:text-base disabled:opacity-60"
       style={{ backgroundColor: LIME }}
-    >
-      {label}
-    </a>
+    />
   );
 }
 
@@ -129,6 +125,8 @@ function CheckIcon() {
 export default function GtmAuditLanding() {
   return (
     <div className="bg-black text-white">
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="afterInteractive" />
+
       {/*
         Analytics: GA4 and Meta Pixel already load sitewide from the root
         layout (src/components/analytics/GoogleAnalytics.tsx and
