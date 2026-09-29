@@ -43,7 +43,21 @@ async function sendNotificationEmail({ subject, html, replyTo }: SendEmailOption
 
     if (!response.ok) {
       const body = await response.text().catch(() => "");
-      console.error("Resend API error:", response.status, body);
+      // Resend's shared onboarding@resend.dev sender can only deliver to
+      // the email address the Resend account itself was signed up with —
+      // this 403 is Resend refusing to send to any other "to" address
+      // until you verify your own domain (resend.com/domains) and send
+      // from an address on it instead. See RESEND_FROM_EMAIL in
+      // .env.local.example.
+      if (response.status === 403 && RESEND_FROM_EMAIL.endsWith("@resend.dev")) {
+        console.error(
+          "Resend 403: the resend.dev sandbox sender can only email your own Resend account address. " +
+            `Verify a domain in Resend and set RESEND_FROM_EMAIL to an address on it to send to ${NOTIFY_EMAIL}. Raw response:`,
+          body
+        );
+      } else {
+        console.error("Resend API error:", response.status, body);
+      }
       return false;
     }
     return true;
