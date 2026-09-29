@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabase";
+import { sendContactFormEmail } from "@/lib/email";
 
+// Writes to the contact_submissions Supabase table AND emails the team via
+// Resend (see src/lib/email.ts) — independently of each other, so a
+// Supabase outage doesn't silently swallow a submission the team never
+// sees, and a missing/misconfigured email provider doesn't block the
+// database record. The submission only fails if BOTH channels fail.
 export async function POST(request: NextRequest) {
   let body: {
     name?: string;
@@ -32,6 +38,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Enter a valid email address." }, { status: 400 });
   }
 
+  let savedToDatabase = false;
   try {
     const supabase = getSupabaseServerClient();
     const { error } = await supabase
@@ -40,18 +47,21 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error("Supabase insert error:", error.message);
-      return NextResponse.json(
-        { error: "Could not save your submission. Please try again." },
-        { status: 500 }
-      );
+    } else {
+      savedToDatabase = true;
     }
-
-    return NextResponse.json({ success: true }, { status: 201 });
   } catch (err) {
-    console.error("Contact form error:", err);
+    console.error("Contact form (Supabase) error:", err);
+  }
+
+  const emailSent = await sendContactFormEmail({ name, email, company, message });
+
+  if (!savedToDatabase && !emailSent) {
     return NextResponse.json(
-      { error: "Server is not configured to accept submissions yet." },
+      { error: "Could not save your submission. Please try again." },
       { status: 500 }
     );
   }
+
+  return NextResponse.json({ success: true }, { status: 201 });
 }
