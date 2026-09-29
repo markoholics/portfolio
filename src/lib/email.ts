@@ -130,8 +130,8 @@ export async function sendGtmAuditLeadEmail(lead: {
         ? "Thanks for claiming your free 14-Day Signal Sprint. We've got your details and someone from the Markoholics team will reach out shortly to get you started."
         : "Thanks for reserving your spot on the 14-Day Signal Sprint. We've got your details and someone from the Markoholics team will reach out shortly with next steps."
     }</p>
-    <p>If you have anything to add in the meantime, just reply to this email — it comes straight to us.</p>
-    <p>— The Markoholics team</p>
+    <p>If you have anything to add in the meantime, just send an email to ${NOTIFY_EMAIL}.</p>
+    <p>Kind regards,<br />The Markoholics team</p>
   `;
   await sendEmail({
     to: lead.email,
