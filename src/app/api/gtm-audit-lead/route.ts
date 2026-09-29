@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabase";
 
-// Fallback lead capture for /gtm-audit, used while the real Stripe
-// Checkout / Payment Link is not yet wired in. Requires the
+const KNOWN_SOURCES = ["gtm-audit-landing", "free-gtm-audit-landing"];
+
+// Fallback lead capture for /gtm-audit and /free-gtm-audit. Requires the
 // gtm_audit_leads table (see supabase/gtm_audit_leads.sql) to exist.
 export async function POST(request: NextRequest) {
   let body: {
@@ -10,6 +11,7 @@ export async function POST(request: NextRequest) {
     email?: string;
     company?: string;
     website?: string;
+    source?: string;
     utm_source?: string;
     utm_medium?: string;
     utm_campaign?: string;
@@ -25,6 +27,9 @@ export async function POST(request: NextRequest) {
   const email = body.email?.trim();
   const company = body.company?.trim() ?? null;
   const website = body.website?.trim() ?? null;
+  const source = KNOWN_SOURCES.includes(body.source ?? "")
+    ? (body.source as string)
+    : "gtm-audit-landing";
   const utm_source = body.utm_source?.trim() ?? null;
   const utm_medium = body.utm_medium?.trim() ?? null;
   const utm_campaign = body.utm_campaign?.trim() ?? null;
@@ -48,7 +53,7 @@ export async function POST(request: NextRequest) {
       email,
       company,
       website,
-      source: "gtm-audit-landing",
+      source,
       utm_source,
       utm_medium,
       utm_campaign,

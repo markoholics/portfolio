@@ -10,7 +10,7 @@ const [CONTACT_EMAIL_USER, CONTACT_EMAIL_DOMAIN] = CONTACT_EMAIL.split("@");
 
 // Paid-campaign landing pages ship their own minimal footer inline and
 // deliberately give visitors no exit route back into the rest of the site.
-const FOOTER_FREE_ROUTES = ["/gtm-audit"];
+const FOOTER_FREE_ROUTES = ["/gtm-audit", "/free-gtm-audit"];
 
 export default function Footer() {
   const pathname = usePathname();

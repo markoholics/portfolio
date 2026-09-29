@@ -5,7 +5,11 @@ import { trackLeadSubmit } from "@/components/gtm-audit/track";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function LeadCaptureForm() {
+export default function LeadCaptureForm({
+  variant = "paid",
+}: {
+  variant?: "paid" | "free";
+}) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -33,6 +37,7 @@ export default function LeadCaptureForm() {
           email: data.get("email"),
           company: data.get("company"),
           website: data.get("website"),
+          source: variant === "free" ? "free-gtm-audit-landing" : "gtm-audit-landing",
           utm_source: params.get("utm_source"),
           utm_medium: params.get("utm_medium"),
           utm_campaign: params.get("utm_campaign"),
@@ -56,9 +61,13 @@ export default function LeadCaptureForm() {
   if (status === "success") {
     return (
       <div className="rounded-2xl border border-[#D6FE4E]/40 bg-[#D6FE4E]/5 p-8 text-center">
-        <p className="font-display text-xl text-white">Spot reserved.</p>
+        <p className="font-display text-xl text-white">
+          {variant === "free" ? "You're in." : "Spot reserved."}
+        </p>
         <p className="mt-2 text-white/70">
-          We&apos;ll email your checkout link as soon as it&apos;s live, or reach out directly to get started.
+          {variant === "free"
+            ? "We'll be in touch shortly to schedule your free Signal Sprint."
+            : "We'll email your checkout link as soon as it's live, or reach out directly to get started."}
         </p>
       </div>
     );
@@ -130,7 +139,13 @@ export default function LeadCaptureForm() {
         disabled={status === "submitting"}
         className="sm:col-span-2 inline-flex items-center justify-center bg-[#D6FE4E] px-8 py-4 text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02] disabled:opacity-60"
       >
-        {status === "submitting" ? "Reserving…" : "Reserve My Signal Sprint"}
+        {status === "submitting"
+          ? variant === "free"
+            ? "Claiming…"
+            : "Reserving…"
+          : variant === "free"
+            ? "Claim My Free Signal Sprint"
+            : "Reserve My Signal Sprint"}
       </button>
     </form>
   );

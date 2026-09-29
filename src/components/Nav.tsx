@@ -9,7 +9,7 @@ import LogoMark from "@/components/LogoMark";
 
 // Paid-campaign landing pages render their own hero/logo and deliberately
 // give visitors no exit route back into the rest of the site.
-const NAV_FREE_ROUTES = ["/gtm-audit"];
+const NAV_FREE_ROUTES = ["/gtm-audit", "/free-gtm-audit"];
 
 export default function Nav() {
   const pathname = usePathname();

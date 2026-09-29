@@ -8,6 +8,8 @@ import StickyCtaBar from "@/components/gtm-audit/StickyCtaBar";
 import LeadCaptureForm from "@/components/gtm-audit/LeadCaptureForm";
 import ObjectionsAccordion from "@/components/gtm-audit/ObjectionsAccordion";
 import RazorpayCheckoutButton from "@/components/gtm-audit/RazorpayCheckoutButton";
+import PriceBadge from "@/components/gtm-audit/PriceBadge";
+import { trackCtaClick } from "@/components/gtm-audit/track";
 
 const LIME = "#D6FE4E";
 const CYAN = "#01A6C8";
@@ -75,29 +77,53 @@ const valueStack = [
   "A 30-minute working session, directly with the founder, not a salesperson",
 ];
 
-const objections = [
-  {
-    q: "What exactly are you claiming?",
-    a: "Not 3x on total revenue. We commit to new MRR added per month, measured at month six against your own baseline, agreed in writing before any spend.",
-  },
-  {
-    q: "Whose numbers are we trusting?",
-    a: "Yours. Your CRM is the source of truth, not ours. Every closed-won record traces back to the signal that created it. That's how we built a $500K+ pipeline for ByoSync.",
-  },
-  {
-    q: "Am I locked in?",
-    a: "No. The Sprint is a one-time $99 diagnostic. If you continue into a Growth Engine build, the first month runs with no lock-in beyond a short trial window, so you can walk away before any six-month commitment.",
-  },
-];
+function getObjections(variant: "paid" | "free") {
+  return [
+    {
+      q: "What exactly are you claiming?",
+      a: "Not 3x on total revenue. We commit to new MRR added per month, measured at month six against your own baseline, agreed in writing before any spend.",
+    },
+    {
+      q: "Whose numbers are we trusting?",
+      a: "Yours. Your CRM is the source of truth, not ours. Every closed-won record traces back to the signal that created it. That's how we built a $500K+ pipeline for ByoSync.",
+    },
+    {
+      q: "Am I locked in?",
+      a:
+        variant === "free"
+          ? "No. This Sprint is complimentary for select prospects: no payment, no invoice. If you continue into a Growth Engine build, the first month runs with no lock-in beyond a short trial window, so you can walk away before any six-month commitment."
+          : "No. The Sprint is a one-time $99 diagnostic. If you continue into a Growth Engine build, the first month runs with no lock-in beyond a short trial window, so you can walk away before any six-month commitment.",
+    },
+  ];
+}
 
 const eyebrowClass =
   "font-mono text-xs font-medium uppercase tracking-[0.28em]";
 
-function PrimaryCta({ location, label = "Get the 14-Day Signal Sprint · $99" }: { location: string; label?: string }) {
+function PrimaryCta({
+  location,
+  variant,
+}: {
+  location: string;
+  variant: "paid" | "free";
+}) {
+  if (variant === "free") {
+    return (
+      <a
+        href="#reserve"
+        onClick={() => trackCtaClick(location)}
+        className="inline-flex items-center justify-center gap-2 px-8 py-4 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02] sm:text-base"
+        style={{ backgroundColor: LIME }}
+      >
+        Claim the 14-Day Signal Sprint ·{" "}
+        <PriceBadge strikeClassName="text-black/50" freeClassName="text-black" />
+      </a>
+    );
+  }
   return (
     <RazorpayCheckoutButton
       location={location}
-      label={label}
+      label="Get the 14-Day Signal Sprint · $99"
       className="inline-flex items-center justify-center px-8 py-4 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02] sm:text-base disabled:opacity-60"
       style={{ backgroundColor: LIME }}
     />
@@ -122,10 +148,18 @@ function CheckIcon() {
   );
 }
 
-export default function GtmAuditLanding() {
+export default function GtmAuditLanding({
+  variant = "paid",
+}: {
+  variant?: "paid" | "free";
+}) {
+  const objections = getObjections(variant);
+
   return (
     <div className="bg-black text-white">
-      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="afterInteractive" />
+      {variant === "paid" && (
+        <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="afterInteractive" />
+      )}
 
       {/*
         Analytics: GA4 and Meta Pixel already load sitewide from the root
@@ -159,7 +193,7 @@ export default function GtmAuditLanding() {
               AI-native engine costs instead.
             </p>
             <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <PrimaryCta location="hero" />
+              <PrimaryCta location="hero" variant={variant} />
               <a href="#offer" className={outlineCtaClass} style={{ borderColor: CYAN, color: CYAN }}>
                 See what&apos;s included ↓
               </a>
@@ -280,7 +314,14 @@ export default function GtmAuditLanding() {
               THE 14-DAY SIGNAL SPRINT
             </span>
             <h2 className="mt-6 max-w-2xl font-display text-3xl leading-tight sm:text-4xl md:text-5xl">
-              $99. Everything stacked in. Nothing held back.
+              {variant === "free" ? (
+                <>
+                  <PriceBadge strikeClassName="text-white/40" freeClassName="text-[#D6FE4E]" />. Everything
+                  stacked in. Nothing held back.
+                </>
+              ) : (
+                "$99. Everything stacked in. Nothing held back."
+              )}
             </h2>
           </Reveal>
 
@@ -306,21 +347,23 @@ export default function GtmAuditLanding() {
               </p>
             </div>
             <p className="mt-4 max-w-2xl text-sm text-white/50">
-              If you move forward with a Growth Engine build within 14 days, the $99 is credited
-              in full against your first month.
+              {variant === "free"
+                ? "This audit is complimentary for you as part of a select-prospect programme: no payment, no invoice, ever."
+                : "If you move forward with a Growth Engine build within 14 days, the $99 is credited in full against your first month."}
             </p>
           </Reveal>
 
           <Reveal delay={0.2}>
             <div className="mt-10">
-              <PrimaryCta location="offer" />
+              <PrimaryCta location="offer" variant={variant} />
             </div>
           </Reveal>
 
           {/*
-            Fallback lead capture: a secondary path for anyone who wants to
-            reserve a slot without paying online right now (e.g. needs an
-            invoice, or wants a question answered first). See
+            Fallback lead capture: on the paid variant, a secondary path for
+            anyone who wants to reserve a slot without paying online right
+            now. On the free variant, this is the primary (and only) claim
+            mechanism, since Razorpay can't process a genuine $0 charge — see
             LeadCaptureForm.tsx for the POST endpoint.
           */}
           <Reveal delay={0.25}>
@@ -329,14 +372,15 @@ export default function GtmAuditLanding() {
               className="mt-16 max-w-2xl scroll-mt-24 rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8"
             >
               <h3 className="font-display text-xl text-white">
-                Prefer not to pay online right now?
+                {variant === "free" ? "Claim your free Signal Sprint" : "Prefer not to pay online right now?"}
               </h3>
               <p className="mt-2 text-white/60">
-                Reserve your Signal Sprint slot here and we&apos;ll follow up directly to sort
-                payment.
+                {variant === "free"
+                  ? "Tell us where to send it. This audit is on us."
+                  : "Reserve your Signal Sprint slot here and we'll follow up directly to sort payment."}
               </p>
               <div className="mt-6">
-                <LeadCaptureForm />
+                <LeadCaptureForm variant={variant} />
               </div>
             </div>
           </Reveal>
@@ -371,10 +415,12 @@ export default function GtmAuditLanding() {
               BUILT FOR COMPANIES THAT INTEND TO WIN THEIR CATEGORY
             </span>
             <h2 className="mx-auto mt-6 max-w-2xl font-display text-3xl leading-tight sm:text-4xl md:text-5xl">
-              Start with the Sprint. It pays for itself before the real engagement begins.
+              {variant === "free"
+                ? "Claim the free Sprint. It's built to earn the real engagement that follows."
+                : "Start with the Sprint. It pays for itself before the real engagement begins."}
             </h2>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <PrimaryCta location="final" />
+              <PrimaryCta location="final" variant={variant} />
               <Link href="/contact" className={outlineCtaClass} style={{ borderColor: CYAN, color: CYAN }}>
                 Book a GTM Strategy Call
               </Link>
@@ -393,7 +439,7 @@ export default function GtmAuditLanding() {
         </Reveal>
       </section>
 
-      <StickyCtaBar />
+      <StickyCtaBar variant={variant} />
     </div>
   );
 }

@@ -2,8 +2,14 @@
 
 import { useEffect, useState } from "react";
 import RazorpayCheckoutButton from "@/components/gtm-audit/RazorpayCheckoutButton";
+import PriceBadge from "@/components/gtm-audit/PriceBadge";
+import { trackCtaClick } from "@/components/gtm-audit/track";
 
-export default function StickyCtaBar() {
+export default function StickyCtaBar({
+  variant = "paid",
+}: {
+  variant?: "paid" | "free";
+}) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -24,11 +30,22 @@ export default function StickyCtaBar() {
         <span className="hidden text-sm text-white/70 sm:block">
           14-Day Signal Sprint
         </span>
-        <RazorpayCheckoutButton
-          location="sticky_bar"
-          label="Get the Sprint · $99"
-          className="flex-1 sm:flex-none inline-flex items-center justify-center bg-[#D6FE4E] px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02] disabled:opacity-60"
-        />
+        {variant === "free" ? (
+          <a
+            href="#reserve"
+            onClick={() => trackCtaClick("sticky_bar")}
+            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-[#D6FE4E] px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02]"
+          >
+            Get the Sprint ·{" "}
+            <PriceBadge strikeClassName="text-black/50" freeClassName="text-black" />
+          </a>
+        ) : (
+          <RazorpayCheckoutButton
+            location="sticky_bar"
+            label="Get the Sprint · $99"
+            className="flex-1 sm:flex-none inline-flex items-center justify-center bg-[#D6FE4E] px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-[1.02] disabled:opacity-60"
+          />
+        )}
       </div>
     </div>
   );
