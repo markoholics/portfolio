@@ -1,6 +1,11 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { getRazorpayKeySecret } from "@/lib/razorpay";
+import { recordOrderIfNew } from "@/lib/gtmAuditOrders";
+import {
+  SPRINT_CURRENCY,
+  SPRINT_PRICE_CENTS,
+} from "@/components/gtm-audit/constants";
 
 // Verifies a completed Razorpay Standard Checkout payment. Razorpay signs
 // `${order_id}|${payment_id}` with the account's key secret (HMAC-SHA256);
@@ -53,6 +58,22 @@ export async function POST(request: NextRequest) {
   if (!isValid) {
     console.error("Razorpay signature mismatch for order", razorpay_order_id);
     return NextResponse.json({ error: "Payment verification failed." }, { status: 400 });
+  }
+
+  // Best-effort order log: the webhook (razorpay-webhook/route.ts) is the
+  // authoritative record and will fill in the payer's email/contact/method,
+  // but this insert means a sale still shows up on our side immediately,
+  // and even if the webhook were never configured at all.
+  try {
+    await recordOrderIfNew({
+      razorpay_order_id,
+      razorpay_payment_id,
+      amount: SPRINT_PRICE_CENTS,
+      currency: SPRINT_CURRENCY,
+      status: "captured",
+    });
+  } catch (err) {
+    console.error("Failed to log gtm_audit_orders row from verify-payment:", err);
   }
 
   return NextResponse.json({ success: true, paymentId: razorpay_payment_id });
