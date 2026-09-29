@@ -11,17 +11,29 @@ const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.de
 const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL ?? "contact@markoholics.com";
 
 interface SendEmailOptions {
+  to: string;
   subject: string;
   html: string;
   replyTo?: string;
 }
 
-async function sendNotificationEmail({ subject, html, replyTo }: SendEmailOptions): Promise<boolean> {
+// The abc@xyz.com shape the user asked to validate against — same pattern
+// already enforced in the API routes before any of this is ever called.
+const EMAIL_FORMAT = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+async function sendEmail({ to, subject, html, replyTo }: SendEmailOptions): Promise<boolean> {
   if (!RESEND_API_KEY) {
     console.error(
-      "RESEND_API_KEY is not configured — skipping notification email:",
-      subject
+      "RESEND_API_KEY is not configured — skipping email:",
+      subject,
+      "to",
+      to
     );
+    return false;
+  }
+
+  if (!EMAIL_FORMAT.test(to)) {
+    console.error("Refusing to send — invalid email format:", to);
     return false;
   }
 
@@ -34,7 +46,7 @@ async function sendNotificationEmail({ subject, html, replyTo }: SendEmailOption
       },
       body: JSON.stringify({
         from: RESEND_FROM_EMAIL,
-        to: [NOTIFY_EMAIL],
+        to: [to],
         subject,
         html,
         ...(replyTo ? { reply_to: replyTo } : {}),
@@ -52,19 +64,28 @@ async function sendNotificationEmail({ subject, html, replyTo }: SendEmailOption
       if (response.status === 403 && RESEND_FROM_EMAIL.endsWith("@resend.dev")) {
         console.error(
           "Resend 403: the resend.dev sandbox sender can only email your own Resend account address. " +
-            `Verify a domain in Resend and set RESEND_FROM_EMAIL to an address on it to send to ${NOTIFY_EMAIL}. Raw response:`,
+            `Verify a domain in Resend and set RESEND_FROM_EMAIL to an address on it to send to ${to}. Raw response:`,
           body
         );
       } else {
-        console.error("Resend API error:", response.status, body);
+        console.error("Resend API error:", response.status, body, "to", to);
       }
       return false;
     }
     return true;
   } catch (err) {
-    console.error("Failed to send notification email:", err);
+    console.error("Failed to send email to", to, err);
     return false;
   }
+}
+
+// Sends to the internal team inbox and, independently, a confirmation to
+// the visitor who submitted the form. The internal send's success/failure
+// is what callers use to decide whether the submission "worked" (it's the
+// one that also gets a Supabase fallback); the visitor confirmation is
+// best-effort and never blocks or fails the submission on its own.
+async function sendNotificationEmail(options: Omit<SendEmailOptions, "to">): Promise<boolean> {
+  return sendEmail({ ...options, to: NOTIFY_EMAIL });
 }
 
 function escapeHtml(value: string) {
@@ -96,7 +117,30 @@ export async function sendGtmAuditLeadEmail(lead: {
     <p><strong>Source:</strong> ${escapeHtml(lead.source)}</p>
   `;
 
-  return sendNotificationEmail({ subject, html, replyTo: lead.email });
+  const notified = await sendNotificationEmail({ subject, html, replyTo: lead.email });
+
+  const firstName = escapeHtml(lead.name.split(" ")[0] || lead.name);
+  const confirmationSubject = isFree
+    ? "You're in — your free 14-Day Signal Sprint"
+    : "You're in — your 14-Day Signal Sprint spot is reserved";
+  const confirmationHtml = `
+    <h2>Hey ${firstName},</h2>
+    <p>${
+      isFree
+        ? "Thanks for claiming your free 14-Day Signal Sprint. We've got your details and someone from the Markoholics team will reach out shortly to get you started."
+        : "Thanks for reserving your spot on the 14-Day Signal Sprint. We've got your details and someone from the Markoholics team will reach out shortly with next steps."
+    }</p>
+    <p>If you have anything to add in the meantime, just reply to this email — it comes straight to us.</p>
+    <p>— The Markoholics team</p>
+  `;
+  await sendEmail({
+    to: lead.email,
+    subject: confirmationSubject,
+    html: confirmationHtml,
+    replyTo: NOTIFY_EMAIL,
+  });
+
+  return notified;
 }
 
 export async function sendContactFormEmail(submission: {
@@ -114,5 +158,20 @@ export async function sendContactFormEmail(submission: {
     <p><strong>Message:</strong><br />${escapeHtml(submission.message || "—").replace(/\n/g, "<br />")}</p>
   `;
 
-  return sendNotificationEmail({ subject, html, replyTo: submission.email });
+  const notified = await sendNotificationEmail({ subject, html, replyTo: submission.email });
+
+  const firstName = escapeHtml(submission.name.split(" ")[0] || submission.name);
+  const confirmationHtml = `
+    <h2>Hey ${firstName},</h2>
+    <p>Thanks for reaching out to Markoholics. We've received your message and someone from our team will get back to you shortly.</p>
+    <p>— The Markoholics team</p>
+  `;
+  await sendEmail({
+    to: submission.email,
+    subject: "We've got your message — Markoholics",
+    html: confirmationHtml,
+    replyTo: NOTIFY_EMAIL,
+  });
+
+  return notified;
 }
