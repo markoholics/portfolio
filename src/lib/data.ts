@@ -489,7 +489,8 @@ export const strategicPartners: Partner[] = [
 
 export interface PartnerStackLogo {
   name: string;
-  href: string;
+  /** Omit for a partner with no affiliate/referral link yet — the logo renders unlinked. */
+  href?: string;
   /** Path under /public to a transparent PNG logo, e.g. "/partners/apollo.png". */
   src: string;
 }
@@ -499,6 +500,7 @@ export const partnerStackLogos: PartnerStackLogo[] = [
   { name: "Jibble", href: "https://affiliate.jibble.io/nivqrcwyosmw", src: "/partners/jibble.png" },
   { name: "Make", href: "https://www.make.com/en/register?pc=theotherrahman", src: "/partners/make.png" },
   { name: "Apify", href: "https://get.apollo.io/8zfuvp88qn6x", src: "/partners/apify.png" },
+  { name: "Razorpay", src: "/partners/razorpay.png" },
 ];
 
 export const navLinks = [

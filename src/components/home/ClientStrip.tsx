@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 
 const clientContext: Record<string, string> = {
   eqrgen: "Dynamic QR Infrastructure",
-  byosync: "Trust & Consent Tech",
+  byosync: "Agentic AI Infrastructure",
 };
 
 export default function ClientStrip() {
