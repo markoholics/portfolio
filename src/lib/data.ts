@@ -500,7 +500,7 @@ export const partnerStackLogos: PartnerStackLogo[] = [
   { name: "Jibble", href: "https://affiliate.jibble.io/nivqrcwyosmw", src: "/partners/jibble.png" },
   { name: "Make", href: "https://www.make.com/en/register?pc=theotherrahman", src: "/partners/make.png" },
   { name: "Apify", href: "https://get.apollo.io/8zfuvp88qn6x", src: "/partners/apify.png" },
-  { name: "Razorpay", src: "/partners/razorpay.png" },
+  { name: "Razorpay", href: "https://rzp.io/rzp/ZKWhsAt", src: "/partners/razorpay.png" },
 ];
 
 export const navLinks = [
