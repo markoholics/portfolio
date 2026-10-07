@@ -467,6 +467,8 @@ export interface Partner {
   name: string;
   description: string;
   href?: string;
+  /** Path under /public to a transparent PNG logo, e.g. "/partners/google.png". When set, renders as a logo instead of a text name. */
+  logo?: string;
 }
 
 export const strategicPartners: Partner[] = [
@@ -484,6 +486,16 @@ export const strategicPartners: Partner[] = [
     name: "W2S Solutions",
     description: "Strategic technology partner",
     href: "https://www.w2ssolutions.com/",
+  },
+  {
+    name: "Google",
+    description: "Official partner",
+    logo: "/partners/google.png",
+  },
+  {
+    name: "Claude",
+    description: "Official partner",
+    logo: "/partners/claude.png",
   },
 ];
 
