@@ -467,8 +467,6 @@ export interface Partner {
   name: string;
   description: string;
   href?: string;
-  /** Path under /public to a transparent PNG logo, e.g. "/partners/google.png". When set, renders as a logo instead of a text name. */
-  logo?: string;
 }
 
 export const strategicPartners: Partner[] = [
@@ -487,16 +485,6 @@ export const strategicPartners: Partner[] = [
     description: "Strategic technology partner",
     href: "https://www.w2ssolutions.com/",
   },
-  {
-    name: "Google",
-    description: "Official partner",
-    logo: "/partners/google.png",
-  },
-  {
-    name: "Claude",
-    description: "Official partner",
-    logo: "/partners/claude.png",
-  },
 ];
 
 export interface PartnerStackLogo {
@@ -513,6 +501,8 @@ export const partnerStackLogos: PartnerStackLogo[] = [
   { name: "Make", href: "https://www.make.com/en/register?pc=theotherrahman", src: "/partners/make.png" },
   { name: "Apify", href: "https://get.apollo.io/8zfuvp88qn6x", src: "/partners/apify.png" },
   { name: "Razorpay", href: "https://rzp.io/rzp/ZKWhsAt", src: "/partners/razorpay.png" },
+  { name: "Google", src: "/partners/google.png" },
+  { name: "Claude", src: "/partners/claude.png" },
 ];
 
 export const navLinks = [
