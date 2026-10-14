@@ -14,7 +14,7 @@ export const LANDING_COPY = {
   heading: "Let us find out if we are right for each other.",
   subheading:
     "Seven short questions. About ninety seconds. No sales pitch, just a straight answer about whether Markoholics is the right growth partner for where you are today.",
-  priceAnchorLabel: `Engagements start from ₹${PRICING.proofSprint.amount.toLocaleString("en-IN")} for a six week Proof Sprint, plus GST.`,
+  priceAnchorLabel: `Engagements start from ₹${PRICING.proofSprint.amount.toLocaleString("en-IN")} for a six month Proof Sprint, plus GST.`,
   priceAnchorSupport:
     "We say this upfront so your time is not wasted, and neither is ours.",
   startButton: "Start the Fit Check",
@@ -113,7 +113,7 @@ export const QUESTIONS_COPY = {
         value: "six_month_engagement",
         label: "A six month engagement with a shared scoreboard and a 90 day review",
       },
-      { value: "six_week_sprint", label: "Start with a six week sprint first" },
+      { value: "six_week_sprint", label: "Start with a Proof Sprint first" },
       { value: "month_to_month", label: "Month to month only" },
     ],
   } satisfies QuestionCopy,
@@ -179,7 +179,7 @@ export const GREEN_SCREEN_COPY = {
 
 export const AMBER_SCREEN_COPY = {
   heading: "There is something here. Let us start smaller.",
-  body: `Based on what you have told us, we think the right first step is the Proof Sprint rather than diving straight into a full engagement. It is a focused six week piece of work, fixed at ₹${PRICING.proofSprint.amount.toLocaleString("en-IN")} plus GST, with no long commitment attached.`,
+  body: `Based on what you have told us, we think the right first step is the Proof Sprint rather than diving straight into a full engagement. It is a focused six month piece of work, fixed at ₹${PRICING.proofSprint.amount.toLocaleString("en-IN")} plus GST, with no long commitment attached.`,
   sprintCredit: PRICING.proofSprint.note,
   callPrompt: "If you would like to talk it through first, grab a short call below.",
   bookingButton: "Book a short call",
@@ -220,7 +220,7 @@ export const EMAIL_COPY = {
     html: `
       <h2>Hey {{firstName}},</h2>
       <p>Thank you for taking the Fit Check. Based on what you shared, we think the right first step is the Proof Sprint rather than a full engagement straight away.</p>
-      <p>The Proof Sprint is a fixed six week piece of work, starting from ₹${PRICING.proofSprint.amount.toLocaleString("en-IN")} plus GST, paid in advance. ${PRICING.proofSprint.note}</p>
+      <p>The Proof Sprint is a fixed six month piece of work, starting from ₹${PRICING.proofSprint.amount.toLocaleString("en-IN")} plus GST, paid in advance. ${PRICING.proofSprint.note}</p>
       <p>If you would like to talk it through first, book a short call here: <a href="{{bookingUrl}}">{{bookingUrl}}</a></p>
       <p>Kind regards,<br />The Markoholics team</p>
     `,
