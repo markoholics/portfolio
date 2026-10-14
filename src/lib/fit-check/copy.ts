@@ -14,7 +14,7 @@ export const LANDING_COPY = {
   heading: "Let us find out if we are right for each other.",
   subheading:
     "Seven short questions. About ninety seconds. No sales pitch, just a straight answer about whether Markoholics is the right growth partner for where you are today.",
-  priceAnchorLabel: `Engagements start from ₹${PRICING.proofSprint.amount.toLocaleString("en-IN")} for a six month Proof Sprint, plus GST.`,
+  priceAnchorLabel: `Engagements start from ₹${PRICING.proofSprint.amount.toLocaleString("en-IN")} (plus GST) for a six month Proof Sprint.`,
   priceAnchorSupport:
     "We say this upfront so your time is not wasted, and neither is ours.",
   startButton: "Start the Fit Check",
