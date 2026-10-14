@@ -175,7 +175,7 @@ export const PRICING_PLANS: PricingPlanCard[] = [
       "Weekly scoreboard and a monthly review",
     ],
     commitment:
-      "A floor on qualified conversations once the Sprint sets the baseline (starting proposal: six a month). If the floor is missed two months running, the next month's fee buys extra work at no cost. No refund, and the day 90 point is a review, not an exit window.",
+      "A minimum baseline of six qualified conversations per month after the initial Sprint. If this baseline for three consecutive months isn't met, we will provide extra work at no cost during the fourth month. This is not eligible for a refund, and the 90 day mark serves as a progress review rather than a contract exit window.",
     highlight: true,
   },
   {
