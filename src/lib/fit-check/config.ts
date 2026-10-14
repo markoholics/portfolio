@@ -163,7 +163,7 @@ export const PRICING_PLANS: PricingPlanCard[] = [
       "A scoreboard with written definitions",
     ],
     commitment:
-      "Everything live by month two, a weekly scoreboard, and a go or no go recommendation at month six.",
+      "Everything live by week four, a weekly scoreboard, and a go or no go recommendation at the end of month three.",
   },
   {
     name: "Engine",
