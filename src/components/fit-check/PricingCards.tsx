@@ -40,6 +40,9 @@ export default function PricingCards() {
               >
                 ₹{plan.amount.toLocaleString("en-IN")}
               </span>
+              <span className={`text-sm ${plan.highlight ? "text-black/60" : "text-grey"}`}>
+                + GST
+              </span>
             </div>
             <p
               className={`text-xs mb-6 ${plan.highlight ? "text-black/60" : "text-grey"}`}
