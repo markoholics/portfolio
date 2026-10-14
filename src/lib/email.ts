@@ -8,9 +8,9 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY ?? "";
 // testing sender (onboarding@resend.dev) which works with zero setup but
 // is rate-limited and looks less official in the inbox.
 const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
-const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL ?? "contact@markoholics.com";
+export const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL ?? "contact@markoholics.com";
 
-interface SendEmailOptions {
+export interface SendEmailOptions {
   to: string;
   subject: string;
   html: string;
@@ -19,9 +19,11 @@ interface SendEmailOptions {
 
 // The abc@xyz.com shape the user asked to validate against — same pattern
 // already enforced in the API routes before any of this is ever called.
-const EMAIL_FORMAT = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+export const EMAIL_FORMAT = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-async function sendEmail({ to, subject, html, replyTo }: SendEmailOptions): Promise<boolean> {
+// Exported so other feature modules (e.g. src/lib/fit-check/notify.ts) send
+// through this one Resend transport instead of duplicating the fetch call.
+export async function sendEmail({ to, subject, html, replyTo }: SendEmailOptions): Promise<boolean> {
   if (!RESEND_API_KEY) {
     console.error(
       "RESEND_API_KEY is not configured — skipping email:",
@@ -88,7 +90,7 @@ async function sendNotificationEmail(options: Omit<SendEmailOptions, "to">): Pro
   return sendEmail({ ...options, to: NOTIFY_EMAIL });
 }
 
-function escapeHtml(value: string) {
+export function escapeHtml(value: string) {
   return value
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
