@@ -140,6 +140,58 @@ export const PRICING = {
   },
 };
 
+// Shown as three cards above the Fit Check questions. Starting proposals,
+// not outcome guarantees — same rule as PRICING above.
+export interface PricingPlanCard {
+  name: string;
+  amount: number;
+  period: string;
+  features: string[];
+  commitment: string;
+  highlight?: boolean;
+}
+
+export const PRICING_PLANS: PricingPlanCard[] = [
+  {
+    name: "Proof Sprint",
+    amount: PRICING.proofSprint.amount,
+    period: "fixed, six months, paid in advance",
+    features: [
+      "ICP and positioning on one page",
+      "Outbound system live: verified list, two sequences, tracking",
+      "One founder led content format designed",
+      "A scoreboard with written definitions",
+    ],
+    commitment:
+      "Everything live by month two, a weekly scoreboard, and a go or no go recommendation at month six.",
+  },
+  {
+    name: "Engine",
+    amount: PRICING.engine.amount,
+    period: "per month, six month minimum, billed in advance",
+    features: [
+      "Outbound, founder content and reporting run end to end",
+      "Monthly volume of verified ICP prospects reached, agreed in writing",
+      "Weekly scoreboard and a monthly review",
+    ],
+    commitment:
+      "A floor on qualified conversations once the Sprint sets the baseline (starting proposal: six a month). If the floor is missed two months running, the next month's fee buys extra work at no cost. No refund, and the day 90 point is a review, not an exit window.",
+    highlight: true,
+  },
+  {
+    name: "Partner",
+    amount: PRICING.partner.amount,
+    period: "per month plus revenue share, nine month minimum",
+    features: [
+      "Everything in Engine",
+      "Events, roundtables and pipeline reporting",
+      "Revenue share of about 10% on deals the engine sources, for 6 to 12 months",
+    ],
+    commitment:
+      "Attribution rules written into the contract before kickoff. Best for founders ready to hand over pipeline ownership.",
+  },
+];
+
 // Landing-page price anchor above the form. Flip to false to A/B test the
 // page without it.
 export const SHOW_PRICE_ANCHOR = true;

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import FitCheckFlow from "@/components/fit-check/FitCheckFlow";
+import PricingCards from "@/components/fit-check/PricingCards";
 import { LANDING_COPY, PROGRESS_COPY } from "@/lib/fit-check/copy";
 import { SHOW_PRICE_ANCHOR } from "@/lib/fit-check/config";
 import { SITE_URL, webPageJsonLd } from "@/lib/seo";
@@ -51,7 +52,16 @@ export default function FitCheckPage() {
         </Reveal>
       </section>
 
-      <section className="section-pad pt-0 border-t hairline">
+      <section className="section-pad pt-0 pb-0 border-t hairline">
+        <div className="container-edge">
+          <Reveal>
+            <span className="eyebrow block mb-6">Three Ways To Work With Us</span>
+            <PricingCards />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section-pad pt-0">
         <div className="container-edge">
           <Reveal delay={0.1}>
             <p className="eyebrow text-center mb-10">{PROGRESS_COPY.promise}</p>
