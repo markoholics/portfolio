@@ -127,7 +127,6 @@ export const PRICING = {
     name: "Proof Sprint",
     amount: 75_000,
     unit: "fixed, six months, paid in advance",
-    note: "50% credited if you move to the Engine within 14 days.",
   },
   engine: {
     name: "Engine",

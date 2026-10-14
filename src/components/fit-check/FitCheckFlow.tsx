@@ -501,7 +501,6 @@ function ResultScreen({
         <span className="eyebrow block mb-4">Fit Check</span>
         <h2 className="font-display text-3xl md:text-4xl text-white mb-4">{AMBER_SCREEN_COPY.heading}</h2>
         <p className="text-grey mb-3">{AMBER_SCREEN_COPY.body}</p>
-        <p className="text-grey text-sm mb-3">{AMBER_SCREEN_COPY.sprintCredit}</p>
         <p className="text-grey text-sm mb-8">{AMBER_SCREEN_COPY.callPrompt}</p>
         <a
           href={AMBER_BOOKING_URL}

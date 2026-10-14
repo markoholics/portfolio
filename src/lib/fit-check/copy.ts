@@ -180,7 +180,6 @@ export const GREEN_SCREEN_COPY = {
 export const AMBER_SCREEN_COPY = {
   heading: "There is something here. Let us start smaller.",
   body: `Based on what you have told us, we think the right first step is the Proof Sprint rather than diving straight into a full engagement. It is a focused six month piece of work, fixed at ₹${PRICING.proofSprint.amount.toLocaleString("en-IN")} plus GST, with no long commitment attached.`,
-  sprintCredit: PRICING.proofSprint.note,
   callPrompt: "If you would like to talk it through first, grab a short call below.",
   bookingButton: "Book a short call",
 };
@@ -220,7 +219,7 @@ export const EMAIL_COPY = {
     html: `
       <h2>Hey {{firstName}},</h2>
       <p>Thank you for taking the Fit Check. Based on what you shared, we think the right first step is the Proof Sprint rather than a full engagement straight away.</p>
-      <p>The Proof Sprint is a fixed six month piece of work, starting from ₹${PRICING.proofSprint.amount.toLocaleString("en-IN")} plus GST, paid in advance. ${PRICING.proofSprint.note}</p>
+      <p>The Proof Sprint is a fixed six month piece of work, starting from ₹${PRICING.proofSprint.amount.toLocaleString("en-IN")} plus GST, paid in advance.</p>
       <p>If you would like to talk it through first, book a short call here: <a href="{{bookingUrl}}">{{bookingUrl}}</a></p>
       <p>Kind regards,<br />The Markoholics team</p>
     `,
