@@ -14,7 +14,7 @@ component (`FitCheckEmbed`) for dropping into other pages.
 | The pure scoring/routing function | `src/lib/fit-check/scoring.ts` (+ `scoring.test.ts`) |
 | Supabase reads/writes | `src/lib/fit-check/responses.ts` |
 | Make webhook | `src/lib/fit-check/webhook.ts` |
-| Auto reply emails + the Green email/Slack alert | `src/lib/fit-check/notify.ts` |
+| Auto reply emails + the Green and Red-note email/Slack alerts | `src/lib/fit-check/notify.ts` |
 | The API route (progress, submit, red note) | `src/app/api/fit-check/route.ts` |
 | Internal analytics / CSV export | `src/app/api/fit-check/export/route.ts` |
 | The step-by-step UI | `src/components/fit-check/FitCheckFlow.tsx` |
@@ -86,8 +86,8 @@ ones:
 | Variable | Used for |
 | --- | --- |
 | `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` | Persisting responses (partial and complete) to `fit_check_responses`. Shared with the rest of the site — see the root `.env.local.example`. |
-| `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `NOTIFY_EMAIL` | The three auto reply emails and the Green internal alert email. Shared with the rest of the site. |
-| `SLACK_WEBHOOK_URL` | The Green path internal Slack alert. An [incoming webhook URL](https://api.slack.com/messaging/webhooks) from your Slack workspace. |
+| `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `NOTIFY_EMAIL` | The three auto reply emails, and the internal alert emails for Green and for a Red one off project note. Shared with the rest of the site. |
+| `SLACK_WEBHOOK_URL` | The internal Slack alert — fires for a Green result, and separately whenever a Red result's optional "I have a defined one off project" note is filled in. Nothing else triggers it (an Amber result, or a Red result with that field left blank, stays silent). An [incoming webhook URL](https://api.slack.com/messaging/webhooks) from your Slack workspace. |
 | `MAKE_FIT_CHECK_WEBHOOK_URL` | Every submission's full payload plus computed route, posted to a Make scenario for you to route on to Notion, Brevo, Apollo enrichment, or anything else. |
 | `FIT_CHECK_EXPORT_KEY` | Shared secret for `/api/fit-check/export`. Generate a long random string (e.g. `openssl rand -hex 32`) and keep it private — anyone with this value can read every submission. |
 

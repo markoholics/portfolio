@@ -57,3 +57,29 @@ export async function sendFitCheckGreenAlert(contact: FitCheckContact): Promise<
     sendSlackAlert(text),
   ]);
 }
+
+// Red path only, fired when a visitor fills in the optional "I have a
+// defined one off project with a fixed budget" line. This is the one
+// signal on the Red path worth an immediate alert — per the brief, these
+// are reviewed by hand, which only works if you know one arrived.
+export async function sendFitCheckRedNoteAlert(
+  contact: Pick<FitCheckContact, "name" | "email">,
+  oneOffNote: string
+): Promise<void> {
+  const text = `Fit Check: ${contact.name} (${contact.email}) wasn't a fit for a retainer, but left a one off project note: "${oneOffNote}"`;
+
+  await Promise.all([
+    sendEmail({
+      to: NOTIFY_EMAIL,
+      subject: `Fit Check: one off project note — ${contact.name}`,
+      html: `
+        <h2>One off project note from a non-fit Fit Check submission</h2>
+        <p><strong>Name:</strong> ${escapeHtml(contact.name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(contact.email)}</p>
+        <p><strong>Note:</strong> ${escapeHtml(oneOffNote)}</p>
+      `,
+      replyTo: contact.email,
+    }),
+    sendSlackAlert(text),
+  ]);
+}

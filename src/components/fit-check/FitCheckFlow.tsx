@@ -171,7 +171,13 @@ export default function FitCheckFlow() {
 
   const submitRedNote = () => {
     if (!oneOffNote.trim() || redNoteSent || !sessionId) return;
-    postJson({ sessionId, event: "red_note", oneOffNote: oneOffNote.trim() });
+    postJson({
+      sessionId,
+      event: "red_note",
+      oneOffNote: oneOffNote.trim(),
+      name,
+      email,
+    });
     setRedNoteSent(true);
   };
 

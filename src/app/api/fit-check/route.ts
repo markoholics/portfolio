@@ -13,7 +13,11 @@ import {
   saveFitCheckSubmission,
   type FitCheckUtm,
 } from "@/lib/fit-check/responses";
-import { sendFitCheckAutoReply, sendFitCheckGreenAlert } from "@/lib/fit-check/notify";
+import {
+  sendFitCheckAutoReply,
+  sendFitCheckGreenAlert,
+  sendFitCheckRedNoteAlert,
+} from "@/lib/fit-check/notify";
 import { postFitCheckWebhook } from "@/lib/fit-check/webhook";
 import { EMAIL_FORMAT } from "@/lib/email";
 
@@ -126,7 +130,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Too many requests." }, { status: 429 });
     }
     const oneOffNote = typeof body.oneOffNote === "string" ? body.oneOffNote.trim().slice(0, 500) : "";
+    const noteName = typeof body.name === "string" ? body.name.trim().slice(0, 200) : "";
+    const noteEmail = typeof body.email === "string" ? body.email.trim().slice(0, 320) : "";
+
     await saveFitCheckRedNote(sessionId, oneOffNote);
+    if (oneOffNote && noteName && noteEmail) {
+      await sendFitCheckRedNoteAlert({ name: noteName, email: noteEmail }, oneOffNote);
+    }
     return NextResponse.json({ ok: true });
   }
 
