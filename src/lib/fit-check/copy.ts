@@ -16,7 +16,7 @@ export const LANDING_COPY = {
     "Seven short questions. About ninety seconds. No sales pitch, just a straight answer about whether Markoholics is the right growth partner for where you are today.",
   priceAnchorLabel: `Engagements start from ₹${PRICING.proofSprint.amount.toLocaleString("en-IN")} (plus GST) for a six month Proof Sprint.`,
   priceAnchorSupport:
-    "We say this upfront so your time is not wasted, and neither is ours.",
+    "We say this upfront so your time is not wasted, and neither is ours. These are India engagement tiers; see our services page for our standard USD pricing outside India.",
   startButton: "Start the Fit Check",
 };
 

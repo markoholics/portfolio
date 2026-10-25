@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy" },
 };
 
-const LAST_UPDATED = "August 31, 2026";
+const LAST_UPDATED = "October 25, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -54,6 +54,14 @@ export default function PrivacyPage() {
               to respond to your inquiry and, if you become a client, to
               deliver our services.
             </p>
+            <p className="text-grey text-lg leading-relaxed mb-4">
+              When you complete the Fit Check qualification flow, we collect
+              your answers to the qualification questions, the contact
+              details you provide on the final screen, and basic technical
+              details such as your browser and the page that sent you there.
+              We use this to assess fit and, where there is one, to follow
+              up and start a conversation.
+            </p>
             <p className="text-grey text-lg leading-relaxed">
               We also use standard web analytics and advertising tools —
               Google Analytics and the Meta Pixel — which collect
@@ -82,10 +90,12 @@ export default function PrivacyPage() {
               Where your data is stored
             </h2>
             <p className="text-grey text-lg leading-relaxed">
-              Contact form submissions are stored in a secure, access-controlled
-              database. Analytics data collected by Google Analytics and the
-              Meta Pixel is stored and processed by Google and Meta under
-              their own respective privacy policies.
+              Contact form submissions and Fit Check answers are stored in a
+              secure, access-controlled database, and may also be routed
+              through our internal workflow automation tooling to notify our
+              team and send you an automated reply. Analytics data collected
+              by Google Analytics and the Meta Pixel is stored and processed
+              by Google and Meta under their own respective privacy policies.
             </p>
           </Reveal>
 

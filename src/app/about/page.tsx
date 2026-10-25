@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
@@ -59,7 +60,23 @@ export default function AboutPage() {
                 We use AI to collapse the time and cost of execution, then
                 apply human judgment to strategy, positioning, and the calls
                 that cannot be automated. The result is a growth motion that
-                compounds without burning budget on overhead.
+                compounds without burning budget on overhead. See{" "}
+                <Link
+                  href="/services"
+                  data-cursor-hover
+                  className="underline underline-offset-2 hover:text-white transition-colors"
+                >
+                  what each engagement covers
+                </Link>
+                , or{" "}
+                <Link
+                  href="/work"
+                  data-cursor-hover
+                  className="underline underline-offset-2 hover:text-white transition-colors"
+                >
+                  the case studies
+                </Link>{" "}
+                it has produced.
               </p>
             </Reveal>
           </div>
@@ -147,6 +164,15 @@ export default function AboutPage() {
                 for the GTM problem he kept seeing repeat across tech
                 founders: strategy and execution living in separate vendors,
                 with nobody accountable for the number that actually matters.
+                He writes up what he learns running it on{" "}
+                <Link
+                  href="/blog"
+                  data-cursor-hover
+                  className="underline underline-offset-2 hover:text-white transition-colors"
+                >
+                  the Markoholics blog
+                </Link>
+                .
               </p>
             </Reveal>
             <Reveal delay={0.18}>

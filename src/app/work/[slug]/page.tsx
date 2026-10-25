@@ -95,9 +95,13 @@ export default async function CaseStudyPage({
             {cs.strategy.map((item, i) => (
               <Reveal key={item.service} delay={i * 0.1}>
                 <div className="bg-black p-8 h-full">
-                  <span className="eyebrow block mb-4 text-grey">
+                  <Link
+                    href={`/services#${item.service}`}
+                    data-cursor-hover
+                    className="eyebrow block mb-4 text-grey hover:text-white transition-colors underline underline-offset-4"
+                  >
                     {serviceName(item.service)}
-                  </span>
+                  </Link>
                   <p className="text-mist">{item.detail}</p>
                 </div>
               </Reveal>
