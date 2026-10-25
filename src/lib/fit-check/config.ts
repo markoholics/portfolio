@@ -126,12 +126,12 @@ export const PRICING = {
   proofSprint: {
     name: "Proof Sprint",
     amount: 75_000,
-    unit: "fixed, six months, paid in advance",
+    unit: "a month, six month minimum, billed in advance",
   },
   engine: {
     name: "Engine",
     amount: 85_000,
-    unit: "a month, six month minimum, billed monthly in advance",
+    unit: "a month, nine month minimum, billed in advance",
   },
   partner: {
     name: "Partner",
@@ -155,12 +155,12 @@ export const PRICING_PLANS: PricingPlanCard[] = [
   {
     name: "Proof Sprint",
     amount: PRICING.proofSprint.amount,
-    period: "fixed, six months, paid in advance",
+    period: "per month, six month minimum, billed in advance",
     features: [
       "ICP and positioning on one page",
       "Outbound system live: verified list, two sequences, tracking",
       "One founder led content format designed",
-      "A scoreboard with written definitions",
+      "A scoreboard with LIVE tracking",
     ],
     commitment:
       "Everything live by week four, a weekly scoreboard, and a go or no go recommendation at the end of month three.",
@@ -168,7 +168,7 @@ export const PRICING_PLANS: PricingPlanCard[] = [
   {
     name: "Engine",
     amount: PRICING.engine.amount,
-    period: "per month, six month minimum, billed in advance",
+    period: "per month, nine month minimum, billed in advance",
     features: [
       "Outbound, founder content and reporting run end to end",
       "Monthly volume of verified ICP prospects reached, agreed in writing",
@@ -184,8 +184,8 @@ export const PRICING_PLANS: PricingPlanCard[] = [
     period: "per month plus revenue share, nine month minimum",
     features: [
       "Everything in Engine",
-      "Events, roundtables and pipeline reporting",
-      "Revenue share of about 10% on deals the engine sources, for 6 to 12 months",
+      "Events, podcasts and pipeline reporting",
+      "Revenue share of 10-20% on deals the engine sources, for 9 to 12 months",
     ],
     commitment:
       "Attribution rules written into the contract before kickoff. Best for founders ready to hand over pipeline ownership.",
