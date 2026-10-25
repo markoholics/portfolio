@@ -1296,6 +1296,7 @@ export const blogPosts: BlogPost[] = [
         paragraphs: [
           "A compromised or blocklisted site does not just risk data; it directly damages the exact organic search and AI-answer-engine visibility a growing share of qualified pipeline now depends on, a point covered in [the GTM challenges SaaS and AI startups actually face](/blog/gtm-challenges-saas-ai-startups). Search engines actively flag and demote compromised sites, and an AI answer engine has no reason to cite a site that is serving spam or malware to some of its visitors.",
           "Treating PHP and dependency security as a once-a-quarter afterthought, rather than a standing part of the same infrastructure a GTM motion runs content and conversion through, is a quiet but direct tax on the channel that is currently growing fastest.",
+          "Finding one of these issues is the first problem. The second is what happens to the business while it gets fixed: see [how to take a PHP website offline without stopping the business behind it](/blog/take-php-website-offline-without-stopping-business) for how to contain an incident without going dark on customers at the same time.",
         ],
       },
     ],
@@ -1315,6 +1316,90 @@ export const blogPosts: BlogPost[] = [
       {
         q: "How often should a PHP site be scanned for vulnerabilities?",
         a: "Running `composer audit` on every deploy through CI, so it runs automatically rather than relying on memory, plus an external scan (Nikto, ZAP, or WPScan depending on the stack) on a regular schedule, commonly monthly, with an additional scan after any major plugin, theme, or dependency update.",
+      },
+    ],
+  },
+  {
+    slug: "take-php-website-offline-without-stopping-business",
+    title: "How to Take a PHP Website Offline Without Stopping Your Business",
+    metaTitle: "Take a PHP Website Offline Without Losing Business",
+    metaDescription:
+      "Taking a compromised or broken PHP site offline the wrong way loses both SEO rankings and customers. How to do it safely, and keep selling while it's down.",
+    excerpt:
+      "A 200 or a blank page during downtime quietly costs rankings; a silent website kills sales during the same window. How to take a PHP site offline correctly, and stay open for business while it happens.",
+    datePublished: "2026-10-30",
+    dateModified: "2026-10-30",
+    author: "Mohammad H. Rahman",
+    authorTitle: "Founder, Markoholics",
+    readingTime: "9 min read",
+    keyTakeaways: [
+      "Taking a site offline the wrong way (returning a 200 or 404 during downtime) can get URLs dropped from the index; Google's own guidance recommends a 503 status code with an optional Retry-After header instead.",
+      "Keep robots.txt itself reachable during downtime: a 5xx there specifically can make Google halt crawling for up to 12 hours before it falls back to a cached copy for as long as 30 days.",
+      "Preserve logs and evidence before cleaning anything up if the downtime is incident-driven, and change every credential (hosting, database, CMS admin, associated email) as part of recovery, not just the one that was obviously compromised.",
+      "A status page hosted on separate infrastructure and a different domain stays reachable precisely when the main site cannot, and should state the impact on customers first, not just technical detail.",
+      "Business does not have to stop with the site: a hosted payment link, a WhatsApp Business line, and an updated Google Business Profile message can keep orders and support running on infrastructure the outage never touches.",
+    ],
+    intro: [
+      "Taking a PHP website offline without stopping the business behind it means separating two different problems that most teams handle as one: how the site itself goes down (a 503 status code, not a silent failure or a 200 that quietly tells search engines the broken page is the real one), and where customers go to keep buying and getting support while it is down, which should never depend on the same infrastructure that just failed.",
+    ],
+    definition:
+      "Taking a website offline safely means returning a 503 status code rather than a 200, 404, or a blank error page, so search engines treat the downtime as temporary rather than as the page actually changing or disappearing, while business continuity means routing customers to a working payment, support, and communication channel that sits on entirely separate infrastructure for the duration.",
+    ranking: [],
+    sections: [
+      {
+        heading: "Why does it matter how a site is taken offline, not just that it is?",
+        paragraphs: [
+          "Google's own guidance on planned downtime recommends returning a 503 (Service Unavailable) status code rather than a 200 or a 404 during the outage, with an optional Retry-After header specifying how long the downtime is expected to last. A 503 signals temporary unavailability; a 200 on a broken or blank page risks that page being indexed as the site's real content, and a 404 signals the page is simply gone, which can trigger de-indexing that then has to be reversed once the site returns.",
+          "Duration matters too: a 503 left in place for more than roughly a day or two risks URLs being dropped regardless of the status code being technically correct, since prolonged unavailability eventually reads as real unavailability rather than planned maintenance. robots.txt is a special case worth knowing on its own: a 5xx response specifically on that one file can make Google halt crawling of the whole site for up to 12 hours, then fall back to a cached copy of robots.txt for as long as 30 days, so keeping that one file reachable during maintenance is worth checking explicitly rather than assuming it inherits the same maintenance page as everything else.",
+        ],
+      },
+      {
+        heading: "How do you actually take a PHP site offline the right way?",
+        paragraphs: [
+          "For planned maintenance, the cleanest approach is a small PHP check near the top of the application's entry point (or a web-server-level rule in Apache or Nginx) that, when a maintenance flag is present, immediately sends a 503 header and an HTML maintenance page, then exits before any further application code runs. This avoids partially executing a broken application and keeps the response fast rather than timing out.",
+          "For an incident rather than planned maintenance, the sequence changes. Contain first: take the site offline immediately, through the hosting control panel, a DNS change pointing to a static holding page, or a web-server-level block, specifically to stop an attacker from modifying more files or exfiltrating more data. Avoid making rapid exploratory changes before containment, since that can tip off an attacker still active in the environment and cause them to cover their tracks or do more damage on the way out.",
+          "Once the site is no longer publicly reachable, preserve evidence before cleaning anything up: a full backup of the server, including web, FTP, SSH, database, and system logs, so there is a record of what actually happened rather than only a guess after the fact. Only then move to recovery: rotate every credential tied to the domain (hosting account, FTP/SFTP, database, CMS admin accounts, and the email addresses associated with the domain, since a compromised inbox can be used to reset everything else), identify and fix the actual entry point, and, where practical, redeploy the fixed version to a clean OS and web server setup rather than only cleaning the existing one in place.",
+        ],
+      },
+      {
+        heading: "How do you keep customers informed while the site is down?",
+        paragraphs: [
+          "Host the status update somewhere the outage cannot reach: a separate domain and separate infrastructure from the main site, whether that is a dedicated status-page tool or just a static page hosted elsewhere entirely. A status page that lives on the same server as the thing that just went down is not a status page, it is one more thing that can fail at the same time.",
+          "Write the update for what customers actually care about first: the impact on them (can they still place an order, reach support, access their account), not a technical description of what broke. If there is a workaround, state it directly rather than leaving customers to guess. Offer a way to get updates without needing to keep refreshing: email, SMS, or a messaging channel, and post a clear resolution message once service is restored rather than letting the last update quietly go stale.",
+        ],
+      },
+      {
+        heading: "How does a business keep operating while the website is offline?",
+        paragraphs: [
+          "Payments do not need the main application to keep working. A hosted checkout page from the existing payment processor, for example a Stripe Payment Link or a Razorpay Payment Page, can take orders and process payments on the processor's own infrastructure, entirely independent of whatever is broken on the PHP site, and can be shared directly through social media, email, or a status page link in the meantime.",
+          "For support and ongoing sales conversations, WhatsApp Business is a workable stopgap: a product catalog customers can browse and order from in chat, even without the automatic cart-and-total calculation a full checkout provides, kept open by someone actively monitoring messages during business hours rather than left unattended. A Google Business Profile listing can carry an updated post or messaging option pointing customers to the temporary channel, and existing social accounts and an email blast to the customer list cover the rest of the announcement.",
+          "None of this needs to be built during the incident. The payment link, the WhatsApp Business catalog, and the Google Business Profile messaging option all take minutes to set up in advance and then sit idle until needed, which is the entire point: the cost of having them ready is near zero, and the cost of not having them when the main site goes down is every sale and support request that silently disappears during the outage.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Does this post assume my PHP site was hacked, or does it apply to routine maintenance too?",
+        a: "Both. The correct way to signal downtime to search engines (a 503, not a 200 or 404) applies equally to routine maintenance and to an active incident; the evidence-preservation and credential-rotation steps apply specifically when the downtime is incident-driven. See how to detect and fix PHP vulnerabilities for the detection side this post picks up from.",
+        link: {
+          before:
+            "Both. The correct way to signal downtime to search engines (a 503, not a 200 or 404) applies equally to routine maintenance and to an active incident; the evidence-preservation and credential-rotation steps apply specifically when the downtime is incident-driven. See ",
+          text: "how to detect and fix PHP vulnerabilities",
+          href: "/blog/php-website-security-vulnerabilities",
+          after: " for the detection side this post picks up from.",
+        },
+      },
+      {
+        q: "Will a short maintenance window actually hurt my SEO rankings?",
+        a: "A brief, correctly signaled 503 (roughly a day or two) is unlikely to cause lasting damage, since Google's own guidance treats it as expected temporary unavailability. The risk rises with duration and with using the wrong status code (a 200 on a broken page, or a 404 that reads as the page being gone), either of which can trigger indexing changes that then have to be reversed.",
+      },
+      {
+        q: "Can I really take payments without my main website working?",
+        a: "Yes. A hosted payment link from a processor like Stripe or Razorpay runs entirely on the processor's own infrastructure and needs nothing from the main site beyond a link shared through email, social media, or a status page. It is not a replacement for the full site long-term, but it keeps revenue moving during an outage.",
+      },
+      {
+        q: "How long should I keep a temporary holding page up before it starts hurting the business more than helping?",
+        a: "There is no fixed number, but treat it as a genuinely temporary bridge rather than a long-term fallback: beyond a few days, both the SEO risk of extended downtime and the customer-experience cost of operating on stopgap channels start to outweigh what they bought during the first 24 to 48 hours.",
       },
     ],
   },
