@@ -844,6 +844,134 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "markoholics-partner-stack",
+    title: "The Markoholics Partner Stack: Google, Claude, Apollo.io, Apify and Make",
+    metaTitle: "Markoholics Partner Stack: Our AI GTM Tools",
+    metaDescription:
+      "Markoholics' AI-native GTM engine runs on five tools: Google, Claude, Apollo.io, Apify and Make. Here's exactly what each one does in a live engagement.",
+    excerpt:
+      "Five tools, one GTM engine: what Apify, Apollo.io, Claude, Make and Google each actually do inside a Markoholics engagement, and which are referral partnerships.",
+    datePublished: "2026-10-25",
+    dateModified: "2026-10-25",
+    author: "Mohammad H. Rahman",
+    authorTitle: "Founder, Markoholics",
+    readingTime: "9 min read",
+    keyTakeaways: [
+      "Apify harvests the real-world signals most GTM stacks never see — a new job posting, a funding round, a product launch — because they are public events, not a line in a purchased contact list.",
+      "Apollo.io resolves a signal to a named, verified decision-maker and runs the actual outbound sequence across email, LinkedIn and call.",
+      "Claude is the reasoning layer: every signal gets read and filtered before a single Apollo credit is spent on it.",
+      "Make orchestrates the other tools, including Markoholics' own Fit Check qualification flow, without custom backend code for every integration.",
+      "Apollo.io, Apify and Make are referral partnerships; Google and Claude are infrastructure Markoholics runs its own engine and every client engagement on, not referral links.",
+    ],
+    intro: [
+      "Markoholics' AI-native GTM engine runs on five tools working in a specific sequence: Apify harvests a real-world buying signal, Claude decides whether it is worth acting on, Apollo.io resolves it to a verified contact and runs the outbound, Make wires every system together, and Google Analytics measures whether any of it actually converted.",
+      "A note before the detail: the Apollo.io, Apify and Make links in this post, and in the [Partner Stack](/#partner-stack) section of this site, are referral links. Markoholics earns a commission if someone signs up through them, at no extra cost to the signer. That relationship is disclosed in full in the FAQ below, and it does not change what is written about any of these tools here.",
+    ],
+    definition:
+      "The Markoholics Partner Stack is the five-tool system — Google, Claude, Apollo.io, Apify and Make — listed in the [Partner Stack](/#partner-stack) section of this site, that Markoholics' own GTM engine and every client engagement are built on, from harvesting a buying signal to measuring whether the resulting outreach converted.",
+    ranking: [],
+    sections: [
+      {
+        heading: "What does Apify do in the Markoholics stack?",
+        paragraphs: [
+          "Apify is a cloud platform for web scraping and browser automation, built around what it calls Actors: packaged scraping programs that run as serverless microservices on Apify's own infrastructure rather than on a client's servers. Its public Actor Store lists tens of thousands of ready-made Actors, covering everything from LinkedIn and Google Search to niche job boards and product listings, and in June 2025 Apify shipped an MCP server that lets AI agents, including Claude, call Actors directly as tools.",
+          "Inside the Markoholics engine, Apify sits at the first layer: Ground Truth. Before any outbound goes out, Apify Actors harvest the actual operating events a target account is generating in public — a new job posting, a funding round, a product launch — rather than relying on a static, purchased contact list that may have been accurate six months ago but says nothing about what that account needs right now.",
+        ],
+      },
+      {
+        heading: "What does Apollo.io do in the Markoholics stack?",
+        paragraphs: [
+          "Apollo.io is a combined sales intelligence and sales engagement platform: a contact database Apollo's own materials put at well over 200 million B2B contacts, paired with email sequencing, a dialer, and intent data in one system. Independent reviews generally confirm it as one of the larger B2B contact databases on the market, though exact figures vary by source and date.",
+          "Once Apify surfaces a signal and Claude judges it worth acting on, Apollo.io is where Markoholics resolves that signal to a named, verified decision-maker and runs the actual outbound: email, LinkedIn, and call sequences built around that specific signal rather than a generic template. This is also the layer most GTM stacks stop at entirely, buying a contact database and running sequences with no signal behind them at all, which is the gap the two layers in front of it exist to close.",
+        ],
+      },
+      {
+        heading: "What does Claude do in the Markoholics stack?",
+        paragraphs: [
+          "Claude is Anthropic's family of AI models, and inside the Markoholics stack it is the reasoning layer, sitting between a harvested signal and a spent Apollo credit. Every signal Apify surfaces gets read, filtered, and judged by Claude before it becomes an outbound sequence: whether a hiring signal is actually a buying signal, which account is worth prioritizing, and which specific message the signal actually supports.",
+          "Markoholics also builds its own internal tools directly in Claude Code, including the [Fit Check](/fit-check) qualification flow on this site. That is part of why a three-person team can run this five-tool stack at a volume that would otherwise need a much larger one.",
+        ],
+      },
+      {
+        heading: "What does Make do in the Markoholics stack?",
+        paragraphs: [
+          "Make, formerly Integromat before its 2022 rename, is a no-code visual automation platform built around what it calls scenarios: workflows that start on a trigger and branch across however many connected apps a given process needs, assembled on a visual canvas rather than written as custom integration code.",
+          "Markoholics uses Make as the orchestration layer that wires every other tool in this stack together. The [Fit Check](/fit-check) on this site is one concrete example: every submission's full answers and computed fit get posted to a Make scenario that routes the result on to Notion, Brevo, and Apollo.io enrichment, without a single custom backend integration written for any of those three destinations.",
+        ],
+      },
+      {
+        heading: "What does Google do in the Markoholics stack?",
+        paragraphs: [
+          "Google is the baseline every one of the other four tools gets measured against. [Google Analytics](https://analytics.google.com) (GA4) tracks each engagement's funnel from first touch to conversion, which is what actually tells Markoholics whether a Claude-filtered, Apify-sourced, Apollo-executed sequence converted, not just whether it sent.",
+          "Google Search, and increasingly Google's AI Overviews, is also the primary distribution channel this specific post is built to win: written to the same SEO, AEO, and GEO structure Markoholics builds into every client's own content, including the [GTM Audit](/services) that reviews it.",
+        ],
+      },
+      {
+        heading: "How do the five tools compare side by side?",
+        paragraphs: [
+          "Each tool covers exactly one layer of the sequence, and the layer breaks down without it.",
+        ],
+        table: {
+          headers: ["Tool", "Layer", "What it does", "What breaks without it"],
+          rows: [
+            [
+              "Apify",
+              "Ground Truth",
+              "Harvests public buying signals: hiring, funding, launches",
+              "Outbound reverts to a static, purchased contact list",
+            ],
+            [
+              "Claude",
+              "Reasoning",
+              "Reads and filters each signal before a credit is spent",
+              "Every signal gets acted on manually, at far lower volume",
+            ],
+            [
+              "Apollo.io",
+              "Resolution & Execution",
+              "Resolves a signal to a verified contact, runs the sequence",
+              "No verified contact to reach, no sequence infrastructure",
+            ],
+            [
+              "Make",
+              "Orchestration",
+              "Routes data between every other tool and system",
+              "Every integration becomes a one-off engineering task",
+            ],
+            [
+              "Google",
+              "Measurement & Distribution",
+              "GA4 attribution plus Search and AI Overview visibility",
+              "No visibility into what actually converted",
+            ],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      {
+        q: "Is Markoholics an official partner of Google, Claude, Apollo.io, Apify, or Make?",
+        a: "Markoholics is a referral partner for Apollo.io, Apify, and Make, meaning the links on this site and in this post use referral tracking and Markoholics earns a commission on signups through them. Google and Claude are infrastructure Markoholics runs its own tools and every client engagement on, not referral relationships.",
+      },
+      {
+        q: "Why does Markoholics use five separate tools instead of one all-in-one platform?",
+        a: "Because no single platform covers signal harvesting, contact resolution and outbound execution, reasoning over which signal is worth acting on, cross-tool orchestration, and measurement at the depth each individual tool reaches on its own. An all-in-one platform trades depth in each layer for convenience across all of them.",
+      },
+      {
+        q: "Can a founder use this same stack without hiring an agency?",
+        a: "Yes. All five tools are available directly to any founder; Markoholics' value is the sequence they run in and the judgment applied between them, not exclusive access to the tools themselves. The GTM Audit is built for founders who want that sequence mapped out for their own team to run.",
+      },
+      {
+        q: "Does Markoholics get paid for referrals to Apollo.io, Apify, or Make?",
+        a: "Yes, for those three specifically. The commission does not change what is written about a tool or who it is recommended to, and Markoholics would run the same stack without the referral relationship in place.",
+      },
+      {
+        q: "What does Apollo.io's contact database actually cover?",
+        a: "Apollo's own materials cite well over 200 million B2B contacts, combined with email sequencing, a dialer, and intent data. Figures vary by source and change over time, so treat any specific number as an approximation rather than a guarantee of coverage for a given account list.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

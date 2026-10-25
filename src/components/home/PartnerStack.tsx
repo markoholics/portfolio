@@ -4,7 +4,7 @@ import PartnerLogo from "@/components/home/PartnerLogo";
 
 export default function PartnerStack() {
   return (
-    <section className="section-pad py-20! bg-black border-b hairline">
+    <section id="partner-stack" className="section-pad py-20! bg-black border-b hairline">
       <div className="container-edge">
         <Reveal>
           <span className="eyebrow block text-center mb-10">Partner Stack</span>
