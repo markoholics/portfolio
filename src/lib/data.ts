@@ -366,8 +366,8 @@ export const faqItems: FAQItem[] = [
     },
   },
   {
-    q: "What if we are not based in the US?",
-    a: "We work with founders globally across the US, UK, Singapore, Dubai, and beyond. Our team operates across time zones and our entire workflow is async-first.",
+    q: "What if we are not based in India?",
+    a: "We work with founders globally across the US, UK, Dubai, and beyond. Our team operates across time zones and our entire workflow is async-first.",
   },
   {
     q: "How is this different from hiring in-house?",
@@ -432,7 +432,7 @@ export const servicesFaqItems: FAQItem[] = faqItems.filter((item) =>
 );
 
 export const aboutFaqItems: FAQItem[] = faqItems.filter((item) =>
-  ["Do you work with non-tech companies?", "What if we are not based in the US?"].includes(
+  ["Do you work with non-tech companies?", "What if we are not based in India?"].includes(
     item.q
   )
 );
