@@ -70,7 +70,12 @@ export default async function BlogPostPage({
               year: "numeric",
             })}{" "}
             &middot; {post.readingTime} &middot; By{" "}
-            <Link href="/about#founder" className="underline underline-offset-2 hover:text-white transition-colors">
+            <Link
+              href="/about#founder"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-white transition-colors"
+            >
               {post.author}
             </Link>
             , {post.authorTitle}
@@ -127,6 +132,8 @@ export default async function BlogPostPage({
                       {entry.internal ? (
                         <Link
                           href={entry.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           data-cursor-hover
                           className="font-display text-white text-xl hover:text-grey transition-colors"
                         >

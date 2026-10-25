@@ -3,6 +3,8 @@ import Link from "next/link";
 // Parses lightweight "[label](href)" markdown-link syntax out of otherwise
 // plain post copy, so body content can carry real internal/external links
 // (for on-page and off-page SEO) without pulling in a markdown renderer.
+// Every link — internal or external — opens in a new tab, so a reader
+// following a citation never loses their place in the article.
 function parseInline(text: string): (string | { label: string; href: string })[] {
   const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
   const parts: (string | { label: string; href: string })[] = [];
@@ -31,7 +33,13 @@ export default function RichText({ text }: { text: string }) {
 
         if (isInternal) {
           return (
-            <Link key={i} href={part.href} className={linkClassName}>
+            <Link
+              key={i}
+              href={part.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={linkClassName}
+            >
               {part.label}
             </Link>
           );
