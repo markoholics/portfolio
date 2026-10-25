@@ -1,8 +1,11 @@
 "use client";
 
-import { pricingTiers } from "@/lib/data";
+import { PRICING_PLANS, PRICING } from "@/lib/fit-check/config";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
+import MagneticButton from "@/components/MagneticButton";
+
+const TIER_INDEX = ["01", "02", "03"];
 
 export default function ServicesSection() {
   return (
@@ -21,7 +24,8 @@ export default function ServicesSection() {
           <div className="col-span-12 lg:col-span-5 lg:col-start-8 flex items-end">
             <Reveal delay={0.15}>
               <p className="text-grey text-lg">
-                Starting at $3,500/month. All engagements are outcome-based,
+                Starting at ₹{PRICING.proofSprint.amount.toLocaleString("en-IN")} (+GST) for
+                a six month Proof Sprint. All engagements are outcome-based,
                 not time-based. We don&apos;t sell hours — we build systems
                 that generate returns.
               </p>
@@ -30,14 +34,14 @@ export default function ServicesSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-grey/10">
-          {pricingTiers.map((tier, i) => (
-            <Reveal key={tier.name} delay={i * 0.1}>
+          {PRICING_PLANS.map((plan, i) => (
+            <Reveal key={plan.name} delay={i * 0.1}>
               <div
                 className={`relative flex flex-col h-full p-8 md:p-10 ${
-                  tier.highlight ? "bg-white" : "bg-black"
+                  plan.highlight ? "bg-white" : "bg-black"
                 }`}
               >
-                {tier.highlight && (
+                {plan.highlight && (
                   <span
                     className="absolute top-0 right-8 text-[0.6rem] uppercase tracking-[0.22em] px-3 py-1.5 font-medium"
                     style={{ background: "var(--color-accent)", color: "#000" }}
@@ -49,55 +53,55 @@ export default function ServicesSection() {
                 <div className="mb-8">
                   <span
                     className={`font-display text-5xl block mb-6 ${
-                      tier.highlight ? "text-black/30" : "text-grey/30"
+                      plan.highlight ? "text-black/30" : "text-grey/30"
                     }`}
                   >
-                    {tier.index}
+                    {TIER_INDEX[i]}
                   </span>
                   <h3
                     className={`font-display text-2xl md:text-3xl mb-2 ${
-                      tier.highlight ? "text-black" : "text-white"
+                      plan.highlight ? "text-black" : "text-white"
                     }`}
                   >
-                    {tier.name}
+                    {plan.name}
                   </h3>
-                  <div className="flex items-baseline gap-1 mb-4">
+                  <div className="flex items-baseline gap-2 mb-4 flex-wrap">
                     <span
                       className={`font-display text-4xl md:text-5xl ${
-                        tier.highlight ? "text-black" : "text-white"
+                        plan.highlight ? "text-black" : "text-white"
                       }`}
                     >
-                      {tier.price}
+                      ₹{plan.amount.toLocaleString("en-IN")}
                     </span>
                     <span
                       className={`text-sm ${
-                        tier.highlight ? "text-black/60" : "text-grey"
+                        plan.highlight ? "text-black/60" : "text-grey"
                       }`}
                     >
-                      {tier.period}
+                      + GST
                     </span>
                   </div>
                   <p
                     className={`text-sm leading-relaxed ${
-                      tier.highlight ? "text-black/70" : "text-grey"
+                      plan.highlight ? "text-black/70" : "text-grey"
                     }`}
                   >
-                    {tier.description}
+                    {plan.period}
                   </p>
                 </div>
 
                 <ul className="space-y-3 mb-10 flex-1">
-                  {tier.deliverables.map((item) => (
+                  {plan.features.map((item) => (
                     <li
                       key={item}
                       className={`flex items-start gap-3 text-sm ${
-                        tier.highlight ? "text-black/80" : "text-mist"
+                        plan.highlight ? "text-black/80" : "text-mist"
                       }`}
                     >
                       <span
                         className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
                         style={{
-                          background: tier.highlight
+                          background: plan.highlight
                             ? "#000"
                             : "var(--color-accent)",
                         }}
@@ -107,19 +111,13 @@ export default function ServicesSection() {
                   ))}
                 </ul>
 
-                <a
-                  href={tier.href}
-                  target={tier.href.startsWith("http") ? "_blank" : undefined}
-                  rel={tier.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  data-cursor-hover
-                  className={`inline-flex items-center justify-center gap-2 px-6 py-4 text-[0.75rem] uppercase tracking-[0.18em] transition-all duration-300 ${
-                    tier.highlight
-                      ? "bg-black text-white hover:bg-black/80"
-                      : "border hairline text-mist hover:bg-white hover:text-black hover:border-white"
+                <p
+                  className={`text-xs leading-relaxed ${
+                    plan.highlight ? "text-black/60" : "text-grey/70"
                   }`}
                 >
-                  {tier.cta}
-                </a>
+                  {plan.commitment}
+                </p>
               </div>
             </Reveal>
           ))}
@@ -127,8 +125,13 @@ export default function ServicesSection() {
 
         <Reveal delay={0.3}>
           <p className="text-grey/50 text-xs text-center mt-8">
-            Not sure which tier fits? Start with the GTM Audit. It pays for itself before the engagement begins.
+            Not sure which tier fits? Take the Fit Check and find out in about ninety seconds.
           </p>
+          <div className="flex justify-center mt-8">
+            <MagneticButton href="/fit-check" variant="solid">
+              Take the Fit Check
+            </MagneticButton>
+          </div>
         </Reveal>
       </div>
     </section>
