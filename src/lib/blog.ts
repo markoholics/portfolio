@@ -972,6 +972,352 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "what-is-a-gtm-engineer",
+    title: "What Is a GTM Engineer? Role, Skills, and How to Become One",
+    metaTitle: "What Is a GTM Engineer? Role, Skills & How to Become One",
+    metaDescription:
+      "A GTM engineer builds and automates the technical systems behind sales and marketing. What the role actually does, what it pays, and how to break into it in 2026.",
+    excerpt:
+      "GTM engineer job postings roughly doubled between mid-2025 and January 2026. What the role actually does, how it differs from RevOps, and two real paths into it.",
+    datePublished: "2026-09-25",
+    dateModified: "2026-09-25",
+    author: "Mohammad H. Rahman",
+    authorTitle: "Founder, Markoholics",
+    readingTime: "9 min read",
+    keyTakeaways: [
+      "A GTM engineer builds and maintains the technical systems connecting sales, marketing, and revenue data, rather than running the campaigns inside them.",
+      "The core distinction from RevOps: RevOps governs and runs existing systems; a GTM engineer builds new ones, usually with API integrations and no-code automation platforms like Clay, n8n, Zapier, and Make.",
+      "Job postings for the role grew from roughly 1,400 in mid-2025 to over 3,000 by January 2026 across multiple GTM tooling vendors tracking job boards, though the role is new enough that figures vary by source.",
+      "US median base pay estimates for 2026 cluster around $150,000 to $160,000, with wide swings by level and location; treat any single figure as a rough range rather than a guarantee.",
+      "There are two realistic entry paths: from engineering, by joining a B2B company's RevOps or growth team and volunteering for integration work, or from sales and ops, by moving up from an SDR, BDR, or junior RevOps role.",
+    ],
+    intro: [
+      "A GTM engineer is the person who builds and maintains the technical systems behind a company's sales and marketing: connecting tools through APIs, automating the manual steps a sales development team used to run by hand, and keeping the resulting data clean enough to actually make decisions on.",
+    ],
+    definition:
+      "A GTM engineer is a technical specialist, not a campaign manager: the role designs, builds, and governs the automated systems that turn a go-to-market strategy into measurable execution, sitting between engineering and revenue operations rather than inside either one.",
+    ranking: [],
+    sections: [
+      {
+        heading: "What does a GTM engineer actually do day to day?",
+        paragraphs: [
+          "Typical responsibilities fall into three buckets: administering the GTM tech stack (CRM, enrichment tools, outbound platforms, and the integrations between them), building dashboards and reporting that give the revenue team real funnel visibility, and automating workflows that a sales development rep used to execute manually, such as researching a prospect, drafting a first-touch message, or updating a CRM field after a call.",
+          "A useful way to picture it: an SDR manually copies a signal into a spreadsheet and writes an email around it. A GTM engineer builds the system that watches for that signal, enriches it automatically, and drafts the message before a human ever opens the record. The judgment of whether to send it usually still sits with a person; the thirty minutes of manual setup in front of that judgment does not.",
+        ],
+      },
+      {
+        heading: "How is a GTM engineer different from RevOps?",
+        paragraphs: [
+          "The distinction sources converge on most consistently: RevOps runs and governs the systems a company already has, while a GTM engineer builds the new ones. In practice the two roles overlap heavily at smaller companies, and a GTM engineer often reports into or alongside a RevOps function rather than replacing it.",
+          "One concrete marker of the difference shows up in hiring data: roughly 38% of GTM engineering job postings require SQL or Python, a bar that is unusual for a traditional RevOps analyst role and reflects the build-not-just-run nature of the job.",
+        ],
+      },
+      {
+        heading: "What skills does a GTM engineer need?",
+        paragraphs: [
+          "Technical skills cluster around API integration (REST APIs, webhooks, OAuth), scripting (SQL is the most commonly required language, with Python or JavaScript as a frequent second), and no-code automation platforms such as Clay, n8n, Zapier, and Make, the same orchestration layer covered in [the Markoholics Partner Stack](/blog/markoholics-partner-stack).",
+          "Data skills matter nearly as much: basic data modeling, ETL pipeline design for moving data between systems without breaking it, and enough statistical literacy to judge whether an experiment's result is real or noise. On the business side, the role needs a working understanding of the buyer journey, lead scoring logic, and attribution, since a technically correct integration that routes the wrong signal to the wrong queue is still a failure.",
+          "Several sources are explicit that the role does not require a computer science degree. The more consistent predictor is hands-on experience with the specific tools (a CRM, an enrichment platform, an automation builder) rather than a particular credential.",
+        ],
+      },
+      {
+        heading: "How much does a GTM engineer earn in 2026?",
+        paragraphs: [
+          "US compensation estimates for 2026 vary by source but cluster in a recognizable range: one analysis of 509 disclosed job postings puts the median around $159,000, with the middle 50% between $135,000 and $190,000 and a rough level progression of $155,000 (mid), $175,000 (senior), and $219,000 (staff). A separate report using a smaller sample of 71 disclosed roles shows a wider entry-to-leader spread, from about $113,000 to $225,000.",
+          "Location moves the number significantly: one source puts San Francisco-based roles between $180,000 and $300,000, and New York-based roles between $130,000 and $230,000. Because the role is new and most of this data comes from vendor blogs relying on small samples of self-disclosed salaries, treat any single figure as a directional range rather than a guaranteed number for a specific offer.",
+        ],
+      },
+      {
+        heading: "How do you become a GTM engineer?",
+        paragraphs: [
+          "There are two realistic paths in, depending on where you are starting from. Coming from engineering, the fastest route is joining a B2B company's growth or RevOps team directly and volunteering for the unglamorous integration work: building the CRM sync nobody wants to own, or a small internal tool for the sales team. That work is exactly what the role is, and it teaches the revenue stack from the inside rather than from a course.",
+          "Coming from sales or operations, entry-level roles are more often filled from SDR, BDR, or junior RevOps backgrounds, where the early work centers on learning automation tools like Clay and Zapier well enough to start replacing your own manual steps with a built system. A small number of credentialing programs for the role now exist, though hands-on tool experience remains the stronger signal to employers than a certificate alone.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is GTM engineer just a new title for a growth hacker or marketing ops role?",
+        a: "Not quite. Growth hacking and marketing ops roles typically focus on running campaigns and channels; a GTM engineer is closer to a software engineer embedded in revenue, building the integrations and automation other GTM roles then use. There is overlap, but the build-versus-run distinction is the clearest separator.",
+      },
+      {
+        q: "Do I need to know how to code to become a GTM engineer?",
+        a: "Heavy coding is not strictly required, since much of the work runs through no-code platforms like Clay, n8n, Zapier, and Make, but SQL shows up in roughly 38% of job postings and basic scripting ability (Python or JavaScript) makes the technical side of the role considerably easier.",
+      },
+      {
+        q: "Is the GTM engineer role likely to keep growing?",
+        a: "Job postings for the role grew from roughly 1,400 in mid-2025 to over 3,000 by January 2026 according to multiple GTM tooling vendors tracking job boards. That is a fast growth rate for a role this new, though the underlying figures come mostly from vendor-published research rather than independent labor statistics, so the exact pace should be treated as directional.",
+      },
+      {
+        q: "Does a startup need a dedicated GTM engineer, or can an agency fill that function?",
+        a: "Early-stage startups often cannot justify a full-time hire at the compensation levels above, which is exactly the gap an AI-native agency model is built to close: the same build-and-automate function, delivered as part of an engagement rather than a separate six-figure headcount line. See [how Markoholics' engine is built](/services) for how that works in practice.",
+      },
+    ],
+  },
+  {
+    slug: "gtm-challenges-saas-ai-startups",
+    title: "5 GTM Challenges SaaS and AI Startups Face (and How to Fix Them)",
+    metaTitle: "5 GTM Challenges SaaS & AI Startups Face in 2026",
+    metaDescription:
+      "CAC payback has stretched to 15-18 months and paid acquisition's pipeline share is falling. Five GTM challenges SaaS and AI startups face in 2026, and how to fix each one.",
+    excerpt:
+      "Rising CAC, falling paid-channel returns, and a widening gap between AI-adopting and manual GTM teams: five specific, data-backed challenges SaaS and AI startups face right now.",
+    datePublished: "2026-10-02",
+    dateModified: "2026-10-02",
+    author: "Mohammad H. Rahman",
+    authorTitle: "Founder, Markoholics",
+    readingTime: "10 min read",
+    keyTakeaways: [
+      "Blended CAC payback for $5M-$50M ARR companies has stretched to roughly 15 to 18 months, up from faster cycles a few years earlier, while median B2B SaaS CAC has risen about 60% over five years to roughly $1,200.",
+      "Self-serve free trials convert at about 4.6% on average, against roughly 17.4% for sales-assisted PQL motions, which makes picking the wrong motion for a given buyer an expensive, compounding mistake.",
+      "Paid acquisition's share of qualified pipeline fell from about 34% in 2023 to 26% in 2026, while organic search, content, and answer-engine visibility combined now account for roughly 41% at top-quartile companies.",
+      "Companies at 110%+ net revenue retention grow about 2.3 times faster than peers at 95-100%, which makes retention a GTM problem, not only a product one.",
+      "Companies using AI agents across lifecycle email, ad copy, and SEO content show a median CAC payback 3 to 5 months shorter than companies that have not adopted them.",
+    ],
+    intro: [
+      "The five GTM challenges SaaS and AI startups face most often in 2026 are stretched CAC payback, picking the wrong conversion motion for a given buyer, over-reliance on a shrinking paid-acquisition channel, under-investing in retention, and running a GTM motion that has not adopted AI-assisted workflows yet. Each one shows up in current benchmark data, not just anecdote, and each has a specific fix rather than a generic one.",
+    ],
+    definition:
+      "A GTM challenge, in the sense used here, is a specific, measurable place where a startup's go-to-market motion is losing efficiency against a benchmark other companies at the same stage are currently hitting, rather than a vague complaint about marketing not working.",
+    ranking: [],
+    sections: [
+      {
+        heading: "Challenge 1: CAC payback has stretched, and CAC itself keeps rising",
+        paragraphs: [
+          "Blended CAC payback for companies between $5M and $50M ARR stretched from a faster pace in 2023 to roughly 15 to 18 months by 2026, according to OpenView data cited in current sales-development benchmark reports. Over the same window, median B2B SaaS CAC has risen by roughly 60% over five years to around $1,200, as paid efficiency declined and content cycles lengthened.",
+          "The fix is rarely cutting spend uniformly, which just shrinks pipeline along with cost. It is finding which channel's CAC has actually moved and redirecting budget toward the signal-driven motion described in [the Markoholics Partner Stack](/blog/markoholics-partner-stack): harvesting a real buying signal before spending on outreach, rather than running the same volume of generic outbound at a worse price.",
+        ],
+      },
+      {
+        heading: "Challenge 2: running the wrong conversion motion for the buyer",
+        paragraphs: [
+          "Self-serve free trials convert at roughly 4.6% on average, while sales-assisted product-qualified-lead motions reach closer to 17.4%, according to ChartMogul and ICONIQ figures cited in 2026 benchmark reporting. A startup running a pure self-serve motion for a buyer who actually needs a conversation, or forcing a sales call onto a buyer who would have converted on their own, is paying for the wrong motion's cost structure while getting the other motion's conversion rate.",
+          "The fix is segmenting which accounts are PQL-worthy (usage signals, team size, or stated intent) and routing only those into a sales-assisted motion, leaving the rest on self-serve rather than defaulting every lead into the same path regardless of fit.",
+        ],
+      },
+      {
+        heading: "Challenge 3: over-dependence on a shrinking paid channel",
+        paragraphs: [
+          "Paid acquisition's share of qualified pipeline fell from about 34% in 2023 to 26% by 2026 at top-quartile companies, while organic search, content, and answer-engine visibility combined rose to roughly 41% of qualified pipeline over the same period. A startup still budgeting GTM spend as though paid is the primary channel is optimizing for a shrinking share of the pipeline that is actually converting.",
+          "The fix is treating content built for traditional SEO, AI answer engines, and generative engine optimization as a primary pipeline channel with its own budget and targets, not a secondary brand-awareness line item. This post itself, and [the full GEO-structured post on the Markoholics Partner Stack](/blog/markoholics-partner-stack), are both built to that standard rather than written for search rankings alone.",
+        ],
+      },
+      {
+        heading: "Challenge 4: treating retention as a product problem, not a GTM one",
+        paragraphs: [
+          "Companies at 110%+ net revenue retention grow roughly 2.3 times faster than peers sitting at 95-100% NRR, according to KeyBanc data cited in current benchmark reporting, and expansion revenue is becoming a larger share of new ARR industry-wide. Startups that build their GTM motion purely around new-logo acquisition and leave expansion to the product team alone are leaving a faster, cheaper growth lever unused.",
+          "The fix is building expansion and renewal triggers into the same signal-and-sequence system used for new-logo outbound, rather than treating the existing customer base as a separate, lower-priority motion with no dedicated process.",
+        ],
+      },
+      {
+        heading: "Challenge 5: a GTM motion that has not adopted AI-assisted workflows",
+        paragraphs: [
+          "Companies using AI agents across lifecycle email, ad copy, and SEO content show a median CAC payback 3 to 5 months shorter than companies that have not adopted them, according to ICONIQ and Subscribed Institute figures cited in 2026 benchmark data. That gap compounds: a faster payback means more capital available to reinvest in the next cycle of outbound sooner.",
+          "The fix is not replacing a GTM team with AI tooling wholesale, which tends to produce generic output at higher volume rather than better output. It is the layered approach covered in [the Markoholics Partner Stack](/blog/markoholics-partner-stack): AI (Claude) filtering and judging signals before a human spends time or budget on them, which is a materially different use of the technology than letting it write unreviewed outbound at scale.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Which of these five GTM challenges should a seed-stage startup fix first?",
+        a: "Usually the motion mismatch (Challenge 2): a seed-stage company rarely has the volume to diagnose a CAC payback trend yet, but running the wrong conversion motion for its actual buyer is a cost a small team feels immediately and can fix without new budget.",
+      },
+      {
+        q: "Is rising CAC specific to SaaS, or is it happening across all startup categories?",
+        a: "The benchmark data cited here is specifically B2B SaaS, though the underlying pressure (rising paid-channel costs, more competing products) is broader. AI-category startups face an additional wrinkle: many are competing for the same buyer attention as established SaaS incumbents while still establishing category trust, which tends to push CAC higher rather than lower.",
+      },
+      {
+        q: "How is this different from a generic 'content and SEO solve everything' argument?",
+        a: "It is not a claim that content replaces paid or outbound. The data point is narrower: paid's pipeline share is falling while organic and answer-engine visibility's share is rising, which argues for rebalancing budget across channels based on where qualified pipeline is actually coming from, not eliminating any one channel entirely.",
+      },
+      {
+        q: "Where does a startup get an honest read on which of these five challenges applies to it?",
+        a: "A structured audit against the startup's own funnel data, not a generic benchmark comparison alone. The [GTM Audit](/services) is built specifically to produce that: a prioritized, specific list of what is actually leaking, rather than a generic version of this list.",
+      },
+    ],
+  },
+  {
+    slug: "freelancer-vs-agency-vs-in-house-marketing",
+    title: "Freelancer vs Agency vs In-House: How Should a Startup Founder Decide?",
+    metaTitle: "Freelancer vs Agency vs In-House Marketing: How to Decide",
+    metaDescription:
+      "Freelancers run $1.5K-$12K a month, agencies $10K-$25K, in-house $150K+ a year fully loaded. A stage-by-stage framework for choosing between them as a startup founder.",
+    excerpt:
+      "The real decision is not which option is cheapest on paper, but which one matches a founder's stage, channel count, and tolerance for day-to-day oversight.",
+    datePublished: "2026-10-09",
+    dateModified: "2026-10-09",
+    author: "Mohammad H. Rahman",
+    authorTitle: "Founder, Markoholics",
+    readingTime: "8 min read",
+    keyTakeaways: [
+      "Freelancers typically run $1.5K to $12K per specialist per month, but the savings trade directly against founder oversight time, since freelancers generally need more direction than an agency or an in-house hire.",
+      "Agency retainers for comparable output typically run $10K to $25K a month; agencies spread the cost of tools, training, and senior oversight across many clients, which is why they tend to win on multi-channel work a single freelancer cannot cover alone.",
+      "A single in-house marketing hire costs roughly $150,000 to $185,000 a year in base salary alone, and the fully loaded cost (taxes, tools, training, turnover risk) commonly runs 3 to 5 times that base figure.",
+      "The decision is rarely about cost alone: it is about how many channels need to run at once, how much oversight a founder can realistically give, and whether the need is a single specialist skill or a coordinated, multi-channel system.",
+    ],
+    intro: [
+      "For a startup founder, freelancer, agency, and in-house marketing are not three tiers of the same thing at different prices; they are three different operating models, and the right one depends on how many channels need to run simultaneously, how much oversight the founder can give day to day, and whether the gap is a single skill or a coordinated system.",
+    ],
+    definition:
+      "The freelancer-versus-agency-versus-in-house decision is a question of operating model, not price alone: a freelancer sells individual skill with direct founder oversight, an agency sells a coordinated multi-channel system with its own management layer, and an in-house hire sells full-time dedicated attention at the highest fixed cost.",
+    ranking: [],
+    sections: [
+      {
+        heading: "What does a freelancer actually cost, and what does that price include?",
+        paragraphs: [
+          "Freelancer pricing for seed-to-Series-A companies with one clear channel priority typically runs $1.5K to $12K per specialist per month, according to 2026 marketing-hiring benchmark data. That price buys execution on a specific skill (a single channel, a single deliverable type) rather than strategic coordination across channels.",
+          "The real cost most founders underestimate is oversight, not the invoice. A freelancer will likely be significantly cheaper than building an in-house team, but needs more direction: briefing, reviewing, and course-correcting the work generally falls on the founder or whoever manages the freelancer, which is itself a time cost separate from the fee.",
+        ],
+      },
+      {
+        heading: "What does an agency cost, and when does that cost make sense?",
+        paragraphs: [
+          "Agency retainers for output comparable to a freelancer's single-channel work, but across multiple channels at once, typically run $10K to $25K a month in US benchmark data, with some sources citing wider annualized ranges depending on scope and market. Agencies can hold that price competitive because they spread the cost of tooling, training, and senior strategic oversight across many clients at once rather than one.",
+          "That structure is also the tradeoff to be clear-eyed about: an agency's incentive is partly shaped by its other clients' needs, not solely the one engagement, and figures in this space often come from agencies themselves, who have a reason to favor the agency model in how they present them. Markoholics is an agency, which is worth naming directly rather than pretending the comparison is neutral; see [what to ask before paying for a GTM audit](/blog/gtm-audit-for-startups) for how to tell a real diagnostic from a sales pitch wearing one.",
+        ],
+      },
+      {
+        heading: "What does an in-house hire actually cost once fully loaded?",
+        paragraphs: [
+          "A single marketing manager costs roughly $150,000 to $185,000 a year in base salary alone, before tools, according to 2026 compensation data. The commonly cited fully loaded cost, once taxes, benefits, tools, training, and turnover risk are added, runs 3 to 5 times the base salary figure, which is the number founders most often miss when comparing options on a spreadsheet that only shows the offer letter's headline figure.",
+          "In-house wins on one thing none of the other models can offer: full-time, undivided attention to a single company's context, accumulated over time rather than re-explained at the start of every engagement. That is worth the premium once a company has enough budget and enough channel complexity to keep one person fully occupied.",
+        ],
+      },
+      {
+        heading: "How should a founder actually decide between the three?",
+        paragraphs: [
+          "Start from channel count and oversight capacity rather than price alone. One channel, a clear specification, and a founder with time to manage the work closely: a freelancer is usually the right fit. Multiple channels that need to work together (content feeding paid feeding outbound), and little founder time to coordinate that directly: an agency's built-in coordination layer is what is actually being purchased, not just the execution hours. Enough budget and channel complexity to justify full-time, dedicated attention, with the hiring and management capacity to support a full-time report: in-house.",
+          "Hybrids are common at higher spend for a reason: a single in-house lead directing a mix of freelancers, or an agency engagement supplemented by one in-house specialist, often captures the coordination benefit of an agency with some of the dedicated-attention benefit of in-house, without paying full price for either model alone.",
+        ],
+        table: {
+          headers: ["Model", "Typical Cost", "Oversight Needed", "Best Fit"],
+          rows: [
+            [
+              "Freelancer",
+              "$1.5K-$12K / month per specialist",
+              "High: founder briefs and reviews the work directly",
+              "One clear channel, a well-specified deliverable",
+            ],
+            [
+              "Agency",
+              "$10K-$25K / month retainer",
+              "Low to moderate: agency's own management layer coordinates the work",
+              "Multiple channels that need to work together",
+            ],
+            [
+              "In-house",
+              "$150K-$185K / year base (often 3-5x fully loaded)",
+              "Moderate: direct management, but full-time and dedicated",
+              "Enough budget and complexity to keep one person fully occupied",
+            ],
+          ],
+        },
+      },
+    ],
+    faqs: [
+      {
+        q: "Is a freelancer always the cheapest option?",
+        a: "On the invoice, generally yes. Once founder oversight time is counted as a real cost rather than free, the gap narrows, particularly for a founder whose time is better spent elsewhere in the business than managing day-to-day marketing execution.",
+      },
+      {
+        q: "At what stage should a startup move from freelancers to an agency?",
+        a: "Roughly when more than one channel needs to run in a coordinated way rather than independently, since that is the specific thing an agency's management layer is built to handle and a set of independently managed freelancers generally is not.",
+      },
+      {
+        q: "At what stage does in-house start to make sense over an agency?",
+        a: "Once there is enough budget and channel complexity to keep one person fully, productively occupied, and enough hiring and management capacity to support that hire properly. Below that threshold, in-house commonly means paying full-time cost for part-time-equivalent output.",
+      },
+      {
+        q: "Can a startup combine all three models at once?",
+        a: "Yes, and hybrids are common at higher spend: one in-house lead coordinating a set of freelancers, or an agency engagement paired with a single in-house specialist, both capture benefits of more than one model without paying full price for each separately.",
+      },
+    ],
+  },
+  {
+    slug: "php-website-security-vulnerabilities",
+    title: "Is Your PHP Website Vulnerable? How to Detect and Fix It",
+    metaTitle: "PHP Website Security: Detect & Fix Vulnerabilities",
+    metaDescription:
+      "PHP 8.1 and older are end of life and unpatched. How to detect SQL injection, file inclusion, and object injection on a PHP site, and the real tools to fix each one.",
+    excerpt:
+      "An end-of-life PHP version, an unpatched plugin, or one unvalidated input field is usually all it takes. How to actually check, and what to fix first.",
+    datePublished: "2026-10-20",
+    dateModified: "2026-10-20",
+    author: "Mohammad H. Rahman",
+    authorTitle: "Founder, Markoholics",
+    readingTime: "9 min read",
+    keyTakeaways: [
+      "PHP 8.1 and all older versions are end of life; PHP's security support for 8.1 ended December 31, 2025, and PHP 8.2 loses its own security-only support at the end of 2026.",
+      "The most common PHP-specific vulnerability classes are SQL injection, remote and local file inclusion, PHP object injection through unserialize(), and authentication bypass from missing access checks.",
+      "Run `composer audit` (built into Composer 2.4 and later) against composer.lock in CI to catch known vulnerable dependencies before they reach production, not after.",
+      "WPScan, Nikto, and OWASP ZAP are real, current tools for scanning a live PHP site from the outside; none of them replace checking the PHP version and dependency versions from the inside.",
+      "A compromised site does not just risk data; it directly damages the organic search and answer-engine pipeline a GTM motion increasingly depends on, which makes this a growth problem, not only a security one.",
+    ],
+    intro: [
+      "A PHP website is vulnerable to hacks most often because of an end-of-life PHP version with unpatched known issues, an outdated dependency with a published vulnerability, or unvalidated user input reaching a database query or a file-loading function. Detecting it means checking the PHP version against the current end-of-life table, running a dependency audit, and scanning the live site with a real vulnerability scanner; fixing it means patching in that same order, oldest and most structural issue first.",
+    ],
+    definition:
+      "A PHP website vulnerability is a specific, exploitable gap between what the running code assumes about its input or its own version's security coverage and what is actually true, rather than a vague sense that an older site is probably insecure.",
+    ranking: [],
+    sections: [
+      {
+        heading: "Which PHP versions are actually end of life right now?",
+        paragraphs: [
+          "PHP follows a predictable lifecycle: each release branch gets two years of full support (bug fixes and security patches), followed by two more years of security-only fixes, then end of life with no further patches of any kind from the PHP project. PHP 8.1's security support ended December 31, 2025, which means any vulnerability discovered in PHP 8.1 or earlier since then goes unpatched upstream permanently unless a third party backports a fix.",
+          "As of October 2026, PHP 8.2 is in its security-only window, running through the end of 2026, while PHP 8.3 and newer remain the actively maintained branches. Checking a site's PHP version is the single fastest way to know whether it is carrying structural risk: most hosting control panels and `php -v` from the command line will show it in seconds.",
+        ],
+      },
+      {
+        heading: "What are the most common ways a PHP site actually gets hacked?",
+        paragraphs: [
+          "SQL injection remains one of the most damaging and easiest to exploit: it happens when user input reaches a database query without being properly checked or parameterized, letting an attacker run their own queries. The impact ranges from reading all site data to planting spam links to creating a new administrator account outright.",
+          "File inclusion vulnerabilities come in two forms. Remote File Inclusion happens when user input controls a file-loading function, letting an attacker pull in and execute code hosted elsewhere; Local File Inclusion is the related case where the attacker instead points that function at sensitive files already on the server. Both can lead to full remote code execution, and both are prevented the same way: validating and whitelisting any input that influences which file gets loaded, rather than trusting it directly.",
+          "PHP object injection is a more PHP-specific risk, arising when user-controlled input reaches a call to `unserialize()`. The fix is straightforward and almost always available: use `json_decode()` instead of `unserialize()` for any data that could originate from outside the application. Authentication bypass, the fourth common class, is usually not a flaw in PHP itself but a missing access check somewhere in the application's own logic, which is why it shows up even on sites running a current PHP version.",
+        ],
+      },
+      {
+        heading: "How do you actually detect these issues on a live site?",
+        paragraphs: [
+          "Start from the inside: check the PHP version against the current end-of-life table above, then run `composer audit` (built into Composer 2.4 and later) against composer.lock to check every PHP dependency against known security advisories pulled from Packagist and the FriendsOfPHP/security-advisories database. The command returns a non-zero exit code when it finds something, which makes it straightforward to wire into a CI pipeline so a vulnerable dependency fails a build automatically rather than reaching production silently.",
+          "From the outside, a handful of established, free tools cover most of what a live site needs scanned. Nikto checks a web server for known-dangerous files, outdated server software, and common misconfigurations. OWASP ZAP is a dynamic application scanner that actively probes a running site for issues like injection points, rather than just reading its code. If the site runs WordPress, which a large share of PHP sites do, WPScan is purpose-built for it, enumerating themes, plugins, and known vulnerabilities specific to the WordPress ecosystem.",
+          "None of these replace each other. `composer audit` catches a known-vulnerable package before it ships; Nikto and ZAP catch what is actually exposed once the site is live; WPScan adds WordPress-specific coverage none of the others have. Running only one gives a false sense of completeness.",
+        ],
+      },
+      {
+        heading: "What should get fixed first once a problem is found?",
+        paragraphs: [
+          "Fix in order of structural risk, not order of discovery. An end-of-life PHP version comes first, since it means every future vulnerability in the language itself goes permanently unpatched until the upgrade happens; a vulnerable dependency flagged by composer audit comes second, since a published fix usually already exists and only needs to be applied. Application-level issues (unparameterized queries, unvalidated file-loading input, a stray unserialize() call) come third, since fixing them requires reviewing and changing the application's own code rather than running an update command.",
+          "For Roave/SecurityAdvisories specifically: it is a Composer package that actively blocks installing or updating to a version of a dependency with a known vulnerability, which turns the audit from something a team has to remember to run into something that fails the install step automatically. Adding it once is a small, durable fix compared to relying on human memory to re-run an audit command regularly.",
+        ],
+      },
+      {
+        heading: "Why does this matter for a GTM motion, not just security?",
+        paragraphs: [
+          "A compromised or blocklisted site does not just risk data; it directly damages the exact organic search and AI-answer-engine visibility a growing share of qualified pipeline now depends on, a point covered in [the GTM challenges SaaS and AI startups actually face](/blog/gtm-challenges-saas-ai-startups). Search engines actively flag and demote compromised sites, and an AI answer engine has no reason to cite a site that is serving spam or malware to some of its visitors.",
+          "Treating PHP and dependency security as a once-a-quarter afterthought, rather than a standing part of the same infrastructure a GTM motion runs content and conversion through, is a quiet but direct tax on the channel that is currently growing fastest.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I check what PHP version my website is running?",
+        a: "Run `php -v` from the server's command line, check the hosting control panel's PHP settings page, or ask a developer to check phpinfo() output. Most managed hosting providers also display the active PHP version directly in their dashboard.",
+      },
+      {
+        q: "Is upgrading PHP version alone enough to secure a website?",
+        a: "No. An upgraded PHP version removes the risk of unpatched language-level vulnerabilities, but application-level issues like unparameterized database queries or unvalidated file-loading input exist independently of the PHP version and need to be fixed in the application's own code.",
+      },
+      {
+        q: "Does this apply to WordPress sites, or only custom PHP applications?",
+        a: "Both. WordPress itself, and the vast majority of its themes and plugins, are written in PHP, so everything here applies directly; WPScan specifically adds a layer of WordPress-specific vulnerability coverage on top of the general PHP checks.",
+      },
+      {
+        q: "How often should a PHP site be scanned for vulnerabilities?",
+        a: "Running `composer audit` on every deploy through CI, so it runs automatically rather than relying on memory, plus an external scan (Nikto, ZAP, or WPScan depending on the stack) on a regular schedule, commonly monthly, with an additional scan after any major plugin, theme, or dependency update.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
