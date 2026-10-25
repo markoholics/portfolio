@@ -306,7 +306,7 @@ export const faqItems: FAQItem[] = [
   },
   {
     q: "What is the minimum commitment?",
-    a: "Three months for Growth Engine and AI-First Scale engagements. GTM is a system that compounds over time, not a campaign that resets every 30 days.",
+    a: "Six months is a minimum with Proof Sprint. GTM is a system that compounds over time, not a campaign that resets every 30 days.",
   },
   {
     q: "What does AI-native actually mean for our marketing?",
