@@ -209,6 +209,16 @@ export default async function BlogPostPage({
                   </table>
                 </div>
               )}
+              {section.code && (
+                <div className="mt-8 border hairline bg-white/[0.02]">
+                  <div className="border-b hairline py-2 px-5 text-grey text-xs uppercase tracking-[0.1em]">
+                    {section.code.language}
+                  </div>
+                  <pre className="overflow-x-auto p-5 text-sm leading-relaxed text-mist">
+                    <code>{section.code.code}</code>
+                  </pre>
+                </div>
+              )}
             </Reveal>
           ))}
         </div>

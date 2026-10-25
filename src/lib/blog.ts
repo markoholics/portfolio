@@ -14,10 +14,16 @@ export interface BlogTable {
   rows: string[][];
 }
 
+export interface BlogCodeSnippet {
+  language: string;
+  code: string;
+}
+
 export interface BlogSection {
   heading: string;
   paragraphs: string[];
   table?: BlogTable;
+  code?: BlogCodeSnippet;
 }
 
 export interface BlogPost {
@@ -1250,7 +1256,7 @@ export const blogPosts: BlogPost[] = [
     keyTakeaways: [
       "PHP 8.1 and all older versions are end of life; PHP's security support for 8.1 ended December 31, 2025, and PHP 8.2 loses its own security-only support at the end of 2026.",
       "The most common PHP-specific vulnerability classes are SQL injection, remote and local file inclusion, PHP object injection through unserialize(), and authentication bypass from missing access checks.",
-      "Run `composer audit` (built into Composer 2.4 and later) against composer.lock in CI to catch known vulnerable dependencies before they reach production, not after.",
+      "Run `composer audit` (built into Composer 2.4 and later) against composer.lock in CI to catch known vulnerable dependencies before they reach production; it only flags packages with a published CVE or advisory, not custom application vulnerabilities like SQL injection written into your own code.",
       "WPScan, Nikto, and OWASP ZAP are real, current tools for scanning a live PHP site from the outside; none of them replace checking the PHP version and dependency versions from the inside.",
       "A compromised site does not just risk data; it directly damages the organic search and answer-engine pipeline a GTM motion increasingly depends on, which makes this a growth problem, not only a security one.",
     ],
@@ -1274,12 +1280,25 @@ export const blogPosts: BlogPost[] = [
           "SQL injection remains one of the most damaging and easiest to exploit: it happens when user input reaches a database query without being properly checked or parameterized, letting an attacker run their own queries. The impact ranges from reading all site data to planting spam links to creating a new administrator account outright.",
           "File inclusion vulnerabilities come in two forms. Remote File Inclusion happens when user input controls a file-loading function, letting an attacker pull in and execute code hosted elsewhere; Local File Inclusion is the related case where the attacker instead points that function at sensitive files already on the server. Both can lead to full remote code execution, and both are prevented the same way: validating and whitelisting any input that influences which file gets loaded, rather than trusting it directly.",
           "PHP object injection is a more PHP-specific risk, arising when user-controlled input reaches a call to `unserialize()`. The fix is straightforward and almost always available: use `json_decode()` instead of `unserialize()` for any data that could originate from outside the application. Authentication bypass, the fourth common class, is usually not a flaw in PHP itself but a missing access check somewhere in the application's own logic, which is why it shows up even on sites running a current PHP version.",
+          "Fixing SQL injection means replacing string concatenation with prepared statements, so user input is always passed as a bound parameter rather than interpolated directly into the query text:",
         ],
+        code: {
+          language: "php — pdo prepared statement vs. raw concatenation",
+          code: `// Vulnerable: user input concatenated directly into the query
+$query = "SELECT * FROM users WHERE email = '" . $_GET['email'] . "'";
+$result = $pdo->query($query);
+
+// Safe: PDO prepared statement with a bound parameter
+$stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
+$stmt->execute(['email' => $_GET['email']]);
+$result = $stmt->fetchAll();`,
+        },
       },
       {
         heading: "How do you actually detect these issues on a live site?",
         paragraphs: [
           "Start from the inside: check the PHP version against the current end-of-life table above, then run `composer audit` (built into Composer 2.4 and later) against composer.lock to check every PHP dependency against known security advisories pulled from Packagist and the FriendsOfPHP/security-advisories database. The command returns a non-zero exit code when it finds something, which makes it straightforward to wire into a CI pipeline so a vulnerable dependency fails a build automatically rather than reaching production silently.",
+          "`composer audit` only checks whether an installed package version matches one with a published CVE or advisory in that database; it has no visibility into the application's own code. A SQL injection or file inclusion flaw written directly into a site's custom PHP will not show up in a composer audit run, which is why the dependency check and the live-site scan below are both necessary rather than either one alone.",
           "From the outside, a handful of established, free tools cover most of what a live site needs scanned. Nikto checks a web server for known-dangerous files, outdated server software, and common misconfigurations. OWASP ZAP is a dynamic application scanner that actively probes a running site for issues like injection points, rather than just reading its code. If the site runs WordPress, which a large share of PHP sites do, WPScan is purpose-built for it, enumerating themes, plugins, and known vulnerabilities specific to the WordPress ecosystem.",
           "None of these replace each other. `composer audit` catches a known-vulnerable package before it ships; Nikto and ZAP catch what is actually exposed once the site is live; WPScan adds WordPress-specific coverage none of the others have. Running only one gives a false sense of completeness.",
         ],
@@ -1335,6 +1354,7 @@ export const blogPosts: BlogPost[] = [
     keyTakeaways: [
       "Taking a site offline the wrong way (returning a 200 or 404 during downtime) can get URLs dropped from the index; Google's own guidance recommends a 503 status code with an optional Retry-After header instead.",
       "Keep robots.txt itself reachable during downtime: a 5xx there specifically can make Google halt crawling for up to 12 hours before it falls back to a cached copy for as long as 30 days.",
+      "A maintenance page alone does not contain an active hack: an attacker with an existing web shell, database connection, or valid session token keeps that access until the database connections are terminated, sessions invalidated, and the server or container isolated.",
       "Preserve logs and evidence before cleaning anything up if the downtime is incident-driven, and change every credential (hosting, database, CMS admin, associated email) as part of recovery, not just the one that was obviously compromised.",
       "A status page hosted on separate infrastructure and a different domain stays reachable precisely when the main site cannot, and should state the impact on customers first, not just technical detail.",
       "Business does not have to stop with the site: a hosted payment link, a WhatsApp Business line, and an updated Google Business Profile message can keep orders and support running on infrastructure the outage never touches.",
@@ -1356,9 +1376,36 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "How do you actually take a PHP site offline the right way?",
         paragraphs: [
-          "For planned maintenance, the cleanest approach is a small PHP check near the top of the application's entry point (or a web-server-level rule in Apache or Nginx) that, when a maintenance flag is present, immediately sends a 503 header and an HTML maintenance page, then exits before any further application code runs. This avoids partially executing a broken application and keeps the response fast rather than timing out.",
-          "For an incident rather than planned maintenance, the sequence changes. Contain first: take the site offline immediately, through the hosting control panel, a DNS change pointing to a static holding page, or a web-server-level block, specifically to stop an attacker from modifying more files or exfiltrating more data. Avoid making rapid exploratory changes before containment, since that can tip off an attacker still active in the environment and cause them to cover their tracks or do more damage on the way out.",
-          "Once the site is no longer publicly reachable, preserve evidence before cleaning anything up: a full backup of the server, including web, FTP, SSH, database, and system logs, so there is a record of what actually happened rather than only a guess after the fact. Only then move to recovery: rotate every credential tied to the domain (hosting account, FTP/SFTP, database, CMS admin accounts, and the email addresses associated with the domain, since a compromised inbox can be used to reset everything else), identify and fix the actual entry point, and, where practical, redeploy the fixed version to a clean OS and web server setup rather than only cleaning the existing one in place.",
+          "For planned maintenance, the cleanest approach is a small PHP check near the top of the application's entry point (or a web-server-level rule in Apache or Nginx) that, when a maintenance flag is present, immediately sends a 503 header and an HTML maintenance page, then exits before any further application code runs. This avoids partially executing a broken application and keeps the response fast rather than timing out. At the web-server level, the rule can run before PHP is ever invoked, which is both faster and safer than handling it inside the application:",
+        ],
+        code: {
+          language: "nginx — maintenance mode with a 503 response",
+          code: `location / {
+    # Serve the static maintenance page with a real 503 status
+    # whenever maintenance.flag exists, instead of hitting PHP-FPM.
+    if (-f $document_root/maintenance.flag) {
+        return 503;
+    }
+    try_files $uri $uri/ /index.php?$query_string;
+}
+
+error_page 503 @maintenance;
+location @maintenance {
+    rewrite ^(.*)$ /maintenance.html break;
+}`,
+        },
+      },
+      {
+        heading: "Is a maintenance page enough to contain an active hack?",
+        paragraphs: [
+          "No, not on its own. If a hack or remote code execution is suspected, routing traffic to a maintenance page only stops new visitors from reaching the compromised application; it does nothing about an attacker who already has an active web shell, an open database connection, or a valid session token from before the block went up. A maintenance page changes what the public sees, not what the attacker can still do on the server behind it.",
+          "Real containment means cutting the attacker's access, not just the public's: terminate active database connections and rotate the database credentials they were using, invalidate all existing session tokens so a stolen or forged session cookie stops working immediately, and isolate the affected server or container from the rest of the network (removing it from a load balancer, revoking its outbound network access, or suspending the container) before relying on the maintenance page to hold the front door. Only once those are done does the maintenance page actually reflect the server's real state, rather than papering over continued attacker access underneath it.",
+        ],
+      },
+      {
+        heading: "What's the right incident-response sequence after containment?",
+        paragraphs: [
+          "Once the site is no longer publicly reachable and the attacker's access has actually been cut, preserve evidence before cleaning anything up: a full backup of the server, including web, FTP, SSH, database, and system logs, so there is a record of what actually happened rather than only a guess after the fact. Only then move to recovery: rotate every credential tied to the domain (hosting account, FTP/SFTP, database, CMS admin accounts, and the email addresses associated with the domain, since a compromised inbox can be used to reset everything else), identify and fix the actual entry point, and, where practical, redeploy the fixed version to a clean OS and web server setup rather than only cleaning the existing one in place.",
         ],
       },
       {
