@@ -44,6 +44,13 @@ export default function Footer() {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href="/fit-check"
+                data-cursor-hover
+                className="text-mist hover:text-white transition-colors"
+              >
+                Fit Check
+              </Link>
             </div>
           </div>
 
