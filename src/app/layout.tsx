@@ -46,6 +46,13 @@ export const metadata: Metadata = {
   other: {
     "impact-site-verification": "cc0f54b2-d4ce-4bd0-9edd-e17303aecf7f",
   },
+  // Set GOOGLE_SITE_VERIFICATION in the environment with the meta-tag value
+  // Search Console gives you (HTML tag verification method) to verify the
+  // domain without editing this file again. Omitted entirely if unset, so
+  // leaving it blank is a no-op rather than an empty tag.
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 export default function RootLayout({

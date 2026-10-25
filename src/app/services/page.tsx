@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
 import FAQAccordion from "@/components/FAQAccordion";
-import { webPageJsonLd } from "@/lib/seo";
+import { webPageJsonLd, serviceJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTM Strategy, Content & Demand Generation",
@@ -249,6 +249,13 @@ export default function ServicesPage() {
           ),
         }}
       />
+      {services.map((service) => (
+        <script
+          key={service.slug}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd(service)) }}
+        />
+      ))}
     </div>
   );
 }

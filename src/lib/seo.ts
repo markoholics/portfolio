@@ -1,4 +1,4 @@
-import type { CaseStudy, FAQItem } from "@/lib/data";
+import type { CaseStudy, FAQItem, Service } from "@/lib/data";
 import { services, socialLinks } from "@/lib/data";
 import type { BlogPost } from "@/lib/blog";
 
@@ -47,6 +47,36 @@ export function organizationJsonLd() {
       "Content Marketing",
     ],
     sameAs: socialLinks.map((s) => s.href),
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Markoholics GTM Services",
+      itemListElement: services.map((s) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: s.name,
+          description: s.description,
+          url: absoluteUrl(`/services#${s.slug}`),
+        },
+      })),
+    },
+  };
+}
+
+export function serviceJsonLd(service: Service) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.name,
+    description: service.description,
+    url: absoluteUrl(`/services#${service.slug}`),
+    serviceType: service.name,
+    provider: {
+      "@type": "ProfessionalService",
+      name: "Markoholics",
+      url: SITE_URL,
+    },
+    areaServed: ["United States", "United Kingdom", "Singapore", "United Arab Emirates", "India"],
   };
 }
 
