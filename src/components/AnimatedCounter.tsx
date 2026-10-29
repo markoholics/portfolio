@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
+import { useInView, useReducedMotion } from "framer-motion";
 
 export default function AnimatedCounter({
   value,
@@ -16,12 +16,13 @@ export default function AnimatedCounter({
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const reduceMotion = useReducedMotion();
   // Starts at the final value so the server-rendered markup (what crawlers
   // and AI answer engines see) is never a bare "0" before the count-up runs.
   const [display, setDisplay] = useState(value);
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || reduceMotion) return;
     let start: number | null = null;
     let raf = 0;
 
@@ -35,7 +36,7 @@ export default function AnimatedCounter({
 
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, value, duration]);
+  }, [inView, value, duration, reduceMotion]);
 
   return (
     <span ref={ref}>

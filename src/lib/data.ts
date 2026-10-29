@@ -441,6 +441,7 @@ export const navLinks = [
   { label: "Services", href: "/services" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
+  { label: "Roundtable", href: "/roundtable" },
   { label: "Contact", href: "/contact" },
 ];
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
+import { MotionConfig } from "framer-motion";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -7,6 +8,7 @@ import DeferredEffects from "@/components/DeferredEffects";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MetaPixel from "@/components/analytics/MetaPixel";
 import ImpactTag from "@/components/analytics/ImpactTag";
+import PlausibleAnalytics from "@/components/analytics/PlausibleAnalytics";
 import { SITE_URL, organizationJsonLd } from "@/lib/seo";
 
 // Only weights actually referenced in the codebase (font-medium / .eyebrow)
@@ -73,10 +75,16 @@ export default function RootLayout({
         <GoogleAnalytics />
         <MetaPixel />
         <ImpactTag />
+        <PlausibleAnalytics />
         <DeferredEffects />
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        {/* reducedMotion="user" makes every framer-motion animation site-wide
+            (fade-ups, hovers, count-ups) honour the OS prefers-reduced-motion
+            setting automatically, with no per-component opt-in needed. */}
+        <MotionConfig reducedMotion="user">
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </MotionConfig>
       </body>
     </html>
   );

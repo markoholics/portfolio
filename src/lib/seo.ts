@@ -238,6 +238,48 @@ export function reviewJsonLd({
   };
 }
 
+export function roundtableEventSeriesJsonLd() {
+  // No dates, ticket prices or ratings are invented here, since none are
+  // fixed yet (the series runs on a rolling, guest-availability-led
+  // cadence, not a published calendar) — only what's actually known.
+  return {
+    "@context": "https://schema.org",
+    "@type": "EventSeries",
+    name: "Markoholics Roundtable Series",
+    description:
+      "Three to four practitioners, one table, no pitch. Monthly GTM and marketing conversations for tech, AI and SaaS founders, in person in Bangalore and live on LinkedIn.",
+    url: absoluteUrl("/roundtable"),
+    eventAttendanceMode: "https://schema.org/MixedEventAttendanceMode",
+    location: [
+      {
+        "@type": "Place",
+        name: "Podcast studio, Bangalore",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Bengaluru",
+          addressRegion: "Karnataka",
+          addressCountry: "IN",
+        },
+      },
+      {
+        "@type": "VirtualLocation",
+        url: "https://www.linkedin.com/in/theotherrahman",
+      },
+    ],
+    organizer: {
+      "@type": "Organization",
+      name: "Markoholics",
+      url: SITE_URL,
+      email: "contact@markoholics.com",
+    },
+    performer: {
+      "@type": "Person",
+      name: "Mohammad H. Rahman",
+      url: absoluteUrl("/about#founder"),
+    },
+  };
+}
+
 export function caseStudyFaqItems(cs: CaseStudy): FAQItem[] {
   return [
     {

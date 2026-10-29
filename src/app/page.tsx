@@ -10,6 +10,7 @@ import AiStackSection from "@/components/home/AiStackSection";
 import ProofBar from "@/components/home/ProofBar";
 import Testimonial, { featuredTestimonial } from "@/components/home/Testimonial";
 import FAQSection from "@/components/home/FAQSection";
+import RoundtableTeaser from "@/components/home/RoundtableTeaser";
 import CTABand from "@/components/home/CTABand";
 import { reviewJsonLd } from "@/lib/seo";
 
@@ -28,6 +29,7 @@ export default function Home() {
       <ProofBar />
       <Testimonial />
       <FAQSection />
+      <RoundtableTeaser />
       <CTABand />
       <script
         type="application/ld+json"

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy" },
 };
 
-const LAST_UPDATED = "October 25, 2026";
+const LAST_UPDATED = "October 29, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -62,6 +62,15 @@ export default function PrivacyPage() {
               We use this to assess fit and, where there is one, to follow
               up and start a conversation.
             </p>
+            <p className="text-grey text-lg leading-relaxed mb-4">
+              When you submit the Roundtable Series interest form, we
+              collect the details you provide (your name, business email,
+              company, areas of expertise, and the other answers on that
+              form) along with basic technical details such as your browser
+              and the page that sent you there. We use this to review your
+              interest and, where there is a fit, to get in touch about an
+              upcoming episode.
+            </p>
             <p className="text-grey text-lg leading-relaxed">
               We also use standard web analytics and advertising tools —
               Google Analytics and the Meta Pixel — which collect
@@ -90,8 +99,9 @@ export default function PrivacyPage() {
               Where your data is stored
             </h2>
             <p className="text-grey text-lg leading-relaxed">
-              Contact form submissions and Fit Check answers are stored in a
-              secure, access-controlled database, and may also be routed
+              Contact form submissions, Fit Check answers, and Roundtable
+              Series interest form submissions are stored in a secure,
+              access-controlled database, and may also be routed
               through our internal workflow automation tooling to notify our
               team and send you an automated reply. Analytics data collected
               by Google Analytics and the Meta Pixel is stored and processed
