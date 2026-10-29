@@ -216,7 +216,6 @@ export async function sendInternalNotification(
       ${websiteCell ? summaryRow("Company website", websiteCell) : ""}
       ${summaryRow("Areas of expertise", data.expertise.map(escapeHtml).join(", "))}
       ${data.expertiseOther ? summaryRow("Other expertise", escapeHtml(data.expertiseOther)) : ""}
-      ${summaryRow("Topic they could speak on", escapeHtml(data.topic))}
       ${data.pastLinks ? summaryRow("Past talks, podcasts or writing", escapeHtml(data.pastLinks)) : ""}
       ${data.availability && data.availability.length > 0 ? summaryRow("Availability", data.availability.map(escapeHtml).join(", ")) : ""}
       ${data.anythingElse ? summaryRow("Anything else", escapeHtml(data.anythingElse)) : ""}
@@ -242,7 +241,6 @@ export async function sendInternalNotification(
     data.companyWebsite ? `Company website: ${data.companyWebsite}` : "",
     `Areas of expertise: ${data.expertise.join(", ")}`,
     data.expertiseOther ? `Other expertise: ${data.expertiseOther}` : "",
-    `Topic they could speak on: ${data.topic}`,
     data.pastLinks ? `Past talks, podcasts or writing: ${data.pastLinks}` : "",
     data.availability && data.availability.length > 0 ? `Availability: ${data.availability.join(", ")}` : "",
     data.anythingElse ? `Anything else: ${data.anythingElse}` : "",

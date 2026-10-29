@@ -80,7 +80,6 @@ export default function InterestForm() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const topicValue = watch("topic") ?? "";
   const anythingElseValue = watch("anythingElse") ?? "";
 
   const onSubmit = async (values: InterestFormValues) => {
@@ -339,24 +338,6 @@ export default function InterestForm() {
                   ))}
                 </select>
                 <ErrorText id="yearsExperience-error" message={errors.yearsExperience?.message} />
-              </label>
-
-              <label className="block">
-                <span className={labelClass}>A topic you could speak on</span>
-                <textarea
-                  rows={4}
-                  placeholder="One idea, framework or lesson you could share in 10 minutes."
-                  className={`${inputClass} resize-none`}
-                  aria-invalid={!!errors.topic}
-                  aria-describedby="topic-count topic-error"
-                  {...register("topic")}
-                />
-                <div className="flex items-center justify-between mt-2">
-                  <ErrorText id="topic-error" message={errors.topic?.message} />
-                  <span id="topic-count" className="text-grey/70 text-xs ml-auto">
-                    {topicValue.length}/500
-                  </span>
-                </div>
               </label>
 
               <label className="block">

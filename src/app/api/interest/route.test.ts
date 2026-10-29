@@ -36,7 +36,6 @@ function validBody(overrides: Record<string, unknown> = {}) {
     expertise: ["GTM strategy"],
     expertiseOther: "",
     yearsExperience: "3 to 5",
-    topic: "A twenty character or longer topic about GTM strategy for founders.",
     pastLinks: "",
     joinAs: "Guest speaker",
     preferredFormat: "Either works",

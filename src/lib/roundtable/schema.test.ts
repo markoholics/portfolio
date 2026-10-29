@@ -17,7 +17,6 @@ function validPayload(overrides: Partial<Record<string, unknown>> = {}) {
     expertise: ["GTM strategy"],
     expertiseOther: "",
     yearsExperience: "3 to 5",
-    topic: "A twenty character or longer topic about GTM strategy for founders.",
     pastLinks: "",
     joinAs: "Guest speaker",
     preferredFormat: "Either works",
@@ -40,7 +39,7 @@ describe("buildInterestSchema", () => {
 
   it("rejects a submission missing required fields", () => {
     const result = schema.safeParse(
-      validPayload({ fullName: "", companyName: "", linkedinUrl: "", topic: "" })
+      validPayload({ fullName: "", companyName: "", linkedinUrl: "" })
     );
     expect(result.success).toBe(false);
     if (!result.success) {
@@ -48,7 +47,6 @@ describe("buildInterestSchema", () => {
       expect(paths).toContain("fullName");
       expect(paths).toContain("companyName");
       expect(paths).toContain("linkedinUrl");
-      expect(paths).toContain("topic");
     }
   });
 
@@ -93,14 +91,6 @@ describe("buildInterestSchema", () => {
   it("rejects a LinkedIn URL that isn't on linkedin.com", () => {
     const result = schema.safeParse(validPayload({ linkedinUrl: "https://twitter.com/jane" }));
     expect(result.success).toBe(false);
-  });
-
-  it("rejects a topic outside the 20 to 500 character range", () => {
-    const tooShort = schema.safeParse(validPayload({ topic: "Too short" }));
-    expect(tooShort.success).toBe(false);
-
-    const tooLong = schema.safeParse(validPayload({ topic: "a".repeat(501) }));
-    expect(tooLong.success).toBe(false);
   });
 
   it("requires the consent checkbox to be true", () => {

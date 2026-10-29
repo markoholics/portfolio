@@ -108,11 +108,6 @@ export function buildInterestSchema({ enforceBusinessEmail }: BuildInterestSchem
       yearsExperience: z.enum(YEARS_EXPERIENCE_OPTIONS, {
         error: "Please select your years of experience.",
       }),
-      topic: z
-        .string()
-        .trim()
-        .min(20, "Please share at least 20 characters.")
-        .max(500, "Please keep this under 500 characters."),
       pastLinks: z.string().trim().max(2000).optional(),
 
       // How you would like to take part
