@@ -124,7 +124,7 @@ export default function RazorpayCheckoutButton({
   if (status === "success") {
     return (
       <p className={className} style={style} role="status">
-        Payment received — check your email for next steps.
+        Payment received, check your email for next steps.
       </p>
     );
   }

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { PRICING } from "@/lib/fit-check/config";
 
-export const alt = "Fit Check · Markoholics — Seven questions, about ninety seconds.";
+export const alt = "Fit Check · Markoholics: Seven questions, about ninety seconds.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

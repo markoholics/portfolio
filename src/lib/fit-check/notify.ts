@@ -43,7 +43,7 @@ export async function sendFitCheckGreenAlert(contact: FitCheckContact): Promise<
   await Promise.all([
     sendEmail({
       to: NOTIFY_EMAIL,
-      subject: `Fit Check: strong fit — ${contact.name}`,
+      subject: `Fit Check: strong fit for ${contact.name}`,
       html: `
         <h2>New strong-fit Fit Check submission</h2>
         <p><strong>Name:</strong> ${escapeHtml(contact.name)}</p>
@@ -71,7 +71,7 @@ export async function sendFitCheckRedNoteAlert(
   await Promise.all([
     sendEmail({
       to: NOTIFY_EMAIL,
-      subject: `Fit Check: one off project note — ${contact.name}`,
+      subject: `Fit Check: one off project note for ${contact.name}`,
       html: `
         <h2>One off project note from a non-fit Fit Check submission</h2>
         <p><strong>Name:</strong> ${escapeHtml(contact.name)}</p>

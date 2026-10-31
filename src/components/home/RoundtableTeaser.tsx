@@ -42,8 +42,8 @@ export default function RoundtableTeaser() {
             <a
               href={ROUNDTABLE_HOME_FORMATS_HREF}
               data-cursor-hover
-              className="inline-flex items-center justify-center gap-[10px] text-white px-7 py-[14px] min-h-[44px] w-full sm:w-auto transition-colors hover:brightness-110"
-              style={{ backgroundColor: "var(--color-accent)" }}
+              className="btn-solid justify-center min-h-[44px] w-full sm:w-auto transition-colors hover:brightness-110"
+              style={{ backgroundColor: "var(--color-accent)", color: "#ffffff" }}
             >
               {HOMEPAGE_TEASER_COPY.secondaryLink}
             </a>

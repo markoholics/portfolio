@@ -26,12 +26,12 @@ export default function StrategicPartners() {
                     rel="noopener noreferrer"
                     data-cursor-hover
                     className="group block no-underline"
-                    aria-label={`${partner.name} — ${partner.description}`}
+                    aria-label={`${partner.name}: ${partner.description}`}
                   >
                     {content}
                   </a>
                 ) : (
-                  <div aria-label={`${partner.name} — ${partner.description}`}>{content}</div>
+                  <div aria-label={`${partner.name}: ${partner.description}`}>{content}</div>
                 )}
               </Reveal>
             );

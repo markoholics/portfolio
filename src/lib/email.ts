@@ -123,8 +123,8 @@ export async function sendGtmAuditLeadEmail(lead: {
 
   const firstName = escapeHtml(lead.name.split(" ")[0] || lead.name);
   const confirmationSubject = isFree
-    ? "You're in — your free 14-Day Signal Sprint"
-    : "You're in — your 14-Day Signal Sprint spot is reserved";
+    ? "You're in: your free 14-Day Signal Sprint"
+    : "You're in: your 14-Day Signal Sprint spot is reserved";
   const confirmationHtml = `
     <h2>Hey ${firstName},</h2>
     <p>${
@@ -166,11 +166,11 @@ export async function sendContactFormEmail(submission: {
   const confirmationHtml = `
     <h2>Hey ${firstName},</h2>
     <p>Thanks for reaching out to Markoholics. We've received your message and someone from our team will get back to you shortly.</p>
-    <p>— The Markoholics team</p>
+    <p>The Markoholics team</p>
   `;
   await sendEmail({
     to: submission.email,
-    subject: "We've got your message — Markoholics",
+    subject: "We've got your message: Markoholics",
     html: confirmationHtml,
     replyTo: NOTIFY_EMAIL,
   });

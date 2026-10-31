@@ -4,7 +4,7 @@ import { SITE_URL } from "@/lib/seo";
 
 const TITLE = "Free GTM Audit · Markoholics";
 const DESCRIPTION =
-  "Complimentary for select prospects: the 14-Day Signal Sprint, on us — no payment, no invoice.";
+  "Complimentary for select prospects: the 14-Day Signal Sprint, on us, no payment, no invoice.";
 const PATH = "/free-gtm-audit";
 
 export const metadata: Metadata = {

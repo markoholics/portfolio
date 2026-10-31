@@ -52,7 +52,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.9 }}
           className="text-grey text-lg md:text-xl max-w-2xl mt-10"
         >
-          Strategy, content, demand generation, and AI operations — run as one
+          Strategy, content, demand generation, and AI operations, run as one
           autonomous system. Not five disconnected freelancers. We embed AI into
           your marketing so 3 people do the work of 10, and we run it for you.
         </motion.p>

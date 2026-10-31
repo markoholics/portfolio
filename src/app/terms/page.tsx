@@ -51,8 +51,8 @@ export default function TermsPage() {
             <p className="text-grey text-lg leading-relaxed">
               Content on this site, including service descriptions, pricing
               tiers, and case study results, is informational and does not
-              itself constitute an offer or contract. An actual engagement —
-              scope, pricing, timeline, and deliverables — is governed
+              itself constitute an offer or contract. An actual engagement
+              (scope, pricing, timeline, and deliverables) is governed
               exclusively by the separate signed agreement sent after a
               strategy call, not by anything published on this website.
             </p>
@@ -63,8 +63,8 @@ export default function TermsPage() {
               Intellectual property
             </h2>
             <p className="text-grey text-lg leading-relaxed">
-              The content on this site — including text, case studies,
-              graphics, and the Markoholics name and logo — belongs to
+              The content on this site (including text, case studies,
+              graphics, and the Markoholics name and logo) belongs to
               Creative Engineering Enterprises Private Limited unless
               otherwise credited. You may not reproduce, redistribute, or
               use it commercially without our written permission.

@@ -26,7 +26,7 @@ export default function ServicesSection() {
               <p className="text-grey text-lg">
                 Starting at ₹{PRICING.proofSprint.amount.toLocaleString("en-IN")} (+GST) for
                 a six month Proof Sprint. All engagements are outcome-based,
-                not time-based. We don&apos;t sell hours — we build systems
+                not time-based. We don&apos;t sell hours, we build systems
                 that generate returns.
               </p>
             </Reveal>

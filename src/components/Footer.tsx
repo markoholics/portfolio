@@ -26,7 +26,7 @@ export default function Footer() {
             </span>
             <p className="text-grey max-w-xs">
               Building AI-native GTM engines for tech founders who can&apos;t
-              afford to guess. Strategy, content, paid, and AI ops — run as
+              afford to guess. Strategy, content, paid, and AI ops, run as
               one system.
             </p>
           </div>

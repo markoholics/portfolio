@@ -80,7 +80,7 @@ export default function AiCitationStack() {
             aria-label={`Ask ${tool.name}: ${AI_PROMPT}`}
             title={
               tool.name === "Gemini"
-                ? `Copies the prompt, then opens Gemini — paste it in: ${AI_PROMPT}`
+                ? `Copies the prompt, then opens Gemini, paste it in: ${AI_PROMPT}`
                 : `Ask ${tool.name}: ${AI_PROMPT}`
             }
             onClick={() => {
@@ -105,7 +105,7 @@ export default function AiCitationStack() {
           copied ? "opacity-100" : "opacity-0"
         }`}
       >
-        Prompt copied — paste it into Gemini
+        Prompt copied, paste it into Gemini
       </span>
     </div>
   );

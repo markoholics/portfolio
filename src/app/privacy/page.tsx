@@ -72,8 +72,8 @@ export default function PrivacyPage() {
               upcoming episode.
             </p>
             <p className="text-grey text-lg leading-relaxed">
-              We also use standard web analytics and advertising tools —
-              Google Analytics and the Meta Pixel — which collect
+              We also use standard web analytics and advertising tools,
+              Google Analytics and the Meta Pixel, which collect
               information automatically as you browse the site, such as
               pages visited, referral source, device and browser type, and
               approximate location. These tools set cookies and similar

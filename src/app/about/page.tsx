@@ -29,7 +29,7 @@ export default function AboutPage() {
             We are not a marketing agency. We are an AI-native GTM partner that
             builds autonomous growth engines for tech founders who cannot afford
             to guess. Every engagement is run by the same team that designed
-            the strategy — because strategy that never touches execution is just
+            the strategy, because strategy that never touches execution is just
             a deck.
           </p>
         </Reveal>

@@ -40,8 +40,8 @@ export default function Hero() {
             <a
               href="#formats"
               data-cursor-hover
-              className="inline-flex items-center justify-center gap-[10px] text-white px-7 py-[14px] transition-colors hover:brightness-110"
-              style={{ backgroundColor: "var(--color-accent)" }}
+              className="btn-solid transition-colors hover:brightness-110"
+              style={{ backgroundColor: "var(--color-accent)", color: "#ffffff" }}
             >
               {HERO_COPY.secondaryLink}
             </a>
