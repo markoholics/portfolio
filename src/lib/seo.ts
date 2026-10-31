@@ -21,7 +21,7 @@ export function organizationJsonLd() {
     url: SITE_URL,
     logo: absoluteUrl("/icon.svg"),
     description:
-      "Markoholics is an AI-native GTM agency for Series A-C SaaS, fintech, and AI startups — running strategy, content, and demand generation as one autonomous system.",
+      "Markoholics is an AI-native GTM agency for Series A-C SaaS, tech, and AI startups, running strategy, content, and demand generation as one autonomous system.",
     email: "contact@markoholics.com",
     address: {
       "@type": "PostalAddress",
