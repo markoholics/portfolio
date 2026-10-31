@@ -139,7 +139,7 @@ export const CTA_BAND_COPY = {
 };
 
 export const FORM_INTRO_COPY = {
-  heading: "Want a seat at the table?",
+  heading: "Join us for the roundtable",
   sub: "Tell us a little about you. We will be in touch within 2 to 3 business days.",
   emailPreferLine: "Prefer email? Write to ",
 };
