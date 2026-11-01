@@ -1450,6 +1450,150 @@ location @maintenance {
       },
     ],
   },
+  {
+    slug: "product-positioning-exercise",
+    title: "A Product Positioning Exercise for Founders Tired of Explaining What They Built",
+    metaTitle: "Product Positioning Exercise: A 5-Step Framework for Founders",
+    metaDescription:
+      "A practical product positioning exercise for tech founders: five steps to find your real differentiation, the customers who feel it most, and the market frame that makes it obvious.",
+    excerpt:
+      "Most positioning problems aren't a wording problem, they're a strengths problem. Here is the five-step exercise we run with founders to put their real differentiation back at the center.",
+    datePublished: "2026-11-05",
+    dateModified: "2026-11-05",
+    author: "Mohammad H. Rahman",
+    authorTitle: "Founder, Markoholics",
+    readingTime: "10 min read",
+    keyTakeaways: [
+      "Weak positioning almost always comes from a company still describing itself in the market it started in, instead of the market its actual strengths win in today.",
+      "A one-sentence positioning statement does not fix this. It forces a single answer into a template instead of testing whether that answer is even the right one.",
+      "The fix is five sequential questions: what are you letting go of, what is genuinely yours alone, what value does that create, who feels that value most, and which market frame of reference puts it front and center.",
+      "Positioning is not messaging. Positioning decides which market you compete in and why you win it there. Messaging is how you explain that decision to each audience, and it only works once positioning is settled.",
+    ],
+    intro: [
+      "Every GTM Audit we run starts with the same two-sentence test: explain the product, in two sentences, to someone who has never heard of it. Founders with genuinely strong products still reach for a fourth sentence, a fifth, a case study, a demo. The product is almost never the problem. The positioning is, because most teams describe what they built using the market they started in, not the market where their real differentiation actually wins.",
+    ],
+    definition:
+      "Product positioning is the deliberate choice of which market a product competes in and why its specific strengths win there, as distinct from messaging, which is the language used to explain that choice to a given audience once it has already been decided.",
+    ranking: [],
+    sections: [
+      {
+        heading: "Why does strong positioning feel so hard to land on?",
+        paragraphs: [
+          "The pattern repeats across almost every audit: a team builds something that is a genuine step forward, and the thing it most resembles, at a glance, is whatever category it grew out of. An AI-native QA tool still gets pitched as \"testing software.\" A compliance automation product still gets pitched as \"a compliance tool.\" The founders are not wrong about the category, they are just centering it on the wrong strength. A prospect hears \"testing software\" and mentally compares it to every testing tool they already trust, on every dimension those tools already win, instead of the one dimension the new product actually changes.",
+          "This is default positioning: falling back on the market a product was born in because nobody deliberately chose a different frame. It is rarely a bad decision. It is usually no decision at all, and it quietly buries the one thing that would make a prospect lean in.",
+        ],
+      },
+      {
+        heading: "Why doesn't a one-line positioning statement fix this?",
+        paragraphs: [
+          "The classic fill-in-the-blanks positioning statement (\"For [target customer] who [need], our product is a [category] that [benefit], unlike [alternative]\") treats positioning as a sentence you write once and file away. That skips the actual work. It assumes there is one correct answer sitting in your head, when in reality almost any product can be honestly positioned in several different markets, and which one you pick changes who you compete against, what buyers expect from you, and how fast a deal closes. A sentence does not test any of that. An exercise does.",
+        ],
+      },
+      {
+        heading: "What is the five-step positioning exercise?",
+        paragraphs: [
+          "Instead of writing a sentence, work through five questions in order. Each one builds on the last, and skipping ahead to the market frame before doing the earlier steps is exactly how teams end up back at default positioning.",
+        ],
+        table: {
+          headers: ["Step", "What it answers"],
+          rows: [
+            ["1. Let go of the origin story", "What market did we start in, and are we still describing ourselves that way out of habit?"],
+            ["2. Isolate what is genuinely unique", "What do we have that no competitor can currently claim, regardless of whether anyone cares yet?"],
+            ["3. Translate uniqueness into value", "What can customers actually do, or stop doing, because of that uniqueness?"],
+            ["4. Find who feels that value most", "Which specific customers get disproportionate value from this, not just some value?"],
+            ["5. Choose the market frame of reference", "Which category, named out loud, makes that value obvious the instant someone hears it?"],
+          ],
+        },
+      },
+      {
+        heading: "Step 1: Let go of the origin story",
+        paragraphs: [
+          "Most products start as a stretch of something that already exists: a better version of a tool, a faster way to do a known job, a feature that outgrew its original home. That origin story is useful for founders and useless for prospects. The first step is to consciously separate how the product came to exist from how it should be sold today. Write down the market you have always said you are in, then ask honestly whether that label still fits what the product has become, or whether you are only still using it because that is the word that was true two years ago.",
+          "This step produces no new information. It just clears the thing that is usually blocking everything else: the assumption that your category is fixed.",
+        ],
+      },
+      {
+        heading: "Step 2: Isolate what is genuinely unique",
+        paragraphs: [
+          "List everything about the product, the model, the data, the process, the team, that no one else can currently claim. Do not filter this list by whether you think customers will care; that comes later. Include things that feel like trade-offs rather than pure wins. A rigid, opinionated workflow can be a weakness for one buyer and the entire reason another buyer trusts you, and you will not know which until the next step. The goal here is a complete, unfiltered inventory of what is actually yours alone.",
+        ],
+      },
+      {
+        heading: "Step 3: Translate that uniqueness into customer value",
+        paragraphs: [
+          "Customers do not buy features, they buy what a feature lets them do. For every item on your uniqueness list, write the concrete outcome it enables: a decision that gets made faster, a risk that gets caught earlier, a headcount that no longer has to scale with volume. If a unique capability cannot be tied to a real outcome someone would pay to get, it is a technical fact, not yet a positioning asset. Keep an open mind about audience here too; the same capability often creates very different value for different buyers, and you want all of it on the table before narrowing.",
+        ],
+      },
+      {
+        heading: "Step 4: Find who feels that value most",
+        paragraphs: [
+          "Plenty of prospects will find your value mildly interesting. A much smaller group will find it urgent. That smaller group is who step four is about. Go past broad firmographics like industry or headcount and get specific about what makes a prospect feel this acutely: what they are already trying and failing to do without you, what it is currently costing them to go without this, what event in their business made the problem suddenly matter. A startup cannot afford to spend scarce sales and marketing effort convincing a lukewarm buyer. The fastest path to revenue is finding the prospects who already feel the problem and just need to find you.",
+        ],
+      },
+      {
+        heading: "Step 5: Choose the market frame of reference that makes it obvious",
+        paragraphs: [
+          "This is the step that actually changes outcomes, and it is also the one founders resist most, because it often means naming a category that is not the one the product technically started in. When you tell a prospect what market you are in, you hand them a ready-made set of assumptions: who else is in that market, what good looks like, roughly what it should cost. Choose a frame where your strongest, most unique value is also the thing that category is judged on, and the comparison works in your favor before a single feature gets discussed.",
+          "There is rarely only one honest option. A product can usually be framed several different ways and still be telling the truth; the job is picking the frame that puts your real strength at the center instead of on the sidelines. Teams also get this wrong in the other direction: a product that was correctly positioned a year ago can drift out of fit as the market shifts around it, as competitors absorb what used to be a differentiator, or as the company's own product moves further from where it was first framed. Positioning needs a periodic re-check, not a one-time decision.",
+        ],
+      },
+      {
+        heading: "Why does changing your positioning change more than your marketing?",
+        paragraphs: [
+          "A real positioning shift is a business decision, not a copywriting one. A new market frame resets who your prospects compare you against, what they expect to pay, and which sales channels and partnerships they assume you should already have. Internally, it forces the same questions across the company: does the roadmap still match what this new frame promises, does the team have the expertise customers in this category will expect, are there partnerships or integrations a company in this category is simply assumed to have. Positioning only pays off when marketing, sales, product, and support all move with it. Changed on a slide and nowhere else, it does nothing.",
+        ],
+      },
+      {
+        heading: "How do you know if your positioning is still working?",
+        paragraphs: [
+          "A handful of recurring symptoms are a reliable signal that positioning, not messaging, is the problem worth fixing.",
+        ],
+        table: {
+          headers: ["What you're seeing", "What it usually means"],
+          rows: [
+            ["Prospects keep comparing you to a category leader you cannot beat on paper", "You are using their market as your frame of reference instead of a frame built around your own strength."],
+            ["Every sales rep explains the product differently", "Positioning was never written down and shared past the founding team, so each rep is improvising a frame of their own."],
+            ["Demos convert well but too few of the right prospects book one", "Top-of-funnel copy is leading with the wrong frame, so the best-fit prospects aren't recognizing themselves in it."],
+            ["\"Feature parity\" objections keep coming up in late-stage deals", "Positioning is centered on a feature list instead of the one outcome only you deliver."],
+          ],
+        },
+      },
+      {
+        heading: "Where does positioning end and messaging begin?",
+        paragraphs: [
+          "Positioning is the decision: which market, which strength, which customer, stated once and shared internally. Messaging is everything downstream of that decision: the specific words used on a landing page, in a cold email, in a sales deck, tailored to a given persona or channel. Treating a positioning document as a messaging document is a common failure mode, and it runs in both directions: teams either try to cram approved copy into the positioning doc, or they skip positioning entirely and start writing messaging with no settled decision underneath it. We run these as two separate documents with every client for exactly this reason: positioning gets agreed once and revisited quarterly, messaging gets built on top of it and iterated constantly.",
+        ],
+      },
+      {
+        heading: "Is your value obvious, or just true?",
+        paragraphs: [
+          "A product can be genuinely excellent and still lose deals it should win, simply because its strength never made it to the center of how it gets described. Running this exercise does not change what you built. It changes whether the market sees it the way you already do. If you want a second set of eyes on where your own positioning is still defaulting to an old frame, that is exactly the first thing we look at in a [GTM Audit](/blog/gtm-audit-for-startups), and it is foundational to how we run [strategy and execution together for Series A-C tech founders](/services).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What is a product positioning exercise?",
+        a: "A structured process for deciding which market a product competes in and why its specific strengths win there, worked through as a sequence of questions (what makes you unique, what value that creates, who feels it most, and which market frame makes it obvious) rather than written as a single fill-in-the-blank sentence.",
+      },
+      {
+        q: "How is positioning different from a value proposition or a tagline?",
+        a: "A value proposition or tagline is an output of messaging, the specific words used to express a decision that has already been made. Positioning is the decision itself: which market you are choosing to compete in and why your strengths win there. Get positioning wrong and no tagline written on top of it will work for long.",
+      },
+      {
+        q: "How often should a company revisit its product positioning?",
+        a: "At least once a quarter for an early-stage product, and any time the product, the competitive set, or the target buyer shifts meaningfully. Positioning that was accurate a year ago commonly drifts out of fit as competitors catch up on what used to be a differentiator or as the product itself moves on.",
+      },
+      {
+        q: "Do we actually need a written positioning document, or is this just a thought exercise?",
+        a: "Write it down. An undocumented decision is not shared consistently across sales, marketing, and product, which is exactly how you end up with every rep describing the offering differently. A short, dated document that records the five-step outputs is enough; it does not need to be a polished deck.",
+      },
+      {
+        q: "Does Markoholics help with product positioning specifically?",
+        a: "Yes. Positioning is the first thing a GTM Audit examines, since content, paid, and demand generation all inherit whatever positioning decision sits underneath them. Getting it right before scaling spend on any channel is foundational to how Markoholics runs engagements for Series A-C tech, SaaS, and AI-native founders.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
