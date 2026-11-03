@@ -52,21 +52,24 @@ export default function GtmIndexPage() {
           <Reveal>
             <span className="eyebrow block mb-6">How this works</span>
             <p className="text-grey leading-relaxed mb-4">
-              We read what is already public: your homepage, a few linked pages, and public social
-              signals, the same way a prospect or an investor would. We score six pillars against the
-              five step positioning framework from our own guide to{" "}
+              We fetch your homepage and a few linked pages directly, no AI reads them, and run
+              fixed, rule-based checks against the six pillars from our own guide to{" "}
               <Link
                 href="/blog/product-positioning-exercise"
                 className="underline underline-offset-2 hover:text-white transition-colors"
               >
                 product positioning
               </Link>
-              , and every finding cites the page it came from.
+              : counting calls to action, testimonials, named buyers, generic phrases and more. Every
+              finding cites the exact page it came from.
             </p>
             <p className="text-grey leading-relaxed">
-              The page above shows your score and a short summary. The full report, with the full
-              pillar breakdown, a contradiction scan across your channels, alternative market frames,
-              and a 30, 60 and 90 day plan, goes to your inbox.
+              That also means this free scan has real limits: it can&apos;t search the web for how
+              others describe you or find your competitors, and it can&apos;t judge whether your
+              positioning is the right call, only whether the concrete signals are there. The page
+              above shows your score and a short summary. The full report, with the full pillar
+              breakdown, specific quick wins, a 30, 60 and 90 day plan, and exactly what this scan
+              could not check, goes to your inbox.
             </p>
           </Reveal>
         </div>

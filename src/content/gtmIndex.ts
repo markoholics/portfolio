@@ -6,16 +6,16 @@ export const GTM_INDEX_PATH = "/gtm-index";
 export const GTM_INDEX_META = {
   title: "Markoholics GTM Index: a free, evidence backed positioning score",
   description:
-    "Run your go-to-market through the Markoholics GTM Index: a free, evidence backed score across six pillars, built on the five step positioning framework.",
+    "Run your go-to-market through the Markoholics GTM Index: a free, instant score across six pillars, built directly from your own pages and the five step positioning framework.",
 };
 
 export const HERO_COPY = {
-  eyebrow: "Free, evidence backed",
+  eyebrow: "Free, instant, no AI reading your data",
   heading: "Is your positioning obvious, or just true?",
-  sub: "Drop in your company URL. We read what the public web can already see, score it across six pillars, and tell you plainly which failure pattern is holding your go-to-market back.",
+  sub: "Drop in your company URL. We read your homepage and a few linked pages directly, score them across six pillars, and tell you plainly which failure pattern is holding your go-to-market back.",
   bullets: [
     "Built on the five step positioning framework",
-    "Every finding cites the page it came from",
+    "Every finding cites the exact page it came from",
     "No login, no credit card, your inbox gets the full report",
   ],
 };
@@ -28,8 +28,8 @@ export const FORM_COPY = {
   instagramPlaceholder: "Instagram",
   xPlaceholder: "X (Twitter)",
   submitLabel: "Run my GTM Index",
-  loadingLabel: "Reading your site and the open web",
-  loadingSub: "This takes thirty to ninety seconds: we fetch your homepage and a few more pages, check what the wider web says about you, then score it. Don't close this tab.",
+  loadingLabel: "Reading your site",
+  loadingSub: "This usually takes just a few seconds: we fetch your homepage and a few linked pages directly, then score what's actually there.",
   errorFallback: "Something went wrong. Please try again.",
 };
 

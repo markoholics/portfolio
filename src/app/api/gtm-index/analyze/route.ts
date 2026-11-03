@@ -1,20 +1,23 @@
-// POST /api/gtm-index/analyze: runs the two-call Markoholics GTM Index
-// pipeline (Evidence Collector, then Index Analyst) for a company URL,
-// validates the scored result against the evidence ledger, persists it,
-// and returns only the gated public summary. See src/app/gtm-index/README.md.
+// POST /api/gtm-index/analyze: runs the free, zero-cost Markoholics GTM
+// Index pipeline for a company URL (deterministic evidence collection via
+// direct HTTP fetch, then deterministic scoring, no model call and no API
+// key), validates the scored result against the evidence ledger as a
+// self-check, persists it, and returns only the gated public summary.
+// See src/app/gtm-index/README.md.
 import { NextResponse } from "next/server";
 import { getClientIp, isRateLimited } from "@/lib/roundtable/rateLimit";
-import { runEvidenceCollector, runIndexAnalyst, retryIndexAnalyst } from "@/lib/gtmIndex/anthropic";
+import { collectEvidence } from "@/lib/gtmIndex/collector";
+import { buildScoredReport } from "@/lib/gtmIndex/scorer";
 import { validateScoredReport } from "@/lib/gtmIndex/validate";
 import { createReport, findRecentReportByDomain } from "@/lib/gtmIndex/store";
-import { buildAnalystRetryMessage } from "@/lib/gtmIndex/prompts";
 import type { GtmIndexPublicResult, ScoredReport } from "@/lib/gtmIndex/types";
 
-// The pipeline runs two sequential model calls, one with up to 12 tool
-// calls against the open web; this routinely takes well past a minute.
-export const maxDuration = 300;
+// Plain HTTP fetches of a handful of pages, no model call: this finishes
+// in a few seconds under normal conditions, but a slow or unresponsive
+// target site (each fetch has its own 10s timeout) can still add up.
+export const maxDuration = 60;
 
-const MAX_PER_HOUR = 3;
+const MAX_PER_HOUR = 20;
 const WINDOW_MS = 60 * 60 * 1000;
 
 const FRIENDLY_ERROR =
@@ -107,7 +110,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const ledger = await runEvidenceCollector({
+    const ledger = await collectEvidence({
       companyUrl,
       linkedinUrl: linkedinUrl ?? undefined,
       instagramUrl: instagramUrl ?? undefined,
@@ -124,26 +127,17 @@ export async function POST(request: Request) {
       );
     }
 
-    let turn = await runIndexAnalyst(ledger);
-    const { valid: firstValid, issues } = validateScoredReport(ledger, turn.report);
-    let valid = firstValid;
+    const report = buildScoredReport(ledger);
+    const { valid, issues } = validateScoredReport(ledger, report);
 
     if (!valid) {
-      console.error("GTM Index Call 2 failed validation, retrying once:", issues);
-      const retried = await retryIndexAnalyst(turn.messages, turn.assistantContent, buildAnalystRetryMessage(issues));
-      const revalidated = validateScoredReport(ledger, retried);
-      if (revalidated.valid) {
-        turn = { ...turn, report: retried };
-        valid = true;
-      } else {
-        console.error("GTM Index Call 2 retry also failed validation:", revalidated.issues);
-      }
-    }
-
-    if (!valid || turn.report.status === "insufficient_data") {
+      // Deterministic scoring means a failed self-check is a bug in the
+      // scorer, not a model hallucination; there's nothing to retry, so
+      // log loudly and decline rather than show an inconsistent score.
+      console.error("GTM Index scorer produced an internally inconsistent report:", issues);
       return NextResponse.json(
         insufficientDataResult(
-          "We couldn't produce a reliable, evidence-backed score for this company. Please try again later.",
+          "We couldn't produce a reliable score for this company. Please try again later.",
           ledger.company_name || domainKey,
           ledger.company_domain || domainKey
         )
@@ -157,10 +151,10 @@ export async function POST(request: Request) {
       xUrl,
       visitorIp: ip,
       ledger,
-      scored: turn.report,
+      scored: report,
     });
 
-    return NextResponse.json(toPublicResult(reportId, turn.report, false));
+    return NextResponse.json(toPublicResult(reportId, report, false));
   } catch (error) {
     console.error("GTM Index analyze pipeline failed:", error);
     return NextResponse.json({ error: FRIENDLY_ERROR }, { status: 500 });
