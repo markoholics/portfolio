@@ -5,6 +5,7 @@
 // concrete, checkable fact tied to a real fetched page, not a model's
 // paraphrase of one.
 import * as cheerio from "cheerio";
+import type { AnyNode } from "domhandler";
 import { fetchPage } from "@/lib/gtmIndex/fetchPage";
 import {
   countLogoLikeImages,
@@ -52,15 +53,32 @@ class EvidenceBuilder {
   }
 }
 
+// Excludes script/style/noscript, and separately aria-hidden content:
+// several patterns on this site (and plenty of others) render a heading
+// or label twice, once as a real, correctly-spaced string for assistive
+// tech and once as an aria-hidden, run-on duplicate for a letter-by-
+// letter animation. Keeping both means every heading comes out doubled
+// and glued together; aria-hidden is the signal to prefer the real copy.
 function visibleText($: cheerio.CheerioAPI): string {
   return $("body")
     .clone()
-    .find("script, style, noscript")
+    .find('script, style, noscript, [aria-hidden="true"]')
     .remove()
     .end()
     .text()
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function cleanElementText($el: cheerio.Cheerio<AnyNode>): string {
+  return $el
+    .clone()
+    .find('[aria-hidden="true"]')
+    .remove()
+    .end()
+    .text()
+    .trim()
+    .replace(/\s+/g, " ");
 }
 
 function looksLikeJsShell(html: string, text: string): boolean {
@@ -129,8 +147,9 @@ export async function collectEvidence(input: GtmIndexAnalyzeInput): Promise<Evid
 
   const title = $("title").first().text().trim();
   const metaDescription = $('meta[name="description"]').attr("content")?.trim() ?? null;
-  const h1 = $("h1").first().text().trim().replace(/\s+/g, " ");
-  const firstParagraphNearH1 = $("h1").first().nextAll("p").first().text().trim() || $("p").first().text().trim();
+  const h1 = cleanElementText($("h1").first());
+  const firstParagraphNearH1 =
+    cleanElementText($("h1").first().nextAll("p").first()) || cleanElementText($("p").first());
   const ctaLabels = extractCtaLabels($);
   const companyNameGuess = title.split(/[|–—:-]/)[0].trim() || new URL(input.companyUrl).hostname;
   const companyDomain = new URL(home.finalUrl).hostname.replace(/^www\./, "");

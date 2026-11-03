@@ -128,7 +128,11 @@ export function countJargon(text: string): string[] {
 export function extractCtaLabels($: CheerioAPI): string[] {
   const labels = new Set<string>();
   $("a, button").each((_, el) => {
-    const text = $(el).text().trim().replace(/\s+/g, " ");
+    // Exclude aria-hidden descendants: some sites render a label twice,
+    // once as the real text and once as an aria-hidden, run-on duplicate
+    // for a letter-by-letter animation (see collector.ts's cleanElementText
+    // for the same pattern on headings).
+    const text = $(el).clone().find('[aria-hidden="true"]').remove().end().text().trim().replace(/\s+/g, " ");
     if (!text || text.length > 40) return;
     const lower = text.toLowerCase();
     if (NAV_LIKE_LABELS.has(lower)) return;
