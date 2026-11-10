@@ -30,7 +30,7 @@ export default function ContactPage() {
         </Reveal>
       </section>
 
-      <section className="section-pad pt-0 border-t hairline">
+      <section className="section-pad pt-16 border-t hairline">
         <div className="container-edge grid-12">
           <div className="col-span-12 lg:col-span-5">
             <Reveal>
