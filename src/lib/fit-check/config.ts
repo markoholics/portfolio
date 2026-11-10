@@ -198,8 +198,8 @@ export const SHOW_PRICE_ANCHOR = true;
 
 // ---------------------------------------------------------------------
 // Booking links. Reusing the single 30-minute Calendly event for both
-// Green and Amber for now (see CalendlyPopup.tsx for the same URL used
-// elsewhere on the site) — swap AMBER_BOOKING_URL for a dedicated
+// Green and Amber for now (see ScheduleCallButton.tsx for the same URL
+// used elsewhere on the site) — swap AMBER_BOOKING_URL for a dedicated
 // 20-minute event whenever one exists.
 // ---------------------------------------------------------------------
 export const GREEN_BOOKING_URL = "https://calendly.com/markoholics/30min";

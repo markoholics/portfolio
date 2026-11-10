@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import ContactForm from "@/components/contact/ContactForm";
-import CalendlyPopup from "@/components/CalendlyPopup";
+import ScheduleCallButton from "@/components/ScheduleCallButton";
 import FAQAccordion from "@/components/FAQAccordion";
 import { CONTACT_EMAIL, contactFaqItems } from "@/lib/data";
 import { webPageJsonLd } from "@/lib/seo";
@@ -20,7 +20,6 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="bg-black pt-40">
-      <CalendlyPopup />
       <section className="container-edge pb-20">
         <Reveal>
           <span className="eyebrow block mb-6">Contact</span>
@@ -36,13 +35,15 @@ export default function ContactPage() {
             <Reveal>
               <p className="text-grey text-lg mb-10">
                 Share a few details and we&apos;ll set up a strategy call.
-                Prefer email? Reach us directly.
+                Prefer email? Reach us directly. Already know you want to
+                talk? Grab a slot on the calendar yourself.
               </p>
               <ObfuscatedEmail
                 user={CONTACT_EMAIL_USER}
                 domain={CONTACT_EMAIL_DOMAIN}
                 className="font-display text-2xl md:text-3xl text-white hover:text-grey transition-colors block mb-10"
               />
+              <ScheduleCallButton className="btn-outline mb-10" />
               <span className="eyebrow block mb-3">Region</span>
               <p className="text-grey mb-8">
                 Remote-first, working with technology companies globally,
