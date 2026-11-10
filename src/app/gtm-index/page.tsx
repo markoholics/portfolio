@@ -47,7 +47,7 @@ export default function GtmIndexPage() {
         </div>
       </section>
 
-      <section className="section-pad pt-0 border-t hairline">
+      <section className="section-pad pt-16 border-t hairline">
         <div className="container-edge max-w-3xl">
           <Reveal>
             <span className="eyebrow block mb-6">How this works</span>
