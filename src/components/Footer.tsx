@@ -51,13 +51,6 @@ export default function Footer() {
               >
                 Fit Check
               </Link>
-              <Link
-                href="/gtm-index"
-                data-cursor-hover
-                className="text-mist hover:text-white transition-colors"
-              >
-                GTM Index
-              </Link>
             </div>
           </div>
 

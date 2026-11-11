@@ -442,6 +442,7 @@ export const navLinks = [
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Roundtable", href: "/roundtable" },
+  { label: "GTM Index", href: "/gtm-index" },
   { label: "Contact", href: "/contact" },
 ];
 

@@ -52,7 +52,7 @@ export default function FitCheckPage() {
         </Reveal>
       </section>
 
-      <section className="section-pad pt-16 pb-0 border-t hairline">
+      <section id="pricing" className="section-pad pt-16 pb-0 border-t hairline scroll-mt-24">
         <div className="container-edge">
           <Reveal>
             <span className="eyebrow block mb-6">Three Ways To Work With Us</span>

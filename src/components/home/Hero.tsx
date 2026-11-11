@@ -74,8 +74,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 1.1 }}
           className="flex flex-wrap gap-4 mt-12"
         >
-          <MagneticButton href="/contact" variant="solid">
-            Book a GTM Strategy Call
+          <MagneticButton href="/fit-check#pricing" variant="solid">
+            See What It Costs
           </MagneticButton>
           <MagneticButton href="/work" variant="outline">
             See the Engine in Action
