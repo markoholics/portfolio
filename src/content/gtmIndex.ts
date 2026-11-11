@@ -9,6 +9,15 @@ export const GTM_INDEX_META = {
     "Run your go-to-market through the Markoholics GTM Index: a free, instant score across six pillars, built directly from your own pages and the five step positioning framework.",
 };
 
+// Homepage teaser section (src/components/home/GtmIndexTeaser.tsx).
+export const HOMEPAGE_TEASER_COPY = {
+  eyebrow: "Free, instant, no AI reading your data",
+  heading: "Is your positioning obvious, or just true?",
+  sub: "Run your own site through the Markoholics GTM Index: a free, instant score across six pillars, with the exact pattern holding your go-to-market back.",
+  chips: ["Six pillars scored", "Every finding cited", "No login, no credit card"],
+  primaryButton: "Run my GTM Index",
+};
+
 export const HERO_COPY = {
   eyebrow: "Free, instant, no AI reading your data",
   heading: "Is your positioning obvious, or just true?",

@@ -11,6 +11,7 @@ import ProofBar from "@/components/home/ProofBar";
 import Testimonial, { featuredTestimonial } from "@/components/home/Testimonial";
 import FAQSection from "@/components/home/FAQSection";
 import RoundtableTeaser from "@/components/home/RoundtableTeaser";
+import GtmIndexTeaser from "@/components/home/GtmIndexTeaser";
 import CTABand from "@/components/home/CTABand";
 import { reviewJsonLd } from "@/lib/seo";
 
@@ -30,6 +31,7 @@ export default function Home() {
       <Testimonial />
       <FAQSection />
       <RoundtableTeaser />
+      <GtmIndexTeaser />
       <CTABand />
       <script
         type="application/ld+json"
