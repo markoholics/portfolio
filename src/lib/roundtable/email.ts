@@ -269,3 +269,103 @@ export async function sendInternalNotification(
     return false;
   }
 }
+
+// The short "prefer a 1:1 instead" form on the roundtable page: just a
+// name and email, no roundtable-specific fields, so these two emails stay
+// separate from the thank you/internal-notification pair above rather
+// than overloading InterestFormValues with an unrelated, much smaller shape.
+export interface OneToOneLead {
+  fullName: string;
+  email: string;
+}
+
+export async function sendOneToOneInternalNotification(lead: OneToOneLead): Promise<boolean> {
+  const client = getResendClient();
+  if (!client) return false;
+
+  const extra = (process.env.NOTIFY_EXTRA_EMAILS ?? "")
+    .split(",")
+    .map((e) => e.trim())
+    .filter(Boolean);
+  const recipients = [CONTACT_EMAIL, ...extra];
+
+  const html = emailWrapper(`
+    <p style="margin:0 0 4px;color:${WHITE};font-size:17px;">New 1:1 request from the Roundtable page</p>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:8px;">
+      ${summaryRow("Name", escapeHtml(lead.fullName))}
+      ${summaryRow("Email", `<a href="mailto:${escapeHtml(lead.email)}" style="color:${ACCENT};text-decoration:none;">${escapeHtml(lead.email)}</a>`)}
+    </table>
+    <p style="margin:20px 0 0;">They would rather talk one on one than join the roundtable.</p>
+  `);
+
+  const text = [
+    "New 1:1 request from the Roundtable page",
+    "",
+    `Name: ${lead.fullName}`,
+    `Email: ${lead.email}`,
+    "",
+    "They would rather talk one on one than join the roundtable.",
+  ].join("\n");
+
+  try {
+    const result = await client.emails.send({
+      from: `Markoholics Roundtable <${CONTACT_EMAIL}>`,
+      to: recipients,
+      replyTo: lead.email,
+      subject: `New 1:1 request: ${lead.fullName}`,
+      html,
+      text,
+    });
+    if (result.error) {
+      console.error("Roundtable 1:1 internal notification failed:", result.error);
+      return false;
+    }
+    return true;
+  } catch (error) {
+    console.error("Roundtable 1:1 internal notification threw:", error);
+    return false;
+  }
+}
+
+export async function sendOneToOneConfirmation(lead: OneToOneLead): Promise<boolean> {
+  const client = getResendClient();
+  if (!client) return false;
+
+  const name = escapeHtml(firstName(lead.fullName));
+  const html = emailWrapper(`
+    <p style="margin:0 0 16px;color:${WHITE};font-size:17px;">Hi ${name},</p>
+    <p style="margin:0 0 16px;">Thanks for reaching out. We have received your request for a one on one conversation and will be in touch shortly to find a time.</p>
+    <p style="margin:0;">In the meantime, feel free to write to us directly at <a href="mailto:${CONTACT_EMAIL}" style="color:${ACCENT};text-decoration:none;">${CONTACT_EMAIL}</a>.</p>
+    <p style="margin:20px 0 0;">Warm regards,<br />The Markoholics team</p>
+  `);
+
+  const text = [
+    `Hi ${firstName(lead.fullName)},`,
+    "",
+    "Thanks for reaching out. We have received your request for a one on one conversation and will be in touch shortly to find a time.",
+    "",
+    `In the meantime, feel free to write to us directly at ${CONTACT_EMAIL}.`,
+    "",
+    "Warm regards,",
+    "The Markoholics team",
+  ].join("\n");
+
+  try {
+    const result = await client.emails.send({
+      from: FROM_EMAIL,
+      to: [lead.email],
+      replyTo: CONTACT_EMAIL,
+      subject: "Thanks, we'll set up a time to talk",
+      html,
+      text,
+    });
+    if (result.error) {
+      console.error("Roundtable 1:1 confirmation email failed:", result.error);
+      return false;
+    }
+    return true;
+  } catch (error) {
+    console.error("Roundtable 1:1 confirmation email threw:", error);
+    return false;
+  }
+}

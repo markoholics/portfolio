@@ -8,6 +8,7 @@ import About from "@/components/roundtable/About";
 import WhyJoin from "@/components/roundtable/WhyJoin";
 import CtaBand from "@/components/roundtable/CtaBand";
 import InterestForm from "@/components/roundtable/InterestForm";
+import OneToOneInterest from "@/components/roundtable/OneToOneInterest";
 
 export const metadata: Metadata = {
   title: { absolute: ROUNDTABLE_META.title },
@@ -37,6 +38,7 @@ export default function RoundtablePage() {
       <WhyJoin />
       <CtaBand />
       <InterestForm />
+      <OneToOneInterest />
 
       <script
         type="application/ld+json"
