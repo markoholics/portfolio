@@ -62,7 +62,7 @@ export default function Image() {
             display: "flex",
           }}
         >
-          Engagements start from ₹{PRICING.proofSprint.amount.toLocaleString("en-IN")}, plus GST
+          Engagements start from ₹{PRICING.sprint.amount.toLocaleString("en-IN")}, plus GST
         </div>
       </div>
     ),

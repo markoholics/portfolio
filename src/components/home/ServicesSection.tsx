@@ -1,13 +1,17 @@
 "use client";
 
-import { PRICING_PLANS, PRICING } from "@/lib/fit-check/config";
+import { useState } from "react";
+import { PRICING_PLANS, PRICING, formatPlanAmount, type Currency } from "@/lib/fit-check/config";
 import Reveal from "@/components/Reveal";
 import TextReveal from "@/components/TextReveal";
 import MagneticButton from "@/components/MagneticButton";
+import CurrencyToggle from "@/components/pricing/CurrencyToggle";
 
 const TIER_INDEX = ["01", "02", "03"];
 
 export default function ServicesSection() {
+  const [currency, setCurrency] = useState<Currency>("INR");
+
   return (
     <section className="section-pad bg-black border-t hairline">
       <div className="container-edge">
@@ -24,13 +28,17 @@ export default function ServicesSection() {
           <div className="col-span-12 lg:col-span-5 lg:col-start-8 flex items-end">
             <Reveal delay={0.15}>
               <p className="text-grey text-lg">
-                Starting at ₹{PRICING.proofSprint.amount.toLocaleString("en-IN")} (+GST) for
-                a six month Proof Sprint. All engagements are outcome-based,
+                Starting at {formatPlanAmount(PRICING.sprint.amount, "INR")} (+GST) for
+                a six month Sprint. All engagements are outcome-based,
                 not time-based. We don&apos;t sell hours, we build systems
                 that generate returns.
               </p>
             </Reveal>
           </div>
+        </div>
+
+        <div className="flex justify-end mb-6">
+          <CurrencyToggle currency={currency} onChange={setCurrency} />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-grey/10">
@@ -71,15 +79,20 @@ export default function ServicesSection() {
                         plan.highlight ? "text-black" : "text-white"
                       }`}
                     >
-                      ₹{plan.amount.toLocaleString("en-IN")}
+                      {formatPlanAmount(
+                        currency === "INR" ? plan.amount : plan.usdAmount,
+                        currency
+                      )}
                     </span>
-                    <span
-                      className={`text-sm ${
-                        plan.highlight ? "text-black/60" : "text-grey"
-                      }`}
-                    >
-                      + GST
-                    </span>
+                    {currency === "INR" && (
+                      <span
+                        className={`text-sm ${
+                          plan.highlight ? "text-black/60" : "text-grey"
+                        }`}
+                      >
+                        + GST
+                      </span>
+                    )}
                   </div>
                   <p
                     className={`text-sm leading-relaxed ${

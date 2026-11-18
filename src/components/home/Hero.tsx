@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import MagneticButton from "@/components/MagneticButton";
 import AbstractField from "@/components/AbstractField";
 import TextReveal from "@/components/TextReveal";
+import { PRICING } from "@/lib/fit-check/config";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -64,7 +65,9 @@ export default function Hero() {
           className="text-white text-base mt-4 font-medium"
         >
           Starting at{" "}
-          <span style={{ color: "var(--color-accent)" }}>₹85,000/month.</span>
+          <span style={{ color: "var(--color-accent)" }}>
+            ₹{PRICING.sprint.amount.toLocaleString("en-IN")}/month.
+          </span>
           {" "}All engagements are outcome-based, not time-based.
         </motion.p>
 

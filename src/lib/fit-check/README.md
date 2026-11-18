@@ -150,9 +150,11 @@ heading and you only want the flow itself.
   campaign pages (`/gtm-audit`, `/free-gtm-audit`), which deliberately
   have none. This is a core site funnel, not a paid landing page — say
   the word if you'd rather it behave like the campaign pages.
-- **India only, INR only, no outcome guarantees** — scoped entirely to
-  this feature's own copy and pricing. The rest of the site's existing
-  positioning and USD pricing were left untouched.
+- **India only, no outcome guarantees** — scoped entirely to this
+  feature's own copy and pricing. INR is still the billed currency; the
+  three pricing cards also offer a USD toggle for display only (see
+  `formatPlanAmount` and `usdAmount` in `config.ts`), it does not change
+  what is actually invoiced.
 - **No light theme** — the whole site is a single dark theme by design;
   Fit Check follows that rather than introducing a light variant nothing
   else on the site has.

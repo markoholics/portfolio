@@ -32,7 +32,7 @@ export function organizationJsonLd() {
       addressCountry: "IN",
     },
     areaServed: ["United States", "United Kingdom", "Singapore", "United Arab Emirates", "India"],
-    priceRange: "₹75,000-₹1,25,000",
+    priceRange: "₹1,25,000-₹2,00,000",
     founder: {
       "@type": "Person",
       name: "Mohammad H. Rahman",

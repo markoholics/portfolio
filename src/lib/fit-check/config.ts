@@ -117,34 +117,49 @@ export const GREEN_THRESHOLD_PERCENT = 80;
 export const AMBER_THRESHOLD_PERCENT = 55;
 
 // ---------------------------------------------------------------------
-// Pricing. India only, rupees, excluding 18% GST. Starting proposals, not
-// outcome guarantees — never state a guarantee anywhere this feeds into.
+// Pricing. INR is the primary, billed currency, excluding 18% GST. The USD
+// amount is a straight display conversion for the currency toggle shown
+// alongside the three tiers, not a separate GST-bearing instrument.
+// Starting proposals, not outcome guarantees — never state a guarantee
+// anywhere this feeds into.
 // ---------------------------------------------------------------------
+export type Currency = "INR" | "USD";
+
 export const PRICING = {
   currency: "INR" as const,
   gstPercent: 18,
-  proofSprint: {
-    name: "Proof Sprint",
-    amount: 75_000,
+  sprint: {
+    name: "Sprint",
+    amount: 125_000,
+    usdAmount: 5_000,
     unit: "a month, six month minimum, billed in advance",
   },
   engine: {
     name: "Engine",
-    amount: 85_000,
+    amount: 150_000,
+    usdAmount: 8_000,
     unit: "a month, nine month minimum, billed in advance",
   },
   partner: {
     name: "Partner",
-    amount: 125_000,
+    amount: 200_000,
+    usdAmount: 10_000,
     unit: "a month plus revenue share, nine month minimum",
   },
 };
+
+export function formatPlanAmount(amount: number, currency: Currency): string {
+  return currency === "INR"
+    ? `₹${amount.toLocaleString("en-IN")}`
+    : `$${amount.toLocaleString("en-US")}`;
+}
 
 // Shown as three cards above the Fit Check questions. Starting proposals,
 // not outcome guarantees — same rule as PRICING above.
 export interface PricingPlanCard {
   name: string;
   amount: number;
+  usdAmount: number;
   period: string;
   features: string[];
   commitment: string;
@@ -153,8 +168,9 @@ export interface PricingPlanCard {
 
 export const PRICING_PLANS: PricingPlanCard[] = [
   {
-    name: "Proof Sprint",
-    amount: PRICING.proofSprint.amount,
+    name: PRICING.sprint.name,
+    amount: PRICING.sprint.amount,
+    usdAmount: PRICING.sprint.usdAmount,
     period: "per month, six month minimum, billed in advance",
     features: [
       "ICP and positioning on one page",
@@ -166,8 +182,9 @@ export const PRICING_PLANS: PricingPlanCard[] = [
       "Everything live by week four, a weekly scoreboard, and a go or no go recommendation at the end of month three.",
   },
   {
-    name: "Engine",
+    name: PRICING.engine.name,
     amount: PRICING.engine.amount,
+    usdAmount: PRICING.engine.usdAmount,
     period: "per month, nine month minimum, billed in advance",
     features: [
       "Outbound, founder content and reporting run end to end",
@@ -179,8 +196,9 @@ export const PRICING_PLANS: PricingPlanCard[] = [
     highlight: true,
   },
   {
-    name: "Partner",
+    name: PRICING.partner.name,
     amount: PRICING.partner.amount,
+    usdAmount: PRICING.partner.usdAmount,
     period: "per month plus revenue share, nine month minimum",
     features: [
       "Everything in Engine",
