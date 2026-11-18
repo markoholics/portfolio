@@ -93,7 +93,7 @@ export const MODERATOR_COPY = {
     { platform: "Instagram", value: "950+", suffix: "followers", href: "https://instagram.com/theotherrahman" },
   ],
   reachFootnoteBold: "10k+ combined followers.",
-  reachFootnoteRest: " His newsletter, Previously in GTM, has 200+ subscribers.",
+  reachFootnoteRest: " His newsletter, Previously in GTM, has 350+ subscribers.",
 };
 
 export interface RoundtableMetric {

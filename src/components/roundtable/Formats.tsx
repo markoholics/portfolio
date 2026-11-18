@@ -17,11 +17,14 @@ export default function Formats() {
           {FORMATS_COPY.formats.map((format, i) => (
             <Reveal key={format.heading} delay={i * 0.1}>
               <div className="bg-black p-8 md:p-10 h-full flex flex-col">
-                <div className="flex items-center justify-between mb-8">
-                  <span className="eyebrow" style={{ color: "var(--color-accent)" }}>
+                <div className="flex items-center justify-between gap-3 mb-8">
+                  <span
+                    className="eyebrow shrink-0 whitespace-nowrap text-[0.6rem] tracking-[0.15em] sm:text-[0.65rem] sm:tracking-[0.2em] md:text-[0.7rem] md:tracking-[0.28em]"
+                    style={{ color: "var(--color-accent)" }}
+                  >
                     {format.tag}
                   </span>
-                  <span className="text-grey text-xs uppercase tracking-[0.12em]">
+                  <span className="text-grey text-[0.6rem] sm:text-[0.65rem] md:text-xs uppercase tracking-[0.04em] sm:tracking-[0.08em] md:tracking-[0.12em] whitespace-nowrap text-right max-w-[60%] overflow-hidden text-ellipsis">
                     {format.rightLabel}
                   </span>
                 </div>
