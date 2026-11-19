@@ -8,7 +8,7 @@ import { webPageJsonLd } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "GTM Strategy & AI-Native Marketing Insights",
   description:
-    "Research-backed guides on GTM strategy, AI-native marketing, and demand generation for Series A-C tech, SaaS, and AI founders.",
+    "Research-backed guides on GTM strategy, AI-native marketing, and demand generation for Series A+ tech, SaaS, and AI founders.",
   alternates: { canonical: "/blog" },
 };
 

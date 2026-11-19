@@ -10,7 +10,7 @@ import { webPageJsonLd, personJsonLd } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "AI-Native GTM Team for Tech Founders",
   description:
-    "Markoholics is an AI-native GTM partner built for Series A-C tech founders who need a growth engine, not an agency. Built by operators, not account managers.",
+    "Markoholics is an AI-native GTM partner built for Series A+ tech founders who need a growth engine, not an agency. Built by operators, not account managers.",
   alternates: { canonical: "/about" },
 };
 
@@ -89,7 +89,7 @@ export default function AboutPage() {
             <Reveal>
               <span className="eyebrow block mb-6">Who We Work With</span>
               <h2 className="font-display text-white text-3xl md:text-4xl leading-tight">
-                Series A-C founders who intend to win their category.
+                Series A+ founders who intend to win their category.
               </h2>
             </Reveal>
           </div>

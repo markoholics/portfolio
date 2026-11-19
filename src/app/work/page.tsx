@@ -26,7 +26,7 @@ export default function WorkIndex() {
             Every engagement below is a full GTM system, not a single campaign:
             strategy, content, paid, demand generation, and AI operations run
             together against a number the founder actually cares about. We
-            work with a small roster of Series A-C tech companies at a time,
+            work with a small roster of Series A+ tech companies at a time,
             which is why we can show real pipeline, revenue, and activation
             numbers instead of vanity metrics.
           </p>
