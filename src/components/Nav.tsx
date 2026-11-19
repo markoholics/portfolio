@@ -33,31 +33,40 @@ export default function Nav() {
         scrolled ? "glass-panel" : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="container-edge flex items-center justify-between h-20">
-        <Link href="/" data-cursor-hover className="font-display text-lg tracking-tight text-white">
+      <div className="container-edge flex items-center justify-between gap-4 h-20">
+        <Link
+          href="/"
+          data-cursor-hover
+          className="shrink-0 font-display text-lg tracking-tight text-white"
+        >
           <LogoMark text="MARKOHOLICS" />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden lg:flex items-center gap-[14px] xl:gap-6 2xl:gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               data-cursor-hover
-              className="eyebrow text-grey hover:text-white transition-colors duration-200"
+              className="eyebrow whitespace-nowrap text-grey hover:text-white transition-colors duration-200 text-[0.6rem] tracking-[0.12em] xl:text-[0.65rem] xl:tracking-[0.2em] 2xl:text-[0.7rem] 2xl:tracking-[0.28em]"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <Link href="/contact" data-cursor-hover className="hidden md:inline-flex btn-outline">
-          Book a Strategy Call
+        <Link
+          href="/contact"
+          data-cursor-hover
+          className="hidden lg:inline-flex shrink-0 btn-outline whitespace-nowrap px-3 py-2 text-[0.6rem] tracking-[0.06em] xl:px-5 xl:py-3 xl:text-[0.7rem] xl:tracking-[0.14em] 2xl:px-7 2xl:py-[14px] 2xl:text-[0.8rem] 2xl:tracking-[0.18em]"
+        >
+          <span className="xl:hidden">Book a Call</span>
+          <span className="hidden xl:inline">Book a Strategy Call</span>
         </Link>
 
         <button
           onClick={() => setOpen(true)}
-          className="md:hidden flex flex-col gap-1.5 w-8"
+          className="lg:hidden flex flex-col gap-1.5 w-8"
           aria-label="Open menu"
         >
           <span className="h-px w-full bg-white" />

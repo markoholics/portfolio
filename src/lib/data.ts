@@ -439,6 +439,7 @@ export const partnerStackLogos: PartnerStackLogo[] = [
 export const navLinks = [
   { label: "Work", href: "/work" },
   { label: "Services", href: "/services" },
+  { label: "Fit Check", href: "/fit-check" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Roundtable", href: "/roundtable" },

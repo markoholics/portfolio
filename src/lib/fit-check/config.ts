@@ -174,7 +174,7 @@ export const PRICING_PLANS: PricingPlanCard[] = [
     period: "per month, six month minimum, billed in advance",
     features: [
       "ICP and positioning on one page",
-      "Outbound system live: verified list, two sequences, tracking",
+      "Outbound system live: enriched list, multiple sequences, tracking",
       "One founder led content format designed",
       "A scoreboard with LIVE tracking",
     ],
@@ -192,7 +192,7 @@ export const PRICING_PLANS: PricingPlanCard[] = [
       "Weekly scoreboard and a monthly review",
     ],
     commitment:
-      "A minimum baseline of six qualified conversations per month after the initial Sprint. If this baseline for three consecutive months isn't met, we will provide extra work at no cost during the fourth month. This is not eligible for a refund, and the 90 day mark serves as a progress review rather than a contract exit window.",
+      "A minimum baseline of 3-5 qualified conversations per week after the initial Sprint. If this baseline for three consecutive months isn't met, we will provide value-add services at no cost during the fourth month. This is not eligible for a refund, and the 90 day mark serves as a progress review rather than a contract exit window.",
     highlight: true,
   },
   {
@@ -202,6 +202,7 @@ export const PRICING_PLANS: PricingPlanCard[] = [
     period: "per month plus revenue share, nine month minimum",
     features: [
       "Everything in Engine",
+      "Guaranteed 6-10 qualified conversations per week",
       "Events, podcasts and pipeline reporting",
       "Revenue share of 10-20% on deals the engine sources, for 9 to 12 months",
     ],
