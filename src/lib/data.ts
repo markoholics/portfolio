@@ -402,6 +402,11 @@ export interface Partner {
 
 export const strategicPartners: Partner[] = [
   {
+    name: "MyDesigner",
+    description: "Strategic design partner",
+    href: "https://mydesigner.gg/",
+  },
+  {
     name: "Varmis Arc",
     description: "Strategic technology partner",
     href: "http://www.varmisarc.com/",
