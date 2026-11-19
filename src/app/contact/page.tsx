@@ -51,8 +51,8 @@ export default function ContactPage() {
               </div>
               <span className="eyebrow block mb-3">Region</span>
               <p className="text-grey mb-8">
-                Remote-first, working with technology companies globally,
-                including founders across the US, UK, Singapore, and Dubai.
+                Remote-first, working with technology companies across
+                India and the US.
               </p>
               <span className="eyebrow block mb-3">What Happens Next</span>
               <p className="text-grey mb-8">

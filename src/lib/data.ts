@@ -298,7 +298,7 @@ export const faqItems: FAQItem[] = [
   },
   {
     q: "What if we are not based in India?",
-    a: "We work with founders globally across the US, UK, Dubai, and beyond. Our team operates across time zones and our entire workflow is async-first.",
+    a: "We work with founders in India and the US. Our team operates across time zones and our entire workflow is async-first.",
   },
   {
     q: "How is this different from hiring in-house?",
@@ -390,7 +390,7 @@ export const contactFaqItems: FAQItem[] = [
   },
   {
     q: "Do you work with founders outside the US?",
-    a: "Yes. We work with tech founders globally, including the UK, Singapore, and Dubai, and our workflow is async-first to accommodate time zone differences.",
+    a: "Yes. We work with tech founders in India as well, and our workflow is async-first to accommodate time zone differences.",
   },
 ];
 

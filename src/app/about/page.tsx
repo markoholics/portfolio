@@ -97,7 +97,7 @@ export default function AboutPage() {
             <Reveal delay={0.1}>
               <p className="text-grey text-lg">
                 We work with tech founders at AI, SaaS, and fintech companies
-                across the US, UK, Singapore, and Dubai. Our clients are
+                across India and the US. Our clients are
                 time-poor, outcome-obsessed, and skeptical of agencies for
                 good reason. They have been burned by vendors who optimized
                 for deliverables instead of revenue.

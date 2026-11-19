@@ -31,7 +31,7 @@ export function organizationJsonLd() {
       postalCode: "560043",
       addressCountry: "IN",
     },
-    areaServed: ["United States", "United Kingdom", "Singapore", "United Arab Emirates", "India"],
+    areaServed: ["United States", "India"],
     priceRange: "₹1,25,000-₹2,00,000",
     founder: {
       "@type": "Person",
@@ -76,7 +76,7 @@ export function serviceJsonLd(service: Service) {
       name: "Markoholics",
       url: SITE_URL,
     },
-    areaServed: ["United States", "United Kingdom", "Singapore", "United Arab Emirates", "India"],
+    areaServed: ["United States", "India"],
   };
 }
 
