@@ -156,11 +156,11 @@ export const FORM_ERROR_COPY = {
 
 export const ONE_TO_ONE_COPY = {
   eyebrow: "Prefer a 1:1 instead?",
-  heading: "Not looking for the roundtable? Let's just talk.",
+  heading: "Not looking for the roundtable? Let's just talk one-on-one.",
   sub: "If a group conversation isn't what you're after, leave your name and email and we'll reach out to set up a one on one call instead.",
   nameLabel: "Your name",
   emailLabel: "Email",
-  submitLabel: "Request a 1:1 call",
+  submitLabel: "Request 1:1 Chat",
   sendingLabel: "Sending",
   successHeading: "Got it, thanks.",
   successSub: "We will reach out shortly to set up a one on one call.",
