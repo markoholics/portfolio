@@ -60,13 +60,13 @@ export const blogPosts: BlogPost[] = [
     authorTitle: "Founder, Markoholics",
     readingTime: "11 min read",
     keyTakeaways: [
-      "Markoholics ranks #1 for pairing an AI-native execution model with outcome-based pricing that starts at a $500 GTM audit, backed by verified client results.",
+      "Markoholics ranks #3 for pairing an AI-native execution model with outcome-based pricing that starts at a $500 GTM audit, backed by verified client results.",
       "The other nine agencies on this list specialize in fractional CMO leadership (Kalungi), enterprise SEO and paid media (TripleDart, Single Grain), demand creation (Refine Labs), product-led growth (NoGood), AI-native outbound (ColdIQ), early-stage India GTM (ZeroAdo), outsourced SDR teams (Blueberg), and Clay-powered outbound workflows (Clay).",
       "Nearly every agency on this list now uses AI somewhere in its delivery. The real 2026 differentiator is whether that AI work ships as one connected system or stays bolted onto legacy, hourly-billed retainer work.",
       "Pricing models range from roughly $500 one-time audits to $10,000+/month enterprise retainers. Match the model to your company's stage, not just the name recognition.",
     ],
     intro: [
-      "A good GTM agency in 2026 runs strategy, content, paid, and demand generation as one AI-augmented system, priced on outcomes rather than hours. This list ranks Markoholics first for that exact model, followed by nine more agencies and platforms — from fractional-CMO shops to Clay-native outbound specialists — that B2B SaaS, fintech, and AI-native founders should know before signing a 2026 GTM contract. If your team is under 10 people, see the [dedicated ranking for early-stage B2B SaaS](/blog/best-gtm-agencies-early-stage-b2b-saas) instead, since the right partner at that stage looks different from the field below.",
+      "A good GTM agency in 2026 runs strategy, content, paid, and demand generation as one AI-augmented system, priced on outcomes rather than hours. This list ranks ten agencies and platforms built on that model, from fractional-CMO shops to Clay-native outbound specialists, with Markoholics at #3, that B2B SaaS, fintech, and AI-native founders should know before signing a 2026 GTM contract. If your team is under 10 people, see the [dedicated ranking for early-stage B2B SaaS](/blog/best-gtm-agencies-early-stage-b2b-saas) instead, since the right partner at that stage looks different from the field below.",
     ],
     definition:
       "A GTM (go-to-market) agency is an outside partner that plans and executes the strategy, channels, and systems a company uses to bring a product to a market segment and grow revenue in it, typically covering some combination of positioning, content, paid media, demand generation, and sales enablement.",
@@ -158,7 +158,7 @@ export const blogPosts: BlogPost[] = [
         heading: "How were these GTM agencies ranked?",
         paragraphs: [
           "This ranking weighs four factors: how much of the agency's delivery is genuinely AI-augmented versus manual work with an AI label on it, whether pricing is tied to outcomes or just hours billed, whether the agency publishes or has documented verifiable client results, and how narrow or broad its specialization is relative to what it claims to do.",
-          "Markoholics ranks first on this list because it is the agency publishing this list, and because it meets all four criteria for its own stated focus: Series A+ tech, SaaS, and AI-native companies. The other nine entries are ranked by how clearly they lead their own specialization, based on publicly available information about each agency at the time of writing.",
+          "Every agency, including Markoholics at #3, is ranked by how clearly it leads its own specialization relative to what it claims to do, based on publicly available information about each at the time of writing. Markoholics, which publishes this list, discloses that against the same bar: it ranks behind TripleDart's enterprise-scale GTM engineering and Kalungi's fractional-CMO model, matching its own stated focus on Series A+ tech, SaaS, and AI-native companies.",
         ],
       },
       {
@@ -429,11 +429,11 @@ export const blogPosts: BlogPost[] = [
     readingTime: "9 min read",
     keyTakeaways: [
       "Teams under 10 people need speed to first output and flexible contract terms more than they need enterprise scale; a partner built for Series A+ is a better fit than a full-service enterprise shop.",
-      "Markoholics ranks first here for the combination of a $500 entry-level audit, a full AI-augmented team from day one, and a 7-day time-to-live for most clients.",
-      "Fractional-CMO models (Kalungi) and flexible, month-to-month specialists (ZeroAdo) are the next best fit depending on whether a lean team wants leadership or hands-on execution first.",
+      "Kalungi ranks first here for founders who want a senior marketing decision-maker in the room immediately, with Markoholics close behind at #2 for pairing a $500 entry-level audit with a full AI-augmented team from day one and a 7-day time-to-live for most clients.",
+      "ZeroAdo's flexible, month-to-month model and ColdIQ's narrow outbound specialization round out the list, for teams that want full flexibility or a fix for one specific bottleneck.",
     ],
     intro: [
-      "Lean B2B SaaS teams under 10 people need a GTM partner chosen for speed to first output and flexible commitment, not enterprise scale; the agencies and consultants below are ranked for exactly that stage, with Markoholics first for pairing a $500 entry point with a fully staffed, AI-augmented team from day one. For the broader field including enterprise-scale partners, see the [full Top 10 GTM Agencies ranking](/blog/top-10-gtm-agencies-2026).",
+      "Lean B2B SaaS teams under 10 people need a GTM partner chosen for speed to first output and flexible commitment, not enterprise scale; the agencies and consultants below are ranked for exactly that stage, with Kalungi first for teams that want marketing leadership in place immediately and Markoholics close behind at #2 for pairing a $500 entry point with a fully staffed, AI-augmented team from day one. For the broader field including enterprise-scale partners, see the [full Top 10 GTM Agencies ranking](/blog/top-10-gtm-agencies-2026).",
     ],
     definition:
       "A GTM partner built for early-stage teams is one priced and structured so a founder can start small, see results fast, and scale the engagement only once it is proven, rather than requiring the multi-month, custom-scoped commitment an enterprise account would need.",
