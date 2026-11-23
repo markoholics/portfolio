@@ -33,7 +33,7 @@ export default function CtaBand() {
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
                 data-cursor-hover
-                className="block text-black font-display text-2xl md:text-3xl font-medium underline underline-offset-4 decoration-2 break-all"
+                className="block text-black font-display text-lg sm:text-2xl md:text-3xl font-medium underline underline-offset-4 decoration-2 whitespace-nowrap"
               >
                 {CONTACT_EMAIL}
               </a>
