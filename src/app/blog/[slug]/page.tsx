@@ -200,7 +200,7 @@ export default async function BlogPostPage({
                         <tr key={r} className="border-b hairline last:border-b-0">
                           {row.map((cell, c) => (
                             <td key={c} className="py-4 px-5 text-grey align-top">
-                              {cell}
+                              <RichText text={cell} />
                             </td>
                           ))}
                         </tr>

@@ -1595,6 +1595,137 @@ location @maintenance {
     ],
   },
   {
+    slug: "how-ai-startups-find-first-100-users",
+    title: "How AI Startups Actually Find Their First 100 Users",
+    metaTitle: "How AI Startups Find Their First 100 Users: Case Studies",
+    metaDescription:
+      "Cursor, ElevenLabs, and Harvey won their first 100 users by hand, not with ads. See the pattern across six AI startups and a framework to copy it.",
+    excerpt:
+      "None of these AI startups bought their first 100 users. Founders onboarded them by hand inside one narrow community, then let one public launch do the rest. Here is the pattern, sourced, and a framework to run it yourself.",
+    datePublished: "2026-11-13",
+    dateModified: "2026-11-13",
+    author: "Mohammad H. Rahman",
+    authorTitle: "Founder, Markoholics",
+    readingTime: "11 min read",
+    keyTakeaways: [
+      "Founders personally onboarded their earliest users at every company examined here except Harvey, which relied on cold outreach and live demos instead, a direct reflection of how enterprise legal software gets bought versus how a self-serve product spreads.",
+      "Every company picked one dense, reachable community first, rather than a broad market: venture investors for Granola, YouTubers and authors for ElevenLabs, developers already inside VS Code for Cursor, and elite law firms for Harvey.",
+      "Two of the six changed their core product because early users revealed a different real need. ElevenLabs moved from video dubbing to voiceovers after emailing over a thousand YouTubers and hearing back from only a handful, according to a 2025 talk covered by Air Street Press. Wispr Flow dropped a wearable hardware device for the dictation software underneath it.",
+      "None of the five self-serve companies spent on paid advertising or SEO during this phase, by their own public accounts. Harvey, the one enterprise case, is the exception, and it sold to a handful of law firms rather than a crowd.",
+    ],
+    intro: [
+      "None of the AI startups examined here bought their first 100 users. At five of the six companies, a founder personally onboarded the earliest users inside one narrow, already-connected community, then let a single public launch carry the product to the next wave. The sixth, the enterprise legal tool Harvey, used cold outreach and live demos instead, because its buyers are firms, not individuals browsing a community forum. The pattern holds across very different products: a dictation app, a voice AI company, an AI code editor, a meeting-notes tool, an app builder, and a legal assistant.",
+    ],
+    definition:
+      "A startup's first 100 users are the smallest group a product is tested on before any paid acquisition exists, and across the companies examined here, the group that mattered was never the largest available market, it was the narrowest, most reachable group that already felt the problem weekly.",
+    ranking: [],
+    sections: [
+      {
+        heading: "What did these six companies' earliest users actually look like?",
+        paragraphs: [
+          "Laid side by side, the six cases share a shape: a narrow first audience, reached directly by a founder, validated before any public launch.",
+        ],
+        table: {
+          headers: ["Company", "First audience", "Source"],
+          rows: [
+            ["Cursor", "Developers already working inside VS Code", "[TechCrunch](https://techcrunch.com/2023/10/11/anysphere-raises-8m-from-openai-to-build-an-ai-powered-ide)"],
+            ["ElevenLabs", "YouTubers and audiobook authors", "[Air Street Press](https://press.airstreet.com/p/mati-staniszewski-elevenlabs-raais-2025)"],
+            ["Wispr Flow", "Early hardware testers, then Mac-based knowledge workers", "[Frontlines.io](https://frontlines.io/podcasts/tanay-kothari)"],
+            ["Granola", "Venture investors, then the founders they advise", "[The VC Corner](https://www.thevccorner.com/p/granola-growth-playbook-unicorn-2026)"],
+            ["Lovable", "Developers following its open-source GPT Engineer project", "[Lovable's own blog](https://lovable.dev/blog/2025-01-28-lovables-two-failed-launches-and-what-we-got-wrong-about-plg)"],
+            ["Harvey", "Elite law firms, starting with Allen & Overy", "[Sequoia Capital](https://www.sequoiacap.com/podcast/training-data-winston-weinberg), [Lawnext](https://www.lawnext.com/2023/02/as-allen-overy-deploys-gpt-based-legal-app-harvey-firmwide-founders-say-other-firms-will-soon-follow.html)"],
+          ],
+        },
+      },
+      {
+        heading: "Why do founders onboard the first users themselves instead of handing it to a team?",
+        paragraphs: [
+          "Wispr Flow's founder, Tanay Kothari, has described personally onboarding the company's first wave of users over video calls, watching their reactions in real time rather than reading a survey afterward, a process detailed in an interview on the Frontlines podcast and in Product Hunt's own feature on the product. ElevenLabs' co-founder Mati Staniszewski has said he personally emailed over a thousand YouTubers with dubbing samples before the company had a real customer base, a detail covered in Air Street Press's write-up of a 2025 talk he gave. Cursor's own founders were reportedly the product's first daily users while building it, per reporting on the company's early growth.",
+          "The reason this stays founder-led rather than getting delegated is simple: a founder is the only person in the building who can reliably tell a genuine reaction from a polite one, and that distinction is the entire point of this stage. It only works at a size one or two people can personally handle, which is exactly why the number is a hundred and not ten thousand.",
+        ],
+      },
+      {
+        heading: "Why does the first community matter more than the first feature?",
+        paragraphs: [
+          "Each company in this set picked an audience with its own gathering point rather than a demographic slice of a broader market. Granola's team deliberately started with venture investors, reasoning that VCs sit in many meetings and talk to the founders and co-investors a young product would eventually need to reach next, an approach detailed in an analysis of the company's growth by The VC Corner. Lovable had already pulled developers into an open-source project called GPT Engineer, which passed 50,000 GitHub stars, per the company's own blog post on its early launches, before it ever shipped a hosted, paid product to that same audience under the Lovable name.",
+          "Cursor went further and removed the switching decision almost entirely: it shipped as a fork of VS Code that imports a developer's existing settings and extensions, so joining the community it targeted required no behavior change at all, just an install.",
+        ],
+      },
+      {
+        heading: "What happens when the first users don't want what you built?",
+        paragraphs: [
+          "ElevenLabs set out to sell AI video dubbing. According to Air Street Press's account of Staniszewski's 2025 talk, the response to his outreach was close to silence, and the small number of people who did reply made clear they wanted something narrower: a better voiceover tool, not full dubbing. The company refocused around that use case before it scaled further, and separate reporting from Sifted on the company's early traction points the same way, toward individual creators and authors as the fastest adopters.",
+          "Wispr Flow tells a similar story from a different starting point. The company began in 2021 as a wearable device aimed at decoding speech signals directly, before its founder's own account of the shift describes a smaller discovery inside that early user base: the dictation software running underneath the hardware was what people actually wanted. Lovable's own blog post on its first two launches is the most direct admission in this set, stating plainly that the company assumed more about its market than it had actually validated, and that the result read as a branding problem on the surface when the deeper issue was a lack of real user feedback before shipping.",
+        ],
+      },
+      {
+        heading: "Why one public launch, instead of a sustained marketing campaign?",
+        paragraphs: [
+          "Cursor built an early waitlist through social posts in 2023, then stopped promoting itself almost entirely. Its CEO, Michael Truell, described this period at a Y Combinator fireside chat as living like monks, focused only on the product, with growth coming afterward through word of mouth rather than any campaign, an account later covered by Business Insider. By the time the company raised its seed round that October, it told TechCrunch it had tens of thousands of users and a fast-growing paying base built on that same foundation. Lovable needed three attempts before a launch landed, after its first two, built on assumptions rather than validated demand, failed to gain traction by the company's own account.",
+          "The pattern across every self-serve company here is a single, concentrated moment on a venue the target community already uses, rather than ongoing paid acquisition. A weak first attempt, as Lovable's shows, is treated as information to act on, not a verdict to walk away from.",
+        ],
+      },
+      {
+        heading: "Why did Harvey rely on cold outreach instead of a community launch?",
+        paragraphs: [
+          "Harvey is the one enterprise case in this set, and the difference in approach is structural rather than stylistic. A law firm has one or two people who actually decide on new software, not thousands of individuals browsing a forum, and a wrong answer from the product carries real professional risk. Harvey's CEO, Winston Weinberg, described on Sequoia Capital's Training Data podcast relying on cold outreach to get lawyers onto a call, then using the demo itself to make the case: having the tool critique the lawyer's own past filings in real time, a tactic he has acknowledged was risky given how easily early large language model output could be wrong.",
+          "That approach led directly to a trial with Allen & Overy beginning in late 2022, which the firm expanded into a firmwide rollout covering roughly 3,500 lawyers, reported by Lawnext in February 2023. Where the buyer is one person with a card, a public community launch does the job. Where the buyer is a firm weighing professional risk, a direct, trust-led sales motion does the equivalent work, just inside a handful of accounts instead of a crowd.",
+        ],
+      },
+      {
+        heading: "What does retention look like at this stage, and how reliable are the numbers?",
+        paragraphs: [
+          "Across every company studied, the public reporting measures depth of use rather than sign-up totals, though every figure below is the company's own claim rather than an independently audited number, and should be read that way.",
+        ],
+        table: {
+          headers: ["Company", "What it reportedly tracks", "Source"],
+          rows: [
+            ["Cursor", "Paid users returning four to five days a week, not total sign-ups", "[TechCrunch](https://techcrunch.com/2023/10/11/anysphere-raises-8m-from-openai-to-build-an-ai-powered-ide)"],
+            ["Wispr Flow", "Roughly one in five users converting to a paid plan, by the founder's account", "[Frontlines.io](https://frontlines.io/podcasts/tanay-kothari)"],
+            ["Granola", "Weekly active usage and peer-to-peer recommendations, with no formal referral program", "[The VC Corner](https://www.thevccorner.com/p/granola-growth-playbook-unicorn-2026)"],
+          ],
+        },
+      },
+      {
+        heading: "A three-stage framework for finding your own first 100 users",
+        paragraphs: [
+          "The pattern across these six companies converts into a sequence any early-stage founder can run, whether the product is self-serve or sold into an enterprise buyer like Harvey's.",
+          "Stage one is naming the wedge. Pick one narrow group that already feels the problem on a weekly basis and can be named individually, by the dozen, rather than estimated off a market-size slide. The test is simple: can you list 50 real people or accounts by name today? If not, the segment is still a guess.",
+          "Stage two is onboarding by hand. A founder or a senior team member personally runs every onboarding for the first 10 to 20 users, on a call, watching for genuine reactions rather than collecting survey scores afterward. A pivot discovered during this stage, as ElevenLabs and Wispr Flow both found, is a successful outcome of the stage, not a failure of it.",
+          "Stage three is one launch, on their venue. Once a real, repeating use case is clear from stage two, run a single concentrated public moment on the platform that specific community already uses, a forum, a niche launch site, one well-placed post, rather than a drawn-out paid campaign. Measure the result by how many of the new users come back the following week, not by the size of the initial spike, since that return rate is the only number in this entire exercise that predicts anything.",
+        ],
+      },
+      {
+        heading: "What should an early-stage founder actually take from this?",
+        paragraphs: [
+          "None of this replaces a GTM system. It is what has to happen before one exists. A [GTM Audit](/blog/gtm-audit-for-startups) only produces a useful answer once a team already has a real wedge and a repeatable use case to measure against; running one earlier mostly audits a guess instead of a product. Once a founder is past that point and has a validated wedge in hand, the next problem is usually turning it into [a system that compounds rather than resets every month](/blog/build-ai-native-gtm-system), which is the point where [working with a GTM partner](/services) starts to pay for itself instead of adding another subscription to the stack.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How many users did Cursor have when it first launched?",
+        a: "Cursor has not published an exact first-100 figure. Its CEO told TechCrunch in October 2023 that the product had tens of thousands of users and a fast-growing paying base by that point, built mostly through word of mouth after an initial 2023 waitlist, a gap the company itself has not filled with an earlier number.",
+      },
+      {
+        q: "Did any of these AI startups pay for advertising to get their first users?",
+        a: "No paid advertising or SEO appears in the public record for five of the six companies during their first-100 phase. Wispr Flow's founder has said the company dropped SEO deliberately and that the large majority of its growth comes from word of mouth. Harvey is the exception: its early growth came from cold outreach and live demos aimed directly at law firms, not a self-serve community launch.",
+      },
+      {
+        q: "Why did ElevenLabs change its product after launch?",
+        a: "Its co-founder has said the company emailed over a thousand YouTubers pitching an AI dubbing tool and got only a handful of interested replies. What those replies revealed was that creators wanted a better voiceover tool, not full video dubbing, so the company refocused around that narrower need before scaling further.",
+      },
+      {
+        q: "Is community-led growth realistic for an enterprise product?",
+        a: "Not in the same form. Harvey, the one enterprise case studied here, had one or two real decision-makers per law firm and a much higher cost of being wrong, so its founder relied on cold outreach and live demos instead of a public community launch, then expanded inside a small number of anchor firms like Allen & Overy before growing further.",
+      },
+      {
+        q: "Does Markoholics help early-stage founders validate their first users?",
+        a: "Yes. A GTM Audit reviews whether a company already has a validated wedge and a repeatable use case before recommending how to scale outbound, content, or paid spend, since none of those channels compound without that foundation already in place.",
+      },
+    ],
+  },
+  {
     slug: "third-party-gtm-signals-commoditized",
     title: "Third-Party GTM Signals Are Commoditized. Here Is What Still Works",
     metaTitle: "Third-Party GTM Signals Are Commoditized (2026 Data)",
