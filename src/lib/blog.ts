@@ -1602,8 +1602,8 @@ location @maintenance {
       "Intent data, job-change alerts, and funding news reach every competitor too. See what 2026 buyer and reply-rate data show about which GTM signals still matter.",
     excerpt:
       "The intent data, job-change alerts, and funding news sold as a GTM edge reach every competitor on the same plan. Here is what 2026's buyer and reply-rate data actually show about what still works.",
-    datePublished: "2026-11-13",
-    dateModified: "2026-11-13",
+    datePublished: "2026-11-20",
+    dateModified: "2026-11-20",
     author: "Mohammad H. Rahman",
     authorTitle: "Founder, Markoholics",
     readingTime: "10 min read",
