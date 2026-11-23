@@ -29,8 +29,8 @@ export const HERO_COPY = {
   headingPlain: "Markoholics Roundtable and One-to-One ",
   headingAccent: "Live Chat Series.",
   lead: "Three to four practitioners, one table, no pitch, or a focused one-to-one live chat if a group setting isn't your style. Every conversation is built around ready to use tips, hacks and frameworks that tech, AI and SaaS founders and marketers can apply the same week, alongside a clear read on the GTM and marketing trends shaping the market.",
-  primaryButton: "For Roundtable Guest",
-  secondaryLink: "For One-to-One Guest",
+  primaryButton: "For Roundtable Guest Chat",
+  secondaryLink: "For One-to-One Guest Chat",
   statStrip: [
     { value: "3 to 4", label: "Guests in every episode" },
     { value: "Monthly", label: "Target cadence, guided by guest availability" },
