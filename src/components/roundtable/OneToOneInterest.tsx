@@ -50,7 +50,7 @@ export default function OneToOneInterest() {
   };
 
   return (
-    <section className="section-pad bg-black border-t hairline">
+    <section id="one-to-one" className="section-pad bg-black border-t hairline scroll-mt-24">
       <div className="container-edge max-w-2xl">
         <Reveal>
           <span className="eyebrow block mb-6" style={{ color: "var(--color-accent)" }}>

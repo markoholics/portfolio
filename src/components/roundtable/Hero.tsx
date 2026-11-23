@@ -38,7 +38,7 @@ export default function Hero() {
               {HERO_COPY.primaryButton}
             </MagneticButton>
             <a
-              href="#formats"
+              href="#one-to-one"
               data-cursor-hover
               className="btn-solid transition-colors hover:brightness-110"
               style={{ backgroundColor: "var(--color-accent)", color: "#ffffff" }}

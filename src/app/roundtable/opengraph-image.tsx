@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Markoholics Roundtable Series.";
+export const alt = "Markoholics Roundtable and One-to-One Live Chat Series.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -33,14 +33,18 @@ export default function Image() {
         </div>
         <div
           style={{
-            fontSize: 72,
+            fontSize: 58,
             color: "#FFFFFF",
-            lineHeight: 1.1,
+            lineHeight: 1.15,
             maxWidth: 1000,
             display: "flex",
+            flexDirection: "column",
           }}
         >
-          Roundtable <span style={{ color: "#00D4FF", marginLeft: 20, display: "flex" }}>Series.</span>
+          <div style={{ display: "flex" }}>Roundtable and</div>
+          <div style={{ display: "flex" }}>
+            One-to-One <span style={{ color: "#00D4FF", marginLeft: 16 }}>Live Chat Series.</span>
+          </div>
         </div>
         <div
           style={{
