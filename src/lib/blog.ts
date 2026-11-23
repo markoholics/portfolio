@@ -73,15 +73,6 @@ export const blogPosts: BlogPost[] = [
     ranking: [
       {
         rank: 1,
-        name: "Markoholics",
-        bestFor: "AI-native GTM for Series A+ tech, SaaS, and AI companies",
-        description:
-          "Runs strategy, content, paid, social, and demand generation as one AI-augmented system across three outcome-based tiers: a [$500 GTM Audit](/blog/gtm-audit-for-startups), the $3,500/month Growth Engine, and the $6,500/month AI-First Scale tier. Verified client results include [$500K+ in POC pipeline across three markets in six months for Byosync](/work/byosync) and [500 sales-qualified leads plus 50 new customers in a single quarter for EQRGen](/work/eqrgen).",
-        href: "/services",
-        internal: true,
-      },
-      {
-        rank: 2,
         name: "TripleDart",
         bestFor: "Enterprise-scale B2B SaaS GTM engineering",
         description:
@@ -89,12 +80,21 @@ export const blogPosts: BlogPost[] = [
         href: "https://www.tripledart.com/",
       },
       {
-        rank: 3,
+        rank: 2,
         name: "Kalungi",
         bestFor: "Fractional CMO paired with a full execution team",
         description:
           "Seattle-based agency founded in 2018 that pairs a fractional CMO with a full-stack marketing team under a \"GTM-as-a-service\" model, built specifically for B2B SaaS. Reports having worked with 100+ SaaS companies using its T2D3 growth playbook.",
         href: "https://www.kalungi.com/",
+      },
+      {
+        rank: 3,
+        name: "Markoholics",
+        bestFor: "AI-native GTM for Series A+ tech, SaaS, and AI companies",
+        description:
+          "Runs strategy, content, paid, social, and demand generation as one AI-augmented system across three outcome-based tiers: a [$500 GTM Audit](/blog/gtm-audit-for-startups), the $3,500/month Growth Engine, and the $6,500/month AI-First Scale tier. Verified client results include [$500K+ in POC pipeline across three markets in six months for Byosync](/work/byosync) and [500 sales-qualified leads plus 50 new customers in a single quarter for EQRGen](/work/eqrgen).",
+        href: "/services",
+        internal: true,
       },
       {
         rank: 4,
@@ -440,20 +440,20 @@ export const blogPosts: BlogPost[] = [
     ranking: [
       {
         rank: 1,
+        name: "Kalungi",
+        bestFor: "Teams that need marketing leadership before execution",
+        description:
+          "Its fractional CMO plus team model suits a founder who needs a senior marketing decision-maker in the room immediately, without hiring a full-time CMO, backed by a full execution team rather than a solo consultant.",
+        href: "https://www.kalungi.com/",
+      },
+      {
+        rank: 2,
         name: "Markoholics",
         bestFor: "Lean Series A+ teams that need a full team without a full-time hire",
         description:
           "A $500 GTM Audit is the lowest-commitment way for a small team to see what an AI-native partner finds before committing further; the Growth Engine tier ($3,500/month) then runs strategy, content, paid, and demand gen as one team, with most clients live within 7 days of signing.",
         href: "/services",
         internal: true,
-      },
-      {
-        rank: 2,
-        name: "Kalungi",
-        bestFor: "Teams that need marketing leadership before execution",
-        description:
-          "Its fractional CMO plus team model suits a founder who needs a senior marketing decision-maker in the room immediately, without hiring a full-time CMO, backed by a full execution team rather than a solo consultant.",
-        href: "https://www.kalungi.com/",
       },
       {
         rank: 3,
