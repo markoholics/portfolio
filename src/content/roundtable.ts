@@ -1,4 +1,4 @@
-// Markoholics Roundtable and One-to-One Live Chat Series: every word shown on /roundtable and in the
+// Markoholics Happy Hour (Roundtable and One-to-One Live Chat Series): every word shown on /roundtable and in the
 // homepage teaser lives in this one file. Edit the text, metrics and form
 // options here; no component under src/components/roundtable or
 // src/components/home/RoundtableTeaser.tsx should need to change for a
@@ -10,9 +10,9 @@ export const ROUNDTABLE_HOME_HREF = "/roundtable?ref=home";
 export const ROUNDTABLE_HOME_FORMATS_HREF = "/roundtable?ref=home#formats";
 
 export const ROUNDTABLE_META = {
-  title: "Markoholics Roundtable and One-to-One Live Chat Series | GTM and marketing conversations for tech, AI and SaaS founders",
+  title: "Markoholics Happy Hour | GTM and marketing conversations for tech, AI and SaaS founders",
   description:
-    "Three to four practitioners, one table, no pitch, or a one-to-one live chat if you would rather talk directly. Monthly GTM and marketing conversations for tech, AI and SaaS founders, in person in Bangalore, live on LinkedIn, or one on one. Express your interest to join.",
+    "Markoholics Happy Hour, our Roundtable and One-to-One Live Chat Series. Three to four practitioners, one table, no pitch, or a one-to-one live chat if you would rather talk directly. Monthly GTM and marketing conversations for tech, AI and SaaS founders, in person in Bangalore, live on LinkedIn, or one on one. Express your interest to join.",
 };
 
 export const HOMEPAGE_TEASER_COPY = {
@@ -25,10 +25,10 @@ export const HOMEPAGE_TEASER_COPY = {
 };
 
 export const HERO_COPY = {
-  eyebrow: "GTM AND MARKETING FOR TECH, AI AND SAAS STARTUPS",
-  headingPlain: "Markoholics Roundtable and One-to-One ",
-  headingAccent: "Live Chat Series.",
-  lead: "Three to four practitioners, one table, no pitch, or a focused one-to-one live chat if a group setting isn't your style. Every conversation is built around ready to use tips, hacks and frameworks that tech, AI and SaaS founders and marketers can apply the same week, alongside a clear read on the GTM and marketing trends shaping the market.",
+  eyebrow: "GTM STRATEGY FOR TECH, AI AND SAAS STARTUPS",
+  headingPlain: "Markoholics Happy ",
+  headingAccent: "Hour.",
+  lead: "Our Roundtable and One-to-One Live Chat Series: three to four practitioners, one table, no pitch, or a focused one-to-one live chat if a group setting isn't your style. Every conversation is built around ready to use tips, hacks and frameworks that tech, AI and SaaS founders and marketers can apply the same week, alongside a clear read on the GTM and marketing trends shaping the market.",
   primaryButton: "Roundtable Guest Chat",
   secondaryLink: "One-to-One Guest Chat",
   statStrip: [

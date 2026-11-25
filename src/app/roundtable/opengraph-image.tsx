@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Markoholics Roundtable and One-to-One Live Chat Series.";
+export const alt = "Markoholics Happy Hour: Roundtable and One-to-One Live Chat Series.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -33,18 +33,14 @@ export default function Image() {
         </div>
         <div
           style={{
-            fontSize: 58,
+            fontSize: 72,
             color: "#FFFFFF",
             lineHeight: 1.15,
             maxWidth: 1000,
             display: "flex",
-            flexDirection: "column",
           }}
         >
-          <div style={{ display: "flex" }}>Roundtable and</div>
-          <div style={{ display: "flex" }}>
-            One-to-One <span style={{ color: "#00D4FF", marginLeft: 16 }}>Live Chat Series.</span>
-          </div>
+          Happy <span style={{ color: "#00D4FF", marginLeft: 20 }}>Hour.</span>
         </div>
         <div
           style={{
@@ -55,7 +51,7 @@ export default function Image() {
             display: "flex",
           }}
         >
-          GTM and marketing conversations for tech, AI and SaaS founders.
+          Roundtable and One-to-One Live Chat Series for tech, AI and SaaS founders.
         </div>
       </div>
     ),
