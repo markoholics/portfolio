@@ -290,21 +290,21 @@ export async function sendOneToOneInternalNotification(lead: OneToOneLead): Prom
   const recipients = [CONTACT_EMAIL, ...extra];
 
   const html = emailWrapper(`
-    <p style="margin:0 0 4px;color:${WHITE};font-size:17px;">New 1:1 request from the Roundtable page</p>
+    <p style="margin:0 0 4px;color:${WHITE};font-size:17px;">New 1:1 request from the Happy Hour page</p>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:8px;">
       ${summaryRow("Name", escapeHtml(lead.fullName))}
       ${summaryRow("Email", `<a href="mailto:${escapeHtml(lead.email)}" style="color:${ACCENT};text-decoration:none;">${escapeHtml(lead.email)}</a>`)}
     </table>
-    <p style="margin:20px 0 0;">They would rather talk one on one than join the roundtable.</p>
+    <p style="margin:20px 0 0;">They would rather have a one-to-one live chat than join the roundtable.</p>
   `);
 
   const text = [
-    "New 1:1 request from the Roundtable page",
+    "New 1:1 request from the Happy Hour page",
     "",
     `Name: ${lead.fullName}`,
     `Email: ${lead.email}`,
     "",
-    "They would rather talk one on one than join the roundtable.",
+    "They would rather have a one-to-one live chat than join the roundtable.",
   ].join("\n");
 
   try {
@@ -334,7 +334,7 @@ export async function sendOneToOneConfirmation(lead: OneToOneLead): Promise<bool
   const name = escapeHtml(firstName(lead.fullName));
   const html = emailWrapper(`
     <p style="margin:0 0 16px;color:${WHITE};font-size:17px;">Hi ${name},</p>
-    <p style="margin:0 0 16px;">Thanks for reaching out. We have received your request for a one on one conversation and will be in touch shortly to find a time.</p>
+    <p style="margin:0 0 16px;">Thanks for reaching out. We have received your request for a one-to-one live chat and will be in touch shortly to find a time.</p>
     <p style="margin:0;">In the meantime, feel free to write to us directly at <a href="mailto:${CONTACT_EMAIL}" style="color:${ACCENT};text-decoration:none;">${CONTACT_EMAIL}</a>.</p>
     <p style="margin:20px 0 0;">Warm regards,<br />The Markoholics team</p>
   `);
@@ -342,7 +342,7 @@ export async function sendOneToOneConfirmation(lead: OneToOneLead): Promise<bool
   const text = [
     `Hi ${firstName(lead.fullName)},`,
     "",
-    "Thanks for reaching out. We have received your request for a one on one conversation and will be in touch shortly to find a time.",
+    "Thanks for reaching out. We have received your request for a one-to-one live chat and will be in touch shortly to find a time.",
     "",
     `In the meantime, feel free to write to us directly at ${CONTACT_EMAIL}.`,
     "",

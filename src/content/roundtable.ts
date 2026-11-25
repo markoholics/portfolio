@@ -12,16 +12,16 @@ export const ROUNDTABLE_HOME_FORMATS_HREF = "/happy-hour?ref=home#formats";
 export const ROUNDTABLE_META = {
   title: "Markoholics Happy Hour | GTM and marketing conversations for tech, AI and SaaS founders",
   description:
-    "Markoholics Happy Hour, our Roundtable and One-to-One Live Chat Series. Three to four practitioners, one table, no pitch, or a one-to-one live chat if you would rather talk directly. Monthly GTM and marketing conversations for tech, AI and SaaS founders, in person in Bangalore, live on LinkedIn, or one on one. Express your interest to join.",
+    "Markoholics Happy Hour, our Roundtable and One-to-One Live Chat Series. Three to four practitioners, one table, no pitch, or a one-to-one live chat if you would rather talk directly. Monthly GTM and marketing conversations for tech, AI and SaaS founders, in person in Bangalore, live on LinkedIn, or one-to-one. Express your interest to join.",
 };
 
 export const HOMEPAGE_TEASER_COPY = {
   eyebrow: "ROUNDTABLE SERIES",
   heading: "Join us for a Roundtable and share your expertise.",
   sub: "Three to four practitioners, one table, no pitch. Monthly conversations on GTM and marketing for tech, AI and SaaS founders, in person in Bangalore and live on LinkedIn.",
-  chips: ["90 minutes, in person in Bangalore", "60 minutes, live on LinkedIn"],
+  chips: ["90 minutes, in person in Bangalore", "60 minutes, live on LinkedIn", "A focused one-to-one live chat"],
   primaryButton: "Express interest",
-  secondaryLink: "See the two formats",
+  secondaryLink: "See the formats",
 };
 
 export const HERO_COPY = {
@@ -32,17 +32,17 @@ export const HERO_COPY = {
   primaryButton: "Roundtable Guest Chat",
   secondaryLink: "One-to-One Guest Chat",
   statStrip: [
-    { value: "3 to 4", label: "Guests in every episode" },
+    { value: "3 to 4", label: "Guests in every roundtable" },
     { value: "Monthly", label: "Target cadence, guided by guest availability" },
-    { value: "2 formats", label: "In person and live online" },
+    { value: "1 to 1", label: "A focused live chat, if a group is not your style" },
   ],
 };
 
 export interface RoundtableFormat {
   tag: string;
   heading: string;
-  rightLabel: string;
-  bigNumber: string;
+  rightLabel?: string;
+  bigNumber?: string;
   points: string[];
 }
 
@@ -51,7 +51,7 @@ export const FORMATS_COPY = {
   formats: [
     {
       tag: "FORMAT 01",
-      heading: "In person roundtable",
+      heading: "In-Person Roundtable",
       rightLabel: "Podcast studio, Bangalore",
       bigNumber: "90 minutes",
       points: [
@@ -64,7 +64,7 @@ export const FORMATS_COPY = {
     },
     {
       tag: "FORMAT 02",
-      heading: "LinkedIn Live",
+      heading: "Virtual Live Roundtable",
       rightLabel: "LinkedIn and YouTube",
       bigNumber: "60 minutes",
       points: [
@@ -73,6 +73,15 @@ export const FORMATS_COPY = {
         "The same tips, hacks and GTM trends, tuned for a live room",
         "Opens the series to guests beyond Bangalore",
         "Recording repurposed as on demand content and clips",
+      ],
+    },
+    {
+      tag: "FORMAT 03",
+      heading: "One-to-One Live Chat",
+      points: [
+        "A focused live conversation, one host and one guest",
+        "For guests who prefer it to a group setting",
+        "The same ready to use tips, hacks and frameworks, plus GTM and marketing trends",
       ],
     },
   ] satisfies RoundtableFormat[],
@@ -132,7 +141,7 @@ export const WHY_JOIN_COPY = {
 
 export const CTA_BAND_COPY = {
   heading: "Want a seat at the table?",
-  sub: "Get in touch to confirm your format, topic and availability.",
+  sub: "Join a roundtable or book a one-to-one live chat. Get in touch to confirm your topic and availability.",
   getInTouchLabel: "GET IN TOUCH",
   socialLine: "@theotherrahman on LinkedIn, X and Instagram",
   scrollButton: "Express interest",
@@ -156,14 +165,14 @@ export const FORM_ERROR_COPY = {
 
 export const ONE_TO_ONE_COPY = {
   eyebrow: "Prefer a 1:1 instead?",
-  heading: "Not looking for the roundtable? Let's just talk one-on-one.",
-  sub: "If a group conversation isn't what you're after, leave your name and email and we'll reach out to set up a one on one call instead.",
+  heading: "Not looking for the roundtable? Let's just talk one-to-one.",
+  sub: "If a group conversation isn't what you're after, leave your name and email and we'll reach out to set up a one-to-one live chat instead.",
   nameLabel: "Your name",
   emailLabel: "Email",
   submitLabel: "Request 1:1 Chat",
   sendingLabel: "Sending",
   successHeading: "Got it, thanks.",
-  successSub: "We will reach out shortly to set up a one on one call.",
+  successSub: "We will reach out shortly to set up a one-to-one live chat.",
   errorFallback: "Something went wrong. Please try again, or email us directly at",
 };
 

@@ -9,11 +9,11 @@ export default function Formats() {
       <div className="container-edge">
         <Reveal>
           <span className="eyebrow block mb-6" style={{ color: "var(--color-accent)" }}>
-            Two formats
+            The formats
           </span>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-grey/10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-grey/10">
           {FORMATS_COPY.formats.map((format, i) => (
             <Reveal key={format.heading} delay={i * 0.1}>
               <div className="bg-black p-8 md:p-10 h-full flex flex-col">
@@ -24,17 +24,21 @@ export default function Formats() {
                   >
                     {format.tag}
                   </span>
-                  <span className="text-grey text-[0.6rem] sm:text-[0.65rem] md:text-xs uppercase tracking-[0.04em] sm:tracking-[0.08em] md:tracking-[0.12em] whitespace-nowrap text-right max-w-[60%] overflow-hidden text-ellipsis">
-                    {format.rightLabel}
-                  </span>
+                  {format.rightLabel && (
+                    <span className="text-grey text-[0.6rem] sm:text-[0.65rem] md:text-xs uppercase tracking-[0.04em] sm:tracking-[0.08em] md:tracking-[0.12em] whitespace-nowrap text-right max-w-[60%] md:max-w-none overflow-hidden text-ellipsis">
+                      {format.rightLabel}
+                    </span>
+                  )}
                 </div>
 
                 <h3 className="font-display text-white text-2xl md:text-3xl mb-3">
                   {format.heading}
                 </h3>
-                <span className="font-display text-4xl md:text-5xl text-white block mb-8">
-                  {format.bigNumber}
-                </span>
+                {format.bigNumber && (
+                  <span className="font-display text-4xl md:text-5xl text-white block mb-8">
+                    {format.bigNumber}
+                  </span>
+                )}
 
                 <ul className="space-y-3 flex-1">
                   {format.points.map((point) => (
