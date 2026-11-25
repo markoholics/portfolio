@@ -26,8 +26,8 @@ export const HOMEPAGE_TEASER_COPY = {
 
 export const HERO_COPY = {
   eyebrow: "GTM STRATEGY FOR TECH, AI AND SAAS STARTUPS",
-  headingPlain: "Markoholics Happy ",
-  headingAccent: "Hour.",
+  headingPlain: "Markoholics ",
+  headingAccent: "Happy Hour.",
   lead: "Our Roundtable and One-to-One Live Chat Series: three to four practitioners, one table, no pitch, or a focused one-to-one live chat if a group setting isn't your style. Every conversation is built around ready to use tips, hacks and frameworks that tech, AI and SaaS founders and marketers can apply the same week, alongside a clear read on the GTM and marketing trends shaping the market.",
   primaryButton: "Roundtable Guest Chat",
   secondaryLink: "One-to-One Guest Chat",
