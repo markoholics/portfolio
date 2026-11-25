@@ -447,7 +447,7 @@ export const navLinks = [
   { label: "Fit Check", href: "/fit-check" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
-  { label: "Roundtable", href: "/roundtable" },
+  { label: "Happy Hour", href: "/happy-hour" },
   { label: "GTM Index", href: "/gtm-index" },
   { label: "Contact", href: "/contact" },
 ];

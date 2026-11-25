@@ -1,11 +1,12 @@
-# Markoholics Roundtable Series
+# Markoholics Happy Hour (Roundtable and One-to-One Live Chat Series)
 
-The landing page at `/roundtable`, the homepage teaser section, and the
+The landing page at `/happy-hour`, the homepage teaser section, and the
 participant interest form (`POST /api/interest`) that emails every
 submission. This is an ordinary route inside the main markoholics.com
 Next.js app, not a separate deployment, so no rewrite config is needed:
-pushing this repo to Vercel serves `https://www.markoholics.com/roundtable`
-the same way it serves every other page.
+pushing this repo to Vercel serves `https://www.markoholics.com/happy-hour`
+the same way it serves every other page. The route used to live at
+`/roundtable`; `next.config.ts` permanently redirects that old path here.
 
 ## Where everything lives
 
@@ -17,8 +18,8 @@ the same way it serves every other page.
 | Rate limiting (Upstash if configured, else in-memory) | `src/lib/roundtable/rateLimit.ts` |
 | Optional Google Sheets backup webhook | `src/lib/roundtable/sheets.ts` |
 | The API route | `src/app/api/interest/route.ts` |
-| The landing page itself (metadata, JSON-LD, section order) | `src/app/roundtable/page.tsx` |
-| The Open Graph share image | `src/app/roundtable/opengraph-image.tsx` |
+| The landing page itself (metadata, JSON-LD, section order) | `src/app/happy-hour/page.tsx` |
+| The Open Graph share image | `src/app/happy-hour/opengraph-image.tsx` |
 | Landing page sections | `src/components/roundtable/*.tsx` |
 | Homepage teaser section | `src/components/home/RoundtableTeaser.tsx` |
 
@@ -64,7 +65,7 @@ both and fails the build if it finds one.
 2. Copy `.env.local.example` to `.env.local` and fill in at least
    `RESEND_API_KEY` to actually send email locally. Everything else has a
    working default (see the comments in that file).
-3. `npm run dev`, then visit `http://localhost:3000/roundtable`.
+3. `npm run dev`, then visit `http://localhost:3000/happy-hour`.
 
 ## Verifying the markoholics.com domain in Resend (SPF, DKIM, DMARC)
 
@@ -184,7 +185,7 @@ response the visitor sees.
    hrefs, and the em dash / hyphen-as-dash scan).
 2. Manually, with `RESEND_API_KEY` set to a real key and
    `CONTACT_EMAIL`/`FROM_EMAIL` pointed at a verified domain (or Resend's
-   test mode): fill in the form at `/roundtable` with a real inbox you can
+   test mode): fill in the form at `/happy-hour` with a real inbox you can
    check, submit, and confirm both the thank you email and the internal
    notification arrive and render correctly (check on mobile Gmail too,
    since the templates are inline-CSS HTML with a plain text fallback).
@@ -197,6 +198,6 @@ response the visitor sees.
    sends (check server logs, nothing should print beyond the request
    completing).
 5. To check the homepage teaser's tracking, click its "Express interest"
-   button from the homepage, confirm the URL becomes `/roundtable?ref=home`,
+   button from the homepage, confirm the URL becomes `/happy-hour?ref=home`,
    submit the form, and confirm the internal notification's "Source" line
    shows `ref: home`.

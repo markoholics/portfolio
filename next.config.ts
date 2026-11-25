@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         destination: "/blog/what-is-jev-ai",
         permanent: true,
       },
+      {
+        source: "/roundtable",
+        destination: "/happy-hour",
+        permanent: true,
+      },
     ];
   },
 };

@@ -248,7 +248,7 @@ export function roundtableEventSeriesJsonLd() {
     name: "Markoholics Happy Hour",
     description:
       "Markoholics Happy Hour, our Roundtable and One-to-One Live Chat Series. Three to four practitioners, one table, no pitch, or a one-to-one live chat if you would rather talk directly. Monthly GTM and marketing conversations for tech, AI and SaaS founders, in person in Bangalore, live on LinkedIn, or one on one.",
-    url: absoluteUrl("/roundtable"),
+    url: absoluteUrl("/happy-hour"),
     eventAttendanceMode: "https://schema.org/MixedEventAttendanceMode",
     location: [
       {

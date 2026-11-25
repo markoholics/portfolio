@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RoundtablePage() {
+export default function HappyHourPage() {
   return (
     <div className="bg-black">
       <Hero />
@@ -62,7 +62,7 @@ export default function RoundtablePage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Roundtable", path: ROUNDTABLE_PATH },
+              { name: "Happy Hour", path: ROUNDTABLE_PATH },
             ])
           ),
         }}

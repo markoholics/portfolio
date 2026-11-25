@@ -1,13 +1,13 @@
-// Markoholics Happy Hour (Roundtable and One-to-One Live Chat Series): every word shown on /roundtable and in the
+// Markoholics Happy Hour (Roundtable and One-to-One Live Chat Series): every word shown on /happy-hour and in the
 // homepage teaser lives in this one file. Edit the text, metrics and form
 // options here; no component under src/components/roundtable or
 // src/components/home/RoundtableTeaser.tsx should need to change for a
 // copy edit. House rule: British English, no em dashes, no hyphens used as
 // a dash anywhere in this file.
 
-export const ROUNDTABLE_PATH = "/roundtable";
-export const ROUNDTABLE_HOME_HREF = "/roundtable?ref=home";
-export const ROUNDTABLE_HOME_FORMATS_HREF = "/roundtable?ref=home#formats";
+export const ROUNDTABLE_PATH = "/happy-hour";
+export const ROUNDTABLE_HOME_HREF = "/happy-hour?ref=home";
+export const ROUNDTABLE_HOME_FORMATS_HREF = "/happy-hour?ref=home#formats";
 
 export const ROUNDTABLE_META = {
   title: "Markoholics Happy Hour | GTM and marketing conversations for tech, AI and SaaS founders",

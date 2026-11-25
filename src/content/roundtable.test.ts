@@ -14,12 +14,12 @@ function collectStrings(value: unknown, out: string[] = []): string[] {
 }
 
 describe("homepage teaser links", () => {
-  it("points the primary button at /roundtable?ref=home", () => {
-    expect(ROUNDTABLE_HOME_HREF).toBe("/roundtable?ref=home");
+  it("points the primary button at /happy-hour?ref=home", () => {
+    expect(ROUNDTABLE_HOME_HREF).toBe("/happy-hour?ref=home");
   });
 
-  it("points the formats link at /roundtable?ref=home#formats", () => {
-    expect(ROUNDTABLE_HOME_FORMATS_HREF).toBe("/roundtable?ref=home#formats");
+  it("points the formats link at /happy-hour?ref=home#formats", () => {
+    expect(ROUNDTABLE_HOME_FORMATS_HREF).toBe("/happy-hour?ref=home#formats");
   });
 });
 
