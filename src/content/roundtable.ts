@@ -34,7 +34,7 @@ export const HERO_COPY = {
   statStrip: [
     { value: "3 to 4", label: "Guests in every roundtable" },
     { value: "Monthly", label: "Target cadence, guided by guest availability" },
-    { value: "1 to 1", label: "A focused live chat, if a group is not your style" },
+    { value: "One-to-One", label: "A focused live chat, if a roundtable chat is not your style" },
   ],
 };
 
@@ -78,6 +78,7 @@ export const FORMATS_COPY = {
     {
       tag: "FORMAT 03",
       heading: "One-to-One Live Chat",
+      bigNumber: "60 minutes",
       points: [
         "A focused live conversation, one host and one guest",
         "For guests who prefer it to a group setting",
